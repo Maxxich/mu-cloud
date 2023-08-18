@@ -1,0 +1,69 @@
+.IconButton {
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    background: transparent;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear 0s;
+    padding: 5px;
+
+    &:hover {
+      background: var(--icon-button-bg-hovered);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+      background: var(--icon-button-bg-active);
+    } 
+
+    & svg {
+      fill: var(--primary-color); 
+    }
+
+    &:disabled{
+      cursor: default;
+
+      &:active {
+        transform: none;
+        background: transparent;
+      }
+
+      &:hover {
+        transform: none;
+        background: transparent;
+      }
+
+      & svg {
+        fill: var(--icon-button-disabled-color); 
+      }
+    }
+}
+
+.secondary{
+  & svg {
+    fill: var(--secondary-color); 
+  }
+}
+
+.m {  
+    & svg {
+      height: var(--font-line-m);
+      width: var(--font-line-m);
+    }
+  }
+  
+  .l {  
+      & svg {
+      height: var(--font-line-l);
+      width: var(--font-line-l);
+    }
+  }
+  
+  .xl {
+      & svg {
+      height: var(--font-line-xl);
+      width: var(--font-line-xl);
+    }
+  }

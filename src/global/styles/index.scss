@@ -1,0 +1,87 @@
+@import './reset.scss';
+@import './themes/default.scss';
+@import './variables/global.scss';
+
+  
+@keyframes skeleton-breathing{
+    0%{
+        background: var(--skeleton-animation-color-start);
+    }
+  
+    100%{
+        background: var(--skeleton-animation-color-end)
+    }
+}
+  
+html{
+    scrollbar-gutter: stable;
+}
+  
+  body {
+    background: var(--bg-color);
+    overflow-x:hidden;
+    overflow-y: scroll;
+    width: 100%;
+    scrollbar-gutter: stable;
+  }
+  
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #394452 #000;
+  }
+  
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: #000;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #696E6F;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #696E6F;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #394452;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #394452;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #394452;
+  }
+  
+  .slick-next{
+    right: 0 !important;
+    z-index: 1 !important;
+  }
+  
+  .slick-prev{
+    left: 0 !important;
+    z-index: 1 !important;
+  }
+  
+  .slick-list {
+    overflow: hidden !important;
+  }
+  
+  .custom-tooltip {
+    padding: 8px 16px;
+    border-radius: 3px;
+    font-size: 3rem;
+    background: red;
+    width: max-content;
+  }
+  
+  

@@ -1,0 +1,59 @@
+.app__default_theme {
+    // typography
+    --secondary-color: #8FABCD;
+    --primary-color: #FFF;
+    --danger-color: #FB7474;
+    
+    
+    // bg
+    --bg-color-transparent: rgb(26 35 46 / 20%);
+    --bg-panel-color: #1A232E;
+    --bg-panel-color-trasparent: #0c1014;
+    --bg-color: rgb(26 35 46 / 100%);
+
+    // skeleton
+    --skeleton-color: #0C1116;
+    --skeleton-animation-color-start: #0C1116;
+    --skeleton-animation-color-end: #151e27;
+
+    // popup
+    --popup-bg: rgb(0 0 0 / 80%);
+    --popup-extra-group-bg: #10161D;
+
+    // button
+        // default
+        --button-bg-color: #3C5169;
+        --button-bg-color-hovered: #4E6888;
+        --button-bg-color-disabled: #2C3847;
+        --button-text-color: #fff;
+        --button-text-color-disabled: #3C5169;
+
+        // danger
+        --button-bg-color-danger: #BC0E0E;
+        --button-bg-color-danger-hovered: #DF2626;
+        --button-bg-color-danger-disabled: #600B0B;
+        --button-text-color-danger: #fff;
+        --button-text-color-danger-disabled: #BC0E0E;
+
+        // green
+        --button-bg-color-green: #07AE2B;
+        --button-bg-color-green-hovered: #14D73F;
+        --button-bg-color-green-disabled: #0A5319;
+        --button-text-color-green: #fff;
+        --button-text-color-green-disabled: #07AE2B;
+
+
+    // icon-button
+        // disabled
+        --icon-button-disabled-color: #3a4655;
+        --icon-button-bg-hovered: rgba(255 255 255 / 10%);
+        --icon-button-bg-active: rgba(255 255 255 / 30%);;
+
+    // input
+    --input-color: #3C5169; 
+    --input-disabled-color: #2C3847; 
+
+    // tap
+    --tap-background: rgb(255 255 255 / 15%);
+    --tap-background-dark: rgb(255 255 255 / 41.1%);
+}
