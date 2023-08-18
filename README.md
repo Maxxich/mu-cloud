@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Проект построен на [Next.js](https://nextjs.org/)
 
-## Getting Started
+## Запуск проекта
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+npm run dev - запуск проекта в dev режиме
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Скрипты
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` - Запуск в dev режиме
+- `npm run start` - Запуск в prod режиме
+- `npm run build` - Сборка в prod режиме
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `npm run lint:ts` - Проверка ts файлов линтером
+- `npm run lint:ts:fix` - Исправление ts файлов линтером
 
-## Learn More
+- `npm run lint:scss` - Проверка scss файлов style линтером
+- `npm run lint:scss:fix` - Исправление scss файлов style линтером
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run test:unit` - Запуск unit тестов с jest
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run test:ui:init` - Инициализация скриншотных тестов с loki
+- `npm run test:ui` - Запуск скриншотных тестов с loki
+- `npm run test:ui:ok` - Подтверждение новых скриншотов
+- `npm run test:ui:report` - Генерация отчета для скриншотных тестов
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `npm run storybook` - запуск Storybook
+- `npm run storybook:build` - Сборка storybook билда
 
-## Deploy on Vercel
+- `npm run prepare` - инициализация прекоммит хуков
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+----
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Тесты
+
+В проекте используются 3 вида тестов:
+1) Обычные unit тесты на jest - `npm run test:unit`
+2) Тесты на компоненты с React testing library -`npm run test:unit`
+3) Скриншотное тестирование с loki `npm run test:ui`
+
+----
+
+## Линтинг
+
+В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями.
+
+## Pre commit хуки
+
+В прекоммит хуках проект проеверяется линтерами (конфигурация в /.husky)

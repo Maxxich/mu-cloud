@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
+    "build": "next build",
     "lint:ts": "next lint",
     "lint:ts:fix": "next lint --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -16,7 +16,7 @@
     "test:ui:ok": "npx loki approve",
     "test:ui:report": "reg-cli \"./.loki/current\" \"./.loki/reference\" \"./.loki/difference\" -R \"./reports/uiTestReport.html\" -J \"./reports/uiTestReport/reg.json\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook:build": "storybook build",
     "prepare": "husky install"
   },
   "dependencies": {
