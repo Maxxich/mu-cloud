@@ -17,7 +17,8 @@
     "test:ui:report": "reg-cli \"./.loki/current\" \"./.loki/reference\" \"./.loki/difference\" -R \"./reports/uiTestReport.html\" -J \"./reports/uiTestReport/reg.json\"",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "node scripts/clear-cache.js"
   },
   "dependencies": {
     "@types/node": "20.5.0",
