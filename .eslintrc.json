@@ -4,6 +4,7 @@
     "plugin:storybook/recommended"
   ],
   "rules": {
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single"],
+    "react/no-unescaped-entities": "warn"
   }
 }
