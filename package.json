@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint:ts": "next lint",
+    "lint:ts:fix": "next lint --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
