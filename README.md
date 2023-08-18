@@ -32,6 +32,8 @@ npm run dev - запуск проекта в dev режиме
 
 - `npm run postinstall` - очистка кэша после установки зависимостей (запускаяется автоматически)
 ----
+- `generate:slice layer sliceName` - создание слайса по методологии Feature Sliced Design.
+Cлои (layers): `feature`, `entity`, `page`
 
 ## Тесты
 
