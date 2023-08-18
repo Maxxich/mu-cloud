@@ -2,13 +2,13 @@ const nextJest = require('next/jest')
 const path = require('path')
 
 const createJestConfig = nextJest({
-  dir: './',
+  dir: "./"
 })
 
 const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: [
-    '<rootDir>/jest.setup.js'
+    path.resolve(__dirname, "jest.setup.js")
  ],
   reporters: [
     "default",
