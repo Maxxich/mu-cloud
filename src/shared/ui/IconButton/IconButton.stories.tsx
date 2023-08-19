@@ -54,3 +54,11 @@ export const ExtraLarge: Story = {
 		size: 'xl'
 	}
 }
+
+export const WithTooltip: Story = {
+	args: {
+		...args,
+		tooltipContent: 'Click me',
+		tooltipId: '$#dmkc',
+	}
+}

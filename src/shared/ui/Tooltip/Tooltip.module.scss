@@ -1,0 +1,8 @@
+.Tooltip {
+    font-size: var(--font-size-tooltip);
+    z-index: var(--z-index-tooltip);
+    background:  var(--background-tooltip);
+    border-radius: 8px;
+    padding: 8px 14px;
+    opacity: 1;
+}
