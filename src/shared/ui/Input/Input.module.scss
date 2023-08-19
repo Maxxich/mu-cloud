@@ -24,27 +24,19 @@
     padding-left: 44px;
 }
 
-.danger {
-    color: var(--danger-color);
 
-    &::placeholder{
-      color: var(--danger-color);
-    }
-}
 
 .error {
     align-self: flex-end;
     margin-right: 10px;
-    margin-top: 5px;
     color: var(--danger-color);
-    font-size: 1.6rem; 
+    font: var(--font-m);
 }
 
 .label {
     align-self: flex-start;
-    margin-bottom: 5px;
     color: var(--secondary-color);
-    font-size: 1.6rem;
+    font: var(--font-m);
 }
 
 .addonLeft {
@@ -71,4 +63,12 @@
     border-radius: 10px;
     justify-content: space-between;
     position: relative;
+}
+
+.danger {
+    color: var(--danger-color);
+
+    &::placeholder{
+      color: var(--danger-color);
+    }
 }

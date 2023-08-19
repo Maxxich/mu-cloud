@@ -38,3 +38,25 @@ export const WithAddonLeft: Story = {
 		addonLeft: <Icon/>,
 	}
 }
+
+export const Email: Story = {
+	args: {
+		...args,
+		type: 'email'
+	}
+}
+
+export const Password: Story = {
+	args: {
+		...args,
+		type: 'password'
+	}
+}
+
+export const PasswordWithError: Story = {
+	args: {
+		...args,
+		type: 'password',
+		errorMessage: 'Something went wrong!'
+	}
+}
