@@ -18,7 +18,9 @@ type Story = StoryObj<typeof meta>;
 const args: Story['args'] = {
     label: 'File',
     placeholder: 'Choose file...',
-    onChange: () => {}
+    onChangeFileSuccess: (file) => alert('Get file in callback with name: ' + file.name),
+    onChangeFileUndefined: () => alert('Change file error')
+
 }
 
 export const Default: Story = {
