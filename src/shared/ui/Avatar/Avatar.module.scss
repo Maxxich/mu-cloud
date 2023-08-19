@@ -1,0 +1,59 @@
+.container {
+    position: relative;
+}
+
+.backlight {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    position: absolute;
+    inset: 0;
+    filter: blur(9px);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    background: #0C1116;
+    border-radius: 5px;
+    position: absolute;
+    inset: 0;
+}
+
+.addon {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    inset: 0;
+    background: #0000008e;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.square {
+    border-radius: 15%
+}
+
+.s {
+    height: var(--avatar-size-s);
+    width: var(--avatar-size-s);
+}
+
+.m {
+    height: var(--avatar-size-m);    
+    width: var(--avatar-size-m);    
+}
+
+.l {
+    height: var(--avatar-size-l);
+    width: var(--avatar-size-l);
+}
