@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState, LegacyRef, memo} from 'react';
+import { useRef, useState, LegacyRef, memo, forwardRef} from 'react';
 import cls from './FileInput.module.scss'
 import classNames from 'classnames';
 import { VStack } from '../Stack';
@@ -11,10 +11,9 @@ interface IInputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
     addonLeft?: React.ReactElement
     className?: string
     errorMessage?: string
-    ref?: React.Ref<HTMLInputElement>
-
 }
-export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(({
+
+export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forwardRef(({
   label,
   addonLeft,
   placeholder,
@@ -23,11 +22,20 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(({
   className,
   errorMessage = '',
   ...rest
-}) => {
+}, ref) => {
 
     const [ fileName, setFileName]  = useState<string | undefined>()
 
   const inputRef = useRef<HTMLInputElement>()
+
+  const refCb = (e: HTMLInputElement) => {
+    inputRef.current = e;
+    if (typeof ref === 'function') {
+      ref(e);
+    } else if (ref) {
+      ref.current = e;
+    }
+  }
 
   const handleChange = () => {
     const file = inputRef?.current?.files?.[0]
@@ -57,7 +65,7 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(({
     <input className={classNames(cls.invisible_input)}
     {...rest}
     type={'file'} 
-    ref={inputRef as LegacyRef<HTMLInputElement>} 
+    ref={refCb} 
     onChange={handleChange}
   />
   )
@@ -100,6 +108,6 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(({
         {error}
     </VStack>
   );
-})
+}))
 
 FileInput.displayName = 'FileInput'
