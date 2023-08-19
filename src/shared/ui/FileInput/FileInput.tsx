@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState, LegacyRef} from 'react';
+import { useRef, useState, LegacyRef, memo} from 'react';
 import cls from './FileInput.module.scss'
 import classNames from 'classnames';
 import { VStack } from '../Stack';
@@ -14,7 +14,7 @@ interface IInputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
     ref?: React.Ref<HTMLInputElement>
 
 }
-export const FileInput: React.FunctionComponent<IInputFileProps>  = ({
+export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(({
   label,
   addonLeft,
   placeholder,
@@ -100,6 +100,6 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = ({
         {error}
     </VStack>
   );
-}
+})
 
 FileInput.displayName = 'FileInput'

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import classNames from 'classnames'
 import cls from './Input.module.scss'
 import { VStack } from '../Stack'
@@ -12,7 +12,7 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   ref?: React.Ref<HTMLInputElement>
 }
 
-export const Input = React.forwardRef<HTMLInputElement, IInputProps>(({
+export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
   label,
   addonLeft,
   className,
@@ -64,6 +64,6 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(({
       {error}
     </VStack>    
   )
-})
+}))
 
 Input.displayName = 'Input'

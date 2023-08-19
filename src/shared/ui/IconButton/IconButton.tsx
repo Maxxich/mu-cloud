@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import cls from './IconButton.module.scss'
 import { PlacesType } from 'react-tooltip'
 import { Tooltip } from '../Tooltip/Tooltip'
+import { memo } from 'react'
 
 type ButtonVariant = 'default' | 'secondary'
 
@@ -26,7 +27,7 @@ interface IIconButtonWithTooltipProps extends IBaseIconButtonProps {
 
 type IProps = IIconButtonProps | IIconButtonWithTooltipProps
 
-export const IconButton: React.FunctionComponent<IProps> = ({
+export const IconButton: React.FunctionComponent<IProps> = memo(({
     icon,
     size = 'm',
     className,
@@ -57,4 +58,6 @@ export const IconButton: React.FunctionComponent<IProps> = ({
       }
     </>
   )
-}
+})
+
+IconButton.displayName = 'IconButton'

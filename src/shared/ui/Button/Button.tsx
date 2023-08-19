@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import cls from './Button.module.scss'
+import { memo } from 'react'
 
 
 type ButtonVariant = 'default' | 'danger' | 'green'
@@ -14,7 +15,7 @@ interface IButtonSubmitProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   size?:  'm' | 'l' | 'xl', 
 }
 
-export const Button: React.FunctionComponent<IButtonSubmitProps> = ({
+export const Button: React.FunctionComponent<IButtonSubmitProps> = memo(({
   children,
   fullwidth,
   variant = 'default',
@@ -39,4 +40,6 @@ export const Button: React.FunctionComponent<IButtonSubmitProps> = ({
       <div className={cls.addon}>{addonRight}</div>
     </button>
   )
-}
+})
+
+Button.displayName = 'Button'

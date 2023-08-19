@@ -7,7 +7,7 @@ interface ITooltipProps extends ITooltip {
     className?: string
 }
 
-export const Tooltip: React.FunctionComponent<ITooltipProps> = ({
+export const Tooltip: React.FunctionComponent<ITooltipProps> = React.memo(({
     className,
     ...rest
 }) => {
@@ -21,4 +21,6 @@ export const Tooltip: React.FunctionComponent<ITooltipProps> = ({
         
     />
   )
-};
+})
+
+Tooltip.displayName = 'Tooltip'
