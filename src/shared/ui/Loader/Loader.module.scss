@@ -1,0 +1,39 @@
+.Loader{
+    fill: var(--loader-color);
+    animation: 1.3s infinite normal loader;
+    animation-timing-function: ease-in-out;
+    transform-origin: 50% 55%;
+    margin: auto;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@keyframes loader {
+    0%{
+      transform: rotate(0deg);
+    }
+
+    100%{
+      transform: rotate(360deg);
+    }
+}
+
+.m {
+    height: var(--loader-size-m);
+    width: var(--loader-size-m);
+}
+
+.l {
+    height: var(--loader-size-l);
+    width: var(--loader-size-l);
+}
+
+.xl {
+    height: var(--loader-size-xl);
+    width: var(--loader-size-xl);
+}
