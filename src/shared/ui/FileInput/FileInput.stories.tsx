@@ -1,23 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Input } from './Input'
+import { FileInput } from './FileInput'
 import Icon from '@/shared/assets/svg/svg.svg'
 
 const meta = {
-	title: 'shared/Input',
-	component: Input,
+	title: 'shared/FileInput',
+	component: FileInput,
 	parameters: {
 		layout: 'centered',
 	},
 	argTypes: { onClick: { action: 'clicked' } },
 	tags: ['autodocs'],
-} satisfies Meta<typeof Input>
+} satisfies Meta<typeof FileInput>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
 const args: Story['args'] = {
-    label: 'Name',
-    placeholder: 'Type your name...',
+    label: 'File',
+    placeholder: 'Choose file...',
+    onChange: () => {}
 }
 
 export const Default: Story = {
@@ -43,28 +44,6 @@ export const WithAddonLeftAndError: Story = {
 	args: {
 		...args,
 		addonLeft: <Icon/>,
-		errorMessage: 'Something went wrong!'
-	}
-}
-
-export const Email: Story = {
-	args: {
-		...args,
-		type: 'email'
-	}
-}
-
-export const Password: Story = {
-	args: {
-		...args,
-		type: 'password'
-	}
-}
-
-export const PasswordWithError: Story = {
-	args: {
-		...args,
-		type: 'password',
-		errorMessage: 'Something went wrong!'
+        errorMessage: 'Something went wrong!'
 	}
 }

@@ -1,0 +1,102 @@
+.input_container{
+    background: var(--input-color);
+    width: 100%;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.file_button{
+    background: var(--input-color);
+    width: 100%;
+    height: 38px;
+    padding: 0 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+
+    &:hover {
+        background: var(--button-bg-color-hovered);
+    }
+
+    &:active {
+        opacity: 0.9;
+        transform: scale(0.98);
+    }
+}
+
+.label {
+    align-self: flex-start;
+    color: var(--secondary-color);
+    font: var(--font-m);
+}
+
+.error {
+    align-self: flex-end;
+    margin-right: 10px;
+    color: var(--danger-color);
+    font: var(--font-m);
+}
+
+
+.invisible_input {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.file_button_text {
+    flex: 1 1 auto;
+    width: auto;
+    font: var(--font-m);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.addonLeft {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    height: 24px;
+    width: 24px;
+    transform: translateY(-50%);
+
+    & svg {
+        height: var(--font-line-m);
+        width: var(--font-line-m);
+        fill: var(--secondary-color);
+    }
+}
+
+.withAddonLeft {
+    padding-left: 44px;
+}
+
+.secondary {
+    color: var(--secondary-color);
+}
+
+.danger {
+    color: var(--danger-color);
+
+    &::placeholder{
+      color: var(--danger-color);
+    }
+
+    
+    & svg {
+        fill: var(--danger-color);
+    }
+}

@@ -25,8 +25,12 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(({
     [cls.danger]: Boolean(errorMessage)
   }
 
+  const addonMods: Mods = {
+    [cls.danger]: Boolean(errorMessage)
+  }
+
   const addon = addonLeft && (
-    <div className={cls.addonLeft}>
+    <div className={classNames(cls.addonLeft, addonMods)}>
       {addonLeft}
     </div>
   )
@@ -49,7 +53,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(({
     [cls.danger]: Boolean(errorMessage)
   }
 
-  const labelComp = (
+  const labelComp = label && (
     <label className={classNames(cls.label, labelMods)}>{label}</label>
   )
 
