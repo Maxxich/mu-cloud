@@ -13,6 +13,7 @@ interface IImage {
   variant?: 'square' | 'circle'
   size?: 's' | 'm' | 'l'
   showAddon?: boolean
+  disableAddonHover?: boolean
 }
 
 
@@ -24,7 +25,8 @@ export const Image: React.FunctionComponent<IImage> = memo(({
   alt,
   variant = 'square',
   size = 'm',
-  showAddon
+  showAddon,
+  disableAddonHover
 }) => {
 
   const backlightComp = backlight && (
@@ -38,7 +40,7 @@ export const Image: React.FunctionComponent<IImage> = memo(({
   )
 
   const addonComp = addon && (
-    <div className={classNames(cls.addon, cls[variant], {[cls.showAddon]: showAddon})}>
+    <div className={classNames(cls.addon, cls[variant], {[cls.showAddon]: showAddon, [cls.disableAddonHover]: disableAddonHover})}>
       {addon}
     </div>
   )
