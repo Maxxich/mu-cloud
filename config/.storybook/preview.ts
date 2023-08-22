@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator/StyleDecorator"
 import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator"
+import { PortalsDecorator } from "../../src/shared/config/storybook/PortalsDecorator/PortalsDecorator"
 import { Theme } from "../../src/shared/const/theme"
 
 const preview: Preview = {
@@ -15,7 +16,8 @@ const preview: Preview = {
   },
   decorators: [
 		StyleDecorator,
-		ThemeDecorator(Theme.DEFAULT)
+		ThemeDecorator(Theme.DEFAULT),
+    PortalsDecorator
 	]
 };
 
