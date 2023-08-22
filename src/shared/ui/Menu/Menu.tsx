@@ -7,21 +7,25 @@ import { Url } from 'next/dist/shared/lib/router/router';
 interface IMenuProps {
     children?: React.ReactNode
     isOpen: boolean
-    onClose: () => void
+    onClose: (e: SyntheticEvent<HTMLDivElement>) => void
 }
 
 const MenuRoot: React.FunctionComponent<IMenuProps> = ({
+    isOpen,
     children,
     onClose
 }) => {
 
-    const onBackgroundClick = useCallback(() => {
-        onClose()
+    
+    const onBackgroundClick = useCallback((e: SyntheticEvent<HTMLDivElement>) => {
+        onClose(e)
     }, [onClose])
 
     const onContainerClick = useCallback((event: SyntheticEvent) => {
         event.stopPropagation()
     }, [])
+    
+    if (!isOpen) return null
 
     return createPortal(
         <div className={cls.menu_bg} onClick={onBackgroundClick}>
@@ -36,8 +40,8 @@ const MenuRoot: React.FunctionComponent<IMenuProps> = ({
 interface IMenuButtonProps {
     icon: React.ReactElement
     children: string
-    onClick: () => void
-    onClose: () => void
+    onClick: (e: SyntheticEvent<HTMLButtonElement>) => void
+    onClose: (e: SyntheticEvent<HTMLButtonElement>) => void
 }
 
 
@@ -48,9 +52,9 @@ const Button: React.FunctionComponent<IMenuButtonProps> = ({
     onClose,
 }) => {
 
-    const onButtonClick = useCallback(() => {
-        onClick()
-        onClose()
+    const onButtonClick = useCallback((e: SyntheticEvent<HTMLButtonElement>) => {
+        onClick(e)
+        onClose(e)
     }, [onClick, onClose])
 
     return (
@@ -69,7 +73,7 @@ interface IMenuLinkProps {
     icon: React.ReactElement
     children: string
     href: Url
-    onClose: () => void
+    onClose: (e: SyntheticEvent<HTMLAnchorElement>) => void
 }
 
 const Link: React.FunctionComponent<IMenuLinkProps> = ({
@@ -79,8 +83,8 @@ const Link: React.FunctionComponent<IMenuLinkProps> = ({
     onClose,
 }) => {
 
-    const onLinkClick = useCallback(() => {
-        onClose()
+    const onLinkClick = useCallback((e: SyntheticEvent<HTMLAnchorElement>) => {
+        onClose(e)
     }, [onClose])
 
     return (

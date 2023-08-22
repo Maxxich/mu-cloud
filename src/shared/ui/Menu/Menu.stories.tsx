@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Menu } from './Menu'
 import Icon from '@/shared/assets/svg/svg.svg'
+import { SyntheticEvent } from 'react'
 
 const meta = {
 	title: 'shared/Menu',
@@ -11,7 +12,8 @@ const meta = {
     render: (args) => <Menu {...args}>
         <Menu.Button
             icon={<Icon/>}
-            onClick={() => {}}
+            onClick={(e: SyntheticEvent<HTMLButtonElement | HTMLAnchorElement | HTMLDivElement>) => {}}
+            // @ts-ignore
             onClose={args.onClose}
         >
             Удалить
@@ -19,6 +21,7 @@ const meta = {
         <Menu.Link
             icon={<Icon/>}
             href={'asdf'}
+            // @ts-ignore
             onClose={args.onClose}
         >
             Удалить
@@ -33,6 +36,7 @@ type Story = StoryObj<typeof meta>;
 const args: Story['args'] = {
     isOpen: true,
     children: 123,
+    onClose: (e: SyntheticEvent<HTMLButtonElement | HTMLAnchorElement | HTMLDivElement>) => {}
 }
 
 export const Default: Story = {
