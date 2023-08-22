@@ -16,9 +16,9 @@
     --skeleton-animation-color-start: #0C1116;
     --skeleton-animation-color-end: #151e27;
 
-    // popup
-    --popup-bg: rgb(0 0 0 / 80%);
-    --popup-extra-group-bg: #10161D;
+    // menu
+    --menu-bg: rgb(0 0 0 / 80%);
+    --menu-container-bg: #1A232E;
 
     // button
         // default
@@ -62,4 +62,8 @@
 
     // loader
     --loader-color: #8FABCD;
+
+    // tooltip 
+    --tooltip-background-color: #8FABCD;
+    --tooltip-color: #000;
 }
