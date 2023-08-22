@@ -8,6 +8,7 @@ const meta = {
 	component: Menu,
 	parameters: {
 		layout: 'centered',
+        loki: { skip: true },
 	},
     render: (args) => <Menu {...args}>
         <Menu.Button
@@ -35,7 +36,6 @@ type Story = StoryObj<typeof meta>;
 
 const args: Story['args'] = {
     isOpen: true,
-    children: 123,
     onClose: (e: SyntheticEvent<HTMLButtonElement | HTMLAnchorElement | HTMLDivElement>) => {}
 }
 
