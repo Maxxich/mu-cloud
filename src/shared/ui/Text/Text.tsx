@@ -23,7 +23,7 @@ interface TextProps {
     align?: TextAlign;
     size?: TextSize;
     bold?: boolean;
-    children: string,
+    children?: string,
 }
 
 
