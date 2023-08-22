@@ -15,6 +15,11 @@ export const Tooltip: React.FunctionComponent<ITooltipProps> = React.memo(({
   return (
     <TooltipEl
         className={classNames(cls, className)}
+        style={{ 
+          backgroundColor: 'var(--tooltip-background-color)', 
+          color: 'var(--tooltip-color)', 
+          padding: '0 5px'
+        }}
         delayHide={0}
         delayShow={0}
         {...rest}
