@@ -39,7 +39,7 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
       {addon && <div className={cls.addonLeft}>
         {addon}
       </div>}
-      <input className={classNames(cls.Input, mods, className)}
+      <input className={classNames(cls.Input, mods)}
         ref={ref}
         {...rest}
       />
@@ -56,7 +56,7 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
   )
 
   return (
-    <VStack max gap="8">
+    <VStack max gap="8" className={className}>
       {labelComp}
       {input}
     </VStack>    

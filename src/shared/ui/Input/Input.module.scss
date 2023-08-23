@@ -21,6 +21,14 @@
     }
 }
 
+
+// .error {
+//     align-self: flex-end;
+//     margin-right: 10px;
+//     color: var(--danger-color);
+//     font: var(--font-m);
+// }
+
 .label {
     align-self: flex-start;
     color: var(--primary-color);
@@ -36,7 +44,7 @@
     & svg {
         height: 16px;
         width: 16px;
-        fill: var(--primary-color);
+        fill: var(--secondary-color);
     }
 }
 
