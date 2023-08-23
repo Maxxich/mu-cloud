@@ -1,3 +1,5 @@
+'use client'
+
 import { isMobile } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import { getSelectedTrack } from '@/entity/player';
@@ -12,9 +14,9 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = (pr
 
     if (!selectedTrack) return null
 
-    if (isMobile) {
+    if (isMobile) return (
         <MobilePlayerContorls selectedTrack={selectedTrack}/>
-    }
+    )
 
     return null
 };
