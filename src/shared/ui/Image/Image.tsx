@@ -3,6 +3,7 @@ import cls from './Image.module.scss'
 import { default as NextImage } from 'next/image'
 import { memo } from 'react'
 
+export type ImageSize =  's' | 'm' | 'l'
 
 interface IImage {
   backlight?: boolean
@@ -11,7 +12,7 @@ interface IImage {
   src: string
   alt: string
   variant?: 'square' | 'circle'
-  size?: 's' | 'm' | 'l'
+  size?: ImageSize
   showAddon?: boolean
   disableAddonHover?: boolean
 }
