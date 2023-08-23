@@ -1,18 +1,19 @@
 .Input {
     flex: 1 1 auto;
-    width: auto;
-    padding: 0 15px;
-    border-radius: 10px;
-    height: 38px;
-    font: var(--font-m);
-    background: transparent;
-    border: none;
     color: var(--primary-color);
     box-shadow: none;
+    background: transparent;
+    font-size: 14px;
+    line-height: 20px;
+    outline:none;
+    width: 100%;
+    border: none;
 
     &:focus{
-      border: none;
-      outline:none;
+      .input_container {
+        outline:none;
+        border: 1px solid var(--input-accent-color);
+      }
     }
 
     &::placeholder{
@@ -20,49 +21,37 @@
     }
 }
 
-.withAddonLeft {
-    padding-left: 44px;
-}
-
-
-
-.error {
-    align-self: flex-end;
-    margin-right: 10px;
-    color: var(--danger-color);
-    font: var(--font-m);
-}
-
 .label {
     align-self: flex-start;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font: var(--font-m);
 }
 
 .addonLeft {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    height: 24px;
-    width: 24px;
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    width: 16px;
 
     & svg {
-        height: var(--font-line-m);
-        width: var(--font-line-m);
-        fill: var(--secondary-color);
+        height: 16px;
+        width: 16px;
+        fill: var(--primary-color);
     }
 }
 
 .input_container {
+    border: 1px solid var(--input-border-color);
     background: var(--input-color);
     width: 100%;
     height: 38px;
     display: flex;
-    align-items: center;
-    border-radius: 10px;
+    padding: 5px 12px;
+    border-radius: 6px;
     justify-content: space-between;
     position: relative;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
 .danger {

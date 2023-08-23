@@ -21,7 +21,6 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
 }, ref) => {
 
   const mods: Mods = {
-    [cls.withAddonLeft]: Boolean(addonLeft),
     [cls.danger]: Boolean(errorMessage)
   }
 
@@ -37,17 +36,16 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
 
   const input = (
     <div className={cls.input_container}>
-      {addon}
+      {addon && <div className={cls.addonLeft}>
+        {addon}
+      </div>}
       <input className={classNames(cls.Input, mods, className)}
         ref={ref}
         {...rest}
-      ></input>
+      />
     </div>
   )
 
-  const error = errorMessage && (
-    <div className={cls.error}>{errorMessage}</div>
-  )
 
   const labelMods: Mods = {
     [cls.danger]: Boolean(errorMessage)
@@ -61,7 +59,6 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
     <VStack max gap="8">
       {labelComp}
       {input}
-      {error}
     </VStack>    
   )
 }))
