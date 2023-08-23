@@ -8,7 +8,7 @@ interface ITrackCard {
     image_src: string
     isSelected: boolean
     isPaused: boolean
-    onClick: (id: number) => void
+    onToggleTrack: (id: number) => void
     duration: number
     track_href: Url
     author_href: Url

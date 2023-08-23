@@ -1,24 +1,25 @@
 'use client'
-import { memo, useState } from 'react';
-import { TrackImage } from './Image/Image';
-import { IDesktopCard } from '@/feature/track/model/types/trackSchema';
-import cls from './TrackCardDesktop.module.scss'
+import { memo, useCallback, useState } from 'react';
 import Link from 'next/link';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
+import cls from './TrackCardDesktop.module.scss'
+import { TrackImage } from './Image/Image';
 import { AddToPlaylist } from './Actions/AddToPlaylist';
 import { Download } from './Actions/Download';
 import { Like } from './Actions/Like';
 import { Share } from './Actions/Share';
+import { IDesktopCard } from '../../model/types/TrackCard';
+
+
 
 export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
   author_href, primary_name, image_src, id, track_href, secondary_name,
-  isSelected, isPaused, onClick, duration, author, track_src
-
+  duration, author, track_src, onToggleTrack, isSelected, isPaused
 }) => {
-
-  const onImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    onClick(id)
-  }
+  
+  const onImageClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    onToggleTrack(id)
+  }, [onToggleTrack, id])
 
   const [isHoverAddonVisible, setHoverAddonVisiblity] = useState<boolean>(false)
 

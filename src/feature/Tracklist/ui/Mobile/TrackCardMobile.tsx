@@ -3,22 +3,22 @@
 // import { IDesktopCard } from './types';
 import { SyntheticEvent, memo, useCallback, useState } from 'react';
 import { TrackImage } from './Image/Image';
-import { IMobileCard } from '@/feature/track/model/types/trackSchema';
 import cls from './TrackCardMobile.module.scss'
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import Icon from '@/shared/assets/svg/svg.svg'
 import { Menu } from '@/shared/ui/Menu/Menu';
 import { Actions } from './Actions/Actions';
+import { IMobileCard } from '../../model/types/TrackCard';
 
 export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
   author_href, primary_name, image_src, id, track_href, secondary_name,
-  isSelected, isPaused, onClick, duration, author, track_src
+  isSelected, isPaused, duration, author, track_src, onToggleTrack
 }) => {
 
   const onContainerClick = useCallback((e: SyntheticEvent<HTMLDivElement>) => {
-    onClick(id)
-  }, [onClick, id])
+    onToggleTrack(id)
+  }, [onToggleTrack, id])
 
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
