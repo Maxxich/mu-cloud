@@ -1,0 +1,26 @@
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import { ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { playerReducer } from '@/entity/player';
+import { StateSchema } from './StateSchema';
+
+export function createReduxStore(
+  initialState?: StateSchema,
+) {
+  const rootReducers: ReducersMapObject<StateSchema> = {
+    player: playerReducer,
+  };
+
+  const store = configureStore({
+      reducer: rootReducers,
+      preloadedState: initialState,
+    
+  });
+
+  return store
+}
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
+export const useAppDispatch: () => AppDispatch = useDispatch
+export type RootState = ReturnType<typeof createReduxStore>['getState'];
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+
