@@ -5,7 +5,7 @@ export interface User {
     picture_source: UserPictureSouces
   }
   
-  interface UserPictureSouces{
+export interface UserPictureSouces{
     small: string | null | undefined
     medium: string | null | undefined
     big: string | null | undefined

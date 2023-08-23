@@ -1,2 +1,2 @@
 export {UserCard} from './ui/UserCard'
-export type {User} from './model/types/user'
+export type {User, UserPictureSouces} from './model/types/user'

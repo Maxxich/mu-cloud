@@ -6,6 +6,7 @@ type Margin = 'auto' | 'none'
 interface IFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
     children: React.ReactNode,
     margin?: Margin
+    className?: string
 }
 
 const mapMarginToClass: Record<Margin, string> = {
@@ -16,10 +17,11 @@ const mapMarginToClass: Record<Margin, string> = {
 export const Form: React.FunctionComponent<IFormProps> = ({
     children,
     margin = 'none',
+    className,
     ...rest
 }) => {
   return (
-    <form className={classNames(cls.form, cls[mapMarginToClass[margin]])} {...rest}>
+    <form className={classNames(cls.form, cls[mapMarginToClass[margin]], className)} {...rest}>
         {children}
     </form>
   );
