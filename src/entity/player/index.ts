@@ -1,0 +1,5 @@
+export * from './model/slices/playerSlice'
+export type {PlayerSchema} from './model/types/playerSchema'
+export { getIsPaused } from './model/selectors/getIsPaused'
+export { getSelectedTrackId } from './model/selectors/getSelectedTrackId'
+export { getSelectedTrack } from './model/selectors/getSelectedTrack'
