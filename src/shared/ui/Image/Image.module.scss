@@ -43,6 +43,11 @@
     border-radius: 15%
 }
 
+.xs {
+    height: var(--avatar-size-xs);
+    width: var(--avatar-size-xs);
+}
+
 .s {
     height: var(--avatar-size-s);
     width: var(--avatar-size-s);
