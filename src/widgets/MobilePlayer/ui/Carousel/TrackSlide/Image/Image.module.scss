@@ -1,0 +1,15 @@
+.container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.image {
+    object-fit:cover;
+    background: #0C1116;
+    border-radius: 15px;
+    transition: all 0.3s ease 0s;
+}
+
+.small {
+    transform: scale(0.8);
+}

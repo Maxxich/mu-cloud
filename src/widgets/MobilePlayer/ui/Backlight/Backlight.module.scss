@@ -1,0 +1,11 @@
+.backlight{
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    left: 0;
+    top: -12vw;
+    right: 0;
+    filter: blur(15px) opacity(25%);
+    z-index: -1;
+    object-fit: cover;
+}

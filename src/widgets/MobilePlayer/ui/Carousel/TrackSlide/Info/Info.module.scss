@@ -1,0 +1,25 @@
+.container {
+    width: 72%;
+    overflow: hidden;
+}
+
+.track_name,
+.author_name {
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+
+.track_name {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.author_name {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--secondary-color);
+}

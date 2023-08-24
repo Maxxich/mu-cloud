@@ -1,0 +1,36 @@
+.Button {
+    height: 40px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    background: transparent;
+    justify-content: space-betwen;
+    cursor: pointer;
+    gap:8px;
+    padding: 0 10px;
+
+    &:active{
+        transform: scale(0.95);
+    }
+
+    & > svg {
+        height: 8px;
+        width: 8px;
+    }
+}
+
+.primary {
+    background-color: var(--primary-color);
+    fill: var(--primary-color);
+}
+
+.secondary {
+    background-color: var(--secondary-color);
+    fill: var(--secondary-color);
+}
+
+.Circle {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+}

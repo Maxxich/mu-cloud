@@ -1,0 +1,13 @@
+.close {
+    height: 32px;
+    width: 100%;
+    flex: 0 0 32px;
+    background: transparent;
+    cursor: pointer;
+    
+    & > svg {
+        fill: var(--secondary-color);
+        height: 14px;
+        width: 14px;
+    }
+}

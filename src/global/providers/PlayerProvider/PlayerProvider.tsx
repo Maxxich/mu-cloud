@@ -2,8 +2,9 @@
 
 import { isMobile } from 'react-device-detect';
 import { useSelector } from 'react-redux';
-import { getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
+import { getIsPlayerOpened, getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
 import { MobilePlayerContorls } from '@/feature/MobilePlayerContorls';
+import { MobilePlayer } from '@/widgets/MobilePlayer';
 
 interface IPlayerProviderProps {
 }
@@ -11,6 +12,8 @@ interface IPlayerProviderProps {
 export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = (props) => {
 
     const selectedTrack = useSelector(getSelectedTrack)
+
+    const isOpened = useSelector(getIsPlayerOpened)
 
     useObserveChangeCurrentTrack()
     useObserveTogglePause()
@@ -20,7 +23,10 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = (pr
     if (!selectedTrack) return null
 
     if (isMobile) return (
-        <MobilePlayerContorls selectedTrack={selectedTrack}/>
+        <>
+            <MobilePlayerContorls selectedTrack={selectedTrack}/>
+            {isOpened && <MobilePlayer/>}
+        </>
     )
 
     return null
