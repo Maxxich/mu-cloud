@@ -1,0 +1,25 @@
+.link {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+
+    & > svg {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+.primary {
+    & > svg {
+        fill: var(--primary-color);
+    }
+}
+
+.secondary {
+    & > svg {
+        fill: var(--secondary-color);
+    }
+}
