@@ -1,3 +1,5 @@
 export type { ViewerSchema } from './model/types/viewerSchema'
 export { viewerReducer, viewerActions } from './model/slices/viewerSlice'
 export { useRedirectIfSignedIn } from './lib/useRedirectIfSignedIn'
+export { getIsViewerSignedIn } from './model/selectors/getIsViewerSignedIn'
+export { getViewerPictureSources } from './model/selectors/getViewerPictureSource'
