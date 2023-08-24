@@ -125,5 +125,5 @@ const slice = createSlice({
   },
 })
 
-export const { togglePause, playAudio, stopAudio, setAudioExist, toggleRepeatTrackMode,closePlayer, openPlayer, togglePlayerIsOpened,overwriteList, setPreviusTrack, setNextTrack, overwriteCurrentTrackTime, overwriteCurrentTrackTimeLenght, shufflePlaylist,clearPlaylist, setInterfaceHidden ,toggleShowPlaylist, closeShowPlaylist,openShowPlaylist, toggleIsSmallPictureActive } = slice.actions
+export const playerActions = slice.actions
 export const playerReducer = slice.reducer 
