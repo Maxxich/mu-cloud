@@ -4,7 +4,7 @@ import { memo } from 'react'
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { StateSchema } from '@/global/providers/StoreProvider';
-import { openPlayer } from '@/entity/player';
+import { playerActions } from '@/entity/player';
 import { RightAddon } from './RightAddon';
 import { useEffect } from 'react'
 import { TogglePause } from './TogglePause';
@@ -22,17 +22,10 @@ export const MobilePlayerContorls = memo(({
 }: PlayerProps) => {
     const dispatch = useAppDispatch()
 
-    // const audio = useAudio()
-
-    // useEffect(() => {
-        
-    // }, [selectedTrack])
-
-    // console.log(audio)
     
     return (
         <div className={cls.container}
-            onClick={() => dispatch(openPlayer())}  
+            // onClick={() => dispatch(playerActions.openPlayer())}  
         >
             <TogglePause/>
             <div className={cls.info}>
