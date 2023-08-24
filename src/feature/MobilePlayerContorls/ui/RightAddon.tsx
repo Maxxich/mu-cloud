@@ -4,7 +4,7 @@ import IconNext from '@/shared/assets/svg/Next.svg'
 import IconXmark from '@/shared/assets/svg/Xmark.svg'
 import { Button } from './Button/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { useCallback } from 'react';
+import { useCallback, SyntheticEvent } from 'react';
 
 interface IRightAddonProps {
 }
@@ -14,11 +14,13 @@ export const RightAddon: React.FunctionComponent<IRightAddonProps> = (props) => 
     const paused = useSelector(getIsPaused)
     const dispatch = useAppDispatch()
 
-    const onClearPlayer = useCallback(() => {
+    const onClearPlayer = useCallback((e: SyntheticEvent) => {
+      e.stopPropagation()
       dispatch(playerActions.clearPlaylist())
     }, [dispatch])
 
-    const onNextTrack = useCallback(() => {
+    const onNextTrack = useCallback((e: SyntheticEvent) => {
+      e.stopPropagation()
       dispatch(playerActions.setNextTrack())
     }, [dispatch])
 

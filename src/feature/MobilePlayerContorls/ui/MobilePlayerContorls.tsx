@@ -1,6 +1,6 @@
 'use client'
 
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { StateSchema } from '@/global/providers/StoreProvider';
@@ -22,15 +22,19 @@ export const MobilePlayerContorls = memo(({
 }: PlayerProps) => {
     const dispatch = useAppDispatch()
 
+    const onOpenPlayer = useCallback(() => {
+        dispatch(playerActions.openPlayer())
+    }, [dispatch])
+
     
     return (
         <div className={cls.container}
-            // onClick={() => dispatch(playerActions.openPlayer())}  
+            onClick={onOpenPlayer}  
         >
             <TogglePause/>
             <div className={cls.info}>
                 <span className={cls.trackname}>{selectedTrack.name}</span>
-                <span className={cls.author}>zxc</span>
+                <span className={cls.author}>{selectedTrack.owners[0].name}</span>
             </div>
             <RightAddon/>
         </div>

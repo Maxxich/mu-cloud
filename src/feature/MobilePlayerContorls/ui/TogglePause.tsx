@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { useCallback } from 'react'
+import { SyntheticEvent, useCallback } from 'react'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { getIsPaused, playerActions } from '@/entity/player';
 import IconPlay from '@/shared/assets/svg/Play.svg'
@@ -13,7 +13,8 @@ export const TogglePause: React.FunctionComponent<ITogglePauseProps> = (props) =
 
     const paused = useSelector(getIsPaused)
     const dispatch = useAppDispatch()
-    const onClick = useCallback(() => {
+    const onClick = useCallback((e: SyntheticEvent) => {
+      e.stopPropagation()
         dispatch(playerActions.togglePause())
     }, [dispatch])
 
