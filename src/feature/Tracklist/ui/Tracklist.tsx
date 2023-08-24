@@ -3,7 +3,7 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { getIsPaused, getSelectedTrackId, overwriteList } from '@/entity/player';
+import { getIsPaused, getSelectedTrackId, playerActions } from '@/entity/player';
 import { Track } from '@/entity/track';
 import { TrackCardDesktop } from './Desktop/TrackCardDesktop';
 import { TrackCardMobile } from './Mobile/TrackCardMobile'
@@ -23,7 +23,7 @@ export const Tracklist: React.FunctionComponent<ITracklistProps> = ({
   const dispatch = useAppDispatch()
 
   const onToggleTrack = useCallback((id: number) => {
-    dispatch(overwriteList({
+    dispatch(playerActions.overwriteList({
       list: tracks,
       startsWithId: id
     }))
