@@ -1,0 +1,22 @@
+.cropper-view-box{
+    outline: 1px solid #fff;
+    outline-color:  #fff;
+  }
+
+  .cropper-face{
+   background: none; 
+  }
+
+  .danger .cropper-face {
+    background: #fa1515; 
+   }
+
+  .danger .cropper-view-box{
+    outline: 1px solid red;
+    outline-color:  red;
+  }
+  
+  .cropper-container img{
+    position: relative;
+    z-index: -1;
+  }

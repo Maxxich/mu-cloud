@@ -1,0 +1,153 @@
+'use client'
+import cls from './CropImage.module.scss'
+import Cropper, { ReactCropperElement } from 'react-cropper';
+import { useEffect, useCallback , useRef, useState} from 'react'
+import 'cropperjs/dist/cropper.css';
+import { isMobile } from 'react-device-detect';
+import classNames from 'classnames';
+import { Button } from '@/shared/ui/Button/Button';
+import { useMediaQuery } from 'react-responsive';
+import './style.css'
+
+interface ICropper {
+  minWidth: number
+  minHeight: number
+  onSuccess: (file: File) => void
+  onCancel: (e: React.SyntheticEvent) => void
+  cancelButtonText: string
+  submitButtonText: string
+  title: string
+  info: string
+  imageFileURL: string
+  aspectRatio: number
+}
+
+export const CropImage: React.FunctionComponent<ICropper> = ({
+  minHeight,
+  minWidth,
+  onSuccess,
+  onCancel,
+  cancelButtonText,
+  submitButtonText,
+  info,
+  imageFileURL,
+  aspectRatio
+}) => {
+  const cropperRef = useRef<ReactCropperElement>(null);
+  const [error, setError] = useState<string | null>(null)
+  const [height, setHeight] = useState<number>()
+  const cropperContainerRef = useRef<HTMLDivElement>()
+  
+  const crop = ((e: Cropper.CropEvent<HTMLImageElement>) => {    
+    if (e.detail.width < minWidth || e.detail.height < minHeight) { 
+      setError(`Minimal resolution should be ${minWidth}:${minHeight}`)
+    } else {            
+      setError(null)
+    }
+  })
+
+  const onError = (message: string) => setError(message)
+
+  const onClick = useCallback((e: React.SyntheticEvent) => {
+    const cropper = cropperRef.current?.cropper;
+    const width = cropper?.getCroppedCanvas().width
+    const height = cropper?.getCroppedCanvas().height
+    if (!height || !width) return onError('width or height error')
+    if (width < minWidth) return onError('width error')
+    if (height < minHeight) return onError('height error')
+    cropper?.getCroppedCanvas().toBlob((blob) => {
+      if (blob) {
+        onSuccess(new File([blob], 'image.png' , {
+          type: 'image/png',
+        }))
+      }
+    })
+  }, [minHeight, minWidth, onSuccess])
+
+  const [key, setKey] = useState<number>(0)
+  const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
+
+  useEffect(() => {
+    setKey((prev) => prev += 1)
+  }, [isLandscape])
+
+  useEffect(() => {
+    const resizeCb = () => {
+      setHeight(window.innerHeight)
+    }
+
+    window.onresize = resizeCb
+    return () => {
+      window.onresize = null
+    }
+  },[])
+
+  const mods: Mods = {
+    [cls.container_mobile]: isMobile
+  }
+
+  return (
+    <div className={classNames(cls.wrapper)} style={{height}}>
+      <div className={classNames(cls.container, mods)}>
+        {/* <PositionHeader
+          title={title}
+          extraLeft={<IconButton
+            extraIcon={<IconArrowLeftLong/>}
+            onClick={onCancel}
+          />}
+        />
+        <> */}
+
+        <div className={cls.cropper_wrapper}
+          ref={cropperContainerRef as any}
+        >
+        {cropperContainerRef.current && <Cropper
+            key={key}
+            src={imageFileURL}
+            className={error ? 'danger' : ''}
+            ref={cropperRef}
+            scalable={false}
+            style={{ height: cropperContainerRef.current.clientHeight , width: cropperContainerRef.current.clientWidth }}
+            zoomTo={0.1}
+            initialAspectRatio={aspectRatio}
+            aspectRatio={aspectRatio}
+            preview=".img-preview"
+            viewMode={1}
+            responsive
+            minCropBoxHeight={10}
+            crop={crop}
+            minCropBoxWidth={10}
+            background={false}
+            dragMode="move"
+            autoCropArea={isLandscape ? 0.6 : 1}
+            checkOrientation={true} 
+            cropBoxResizable={false}
+            cropBoxMovable={false}
+            toggleDragModeOnDblclick={false}
+            guides={false}
+            center={false}
+            />}
+        </div>
+
+        <p className={cls.info}>
+            {info}
+        </p>
+        {error && <p className={cls.error_message}>{error}</p> }
+        <div className={cls.buttons}>
+          <Button
+            onClick={onCancel}
+          >
+            {cancelButtonText}
+          </Button>
+          <Button
+            onClick={onClick}
+            disabled={Boolean(error)}
+            >
+            {submitButtonText}
+          </Button>
+        </div>
+
+      </div>
+    </div>
+  );
+};
