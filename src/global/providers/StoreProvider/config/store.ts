@@ -4,6 +4,8 @@ import { playerReducer } from '@/entity/player';
 import { StateSchema } from './StateSchema';
 import { viewerReducer } from '@/entity/viewer';
 import { signinReducer } from '@/feature/SignIn';
+import { AddNewTrack } from '@/feature/AddNewTrack';
+import { AddNewTrackReducer } from '@/feature/AddNewTrack';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -11,7 +13,8 @@ export function createReduxStore(
   const rootReducers: ReducersMapObject<StateSchema> = {
     player: playerReducer,
     viewer: viewerReducer,
-    signin: signinReducer
+    signin: signinReducer,
+    addNewTrack: AddNewTrackReducer
   };
 
   const store = configureStore({
