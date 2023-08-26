@@ -67,6 +67,11 @@
   border: 1px solid var(--input-accent-color);
 }
 
+.danger.input_container:focus-within {
+    outline:none;
+    border: 1px solid var(--danger-color);
+  }
+
 .danger {
     color: var(--danger-color);
 

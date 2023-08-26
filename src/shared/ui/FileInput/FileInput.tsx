@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState, LegacyRef, memo, forwardRef} from 'react';
+import { useRef, useState, SyntheticEvent, memo, forwardRef, useCallback} from 'react';
 import cls from './FileInput.module.scss'
 import classNames from 'classnames';
 import { VStack } from '../Stack';
@@ -10,7 +10,8 @@ interface IInputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string
     addonLeft?: React.ReactElement
     className?: string
-    errorMessage?: string
+    isError?: boolean
+    initialFile?: File | null
 }
 
 export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forwardRef(({
@@ -20,11 +21,12 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
   onChangeFileSuccess,
   onChangeFileUndefined,
   className,
-  errorMessage = '',
+  isError = '',
+  initialFile,
   ...rest
 }, ref) => {
 
-    const [ fileName, setFileName]  = useState<string | undefined>()
+    const [ fileName, setFileName]  = useState<string | undefined>(initialFile?.name)
 
   const inputRef = useRef<HTMLInputElement>()
 
@@ -46,15 +48,15 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
         setFileName(undefined)
         onChangeFileUndefined()
     }
-
   }
 
-  const error = errorMessage && (
-    <div className={cls.error}>{errorMessage}</div>
-  )
+  const onClick = (e: SyntheticEvent) => {
+    e.preventDefault()
+    inputRef?.current?.click()
+  }
 
   const labelMods: Mods = {
-    [cls.danger]: Boolean(errorMessage)
+    [cls.danger]: isError
   }
 
   const labelComp = label && (
@@ -72,11 +74,11 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
 
   const fileButtonTextMods: Mods = {
     [cls.secondary]: !fileName,
-    [cls.danger]: Boolean(errorMessage)
+    [cls.danger]: isError
   }
 
   const addonMods: Mods = {
-    [cls.danger]: Boolean(errorMessage)
+    [cls.danger]: isError
   }
 
   const addon = addonLeft && (
@@ -87,11 +89,12 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
 
   const fileButtonMods = {
     [cls.withAddonLeft]: Boolean(addonLeft),
+    [cls.danger]: isError
   }
 
   const fileButton = (
     <button className={classNames(cls.file_button, fileButtonMods)}
-        onClick={() => inputRef?.current?.click()}
+        onClick={onClick}
     >
         {addon}
         <div className={classNames(cls.file_button_text, fileButtonTextMods)}>
@@ -101,11 +104,10 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
   )
 
   return (
-    <VStack max gap="8">
+    <VStack max gap="8" className={classNames(cls.margin, className)}>
         {invisibleInput}
         {labelComp}
         {fileButton}
-        {error}
     </VStack>
   );
 }))

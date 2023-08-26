@@ -8,7 +8,7 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   label?: string
   addonLeft?: React.ReactElement
   className?: string
-  errorMessage?: string
+  isError?: boolean
   ref?: React.Ref<HTMLInputElement>
 }
 
@@ -16,16 +16,16 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
   label,
   addonLeft,
   className,
-  errorMessage = '',
+  isError,
   ...rest
 }, ref) => {
 
   const mods: Mods = {
-    [cls.danger]: Boolean(errorMessage)
+    [cls.danger]: isError
   }
 
   const addonMods: Mods = {
-    [cls.danger]: Boolean(errorMessage)
+    [cls.danger]: isError
   }
 
   const addon = addonLeft && (
@@ -34,8 +34,12 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
     </div>
   )
 
+  const inputMods: Mods = {
+    [cls.danger]: isError
+  }
+
   const input = (
-    <div className={cls.input_container}>
+    <div className={classNames(cls.input_container, inputMods)}>
       {addon && <div className={cls.addonLeft}>
         {addon}
       </div>}
@@ -48,7 +52,7 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
 
 
   const labelMods: Mods = {
-    [cls.danger]: Boolean(errorMessage)
+    [cls.danger]: isError
   }
 
   const labelComp = label && (
