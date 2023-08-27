@@ -1,7 +1,7 @@
 'use client'
 import cls from './CropImage.module.scss'
 import Cropper, { ReactCropperElement } from 'react-cropper';
-import { useEffect, useCallback , useRef, useState} from 'react'
+import { useEffect, useCallback , useRef, useState, memo} from 'react'
 import 'cropperjs/dist/cropper.css';
 import { isMobile } from 'react-device-detect';
 import classNames from 'classnames';
@@ -18,11 +18,11 @@ interface ICropper {
   submitButtonText: string
   title: string
   info: string
-  imageFileURL: string
+  imageFileURL?: string
   aspectRatio: number
 }
 
-export const CropImage: React.FunctionComponent<ICropper> = ({
+export const CropImage: React.FunctionComponent<ICropper> = memo(({
   minHeight,
   minWidth,
   onSuccess,
@@ -101,7 +101,8 @@ export const CropImage: React.FunctionComponent<ICropper> = ({
         <div className={cls.cropper_wrapper}
           ref={cropperContainerRef as any}
         >
-        {cropperContainerRef.current && <Cropper
+        {imageFileURL && cropperContainerRef.current ? 
+          <Cropper
             key={key}
             src={imageFileURL}
             className={error ? 'danger' : ''}
@@ -126,8 +127,11 @@ export const CropImage: React.FunctionComponent<ICropper> = ({
             toggleDragModeOnDblclick={false}
             guides={false}
             center={false}
-            />}
-        </div>
+          />
+          :
+          <div>Ошибка</div>
+        }
+      </div>
 
         <p className={cls.info}>
             {info}
@@ -136,12 +140,14 @@ export const CropImage: React.FunctionComponent<ICropper> = ({
         <div className={cls.buttons}>
           <Button
             onClick={onCancel}
+
           >
             {cancelButtonText}
           </Button>
           <Button
             onClick={onClick}
             disabled={Boolean(error)}
+            variant='green'
             >
             {submitButtonText}
           </Button>
@@ -150,4 +156,6 @@ export const CropImage: React.FunctionComponent<ICropper> = ({
       </div>
     </div>
   );
-};
+})
+
+CropImage.displayName = 'CropImage'
