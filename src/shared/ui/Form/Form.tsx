@@ -14,7 +14,7 @@ const mapMarginToClass: Record<Margin, string> = {
   'none': ' '
 }
 
-export const Form: React.FunctionComponent<IFormProps> = ({
+const FormRoot: React.FunctionComponent<IFormProps> = ({
     children,
     margin = 'none',
     className,
@@ -26,3 +26,25 @@ export const Form: React.FunctionComponent<IFormProps> = ({
     </form>
   );
 };
+
+
+interface IErrorProps extends React.FormHTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode,
+  margin?: Margin
+  className?: string
+}
+
+const Error: React.FunctionComponent<IErrorProps> = ({
+  children,
+  margin = 'none',
+  className,
+  ...rest
+}) => {
+return (
+  <div className={classNames(cls.form, cls.error, cls[mapMarginToClass[margin]], className)} {...rest}>
+      {children}
+  </div>
+);
+};
+
+export const Form = Object.assign(FormRoot, { Error })
