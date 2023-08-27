@@ -15,6 +15,7 @@ export const getValidationError = (state: StateSchema): string | undefined => {
         for (let entry2 in entries2) {
             const [errorKey, flag]: [string, boolean] = entries2[entry2]
             if (flag) {
+                console.log(fieldKey)
                 // @ts-ignore
                 error = config[fieldKey].messages[errorKey]
             }

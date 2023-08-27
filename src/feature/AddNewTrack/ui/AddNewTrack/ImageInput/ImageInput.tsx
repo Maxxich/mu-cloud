@@ -1,8 +1,12 @@
 import { useCallback, memo } from 'react'
+import { useSelector } from 'react-redux';
 import { FileInput } from '@/shared/ui/FileInput/FileInput';
 import { useImageFile } from '../../../model/filesStorage/hooks/useImageFile';
-import { useSelector } from 'react-redux';
 import { getIsImageFileValidationError } from '../../../model/selectors/getIsImageFileValidationError';
+import { getIsImageCroppedWideFileValidationError } from '../../../model/selectors/getIsImageCroppedWideFileValidationError';
+import { getIsImageCroppedSquareFileValidationError } from '../../../model/selectors/getIsImageCroppedSquareFileValidationError';
+import { useImageCroppedWideFile } from '../../../model/filesStorage/hooks/useImageCroppedWideFile';
+import { useImageCroppedSquareFile } from '../../../model/filesStorage/hooks/useImageCroppedSquareFile';
 
 interface IImageInputProps {
     className?: string
@@ -12,20 +16,36 @@ export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
   className
 }) => {
 
-  const isError = useSelector(getIsImageFileValidationError)
+  const isImageError = useSelector(getIsImageFileValidationError)
+  const isImageCroppedWideError = useSelector(getIsImageCroppedWideFileValidationError)
+  const isImageCroppedSquareError = useSelector(getIsImageCroppedSquareFileValidationError)
 
+  const isError = isImageError || isImageCroppedWideError || isImageCroppedSquareError
     const {
         getImageFile,
         setImageFile
       } = useImageFile()
 
+      const {
+
+        setImageCroppedWideFile
+    } = useImageCroppedWideFile()
+
+    const {
+        setImageCroppedSquareFile
+    } = useImageCroppedSquareFile()
+
       const onChangeFileSuccess = useCallback((file: File) => {
         setImageFile(file)
-    }, [setImageFile])
+        setImageCroppedWideFile(undefined)
+        setImageCroppedSquareFile(undefined)
+    }, [setImageFile, setImageCroppedWideFile, setImageCroppedSquareFile])
 
     const onChangeFileUndefined = useCallback(() => {
         setImageFile(undefined)
-    }, [setImageFile])
+                setImageCroppedWideFile(undefined)
+        setImageCroppedSquareFile(undefined)
+    }, [setImageFile, setImageCroppedWideFile, setImageCroppedSquareFile])
 
 
   return (

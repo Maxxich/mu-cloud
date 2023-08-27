@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AddNewTrackSchema } from '../types/AddNewTrackSchema'
+import { AddNewTrackSchema, Tab } from '../types/AddNewTrackSchema'
 import { config } from '../config/config'
 
 const initialState: AddNewTrackSchema = {
@@ -18,8 +18,15 @@ const initialState: AddNewTrackSchema = {
         imageFile: {
             invalidMimeType: false,
             empty: false
+        },
+        imageCroppedSquareFile: {
+            empty: false
+        },
+        imageCroppedWideFile: {
+            empty: false
         }
-    }
+    },
+    tab: 'form',
 }
 
 export const AddNewTrackSlice = createSlice({
@@ -97,6 +104,33 @@ export const AddNewTrackSlice = createSlice({
         },
         setImageFileMimeType: (state, action: PayloadAction<string | undefined>) => {
             state.imageFileMimeType = action.payload
+        },
+        setImageCroppedWideFileMimeType: (state, action: PayloadAction<string | undefined>) => {
+            state.imageFileMimeType = action.payload
+        },
+        validateImageCroppedWideFileMimeType: (state, action: PayloadAction<string | undefined>) => {
+            const value = action.payload
+            if (!value) {
+                state.validationErrors.imageCroppedWideFile.empty = true
+                return
+            } else {
+                state.validationErrors.imageCroppedWideFile.empty = false
+            }
+        },
+        setImageCroppedSquareFileMimeType: (state, action: PayloadAction<string | undefined>) => {
+            state.imageFileMimeType = action.payload
+        },
+        validateImageCroppedSquareFileMimeType: (state, action: PayloadAction<string | undefined>) => {
+            const value = action.payload
+            if (!value) {
+                state.validationErrors.imageCroppedSquareFile.empty = true
+                return
+            } else {
+                state.validationErrors.imageCroppedSquareFile.empty = false
+            }
+        },
+        setTab: (state, action: PayloadAction<Tab>) => {
+            state.tab = action.payload
         },
     },
 })

@@ -25,6 +25,16 @@ export type Config = {
             empty: string
         },
         validMimeTypes: string[]
+    },
+    imageCroppedWideFile: {
+        messages: {
+            empty: string
+        }
+    },
+    imageCroppedSquareFile: {
+        messages: {
+            empty: string
+        }
     }
 }
 
@@ -43,13 +53,24 @@ type ValidationErrors = {
     imageFile: {
         invalidMimeType: boolean
         empty: boolean
+    },
+    imageCroppedWideFile: {
+        empty: boolean
+    },
+    imageCroppedSquareFile: {
+        empty: boolean
     }
 }
+
+export type Tab = 'form' | 'cropWideImage' | 'cropSquareImage'
 
 export interface AddNewTrackSchema {
     name?: string
     name_secondary?: string
     imageFileMimeType?: string | undefined
+    imageCroppedWideMimeType?: string | undefined
+    imageCroppedSquareMimeType?: string | undefined
     audioFileMimeType?: string | undefined
     validationErrors: ValidationErrors
+    tab: Tab
 }

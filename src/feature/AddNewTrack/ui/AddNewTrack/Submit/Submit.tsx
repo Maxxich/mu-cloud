@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { useAudioFile } from '../../../model/filesStorage/hooks/useAudioFile';
 import { useImageFile } from '../../../model/filesStorage/hooks/useImageFile';
+import { useImageCroppedWideFile } from '../../../model/filesStorage/hooks/useImageCroppedWideFile';
+import { useImageCroppedSquareFile } from '../../../model/filesStorage/hooks/useImageCroppedSquareFile';
 
 interface ISubmitProps {
 }
@@ -20,14 +22,24 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
     const {
         getImageFile
     } = useImageFile()
+    
+    const {
+        getImageCroppedWideFile
+    } = useImageCroppedWideFile()
+
+    const {
+        getImageCroppedSquareFile
+    } = useImageCroppedSquareFile()
 
     const onSubmit = useCallback((e: SyntheticEvent) => {
         e.preventDefault()
         dispatch(upload({
             audioFile: getAudioFile(),
-            imageFile: getImageFile()
+            imageFile: getImageFile(),
+            imageCroppedSquareFile: getImageCroppedSquareFile(),
+            imageCroppedWideFile: getImageCroppedWideFile()
         }))
-    }, [dispatch, getAudioFile, getImageFile])
+    }, [dispatch, getAudioFile, getImageFile, getImageCroppedSquareFile, getImageCroppedWideFile])
 
   return (
     <Button 

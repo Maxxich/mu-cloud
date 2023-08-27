@@ -31,5 +31,15 @@ export const config: Config = {
             invalidMimeType: 'Данный тип изображения не поддерживается. Возможно использование файлов c расширением jpeg, jpg, png или webp',
         },
         validMimeTypes: ['image/jpeg', 'image/png', 'image/webp']
+    },
+    imageCroppedSquareFile: {
+        messages: {
+            empty: 'Изображение должно быть откадрировано в формате 1:1'
+        }
+    },
+    imageCroppedWideFile: {
+        messages: {
+            empty: 'Изображение должно быть откадрировано в формате 9:16'
+        }
     }
 }
