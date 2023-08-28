@@ -4,7 +4,7 @@ import cls from './FileInput.module.scss'
 import classNames from 'classnames';
 import { VStack } from '../Stack';
 
-interface IInputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IInputFileProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     onChangeFileSuccess: (file: File) => void
     onChangeFileUndefined: () => void
     label?: string
@@ -12,6 +12,7 @@ interface IInputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
     className?: string
     isError?: boolean
     initialFile?: File | null
+    inputTestId?: string
 }
 
 export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forwardRef(({
@@ -23,6 +24,7 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
   className,
   isError = '',
   initialFile,
+  inputTestId,
   ...rest
 }, ref) => {
 
@@ -65,10 +67,11 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
 
   const invisibleInput = (
     <input className={classNames(cls.invisible_input)}
-    {...rest}
+    // {...rest}
     type={'file'} 
     ref={refCb} 
     onChange={handleChange}
+    data-testid={inputTestId}
   />
   )
 
@@ -95,6 +98,7 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
   const fileButton = (
     <button className={classNames(cls.file_button, fileButtonMods)}
         onClick={onClick}
+        {...rest}
     >
         {addon}
         <div className={classNames(cls.file_button_text, fileButtonTextMods)}>

@@ -20,6 +20,8 @@ interface ICropper {
   info: string
   imageFileURL?: string
   aspectRatio: number
+  testId?: string
+  continueButtonTestId?: string
 }
 
 export const CropImage: React.FunctionComponent<ICropper> = memo(({
@@ -31,7 +33,9 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
   submitButtonText,
   info,
   imageFileURL,
-  aspectRatio
+  aspectRatio,
+  testId,
+  continueButtonTestId
 }) => {
   const cropperRef = useRef<ReactCropperElement>(null);
   const [error, setError] = useState<string | null>(null)
@@ -87,7 +91,7 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
   }
 
   return (
-    <div className={classNames(cls.wrapper)} style={{height}}>
+    <div className={classNames(cls.wrapper)} style={{height}} data-testid={testId}>
       <div className={classNames(cls.container, mods)}>
         {/* <PositionHeader
           title={title}
@@ -148,6 +152,7 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
             onClick={onClick}
             disabled={Boolean(error)}
             variant='green'
+            data-testid={continueButtonTestId}
             >
             {submitButtonText}
           </Button>
