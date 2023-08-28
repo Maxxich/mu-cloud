@@ -6,6 +6,7 @@ export { getSelectedTrack } from './model/selectors/getSelectedTrack/getSelected
 export { getCurrentTrackTime } from './model/selectors/getCurrentTrackTime/getCurrentTrackTime'
 export { getCurrentTrackTimeLenght } from './model/selectors/getCurrentTrackTimeLenght/getCurrentTrackTimeLenght'
 export { getIsPlayerOpened } from './model/selectors/getIsPlayerOpened/getIsPlayerOpened'
+export { getRepeatTrackMode } from './model/selectors/getRepeatTrackMode/getRepeatTrackMode'
 export { getPlaylist } from './model/selectors/getPlaylist/getPlaylist'
 export { useObserveChangeCurrentTrack } from './lib/useObserveChangeSelectedTrack'
 export { useObserveTogglePause } from './lib/useObserveTogglePause'
