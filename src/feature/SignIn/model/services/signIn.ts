@@ -19,7 +19,7 @@ interface SuccessResponse {
     refresh_token: string
 }
 
-export const signInByEmail = createAsyncThunk('signin/post', async (_, thunkApi) => {
+export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (_, thunkApi) => {
     const { dispatch, rejectWithValue, getState } = thunkApi;
 
     // @ts-ignore
@@ -51,19 +51,15 @@ export const signInByEmail = createAsyncThunk('signin/post', async (_, thunkApi)
             return rejectWithValue('Сервер недоступен')
         }
 
-
-        
         //@ts-ignore
         const data = await response.json() as SuccessResponse
-
-        alert(data.access_token)
 
         dispatch(viewerActions.setCredentials({
             ...data,
             checking: false
         }));
 
-        return
+        return 
     } catch (e) {
         return rejectWithValue('Произошла неожиданная ошибка');
     }
