@@ -1,7 +1,9 @@
 import { StateSchema } from '@/global/providers/StoreProvider';
 
 export const getIsNameValidationError = (state: StateSchema): boolean => {
-    const errors = state.addNewTrack.validationErrors.name
+    const errors = state?.addNewTrack?.validationErrors.name
+
+    if (!errors) return false
 
     const entries = Object.entries(errors)
 

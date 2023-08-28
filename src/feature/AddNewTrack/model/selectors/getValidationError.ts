@@ -3,7 +3,9 @@ import { config } from '../config/config';
 
 export const getValidationError = (state: StateSchema): string | undefined => {
 
-    const validationErrors = state.addNewTrack.validationErrors
+    const validationErrors = state?.addNewTrack?.validationErrors
+
+    if (!validationErrors) return undefined
     
     const entries = Object.entries(validationErrors)
     let error = undefined

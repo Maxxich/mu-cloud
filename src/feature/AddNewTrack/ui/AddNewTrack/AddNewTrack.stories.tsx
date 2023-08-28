@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { AddNewTrack } from "./AddNewTrack"
+import type { Meta, StoryObj } from '@storybook/react'
+import { AddNewTrack } from './AddNewTrack'
 
 const meta = {
-	title: "feature/AddNewTrack",
+	title: 'feature/AddNewTrack',
 	component:  AddNewTrack,
 	parameters: {
-		layout: "centered",
+		layout: 'centered',
 	},
-	tags: ["autodocs"],
+	tags: ['autodocs'],
 } satisfies Meta<typeof AddNewTrack>
 
 export default meta

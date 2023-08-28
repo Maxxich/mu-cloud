@@ -13,14 +13,19 @@ import { signInByEmail } from '../../model/services/signIn'
 import { useSelector } from 'react-redux'
 import { getPassword } from '../../model/selectors/getPassword'
 import { getEmail } from '../../model/selectors/getEmail'
-import { signinActions } from '../../model/slices/signinSlice'
+import { signinActions, signinReducer } from '../../model/slices/signinSlice'
 import { getStatus } from '../../model/selectors/getStatus'
 import { getErrorMessage } from '../../model/selectors/getErrorMessage'
 import { useRedirectIfSignedIn } from '@/entity/viewer'
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 
 interface SigninProps {
     className?: string;
 }
+
+const reducers: ReducersList = {
+    signin: signinReducer,
+};
 
 export const SignIn = memo((props: SigninProps) => {
     const { className } = props
@@ -48,32 +53,34 @@ export const SignIn = memo((props: SigninProps) => {
     }, [dispatch])
     
     return (
-        <Form margin='auto' onSubmit={onFormSubmit} className={className}>
-            <Input
-                label='Email'
-                value={email}
-                onChange={onChangeEmail}
-            />
-            <Input
-                label='Пароль'
-                type='password'
-                value={password}
-                onChange={onChangePassword}
-                className={cls.last_input}
-            />
-            <Button variant='green' fullwidth disabled={status === 'loading'}>
-                {status === 'loading'
-                    ? 'Загрузка...'
-                    : 'Войти'
-                }
-            </Button>
-            {errorMessage && <Text 
-                variant='error'
-                className={cls.error}
-            >
-                {errorMessage}
-            </Text>}
-        </Form>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <Form margin='auto' onSubmit={onFormSubmit} className={className}>
+                <Input
+                    label='Email'
+                    value={email}
+                    onChange={onChangeEmail}
+                />
+                <Input
+                    label='Пароль'
+                    type='password'
+                    value={password}
+                    onChange={onChangePassword}
+                    className={cls.last_input}
+                />
+                <Button variant='green' fullwidth disabled={status === 'loading'}>
+                    {status === 'loading'
+                        ? 'Загрузка...'
+                        : 'Войти'
+                    }
+                </Button>
+                {errorMessage && <Text 
+                    variant='error'
+                    className={cls.error}
+                >
+                    {errorMessage}
+                </Text>}
+            </Form>
+        </DynamicModuleLoader>
     )
 })
 

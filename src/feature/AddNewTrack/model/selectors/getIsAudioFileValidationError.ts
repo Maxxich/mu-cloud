@@ -1,7 +1,9 @@
 import { StateSchema } from '@/global/providers/StoreProvider';
 
 export const getIsAudioFileValidationError = (state: StateSchema): boolean => {
-    const errors = state.addNewTrack.validationErrors.audioFile
+    const errors = state?.addNewTrack?.validationErrors.audioFile
+
+    if (!errors) return false
 
     const entries = Object.entries(errors)
 

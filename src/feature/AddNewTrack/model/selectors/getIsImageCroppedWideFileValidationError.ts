@@ -1,9 +1,13 @@
 import { StateSchema } from '@/global/providers/StoreProvider';
 
 export const getIsImageCroppedWideFileValidationError = (state: StateSchema): boolean => {
-    const errors = state.addNewTrack.validationErrors.imageCroppedWideFile
+    const errors = state?.addNewTrack?.validationErrors.imageCroppedWideFile
+
+    if (!errors) return false
 
     const entries = Object.entries(errors)
+
+    if (!errors) return false
 
     for (let entry in entries) {
         const [errorKey, flag]: [string, boolean] = entries[entry]
