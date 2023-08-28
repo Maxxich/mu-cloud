@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { getIsPaused } from '../model/selectors/getIsPaused'
+import { getIsPaused } from '../model/selectors/getIsPaused/getIsPaused'
 import { useAudio } from '@/shared/lib/useAudio/useAudio'
 import { playerActions } from '../model/slices/playerSlice'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
