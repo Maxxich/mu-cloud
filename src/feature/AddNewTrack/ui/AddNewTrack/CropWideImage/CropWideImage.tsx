@@ -53,6 +53,8 @@ export const CropWideImage: React.FunctionComponent = () => {
         minHeight={1080}
         minWidth={1920}
         title='Плеер'
+        testId='crop-wide'
+        continueButtonTestId='wide-continue'
       />
   );
 };

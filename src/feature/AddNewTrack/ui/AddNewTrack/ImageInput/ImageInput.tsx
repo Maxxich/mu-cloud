@@ -43,7 +43,7 @@ export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
 
     const onChangeFileUndefined = useCallback(() => {
         setImageFile(undefined)
-                setImageCroppedWideFile(undefined)
+        setImageCroppedWideFile(undefined)
         setImageCroppedSquareFile(undefined)
     }, [setImageFile, setImageCroppedWideFile, setImageCroppedSquareFile])
 
@@ -57,6 +57,8 @@ export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
         initialFile={getImageFile() as File}
         isError={isError}
         className={className}
+        data-testid={'image-input-button'}
+        inputTestId={'input'}
     />
   );
 })

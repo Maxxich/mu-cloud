@@ -54,6 +54,8 @@ export const CropSquareImage: React.FunctionComponent = () => {
         minHeight={700}
         minWidth={700}
         title='Миниатюра'
+        testId='crop-square'
+        continueButtonTestId='square-continue'
       />
   );
 };
