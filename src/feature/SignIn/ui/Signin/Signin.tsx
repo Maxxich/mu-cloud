@@ -3,10 +3,8 @@
 import cls from './Signin.module.scss'
 import { memo } from 'react'
 import { Input } from '@/shared/ui/Input/Input'
-import { Text } from '@/shared/ui/Text/Text';
 import { Form } from '@/shared/ui/Form/Form';
 import { Button } from '@/shared/ui/Button/Button';
-
 import { useCallback, SyntheticEvent, ChangeEvent } from 'react'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { signInByEmail } from '../../model/services/signIn'
@@ -15,26 +13,21 @@ import { getPassword } from '../../model/selectors/getPassword'
 import { getEmail } from '../../model/selectors/getEmail'
 import { signinActions, signinReducer } from '../../model/slices/signinSlice'
 import { getStatus } from '../../model/selectors/getStatus'
-import { getErrorMessage } from '../../model/selectors/getErrorMessage'
 import { useRedirectIfSignedIn } from '@/entity/viewer'
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { FormError } from './FormError/FormError';
 
-interface SigninProps {
-    className?: string;
-}
 
 const reducers: ReducersList = {
     signin: signinReducer,
 };
 
-export const SignIn = memo((props: SigninProps) => {
-    const { className } = props
+export const SignIn = memo(() => {
     const dispatch = useAppDispatch()
 
     const email = useSelector(getEmail)
     const password = useSelector(getPassword)
     const status = useSelector(getStatus)
-    const errorMessage = useSelector(getErrorMessage)
 
     useRedirectIfSignedIn()
 
@@ -54,7 +47,7 @@ export const SignIn = memo((props: SigninProps) => {
     
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Form margin='auto' onSubmit={onFormSubmit} className={className}>
+            <Form margin='auto' onSubmit={onFormSubmit} className={cls.form}>
                 <Input
                     label='Email'
                     value={email}
@@ -73,13 +66,8 @@ export const SignIn = memo((props: SigninProps) => {
                         : 'Войти'
                     }
                 </Button>
-                {errorMessage && <Text 
-                    variant='error'
-                    className={cls.error}
-                >
-                    {errorMessage}
-                </Text>}
             </Form>
+            <FormError/>
         </DynamicModuleLoader>
     )
 })
