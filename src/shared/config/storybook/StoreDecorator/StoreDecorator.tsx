@@ -1,5 +1,6 @@
+import { StateSchema, StoreProvider } from '@/global/providers/StoreProvider';
 import { StoryFn } from '@storybook/react';
-import { StateSchema, StoreProvider } from '@/global/providers/StoreProvider/StoreProvider';
+
 
 
 export const StoreDecorator =
