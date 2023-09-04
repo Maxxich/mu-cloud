@@ -28,23 +28,23 @@ const FormRoot: React.FunctionComponent<IFormProps> = ({
 };
 
 
-interface IErrorProps extends React.FormHTMLAttributes<HTMLDivElement> {
+interface IBoxProps extends React.FormHTMLAttributes<HTMLDivElement> {
   children: React.ReactNode,
   margin?: Margin
   className?: string
 }
 
-const Error: React.FunctionComponent<IErrorProps> = ({
+const Box: React.FunctionComponent<IBoxProps> = ({
   children,
   margin = 'none',
   className,
   ...rest
 }) => {
 return (
-  <div className={classNames(cls.form, cls.error, cls[mapMarginToClass[margin]], className)} {...rest}>
+  <div className={classNames(cls.form, cls.box, cls[mapMarginToClass[margin]], className)} {...rest}>
       {children}
   </div>
 );
 };
 
-export const Form = Object.assign(FormRoot, { Error })
+export const Form = Object.assign(FormRoot, { Box })
