@@ -16,6 +16,7 @@ import { getStatus } from '../../model/selectors/getStatus'
 import { useRedirectIfSignedIn } from '@/entity/viewer'
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { FormError } from './FormError/FormError';
+import { SignUpRedirect } from './SignUpRedirect/SignUpRedirect';
 
 
 const reducers: ReducersList = {
@@ -67,6 +68,7 @@ export const SignIn = memo(() => {
                     }
                 </Button>
             </Form>
+            <SignUpRedirect/>
             <FormError/>
         </DynamicModuleLoader>
     )
