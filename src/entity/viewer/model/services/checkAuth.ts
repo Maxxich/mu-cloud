@@ -22,11 +22,13 @@ export const checkAuth = createAsyncThunk<void, void>('viewer/check-auth', async
 
 
     try {
-        dispatch(viewerActions.setChecking(true));
         const response = await fetch('http://localhost:5001/auth-private/check-auth', {
             credentials: 'include'
         })
 
+        if (response.status !== 200) {
+            throw new Error()
+        }
         //@ts-ignore
         const data = await response.json() as SuccessResponse
 

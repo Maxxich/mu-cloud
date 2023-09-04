@@ -4,7 +4,7 @@ import { ViewerSchema } from '../..';
 
 
 const initialState: ViewerSchema = {
- checking: false
+ checking: true
 }
 
 const slice = createSlice({
@@ -18,6 +18,7 @@ const slice = createSlice({
       state.name = action.payload.name
       state.picture_source = action.payload.picture_source
       state.access_token = action.payload.access_token
+      state.checking = action.payload.checking
     },
     logOut: (state: ViewerSchema) => {
       state.id = undefined
