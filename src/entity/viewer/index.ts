@@ -1,6 +1,7 @@
 export type { ViewerSchema } from './model/types/viewerSchema'
 export { viewerReducer, viewerActions } from './model/slices/viewerSlice'
 export { useRedirectIfSignedIn } from './lib/useRedirectIfSignedIn'
+export { useCheckIsAuthOnRefresh } from './lib/useCheckIsAuthOnRefresh'
 export { getIsViewerSignedIn } from './model/selectors/getIsViewerSignedIn/getIsViewerSignedIn'
 export { getViewerPictureSources } from './model/selectors/getViewerPictureSource/getViewerPictureSources'
 export { getViewerId } from './model/selectors/getViewerId/getViewerId'
