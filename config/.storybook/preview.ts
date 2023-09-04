@@ -3,6 +3,7 @@ import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator
 import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator"
 import { PortalsDecorator } from "../../src/shared/config/storybook/PortalsDecorator/PortalsDecorator"
 import { Theme } from "../../src/shared/const/theme"
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
 
 const preview: Preview = {
   parameters: {
@@ -12,6 +13,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    nextRouter: {
+      Provider: AppRouterContext.Provider,
     },
   },
   decorators: [
