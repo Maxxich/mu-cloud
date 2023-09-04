@@ -2,6 +2,7 @@ import { PlayerSchema } from '@/entity/player'
 import { ViewerSchema } from '@/entity/viewer'
 import { AddNewTrackSchema } from '@/feature/AddNewTrack'
 import { SigninSchema } from '@/feature/SignIn'
+import { SignupSchema } from '@/feature/SignUp'
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 
 export interface StateSchema {
@@ -10,6 +11,7 @@ export interface StateSchema {
 
     // Async reducers
     signin?: SigninSchema
+    signup?: SignupSchema
     addNewTrack?: AddNewTrackSchema
 }
 
