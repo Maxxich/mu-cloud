@@ -39,7 +39,8 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
             headers: {
                 'Content-Type': 'application/json',
 
-              },
+            },
+            credentials: 'include'
         })
 
 

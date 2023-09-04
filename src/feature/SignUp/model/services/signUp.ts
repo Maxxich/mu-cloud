@@ -55,7 +55,8 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
             body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json',
-              },
+            },
+            credentials: 'include'
         })
         
         if (response.status === 500) {
