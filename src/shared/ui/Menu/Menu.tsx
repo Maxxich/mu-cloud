@@ -10,6 +10,10 @@ interface IMenuProps {
     onClose: (e: SyntheticEvent<HTMLDivElement>) => void
 }
 
+type CloseMenuEvent = SyntheticEvent<HTMLDivElement | HTMLButtonElement | HTMLAnchorElement>
+
+type OpenMenuEvent = SyntheticEvent<HTMLButtonElement>
+
 const MenuRoot: React.FunctionComponent<IMenuProps> = ({
     isOpen,
     children,
@@ -100,5 +104,5 @@ const Link: React.FunctionComponent<IMenuLinkProps> = ({
 };
 
 export const Menu = Object.assign(MenuRoot, { Button, Link })
-
+export type { OpenMenuEvent, CloseMenuEvent }
 
