@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: calc((100% - 190px) / 2);
+    justify-content: center;
+}
+
+.link {
+    font-size: 15px;
+    white-space: nowrap;
+    color: var(--secondary-color);
+
+    &:hover{
+    text-decoration: underline;
+    }
+}
+
+.primary {
+    color: var(--primary-color);
+}

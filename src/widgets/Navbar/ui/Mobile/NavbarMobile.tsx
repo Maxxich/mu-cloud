@@ -9,7 +9,7 @@ import IconLoupe from '@/shared/assets/svg/Loupe.svg'
 interface INavBarProps {
 }
 
-export const NavbarMobile: React.FunctionComponent<INavBarProps> = (props) => {
+const NavbarMobile: React.FunctionComponent<INavBarProps> = (props) => {
   return ( 
     <div className={cls.container}>
       <NavLink
@@ -32,3 +32,5 @@ export const NavbarMobile: React.FunctionComponent<INavBarProps> = (props) => {
     </div>  
   );
 };
+
+export default NavbarMobile

@@ -1,0 +1,27 @@
+.container {
+    height: 50px;
+    flex: 0 0 50px;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+}
+
+.nav {
+    margin: 0 auto;
+    position: relative;
+    display: flex; 
+    align-items: center;
+    gap: 40px;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 16px;
+
+    @media(min-width: 1280px ){
+        width: 1280px;
+    }
+}

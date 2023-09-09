@@ -9,7 +9,7 @@ type ButtonVariant = 'default' | 'secondary'
 interface IBaseIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: React.ReactElement
   variant?: ButtonVariant
-  size?: 'm' | 'l' | 'xl',
+  size?: 's' | 'm' | 'l' | 'xl',
   className?: string,
 }
 

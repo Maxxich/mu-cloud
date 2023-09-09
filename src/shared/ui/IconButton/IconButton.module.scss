@@ -47,6 +47,13 @@
   }
 }
 
+.s {  
+  & svg {
+    height: var(--font-line-s);
+    width: var(--font-line-s);
+  }
+}
+
 .m {  
     & svg {
       height: var(--font-line-m);
