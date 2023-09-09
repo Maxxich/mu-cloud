@@ -4,6 +4,7 @@ import { playerReducer } from '@/entity/player';
 import { StateSchema } from './StateSchema';
 import { viewerReducer } from '@/entity/viewer';
 import { createReducerManager } from './ReducerManager';
+import { rtkApi } from '@/shared/api';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -13,6 +14,7 @@ export function createReduxStore(
     ...asyncReducers,
     player: playerReducer,
     viewer: viewerReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -20,7 +22,9 @@ export function createReduxStore(
   const store = configureStore({
       reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
       preloadedState: initialState,
-      devTools: true
+      devTools: true,
+      middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(rtkApi.middleware),
   });
   // @ts-ignore
   store.reducerManager = reducerManager;

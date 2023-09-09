@@ -1,6 +1,5 @@
 .input {
     appearance: none;
-    appearance: none;
     background: transparent;
     cursor: pointer;
     width: 100%;
@@ -18,7 +17,6 @@
     }
 
     &::-webkit-slider-thumb {
-      appearance: none;
       appearance: none;
       margin-top: -5px; 
       border-radius: 50%;

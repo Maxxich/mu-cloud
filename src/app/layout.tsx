@@ -4,6 +4,8 @@ import { StoreProvider } from '@/global/providers/StoreProvider'
 import { ThemeProvider } from '@/global/providers/ThemeProvider'
 import { PlayerProvider } from '@/global/providers/PlayerProvider/PlayerProvider'
 import { AudioProvider } from '@/global/providers/AudioProvider'
+import { Navbar } from '@/widgets/Navbar'
+import { CheckIsAuth } from '@/feature/CheckIsAuth'
 
 export const metadata: Metadata = {
   title: 'MuCloud',
@@ -24,7 +26,9 @@ export default function RootLayout({
       }}>
         <html lang="en">
           <body>
+              <CheckIsAuth/>
               {children}
+              <Navbar/>
             <AudioProvider>
               <PlayerProvider/>
             </AudioProvider>

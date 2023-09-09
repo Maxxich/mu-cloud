@@ -1,6 +1,6 @@
-import { Header } from "entities/UI"
-import { Button } from "shared/UI"
-import styled from "styled-components"
+import { Header } from 'entities/UI'
+import { Button } from 'shared/UI'
+import styled from 'styled-components'
 
 export const CropperContainer = styled.div`
 

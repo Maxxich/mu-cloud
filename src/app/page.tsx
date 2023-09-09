@@ -2,7 +2,11 @@ import { TracksResponse } from '@/entity/track'
 import { Tracklist } from '@/feature/Tracklist'
 
 async function getData(): Promise<TracksResponse> {
-  const res = await fetch('http://localhost:5001/tracks/search')
+  const res = await fetch('http://localhost:5001/tracks/search', {
+    next: { 
+      revalidate: 1,
+    },
+  })
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
@@ -17,6 +21,7 @@ async function getData(): Promise<TracksResponse> {
 export default async function Home() {
 
   const data = await getData()
+  console.log(data)
 
 
   return (

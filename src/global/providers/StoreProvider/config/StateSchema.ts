@@ -3,11 +3,13 @@ import { ViewerSchema } from '@/entity/viewer'
 import { AddNewTrackSchema } from '@/feature/AddNewTrack'
 import { SigninSchema } from '@/feature/SignIn'
 import { SignupSchema } from '@/feature/SignUp'
+import { rtkApi } from '@/shared/api'
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 
 export interface StateSchema {
     player: PlayerSchema
     viewer: ViewerSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // Async reducers
     signin?: SigninSchema
