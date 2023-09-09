@@ -7,15 +7,15 @@ import { getViewerPictureSources, viewerActions } from '@/entity/viewer';
 import { backendUrl } from '@/shared/const/backendUrl';
 import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall';
 import cls from './Signed.module.scss'
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 
 export const SignedIn: React.FunctionComponent = () => {
 
-    const pictures = useSelector(getViewerPictureSources)
+    const session = useSession()
+    
+    const pictures = session?.data?.user.picture_source
     const logout = () => {
-      signOut({
-        callbackUrl: '/'
-      })
+      signOut()
     }
 
   return (

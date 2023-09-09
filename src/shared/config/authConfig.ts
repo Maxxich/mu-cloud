@@ -71,4 +71,8 @@ async function refreshToken(token: JWT): Promise<JWT> {
         return session;
       },
     },
+
+    pages: {
+        signIn: '/signin'
+    }
   };

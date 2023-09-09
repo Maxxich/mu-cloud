@@ -1,7 +1,8 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-import { baseQueryWithReauth } from '../config/config'
+import { baseQuery } from '../config/config'
 
 export const rtkApi = createApi({
-  baseQuery: baseQueryWithReauth,
+  baseQuery: baseQuery,
   endpoints: () => ({}),
+  tagTypes: ['Liked']
 })

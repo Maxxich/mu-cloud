@@ -1,20 +1,36 @@
 import { IconButton } from '@/shared/ui/IconButton/IconButton'
-import IconHeartStroke from '@/shared/assets/svg/HeartStroke.svg'
+import HeartFill from '@/shared/assets/svg/HeartFill.svg'
+import HeartStorke from '@/shared/assets/svg/HeartStroke.svg'
+import { trackApi } from '@/entity/track';
+import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { getSelectedTrackId } from '@/entity/player';
 
 
 interface IToggleLikeTrackProps {
-  // id: number
+  id: number
 }
 
 export const ToggleLike: React.FunctionComponent<IToggleLikeTrackProps> = ({
-  // id
+  id
 }) => {
+  
+  const { data: liked } = trackApi.useIsInLikedQuery({id})
+  const [addTrigger] = trackApi.useAddToLikedMutation()
+  const [removeTrigger] = trackApi.useRemoveFromLikedMutation()
+  
+  const icon = liked ? <HeartFill/> : <HeartStorke/>
+
+  const onClick = useCallback(() => {
+    if (liked) removeTrigger({id})
+    else addTrigger({id})
+  }, [removeTrigger, addTrigger, liked, id])
 
   return (
     <IconButton
-      // onClick={KUhandleClick}
-      icon={<IconHeartStroke/>}
-      size={'m'}
+      onClick={onClick}
+      icon={icon}
+      size={'s'}
     />
   );
 };

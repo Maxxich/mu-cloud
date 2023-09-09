@@ -1,3 +1,4 @@
+import { getSession } from 'next-auth/react'
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getName } from '../selectors/getName';
 import { getNameSecondary } from '../selectors/getNameSecondary';
@@ -28,10 +29,11 @@ export const upload = createAsyncThunk('AddNewTrack/upload', async (
     const audioFileMimeType = getAudioFileMimeType(getState())
     // @ts-ignore
     const imageFileMimeType = getImageFileMimeType(getState())
-    // @ts-ignore
-    const viewerId = getViewerId(getState())
-    // @ts-ignore
-    const accessToken = getAccessToken(getState())
+
+    const session = await getSession()
+
+    const viewerId = session?.user.id
+    const accessToken = session?.backendTokens.accessToken
 
 
     dispatch(AddNewTrackActions.validateName(name))

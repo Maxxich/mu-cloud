@@ -6,9 +6,14 @@ import { NavLink } from '../NavLink/NavLink';
 import IconUser from '@/shared/assets/svg/User.svg'
 // import Image from 'next/image';
 import { getIsViewerSignedIn, getViewerPictureSources } from '@/entity/viewer';
-import cls from './User.module.scss'
+
 import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall';
 import { Image } from '@/shared/ui/Image/Image';
+import { useSession } from 'next-auth/react'
+import { backendUrl } from '@/shared/const/backendUrl';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Signed } from './Signed';
 
 interface IUserProps {
 }
@@ -17,25 +22,20 @@ interface IUserProps {
 
 export const User: React.FunctionComponent<IUserProps> = (props) => {
 
-  const isSigned = useSelector(getIsViewerSignedIn)
-  const picture_source = useSelector(getViewerPictureSources)
-  const src = picture_source 
-    ? (picture_source.small
-      ? ('http://localhost:5001/' + picture_source.small) 
-      : ('http://localhost:5001/' + avatarPlaceholderSmall))
-    : 'http://localhost:5001/' + avatarPlaceholderSmall
+  const session = useSession()
+    
+  if (session.status === 'authenticated') return (
+    <Signed/>
+  )
 
-  if (isSigned) return (
-    <Link href={'/profile'} style={{width: 60}}>
-      <Image
-        src={src}
-        alt=''
-        variant='circle'
-        backlight
-        size='xs'
-        className={cls.image}
+  if (session.status === 'loading') return (
+    <div style={{width: 60, display: 'flex', justifyContent: 'space-around'}}>
+      <Skeleton
+        borderRadius='50%'
+        width={30}
+        height={30}
       />
-    </Link>
+    </div>
   )
 
   return (

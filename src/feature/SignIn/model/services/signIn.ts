@@ -2,6 +2,7 @@ import { viewerActions } from '@/entity/viewer';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getPassword } from '../selectors/getPassword';
 import { getEmail } from '../selectors/getEmail';
+import { signIn } from 'next-auth/react'
 
 interface SuccessResponse {
     adress: string,
@@ -33,32 +34,35 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
     }
 
     try {
-        const response = await fetch('http://localhost:5001/auth/signin', {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: {
-                'Content-Type': 'application/json',
-
-            },
-            credentials: 'include'
+        alert(new URLSearchParams(window.location.search).get('callbackUrl'))
+        alert(new URL(location.href).searchParams.get('callbackUrl'))
+        const response = await signIn('credentials', {
+            email,
+            password,
+            redirect: false,
+            callbackUrl: new URL(location.href).searchParams.get('callbackUrl') ?? undefined
         })
 
+
+        if (!response) {
+            return rejectWithValue('Сервер недоступен')
+        }
 
         if (response.status == 400) {
             return rejectWithValue('Неверные данные для входа');
         }
         
-        if (response.status !== 200) {
+        if (!response.ok) {
             return rejectWithValue('Сервер недоступен')
         }
 
         //@ts-ignore
-        const data = await response.json() as SuccessResponse
+        // const data = await response.json() as SuccessResponse
 
-        dispatch(viewerActions.setCredentials({
-            ...data,
-            checking: false
-        }));
+        // dispatch(viewerActions.setCredentials({
+        //     ...data,
+        //     checking: false
+        // }));
 
         return 
     } catch (e) {

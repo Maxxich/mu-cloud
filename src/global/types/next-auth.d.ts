@@ -1,13 +1,9 @@
+import { User } from '@/entity/user';
 import NextAuth from 'next-auth';
 
 declare module 'next-auth' {
   interface Session {
-    user: {
-      id: number;
-      email: string;
-      name: string;
-      adress: string;
-    };
+    user: User
 
     backendTokens: {
       accessToken: string;

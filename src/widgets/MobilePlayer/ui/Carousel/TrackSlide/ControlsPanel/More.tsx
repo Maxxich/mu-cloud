@@ -9,7 +9,7 @@ export const More: React.FunctionComponent<IMoreTrackProps> = (props) => {
   return (
     <IconButton
       icon={<IconMore/>}
-      size={'m'}
+      size={'s'}
     />
   );
 };
