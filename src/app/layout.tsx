@@ -6,6 +6,7 @@ import { PlayerProvider } from '@/global/providers/PlayerProvider/PlayerProvider
 import { AudioProvider } from '@/global/providers/AudioProvider'
 import { Navbar } from '@/widgets/Navbar'
 import { CheckIsAuth } from '@/feature/CheckIsAuth'
+import { SessionProvider } from '@/global/providers/SessionProvider/SessionProvider'
 
 export const metadata: Metadata = {
   title: 'MuCloud',
@@ -19,22 +20,24 @@ export default function RootLayout({
 }) {
   return (
     <ThemeProvider>
-      <StoreProvider initialState={{
-        player: {
-          currentTrackId: 1
-        }
-      }}>
-        <html lang="en">
-          <body>
-              <CheckIsAuth/>
-              {children}
-              <Navbar/>
-            <AudioProvider>
-              <PlayerProvider/>
-            </AudioProvider>
-          </body>
-        </html>
-      </StoreProvider>
+      <SessionProvider>
+        <StoreProvider initialState={{
+          player: {
+            currentTrackId: 1
+          }
+        }}>
+          <html lang="en">
+            <body>
+                <CheckIsAuth/>
+                {children}
+                <Navbar/>
+              <AudioProvider>
+                <PlayerProvider/>
+              </AudioProvider>
+            </body>
+          </html>
+        </StoreProvider>
+      </SessionProvider>
     </ThemeProvider>
   )
 }

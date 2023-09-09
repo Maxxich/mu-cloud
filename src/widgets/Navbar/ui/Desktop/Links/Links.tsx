@@ -15,6 +15,10 @@ const LinksData: ILinkProps[] = [
         children: 'Добавить трек',
         href: '/upload'
     },
+    {
+        children: 'Профиль',
+        href: '/profile'
+    },
 ]
 
 interface ILinksProps {

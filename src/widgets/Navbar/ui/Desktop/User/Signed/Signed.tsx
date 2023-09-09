@@ -7,16 +7,16 @@ import { getViewerPictureSources, viewerActions } from '@/entity/viewer';
 import { backendUrl } from '@/shared/const/backendUrl';
 import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall';
 import cls from './Signed.module.scss'
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { useCallback } from 'react';
+import { signOut } from 'next-auth/react';
 
 export const SignedIn: React.FunctionComponent = () => {
 
     const pictures = useSelector(getViewerPictureSources)
-    const dispatch = useAppDispatch()
-    const logout = useCallback(() => {
-        dispatch(viewerActions.logOut())
-    }, [dispatch])
+    const logout = () => {
+      signOut({
+        callbackUrl: '/'
+      })
+    }
 
   return (
     <div className={cls.container}>

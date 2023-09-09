@@ -9,7 +9,7 @@ export const NotSigned: React.FunctionComponent<IDefaultProps> = (props) => {
   return (
     <div className={cls.container}>
         <Link
-            href={'/signin'} 
+            href={'/api/auth/signin'} 
         >
             Войти
         </Link>
