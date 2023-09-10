@@ -1,11 +1,9 @@
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { Dispatch, SetStateAction } from 'react';
 import cls from './BottomPanel.module.scss'
-import Icon from '@/shared/assets/svg/svg.svg'
-import { ActiveSlide } from '../Carousel/Carousel';
-import { Dispatch, SetStateAction, useCallback } from 'react';
 import { Repeat } from './Repeat';
 import { Shuffle } from './Shuffle';
 import { ToggleSlide } from './ToggleSlide/ToggleSlide';
+import { ActiveSlide } from '../Carousel/Carousel';
 
 interface IBottomPanelProps {
     setActiveSlide:  Dispatch<SetStateAction<ActiveSlide>>

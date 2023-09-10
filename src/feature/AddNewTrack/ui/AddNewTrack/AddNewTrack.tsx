@@ -1,14 +1,14 @@
 'use client'
 
 import { memo } from 'react'
-import { FilesProvider } from '../../model/filesStorage/FilesProvider/FilesProvider';
 import { useSelector } from 'react-redux';
-import { getTab } from '../../model/selectors/getTab';
-import { Tab } from '../../model/types/AddNewTrackSchema';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { Form } from './Form/Form';
 import { CropWideImage } from './CropWideImage/CropWideImage';
 import { CropSquareImage } from './CropSquareImage/CropSquareImage';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { FilesProvider } from '../../model/filesStorage/FilesProvider/FilesProvider';
+import { getTab } from '../../model/selectors/getTab';
+import { Tab } from '../../model/types/AddNewTrackSchema';
 import { AddNewTrackReducer } from '../../model/slices/AddNewTrackSlice';
 
 const Tabs: Record<Tab, React.ReactElement> = {

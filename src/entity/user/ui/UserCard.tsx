@@ -1,10 +1,10 @@
-import { Image, ImageSize } from '@/shared/ui/Image/Image';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Link from 'next/link';
-import cls from './UserCard.module.scss'
 import classNames from 'classnames'
 import { isDesktop } from 'react-device-detect';
 import { memo } from 'react'
+import { Image, ImageSize } from '@/shared/ui/Image/Image';
+import cls from './UserCard.module.scss'
 
 type Variant = 'column' | 'row'
 

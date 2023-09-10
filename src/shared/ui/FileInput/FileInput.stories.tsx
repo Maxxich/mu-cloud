@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { FileInput } from './FileInput'
 import Icon from '@/shared/assets/svg/svg.svg'
+import { FileInput } from './FileInput'
 
 const meta = {
 	title: 'shared/FileInput',

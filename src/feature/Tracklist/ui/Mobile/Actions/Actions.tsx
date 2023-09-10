@@ -1,10 +1,10 @@
+import { SyntheticEvent } from 'react';
+import { Url } from 'next/dist/shared/lib/router/router';
 import { Like } from './Like';
 import { AddToPlaylist } from './AddToPlaylist';
 import { Download } from './Download';
 import { Share } from './Share';
-import { SyntheticEvent } from 'react';
 import { GoToUser } from './GoToUser';
-import { Url } from 'next/dist/shared/lib/router/router';
 
 interface IActionsProps {
     id: number,

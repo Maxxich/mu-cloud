@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { SignUp } from './SignUp'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { SignUp } from './SignUp'
 
 const meta = {
 	title: 'features/SignUp',

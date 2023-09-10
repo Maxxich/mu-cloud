@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { TrackCardDesktop } from './TrackCardDesktop'
 import Picture from '@/shared/assets/images/images.jpg'
+import { TrackCardDesktop } from './TrackCardDesktop'
 
 const meta = {
 	title: 'feature/TrackCardDesktop',

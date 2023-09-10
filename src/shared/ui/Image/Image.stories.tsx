@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Image } from './Image'
 import Picture from '@/shared/assets/images/images.jpg'
 import Svg from '@/shared/assets/svg/svg.svg'
+import { Image } from './Image'
 
 const meta = {
 	title: 'shared/Image',
@@ -15,7 +15,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>;
 
-const Addon = <Svg style={{positon: 'absolute', top: '50%', left: '50%', fill: '#fff'}}/>
+const Addon = <Svg style={{ positon: 'absolute', top: '50%', left: '50%', fill: '#fff' }}/>
 
 const args: Story['args'] = {
 	alt: 'source',

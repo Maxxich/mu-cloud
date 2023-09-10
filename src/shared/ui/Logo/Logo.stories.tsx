@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Logo } from './Logo'
-import Icon from '@/shared/assets/svg/svg.svg'
-import { SyntheticEvent } from 'react'
 
 const meta = {
 	title: 'shared/Logo',

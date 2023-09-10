@@ -1,5 +1,5 @@
 export { playerActions, playerReducer } from './model/slices/playerSlice'
-export type {PlayerSchema} from './model/types/playerSchema'
+export type { PlayerSchema } from './model/types/playerSchema'
 export { getIsPaused } from './model/selectors/getIsPaused/getIsPaused'
 export { getSelectedTrackId } from './model/selectors/getSelectedTrackId/getSelectedTrackId'
 export { getSelectedTrack } from './model/selectors/getSelectedTrack/getSelectedTrack'

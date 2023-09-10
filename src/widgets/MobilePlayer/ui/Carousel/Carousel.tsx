@@ -1,10 +1,10 @@
 import classNames from 'classnames'
+import { useSelector } from 'react-redux'
+import { Tracklist } from '@/feature/Tracklist'
+import { getPlaylist } from '@/entity/player'
 import cls from './Carousel.module.scss'
 import { TrackSlide } from './TrackSlide/TrackSlide'
 import { PlaylistSlide } from './PlaylistSlide/PlaylistSlide'
-import { Tracklist } from '@/feature/Tracklist'
-import { useSelector } from 'react-redux'
-import { getPlaylist } from '@/entity/player'
 
 export type ActiveSlide = 'track' | 'next'
 

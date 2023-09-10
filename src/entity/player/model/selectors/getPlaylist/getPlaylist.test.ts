@@ -1,8 +1,8 @@
 import { StateSchema } from '@/global/providers/StoreProvider';
+import { Track } from '@/entity/track';
 import {
     getPlaylist
 } from './getPlaylist';
-import { Track } from '@/entity/track';
 
 const track: Track = {
     audio_src: 'audio_src',

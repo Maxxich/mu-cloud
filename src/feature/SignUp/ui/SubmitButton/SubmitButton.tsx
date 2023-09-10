@@ -1,8 +1,8 @@
-import { Button } from '@/shared/ui/Button/Button';
-import { getStatus } from '../../model/selectors/getStatus'
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { SyntheticEvent, useCallback } from 'react';
+import { Button } from '@/shared/ui/Button/Button';
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
+import { getStatus } from '../../model/selectors/getStatus'
 import { signUpByEmail } from '../../model/services/signUp';
 import { getValidationError } from '../../model/selectors/getValidationError';
 

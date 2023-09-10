@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import cls from './Loader.module.scss'
 import { memo } from 'react'
+import cls from './Loader.module.scss'
 
 interface ILoaderProps {
   size?: 'm' | 'l' | 'xl'

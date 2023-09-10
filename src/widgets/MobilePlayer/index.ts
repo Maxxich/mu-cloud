@@ -1,1 +1,1 @@
-export {MobilePlayer} from './ui/MobilePlayer'
+export { MobilePlayer } from './ui/MobilePlayer'

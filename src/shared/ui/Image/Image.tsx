@@ -1,7 +1,7 @@
 import classNames from 'classnames'
-import cls from './Image.module.scss'
 import { default as NextImage } from 'next/image'
 import { memo } from 'react'
+import cls from './Image.module.scss'
 
 export type ImageSize = 'xs' | 's' | 'm' | 'l'
 
@@ -41,7 +41,7 @@ export const Image: React.FunctionComponent<IImage> = memo(({
   )
 
   const addonComp = addon && (
-    <div className={classNames(cls.addon, cls[variant], {[cls.showAddon]: showAddon, [cls.disableAddonHover]: disableAddonHover})}>
+    <div className={classNames(cls.addon, cls[variant], { [cls.showAddon]: showAddon, [cls.disableAddonHover]: disableAddonHover })}>
       {addon}
     </div>
   )

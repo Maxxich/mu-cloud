@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import * as React from 'react';
-import { Link, LinkProps, To } from 'react-router-dom';
+import { Link, To } from 'react-router-dom';
 import { IIcon } from 'shared/UI';
 import styled from 'styled-components';
 
@@ -54,7 +54,7 @@ export const Action: React.FunctionComponent<IActionProps> = ({
   const extraIconWithProps = React.Children.map(extraIcon, child => {
     if (!extraIcon) return <></>
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, {color: 'var(--secondary-color)', size: 18});
+      return React.cloneElement(child, { color: 'var(--secondary-color)', size: 18 });
     }
     return child;
   });

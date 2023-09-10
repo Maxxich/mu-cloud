@@ -1,8 +1,8 @@
 import { StateSchema } from '@/global/providers/StoreProvider';
+import { User } from '@/entity/user';
 import {
     getViewerPictureSources
 } from './getViewerPictureSources';
-import { User } from '@/entity/user';
 
 const picture_sources: User['picture_source'] = {
     big: 'big',

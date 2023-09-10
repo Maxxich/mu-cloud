@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import cls from './Backlight.module.scss'
 import { getSelectedTrack } from '@/entity/player';
+import cls from './Backlight.module.scss'
 
 interface IBacklightProps {
 }

@@ -1,6 +1,5 @@
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { SyntheticEvent } from 'react';
 import Icon from '@/shared/assets/svg/svg.svg'
-import { SyntheticEvent, useId } from 'react';
 import { Menu } from '@/shared/ui/Menu/Menu';
 
 

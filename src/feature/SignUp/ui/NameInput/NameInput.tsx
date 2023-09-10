@@ -1,10 +1,10 @@
+import { ChangeEvent, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
+import { Input } from '@/shared/ui/Input/Input';
 import { setName } from '../../model/services/setName';
 import { getIsNameValidationError } from '../../model/services/getIsNameValidationError';
 import { getName } from '../../model/selectors/fieldSelectors';
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { Input } from '@/shared/ui/Input/Input';
-import { ChangeEvent, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 
 export const NameInput: React.FunctionComponent = (props) => {
 

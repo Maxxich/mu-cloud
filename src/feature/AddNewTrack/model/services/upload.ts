@@ -6,7 +6,6 @@ import { getAudioFileMimeType } from '../selectors/getAudioFileMimeType';
 import { getImageFileMimeType } from '../selectors/getImageFileMimeType';
 import { AddNewTrackActions } from '../slices/AddNewTrackSlice';
 import { getValidationError } from '../selectors/getValidationError';
-import { getAccessToken, getViewerId } from '@/entity/viewer';
 
 interface Props {
     imageFile: FormDataEntryValue | null,

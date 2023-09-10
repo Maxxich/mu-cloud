@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Menu } from './Menu'
-import Icon from '@/shared/assets/svg/svg.svg'
 import { SyntheticEvent } from 'react'
+import Icon from '@/shared/assets/svg/svg.svg'
+import { Menu } from './Menu'
 
 const meta = {
 	title: 'shared/Menu',

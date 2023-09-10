@@ -1,8 +1,8 @@
 'use client'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { useAudio } from '@/shared/lib/useAudio/useAudio'
-import { useSelector } from 'react-redux'
 import { playerActions } from '../model/slices/playerSlice'
 import { getSelectedTrack } from '../model/selectors/getSelectedTrack/getSelectedTrack'
 

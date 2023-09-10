@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { validateEmail } from '@/shared/lib/validateEmail/validateEmail'
 import { ErrorMessage, SignupSchema } from '../types/signupSchema'
 import { signUpByEmail } from '../services/signUp'
 import { config } from '../config/config'
-import { validateEmail } from '@/shared/lib/validateEmail/validateEmail'
 
 const initialState: SignupSchema = {
     email: undefined,

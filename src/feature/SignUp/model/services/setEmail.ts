@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { signupActions, signupSlice } from '../slices/signupSlice';
+import { signupActions } from '../slices/signupSlice';
 
 export const setEmail = createAsyncThunk('signupSlice/setEmail', async (email: string, thunkApi) => {
     const { dispatch } = thunkApi;

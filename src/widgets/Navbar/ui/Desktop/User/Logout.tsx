@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Action } from './Action';
 import { IconLogout } from 'shared/UI';
 import { useAppDispatch } from 'app/model/store';
 import { logOut } from 'shared/model';
 import { useLazyLogoutQuery } from 'shared/api';
+import { Action } from './Action';
 
 interface ILogoutProps {
 }

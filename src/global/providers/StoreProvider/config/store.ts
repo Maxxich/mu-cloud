@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux'
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit'
 import { playerReducer } from '@/entity/player';
-import { StateSchema } from './StateSchema';
 import { viewerReducer } from '@/entity/viewer';
-import { createReducerManager } from './ReducerManager';
 import { rtkApi } from '@/shared/api';
+import { StateSchema } from './StateSchema';
+import { createReducerManager } from './ReducerManager';
 
 export function createReduxStore(
   initialState?: StateSchema,

@@ -1,6 +1,6 @@
 import React from 'react'
-import ThemeProvider from './ThemeProvider'
 import { Theme } from '@/shared/const/theme'
+import ThemeProvider from './ThemeProvider'
 
 export const withTheme = (Component: React.ComponentType) => {
     const withThemeComponent = () => {

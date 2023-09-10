@@ -2,12 +2,12 @@
 // import { InfoColumn, AuthorLink, TrackNameLink, Duration, DesktopHoverAddonGroup } from './UI';
 // import { IDesktopCard } from './types';
 import { SyntheticEvent, memo, useCallback, useState } from 'react';
-import { TrackImage } from './Image/Image';
-import cls from './TrackCardMobile.module.scss'
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import Icon from '@/shared/assets/svg/svg.svg'
 import { Menu } from '@/shared/ui/Menu/Menu';
+import cls from './TrackCardMobile.module.scss'
+import { TrackImage } from './Image/Image';
 import { Actions } from './Actions/Actions';
 import { IMobileCard } from '../../model/types/TrackCard';
 

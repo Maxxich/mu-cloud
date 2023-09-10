@@ -1,7 +1,7 @@
+import { useSelector } from 'react-redux'
+import { Form } from '@/shared/ui/Form/Form';
 import { getRequestErrorMessage } from '../../model/selectors/getRequestErrorMessage';
 import { getValidationError } from '../../model/selectors/getValidationError';
-import { Form } from '@/shared/ui/Form/Form';
-import { useSelector } from 'react-redux'
 
 interface IFormErrorProps {
 }

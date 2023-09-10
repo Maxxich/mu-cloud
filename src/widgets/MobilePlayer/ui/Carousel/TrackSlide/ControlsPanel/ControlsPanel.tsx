@@ -1,11 +1,11 @@
+import { useSelector } from 'react-redux';
+import { getSelectedTrackId } from '@/entity/player';
 import { TogglePause } from './TogglePause';
 import { SetPreviusTrack } from './SetPreviusTrack';
 import { SetNextTrack } from './SetNextTrack';
 import { ToggleLike } from './ToggleLike';
 import { More } from './More';
 import cls from './ControlsPanel.module.scss'
-import { getSelectedTrackId } from '@/entity/player';
-import { useSelector } from 'react-redux';
 
 
 

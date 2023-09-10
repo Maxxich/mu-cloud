@@ -1,11 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import cls from './NavLink.module.scss'
-import { Url } from 'next/dist/shared/lib/router/router'
 import { usePathname } from 'next/navigation'
 import classNames from 'classnames'
 import { memo } from 'react'
+import cls from './NavLink.module.scss'
 
 interface ILinkNavbarProps {
   href: string

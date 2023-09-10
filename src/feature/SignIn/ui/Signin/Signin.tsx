@@ -1,22 +1,22 @@
 'use client'
 
-import cls from './Signin.module.scss'
 import { memo } from 'react'
+import { useCallback, SyntheticEvent, ChangeEvent } from 'react'
+import { useSelector } from 'react-redux'
 import { Input } from '@/shared/ui/Input/Input'
 import { Form } from '@/shared/ui/Form/Form';
 import { Button } from '@/shared/ui/Button/Button';
-import { useCallback, SyntheticEvent, ChangeEvent } from 'react'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
+import { useRedirectIfSignedIn } from '@/entity/viewer'
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import cls from './Signin.module.scss'
+import { FormError } from './FormError/FormError';
+import { SignUpRedirect } from './SignUpRedirect/SignUpRedirect';
 import { signInByEmail } from '../../model/services/signIn'
-import { useSelector } from 'react-redux'
 import { getPassword } from '../../model/selectors/getPassword'
 import { getEmail } from '../../model/selectors/getEmail'
 import { signinActions, signinReducer } from '../../model/slices/signinSlice'
 import { getStatus } from '../../model/selectors/getStatus'
-import { useRedirectIfSignedIn } from '@/entity/viewer'
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { FormError } from './FormError/FormError';
-import { SignUpRedirect } from './SignUpRedirect/SignUpRedirect';
 
 
 const reducers: ReducersList = {

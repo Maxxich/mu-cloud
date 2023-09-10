@@ -1,8 +1,7 @@
-import { viewerActions } from '@/entity/viewer';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { signIn } from 'next-auth/react'
 import { getPassword } from '../selectors/getPassword';
 import { getEmail } from '../selectors/getEmail';
-import { signIn } from 'next-auth/react'
 
 interface SuccessResponse {
     adress: string,

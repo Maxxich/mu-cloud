@@ -1,7 +1,7 @@
 import { useContext, useCallback } from 'react'
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { FilesContext } from '../config/FilesContext'
 import { FormDataEntries } from '../config/types'
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { setAudioFileMimeType } from '../../services/setAudioFileMimeType'
 
 export const useAudioFile = ()  => {
@@ -22,5 +22,5 @@ export const useAudioFile = ()  => {
         return filesFormData.get(FormDataEntries.AUDIO_FILE)
     }, [filesFormData]) 
 
-    return { setAudioFile, getAudioFile}
+    return { setAudioFile, getAudioFile }
 }

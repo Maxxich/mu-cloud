@@ -1,16 +1,12 @@
 'use client'
 
 import { memo, useCallback } from 'react'
-import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { StateSchema } from '@/global/providers/StoreProvider';
 import { playerActions } from '@/entity/player';
+import { Track } from '@/entity/track';
 import { RightAddon } from './RightAddon';
-import { useEffect } from 'react'
 import { TogglePause } from './TogglePause';
 import cls from './PlayerMobile.module.scss'
-import { Track } from '@/entity/track';
-import { useAudio } from '@/shared/lib/useAudio/useAudio';
 
 interface PlayerProps {
     selectedTrack: Track

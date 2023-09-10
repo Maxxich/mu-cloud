@@ -1,1 +1,1 @@
-export {AuthProtection} from './ui/AuthProtection'
+export { AuthProtection } from './ui/AuthProtection'

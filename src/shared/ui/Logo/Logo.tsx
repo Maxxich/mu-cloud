@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import cls from './Logo.module.scss'
-import LogoSvg from '@/shared/assets/svg/Logo.svg'
 import classNames from 'classnames';
+import LogoSvg from '@/shared/assets/svg/Logo.svg'
+import cls from './Logo.module.scss'
 
 interface Props {
   className?: string 

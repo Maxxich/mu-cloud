@@ -1,8 +1,8 @@
 'use client'
 import * as React from 'react';
 
-import cls from './Button.module.scss'
 import classNames from 'classnames';
+import cls from './Button.module.scss'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactElement

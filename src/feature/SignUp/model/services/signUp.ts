@@ -1,5 +1,5 @@
-import { viewerActions } from '@/entity/viewer';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { viewerActions } from '@/entity/viewer';
 import { getPassword,getEmail, getName, getPasswordConfirm } from '../selectors/fieldSelectors';
 import { getValidationError } from '../selectors/getValidationError';
 import { signupActions } from '../slices/signupSlice';

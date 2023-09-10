@@ -1,6 +1,6 @@
+import { useId } from 'react';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import Icon from '@/shared/assets/svg/svg.svg'
-import { useId } from 'react';
 
 
 interface ILikeDesktopProps {

@@ -1,11 +1,11 @@
-import { Form as FormComp} from '@/shared/ui/Form/Form';
+import { Form as FormComp } from '@/shared/ui/Form/Form';
+import cls from './Form.module.scss'
 import { NameInput } from '../NameInput/NameInput';
 import { NameSecondaryInput } from '../NameSecondaryInput/NameSecondaryInput';
 import { AudioInput } from '../AudioInput/AudioInput';
 import { ImageInput } from '../ImageInput/ImageInput';
 import { Submit } from '../Submit/Submit';
 import { FormError } from '../FormError/FormError';
-import cls from './Form.module.scss'
 
 interface IFormProps {
 }

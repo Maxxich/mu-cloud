@@ -1,7 +1,7 @@
-import { ViewerSchema, viewerActions } from '@/entity/viewer';
-import { signUpByEmail } from './signUp';
-import { TestAsyncThunk } from '@/shared/lib/test/TestAsyncThunk/TestAsyncThunk';
 import fetch from 'jest-fetch-mock';
+import { ViewerSchema, viewerActions } from '@/entity/viewer';
+import { TestAsyncThunk } from '@/shared/lib/test/TestAsyncThunk/TestAsyncThunk';
+import { signUpByEmail } from './signUp';
 
 describe('signUpByEmail.test', () => {
     test('success signUpByEmail', async () => {

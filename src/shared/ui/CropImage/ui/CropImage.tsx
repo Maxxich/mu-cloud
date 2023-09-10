@@ -1,12 +1,12 @@
 'use client'
 import cls from './CropImage.module.scss'
 import Cropper, { ReactCropperElement } from 'react-cropper';
-import { useEffect, useCallback , useRef, useState, memo} from 'react'
+import { useEffect, useCallback , useRef, useState, memo } from 'react'
 import 'cropperjs/dist/cropper.css';
 import { isMobile } from 'react-device-detect';
 import classNames from 'classnames';
-import { Button } from '@/shared/ui/Button/Button';
 import { useMediaQuery } from 'react-responsive';
+import { Button } from '@/shared/ui/Button/Button';
 import './style.css'
 
 interface ICropper {
@@ -91,7 +91,7 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
   }
 
   return (
-    <div className={classNames(cls.wrapper)} style={{height}} data-testid={testId}>
+    <div className={classNames(cls.wrapper)} style={{ height }} data-testid={testId}>
       <div className={classNames(cls.container, mods)}>
         {/* <PositionHeader
           title={title}

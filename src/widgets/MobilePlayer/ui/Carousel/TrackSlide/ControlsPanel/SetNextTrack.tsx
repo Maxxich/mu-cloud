@@ -1,7 +1,7 @@
+import { useCallback } from 'react';
 import { IconButton } from '@/shared/ui/IconButton/IconButton'
 import IconNext from '@/shared/assets/svg/Next.svg'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { useCallback } from 'react';
 import { playerActions } from '@/entity/player';
 
 interface ISetNextTrackProps {

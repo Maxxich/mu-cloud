@@ -1,7 +1,7 @@
 import { useCallback, memo } from 'react'
+import { useSelector } from 'react-redux';
 import { FileInput } from '@/shared/ui/FileInput/FileInput';
 import { useAudioFile } from '../../../model/filesStorage/hooks/useAudioFile';
-import { useSelector } from 'react-redux';
 import { getIsAudioFileValidationError } from '../../../model/selectors/getIsAudioFileValidationError';
 
 interface IAudioInputProps {

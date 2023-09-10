@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Filter } from '../../Filter/Filter';
 import { Image } from '@/shared/ui/Image/Image';
-import { Animtaion } from '../../PlayingAnimation/Animation';
 import Icon from '@/shared/assets/svg/svg.svg'
 import cls from './Image.module.scss'
+import { Animtaion } from '../../PlayingAnimation/Animation';
+import { Filter } from '../../Filter/Filter';
 
 interface ITrackImageProps {
   active: boolean
@@ -31,7 +31,7 @@ export const TrackImage: React.FunctionComponent<ITrackImageProps> = React.memo(
 
   return (
     <button
-        style={{background: 'rgba(0,0,0,0)', padding: 0}}
+        style={{ background: 'rgba(0,0,0,0)', padding: 0 }}
     >
         <Image
             size={'s'}

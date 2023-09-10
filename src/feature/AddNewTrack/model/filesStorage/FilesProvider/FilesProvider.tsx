@@ -1,7 +1,7 @@
 'use client'
 import { memo, FunctionComponent } from 'react';
-import { FilesContext } from '../config/FilesContext';
 import { ClearFiles } from './ClearData';
+import { FilesContext } from '../config/FilesContext';
 
 
 const filesFormData = new FormData()

@@ -1,9 +1,9 @@
 'use client'
 
 import { useSelector } from 'react-redux'
-import { getIsViewerSignedIn } from '../model/selectors/getIsViewerSignedIn/getIsViewerSignedIn'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import { getIsViewerSignedIn } from '../model/selectors/getIsViewerSignedIn/getIsViewerSignedIn'
 
 export const useRedirectIfSignedIn = () => {
     const isSignedIn = useSelector(getIsViewerSignedIn)

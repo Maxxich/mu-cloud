@@ -1,8 +1,6 @@
-import { ViewerSchema, viewerActions } from '@/entity/viewer';
-import { StateSchema } from '@/global/providers/StoreProvider';
-import { backendUrl } from '@/shared/const/backendUrl';
-import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { getSession } from 'next-auth/react'
+import { backendUrl } from '@/shared/const/backendUrl';
 
 
 

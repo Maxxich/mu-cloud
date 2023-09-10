@@ -3,8 +3,25 @@
     "next/core-web-vitals",
     "plugin:storybook/recommended"
   ],
+  "plugins": ["unused-imports"],
   "rules": {
+    "unused-imports/no-unused-imports": "error",
     "quotes": ["error", "single"],
-    "react/no-unescaped-entities": "warn"
+    "react/no-unescaped-entities": "warn",
+    "object-curly-spacing": ["error", "always"],
+    "import/order": 
+    [
+        1, 
+        { "groups": 
+            [
+              "external", 
+              "builtin", 
+              "internal", 
+              "sibling", 
+              "parent", 
+              "index"
+            ]
+        } 
+      ] 
   }
 }

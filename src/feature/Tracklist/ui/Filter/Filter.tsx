@@ -1,5 +1,5 @@
-import cls from './Filter.module.scss'
 import { ReactElement, memo } from 'react';
+import cls from './Filter.module.scss'
 
 interface IFilterForActiveProps {
   children: ReactElement

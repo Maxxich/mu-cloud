@@ -1,6 +1,6 @@
-import { getErrorMessage } from '../../../model/selectors/getErrorMessage';
-import { Form } from '@/shared/ui/Form/Form';
 import { useSelector } from 'react-redux'
+import { Form } from '@/shared/ui/Form/Form';
+import { getErrorMessage } from '../../../model/selectors/getErrorMessage';
 
 interface IFormErrorProps {
 }

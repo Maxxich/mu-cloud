@@ -3,7 +3,6 @@ import { componentRender } from '@/shared/lib/test/componentRender/componentRend
 import '@testing-library/jest-dom'
 import { AddNewTrack } from './AddNewTrack';
 import Image from './Reason.png'
-import { StoreProvider } from '@/global/providers/StoreProvider';
 
 class FormDataMock {
     files: Record<string, File>

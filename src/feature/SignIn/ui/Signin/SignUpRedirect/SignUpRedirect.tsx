@@ -1,5 +1,5 @@
-import { Form } from '@/shared/ui/Form/Form';
 import Link from 'next/link';
+import { Form } from '@/shared/ui/Form/Form';
 import cls from './SignUpRedirect.module.scss'
 
 interface ISignUpRedirectProps {

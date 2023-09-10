@@ -1,10 +1,10 @@
+import { ChangeEvent, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
+import { Input } from '@/shared/ui/Input/Input';
 import { setPasswordConfirm } from '../../model/services/setPasswordConfirm';
 import { getPasswordConfirm } from '../../model/selectors/fieldSelectors';
 import { getIsPasswordConfirmValidationError } from '../../model/services/getIsPasswordConfirmValidationError';
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { Input } from '@/shared/ui/Input/Input';
-import { ChangeEvent, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 
 interface IProps {
     className?: string

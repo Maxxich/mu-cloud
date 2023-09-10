@@ -1,10 +1,10 @@
-import { NavLink } from './NavLink/NavLink';
-import cls from './NavbarMobile.module.scss';
-import { User } from './User/User';
 import IconHome from '@/shared/assets/svg/Home.svg'
 import IconLibrary from '@/shared/assets/svg/Library.svg'
 import IconUpload from '@/shared/assets/svg/Upload.svg'
 import IconLoupe from '@/shared/assets/svg/Loupe.svg'
+import { User } from './User/User';
+import cls from './NavbarMobile.module.scss';
+import { NavLink } from './NavLink/NavLink';
 
 interface INavBarProps {
 }

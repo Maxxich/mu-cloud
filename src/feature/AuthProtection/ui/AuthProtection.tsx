@@ -1,9 +1,9 @@
 'use client'
 
-import { getIsViewerChecking, getIsViewerSignedIn } from '@/entity/viewer';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation';
+import { getIsViewerChecking, getIsViewerSignedIn } from '@/entity/viewer';
 
 interface IAuthProtectionProps {
     children?: React.ReactNode

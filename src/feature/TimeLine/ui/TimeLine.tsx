@@ -2,13 +2,13 @@
 
 import { isBrowser } from 'react-device-detect';
 import { isMobile } from 'react-device-detect';
-import cls from './TimeLine.module.scss'
 import classNames from 'classnames';
-import { Input } from './Input/Input';
-import { Time } from './Time/Time';
 import { useSelector } from 'react-redux';
 import { getCurrentTrackTime, getCurrentTrackTimeLenght } from '@/entity/player';
 import { formatTime } from '@/shared/lib/formatTime/formatTime';
+import { Time } from './Time/Time';
+import { Input } from './Input/Input';
+import cls from './TimeLine.module.scss'
 
 interface ITimeLineProps {
     variant: 'mobile' | 'desktop'

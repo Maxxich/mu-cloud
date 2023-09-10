@@ -1,9 +1,9 @@
-import { upload } from '../../../model/services/upload';
-import { getValidationError } from '../../../model/selectors/getValidationError';
-import { Button } from '@/shared/ui/Button/Button';
 import { useCallback, SyntheticEvent } from 'react';
 import { useSelector } from 'react-redux';
+import { Button } from '@/shared/ui/Button/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
+import { getValidationError } from '../../../model/selectors/getValidationError';
+import { upload } from '../../../model/services/upload';
 import { useAudioFile } from '../../../model/filesStorage/hooks/useAudioFile';
 import { useImageFile } from '../../../model/filesStorage/hooks/useImageFile';
 import { useImageCroppedWideFile } from '../../../model/filesStorage/hooks/useImageCroppedWideFile';

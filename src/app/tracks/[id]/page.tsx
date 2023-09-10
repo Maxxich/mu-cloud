@@ -6,7 +6,7 @@ type Props = {
     }
 }
 
-export async function generateMetadata({params: { id }}: Props) {
+export async function generateMetadata({ params: { id } }: Props) {
     const track = await getTrack(Number(id))
     return {
         title: track.name + ' | ' + 'MuCloud'
@@ -27,7 +27,7 @@ async function getTrack(id: number) {
   return res.json()
 }
 
-export default async function TrackPage ({params: { id }}: Props) {
+export default async function TrackPage ({ params: { id } }: Props) {
     const track = await getTrack(Number(id))
     return (
         <Tracklist

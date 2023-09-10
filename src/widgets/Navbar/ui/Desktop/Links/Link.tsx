@@ -1,10 +1,9 @@
 'use client'
 
 import { default as NextLink } from 'next/link';
-import cls from './Links.module.scss'
-import { Url } from 'url';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
+import cls from './Links.module.scss'
 
 export interface ILinkProps {
     href: string

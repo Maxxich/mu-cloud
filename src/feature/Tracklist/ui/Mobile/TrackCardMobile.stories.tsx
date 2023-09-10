@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { TrackCardMobile } from './TrackCardMobile'
 import Picture from '@/shared/assets/images/images.jpg'
+import { TrackCardMobile } from './TrackCardMobile'
 
 const meta = {
 	title: 'feature/TrackCardMobile',

@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import cls from './Input.module.scss'
-import { useAudio } from '@/shared/lib/useAudio/useAudio';
 import { useSelector } from 'react-redux';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { useAudio } from '@/shared/lib/useAudio/useAudio';
 import { getCurrentTrackTime, getCurrentTrackTimeLenght } from '@/entity/player';
+import cls from './Input.module.scss'
 
 
 interface IInputProps {

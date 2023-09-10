@@ -1,9 +1,9 @@
 'use client'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { useAudio } from '@/shared/lib/useAudio/useAudio'
-import { useSelector } from 'react-redux'
 import { getRepeatTrackMode } from '../model/selectors/getRepeatTrackMode/getRepeatTrackMode'
-import { useEffect } from 'react'
 import { playerActions } from '../model/slices/playerSlice'
 
 export const useObserveChangeRepeatMode = () => {

@@ -1,5 +1,5 @@
-import { viewerActions } from '@/entity/viewer';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { viewerActions } from '@/entity/viewer';
 
 interface SuccessResponse {
     adress: string,

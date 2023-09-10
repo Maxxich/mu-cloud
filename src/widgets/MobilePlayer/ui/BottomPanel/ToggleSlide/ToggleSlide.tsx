@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import cls from './ToggleSlide.module.scss'
-import { ActiveSlide } from '../../Carousel/Carousel';
 import { Dispatch, SetStateAction, useCallback } from 'react';
 import IconPlaylist from '@/shared/assets/svg/Playlist.svg'
+import cls from './ToggleSlide.module.scss'
+import { ActiveSlide } from '../../Carousel/Carousel';
 
 interface IToggleSlideProps {
   activeSlide: ActiveSlide

@@ -2,12 +2,12 @@
 
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { isMobile } from 'react-device-detect';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { getIsPaused, getSelectedTrackId, playerActions } from '@/entity/player';
 import { Track } from '@/entity/track';
 import { TrackCardDesktop } from './Desktop/TrackCardDesktop';
 import { TrackCardMobile } from './Mobile/TrackCardMobile'
-import { isMobile } from 'react-device-detect';
 
 interface ITracklistProps {
     tracks: Track[]

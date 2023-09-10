@@ -3,7 +3,7 @@ import { rtkApi } from '@/shared/api';
 const trackApi = rtkApi.injectEndpoints({
     endpoints: (builder) => ({
         addToLiked: builder.mutation<void, {id: number}>({
-            query: ({id}) => ({
+            query: ({ id }) => ({
                 url: `/tracks-private/like/${id}`,
                 method: 'POST',
             }),
@@ -12,7 +12,7 @@ const trackApi = rtkApi.injectEndpoints({
         }), 
         
         removeFromLiked: builder.mutation<void, {id: number}>({
-            query: ({id}) => ({
+            query: ({ id }) => ({
                 url: `/tracks-private/like/${id}`,
                 method: 'DELETE',
             }),
@@ -20,7 +20,7 @@ const trackApi = rtkApi.injectEndpoints({
         }), 
     
         isInLiked: builder.query<boolean, {id: number}> ({
-            query: ({id}) => `/tracks-private/like/${id}`,
+            query: ({ id }) => `/tracks-private/like/${id}`,
             providesTags: ['Liked'],
         }),
     }),

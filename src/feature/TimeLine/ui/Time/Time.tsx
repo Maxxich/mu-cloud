@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import cls from './Time.module.scss'
 import { memo } from 'react';
+import cls from './Time.module.scss'
 
 
 

@@ -1,12 +1,12 @@
-import { getIsPlayerOpened, playerActions } from '@/entity/player'
 import { useSelector } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react'
+import { getIsPlayerOpened, playerActions } from '@/entity/player'
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import cls from './MobilePlayer.module.scss'
 import { ActiveSlide, Carousel } from './Carousel/Carousel';
 import { BottomPanel } from './BottomPanel/BottomPanel';
 import { CloseButton } from './CloseButton/CloseButton';
 import { Backlight } from './Backlight/Backlight';
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 
 interface IPlayerExpandedProps {
 }

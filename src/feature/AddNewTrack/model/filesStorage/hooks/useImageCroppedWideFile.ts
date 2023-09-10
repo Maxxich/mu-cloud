@@ -1,7 +1,7 @@
 import { useContext, useCallback } from 'react'
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { FilesContext } from '../config/FilesContext'
 import { FormDataEntries } from '../config/types'
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { setImageCroppedWideFileMimeType } from '../../services/setImageCroppedWideFileMimeType'
 
 

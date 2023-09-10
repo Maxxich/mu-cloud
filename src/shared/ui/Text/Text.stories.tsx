@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from './Text'
-import Icon from '@/shared/assets/svg/svg.svg'
 
 const meta = {
 	title: 'shared/Text',

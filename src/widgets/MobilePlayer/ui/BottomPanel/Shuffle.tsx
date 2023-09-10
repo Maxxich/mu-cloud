@@ -1,8 +1,8 @@
+import { useCallback } from 'react';
 import { playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import IconShuffle from '@/shared/assets/svg/Shuffle.svg'
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
-import { useCallback } from 'react';
 
 
 interface IShuffleProps {

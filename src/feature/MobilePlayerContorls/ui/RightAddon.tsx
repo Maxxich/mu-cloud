@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
+import { useCallback, SyntheticEvent } from 'react';
 import { getIsPaused, playerActions } from '@/entity/player';
 import IconNext from '@/shared/assets/svg/Next.svg'
 import IconXmark from '@/shared/assets/svg/Xmark.svg'
-import { Button } from './Button/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { useCallback, SyntheticEvent } from 'react';
+import { Button } from './Button/Button';
 
 interface IRightAddonProps {
 }

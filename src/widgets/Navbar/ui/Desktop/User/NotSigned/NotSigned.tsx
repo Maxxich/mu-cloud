@@ -1,5 +1,5 @@
-import { Link } from '../../Links/Link';
 import cls from './NotSigned.module.scss'
+import { Link } from '../../Links/Link';
 
 interface IDefaultProps {
 }

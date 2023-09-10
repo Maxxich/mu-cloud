@@ -1,7 +1,7 @@
 'use client'
-import { useRef, useState, SyntheticEvent, memo, forwardRef, useCallback} from 'react';
-import cls from './FileInput.module.scss'
+import { useRef, useState, SyntheticEvent, memo, forwardRef } from 'react';
 import classNames from 'classnames';
+import cls from './FileInput.module.scss'
 import { VStack } from '../Stack';
 
 interface IInputFileProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

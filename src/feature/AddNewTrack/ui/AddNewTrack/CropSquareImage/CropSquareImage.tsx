@@ -1,8 +1,8 @@
-import { CropImage } from '@/shared/ui/CropImage';
 import { useCallback } from 'react'
-import { useImageFile } from '../../../model/filesStorage/hooks/useImageFile';
+import { CropImage } from '@/shared/ui/CropImage';
 import { useImageCroppedWideFile } from '@/feature/AddNewTrack/model/filesStorage/hooks/useImageCroppedWideFile';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
+import { useImageFile } from '../../../model/filesStorage/hooks/useImageFile';
 import { AddNewTrackActions } from '../../../model/slices/AddNewTrackSlice';
 import { useImageCroppedSquareFile } from '../../../model/filesStorage/hooks/useImageCroppedSquareFile';
 

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import cls from './Button.module.scss'
 import { memo } from 'react'
+import cls from './Button.module.scss'
 
 
 type ButtonVariant = 'default' | 'danger' | 'green'

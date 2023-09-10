@@ -1,7 +1,7 @@
 'use client'
 
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { useEffect } from 'react'
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { checkAuth } from '../model/services/checkAuth'
 
 export const useCheckIsAuthOnRefresh = () => {

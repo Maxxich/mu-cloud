@@ -1,7 +1,7 @@
 import Logo from '@/shared/assets/svg/Logo.svg'
 import { Text } from '@/shared/ui/Text/Text'
-import cls from './signup.module.scss'
 import { SignUp } from '@/feature/SignUp'
+import cls from './signup.module.scss'
 
 export default function SignUpPage() {
 
