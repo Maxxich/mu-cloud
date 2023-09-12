@@ -15,30 +15,30 @@ export const RightAddon: React.FunctionComponent<IRightAddonProps> = (props) => 
     const dispatch = useAppDispatch()
 
     const onClearPlayer = useCallback((e: SyntheticEvent) => {
-      e.stopPropagation()
-      dispatch(playerActions.clearPlaylist())
+        e.stopPropagation()
+        dispatch(playerActions.clearPlaylist())
     }, [dispatch])
 
     const onNextTrack = useCallback((e: SyntheticEvent) => {
-      e.stopPropagation()
-      dispatch(playerActions.setNextTrack())
+        e.stopPropagation()
+        dispatch(playerActions.setNextTrack())
     }, [dispatch])
 
     if (paused) return (
-      <Button
-        variant={'primary'}
-        onClick={onClearPlayer}
-    >
-        <IconXmark/>
-    </Button>
+        <Button
+            variant={'primary'}
+            onClick={onClearPlayer}
+        >
+            <IconXmark/>
+        </Button>
     )
 
-  return (
-    <Button
-        variant={'secondary'}
-        onClick={onNextTrack}
-    >
-        <IconNext/>
-    </Button>
-  );
+    return (
+        <Button
+            variant={'secondary'}
+            onClick={onNextTrack}
+        >
+            <IconNext/>
+        </Button>
+    );
 };

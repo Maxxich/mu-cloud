@@ -8,17 +8,17 @@ interface ILikeDesktopProps {
 }
 
 export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
-  id
+    id
 }) => {
 
-  const tooltipId = useId()
+    const tooltipId = useId()
 
-  return <IconButton
-  icon={<Icon/>}    
-    // onClick={onClick} 
-    variant='secondary'
-    tooltipId={`${tooltipId}`}
-    tooltipContent={'Добавить к себе'}
-    tooltipPlace='top'
-  />;
+    return <IconButton
+        icon={<Icon/>}    
+        // onClick={onClick} 
+        variant='secondary'
+        tooltipId={`${tooltipId}`}
+        tooltipContent={'Добавить к себе'}
+        tooltipPlace='top'
+    />;
 };

@@ -11,48 +11,48 @@ interface IInputProps {
 }
 
 export const Input: React.FunctionComponent<IInputProps> = ({
-  variant
+    variant
 }) => {
 
-  const audio = useAudio()
-  const currentTrackTime = useSelector(getCurrentTrackTime)
-  const currentTrackTimeLenght = useSelector(getCurrentTrackTimeLenght)
+    const audio = useAudio()
+    const currentTrackTime = useSelector(getCurrentTrackTime)
+    const currentTrackTimeLenght = useSelector(getCurrentTrackTimeLenght)
 
-  const [isDrag, setDrag] = useState<boolean>(false)
-  const [time, setTime] = useState<number | undefined>(undefined)
+    const [isDrag, setDrag] = useState<boolean>(false)
+    const [time, setTime] = useState<number | undefined>(undefined)
 
-  useEffect(() => {
-    if (isDrag) return
-    setTime(currentTrackTime)
-  }, [currentTrackTime, isDrag])
+    useEffect(() => {
+        if (isDrag) return
+        setTime(currentTrackTime)
+    }, [currentTrackTime, isDrag])
 
-  const onStartDrag = useCallback(() => {
-    setDrag(true)
-  }, [])
+    const onStartDrag = useCallback(() => {
+        setDrag(true)
+    }, [])
 
-  const onChangeCurrentTime = useCallback(() => {
-    setDrag(false)
-    if (!time && time !== 0) return 
-    audio.currentTime = time
-  }, [audio, time])
+    const onChangeCurrentTime = useCallback(() => {
+        setDrag(false)
+        if (!time && time !== 0) return 
+        audio.currentTime = time
+    }, [audio, time])
 
-  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setTime(Number(e.target.value))
-  }, [])
+    const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setTime(Number(e.target.value))
+    }, [])
 
-  return (
-    <input 
-      className={classNames(cls.input, cls[variant])}
-      type={'range'}
-      min={0}
-      max={currentTrackTimeLenght}
-      value={time}
-      onMouseDown={onStartDrag}
-      onMouseUp={onChangeCurrentTime}
-      onTouchStart={onStartDrag}
-      onTouchEnd={onChangeCurrentTime}
-      onChange={onChange}
-    />
-  );
+    return (
+        <input 
+            className={classNames(cls.input, cls[variant])}
+            type={'range'}
+            min={0}
+            max={currentTrackTimeLenght}
+            value={time}
+            onMouseDown={onStartDrag}
+            onMouseUp={onChangeCurrentTime}
+            onTouchStart={onStartDrag}
+            onTouchEnd={onChangeCurrentTime}
+            onChange={onChange}
+        />
+    );
 };
 

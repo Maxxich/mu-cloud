@@ -10,8 +10,8 @@ interface IFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
 }
 
 const mapMarginToClass: Record<Margin, string> = {
-  'auto': 'margin-auto',
-  'none': ' '
+    'auto': 'margin-auto',
+    'none': ' '
 }
 
 const FormRoot: React.FunctionComponent<IFormProps> = ({
@@ -20,11 +20,11 @@ const FormRoot: React.FunctionComponent<IFormProps> = ({
     className,
     ...rest
 }) => {
-  return (
-    <form className={classNames(cls.form, cls[mapMarginToClass[margin]], className)} {...rest}>
-        {children}
-    </form>
-  );
+    return (
+        <form className={classNames(cls.form, cls[mapMarginToClass[margin]], className)} {...rest}>
+            {children}
+        </form>
+    );
 };
 
 
@@ -35,16 +35,16 @@ interface IBoxProps extends React.FormHTMLAttributes<HTMLDivElement> {
 }
 
 const Box: React.FunctionComponent<IBoxProps> = ({
-  children,
-  margin = 'none',
-  className,
-  ...rest
+    children,
+    margin = 'none',
+    className,
+    ...rest
 }) => {
-return (
-  <div className={classNames(cls.form, cls.box, cls[mapMarginToClass[margin]], className)} {...rest}>
-      {children}
-  </div>
-);
+    return (
+        <div className={classNames(cls.form, cls.box, cls[mapMarginToClass[margin]], className)} {...rest}>
+            {children}
+        </div>
+    );
 };
 
 export const Form = Object.assign(FormRoot, { Box })

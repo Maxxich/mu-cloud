@@ -11,10 +11,10 @@ export const useImageFile = () => {
     const setImageFile = useCallback((imageFile: File | undefined) => {
         if (imageFile) {
             filesFormData.set(FormDataEntries.IMAGE_FILE, imageFile)
-             dispatch(setImageFileMimeType(imageFile.type))
+            dispatch(setImageFileMimeType(imageFile.type))
         } else {
             filesFormData.delete(FormDataEntries.IMAGE_FILE)
-             dispatch(setImageFileMimeType(undefined))
+            dispatch(setImageFileMimeType(undefined))
         }
     }, [filesFormData, dispatch])
 

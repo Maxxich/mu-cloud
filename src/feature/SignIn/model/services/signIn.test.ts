@@ -23,8 +23,8 @@ describe('signInByEmail.test', () => {
         const thunk = new TestAsyncThunk(signInByEmail);
         fetch.mockResponses(
             [
-              JSON.stringify(fetchReturn),
-              { status: 200 }
+                JSON.stringify(fetchReturn),
+                { status: 200 }
             ]
         )
         const result = await thunk.callThunk();
@@ -45,8 +45,8 @@ describe('signInByEmail.test', () => {
         const thunk = new TestAsyncThunk(signInByEmail);
         fetch.mockResponses(
             [
-              JSON.stringify(undefined),
-              { status: 400 }
+                JSON.stringify(undefined),
+                { status: 400 }
             ]
         )
         const result = await thunk.callThunk();
@@ -61,8 +61,8 @@ describe('signInByEmail.test', () => {
         const thunk = new TestAsyncThunk(signInByEmail);
         fetch.mockResponses(
             [
-              JSON.stringify(undefined),
-              { status: 500 }
+                JSON.stringify(undefined),
+                { status: 500 }
             ]
         )
         const result = await thunk.callThunk();

@@ -4,12 +4,12 @@ import Svg from '@/shared/assets/svg/svg.svg'
 import { Image } from './Image'
 
 const meta = {
-	title: 'shared/Image',
-	component: Image,
-	parameters: {
-		layout: 'centered',
-	},
-	tags: ['autodocs'],
+    title: 'shared/Image',
+    component: Image,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
 } satisfies Meta<typeof Image>
 
 export default meta
@@ -18,30 +18,30 @@ type Story = StoryObj<typeof meta>;
 const Addon = <Svg style={{ positon: 'absolute', top: '50%', left: '50%', fill: '#fff' }}/>
 
 const args: Story['args'] = {
-	alt: 'source',
+    alt: 'source',
     src: Picture.src,
 }
 
 export const Default: Story = {
-	args
+    args
 }
 
 export const WithBacklight: Story = {
-	args: {
+    args: {
         ...args,
         backlight: true
     }
 }
 
 export const WithAddon: Story = {
-	args: {
+    args: {
         ...args,
         addon: Addon
     }
 }
 
 export const WithAddonAndBacklight: Story = {
-	args: {
+    args: {
         ...args,
         addon: Addon,
         backlight: true
@@ -49,7 +49,7 @@ export const WithAddonAndBacklight: Story = {
 }
 
 export const MSizeWithAddonAndBacklight: Story = {
-	args: {
+    args: {
         ...args,
         addon: Addon,
         backlight: true,
@@ -58,7 +58,7 @@ export const MSizeWithAddonAndBacklight: Story = {
 }
 
 export const LSizeWithAddonAndBacklight: Story = {
-	args: {
+    args: {
         ...args,
         addon: Addon,
         backlight: true,
@@ -67,7 +67,7 @@ export const LSizeWithAddonAndBacklight: Story = {
 }
 
 export const LSizeWithAddonAndBacklightCircle: Story = {
-	args: {
+    args: {
         ...args,
         addon: Addon,
         backlight: true,

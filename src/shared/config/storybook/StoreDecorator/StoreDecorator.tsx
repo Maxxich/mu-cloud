@@ -14,6 +14,6 @@ export const StoreDecorator =
         );
 
         return Decorator
-}
+    }
 
 

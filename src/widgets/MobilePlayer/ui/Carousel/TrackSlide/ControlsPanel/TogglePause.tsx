@@ -11,18 +11,18 @@ interface ITogglePauseProps {
 
 export const TogglePause: React.FunctionComponent<ITogglePauseProps> = (props) => {
 
-  const isPaused = useSelector(getIsPaused)
-  const dispatch = useAppDispatch()
+    const isPaused = useSelector(getIsPaused)
+    const dispatch = useAppDispatch()
 
-  const onTogglePause = useCallback(() => {
-    dispatch(playerActions.togglePause())
-  }, [dispatch])
+    const onTogglePause = useCallback(() => {
+        dispatch(playerActions.togglePause())
+    }, [dispatch])
 
-  return (
-    <IconButton
-      onClick={onTogglePause}
-      icon={isPaused ? <IconPlay/> : <IconPause/>}
-      size={'xl'}
-    />
-  );
+    return (
+        <IconButton
+            onClick={onTogglePause}
+            icon={isPaused ? <IconPlay/> : <IconPause/>}
+            size={'xl'}
+        />
+    );
 };

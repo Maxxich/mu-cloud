@@ -8,20 +8,20 @@ import { getName } from '../../model/selectors/fieldSelectors';
 
 export const NameInput: React.FunctionComponent = (props) => {
 
-  const name = useSelector(getName)
-  const dispatch = useAppDispatch()
-  const isError = useSelector(getIsNameValidationError)
+    const name = useSelector(getName)
+    const dispatch = useAppDispatch()
+    const isError = useSelector(getIsNameValidationError)
 
-  const onChangeName = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setName(e.target.value))
-  }, [dispatch])
+    const onChangeName = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(setName(e.target.value))
+    }, [dispatch])
   
-  return (
-    <Input
-        label='Имя'
-        value={name}
-        onChange={onChangeName}
-        isError={isError}
-    />
-  );
+    return (
+        <Input
+            label='Имя'
+            value={name}
+            onChange={onChangeName}
+            isError={isError}
+        />
+    );
 };

@@ -5,15 +5,15 @@ import { User } from './User';
 
 const NavbarDesktop: React.FunctionComponent = (props) => {
 
-  return ( 
-    <div className={cls.container}>
-      <nav className={cls.nav}>
-        <Logo/>
-        <Links/>
-        <User/>
-      </nav>
-    </div>
-  )
+    return ( 
+        <div className={cls.container}>
+            <nav className={cls.nav}>
+                <Logo/>
+                <Links/>
+                <User/>
+            </nav>
+        </div>
+    )
 };
 
 export default NavbarDesktop

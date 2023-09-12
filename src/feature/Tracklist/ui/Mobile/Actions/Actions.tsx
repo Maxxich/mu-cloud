@@ -18,14 +18,14 @@ interface IActionsProps {
 export const Actions: React.FunctionComponent<IActionsProps> = ({
     author, id, primary_name, track_src, onMenuClose, author_href
 }) => {
-  return (
-    <>
-        <AddToPlaylist id={id} onMenuClose={onMenuClose}/>
-        <Download author={author} trackname={primary_name} src={track_src} onMenuClose={onMenuClose}/>
-        <Like id={id} onMenuClose={onMenuClose}/>
-        <Share id={id} onMenuClose={onMenuClose}/>
-        <GoToUser id={id} author_href={author_href} onMenuClose={onMenuClose} author={author}/>
-    </>
-  );
+    return (
+        <>
+            <AddToPlaylist id={id} onMenuClose={onMenuClose}/>
+            <Download author={author} trackname={primary_name} src={track_src} onMenuClose={onMenuClose}/>
+            <Like id={id} onMenuClose={onMenuClose}/>
+            <Share id={id} onMenuClose={onMenuClose}/>
+            <GoToUser id={id} author_href={author_href} onMenuClose={onMenuClose} author={author}/>
+        </>
+    );
 };
 

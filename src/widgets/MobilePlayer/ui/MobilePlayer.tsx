@@ -13,33 +13,33 @@ interface IPlayerExpandedProps {
 
 export const MobilePlayer: React.FunctionComponent<IPlayerExpandedProps> = (props) => {
 
-  const isOpened = useSelector(getIsPlayerOpened)
-  const dispatch = useAppDispatch()
+    const isOpened = useSelector(getIsPlayerOpened)
+    const dispatch = useAppDispatch()
 
-  const [activeSlide, setActiveSlide] = useState<ActiveSlide>('track')
+    const [activeSlide, setActiveSlide] = useState<ActiveSlide>('track')
 
-  useEffect(() => {
-    if (isOpened) {
-      document.body.style.overflowY = 'hidden'
-    } else {
-      document.body.style.overflowY = 'auto'
-    }
-  }, [isOpened])
+    useEffect(() => {
+        if (isOpened) {
+            document.body.style.overflowY = 'hidden'
+        } else {
+            document.body.style.overflowY = 'auto'
+        }
+    }, [isOpened])
 
-  const onBackLightClick = useCallback(() => {
-    dispatch(playerActions.closePlayer())
-  }, [dispatch])
+    const onBackLightClick = useCallback(() => {
+        dispatch(playerActions.closePlayer())
+    }, [dispatch])
 
-  return (
-    <div className={cls.wrapper}>
-        <div className={cls.blackout} onClick={onBackLightClick}/>
-      <div className={cls.container} onClick={e => e.stopPropagation()}>
-        <Backlight/>
-        <CloseButton/>
-        <Carousel activeSlide={activeSlide}/>
-        <BottomPanel setActiveSlide={setActiveSlide} activeSlide={activeSlide}/>
-      </div>
-    </div>
-  )
+    return (
+        <div className={cls.wrapper}>
+            <div className={cls.blackout} onClick={onBackLightClick}/>
+            <div className={cls.container} onClick={e => e.stopPropagation()}>
+                <Backlight/>
+                <CloseButton/>
+                <Carousel activeSlide={activeSlide}/>
+                <BottomPanel setActiveSlide={setActiveSlide} activeSlide={activeSlide}/>
+            </div>
+        </div>
+    )
 };
 

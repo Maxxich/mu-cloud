@@ -14,22 +14,22 @@ export const PasswordConfirmInput: React.FunctionComponent<IProps> = ({
     className
 }) => {
 
-  const passwordConfirm = useSelector(getPasswordConfirm)
-  const dispatch = useAppDispatch()
-  const isError = useSelector(getIsPasswordConfirmValidationError)
+    const passwordConfirm = useSelector(getPasswordConfirm)
+    const dispatch = useAppDispatch()
+    const isError = useSelector(getIsPasswordConfirmValidationError)
 
-  const onChangePasswordConfirm = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setPasswordConfirm(e.target.value))
-  }, [dispatch])
+    const onChangePasswordConfirm = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(setPasswordConfirm(e.target.value))
+    }, [dispatch])
   
-  return (
-    <Input
-        label='Подтверждение пароля'
-        value={passwordConfirm}
-        onChange={onChangePasswordConfirm}
-        isError={isError}
-        type='password'
-        className={className}
-    />
-  );
+    return (
+        <Input
+            label='Подтверждение пароля'
+            value={passwordConfirm}
+            onChange={onChangePasswordConfirm}
+            isError={isError}
+            type='password'
+            className={className}
+        />
+    );
 };

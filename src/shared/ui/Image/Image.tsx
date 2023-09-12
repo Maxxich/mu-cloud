@@ -19,43 +19,43 @@ interface IImage {
 
 
 export const Image: React.FunctionComponent<IImage> = memo(({
-  backlight = false,
-  addon,
-  className,
-  src,
-  alt,
-  variant = 'square',
-  size = 'm',
-  showAddon,
-  disableAddonHover
+    backlight = false,
+    addon,
+    className,
+    src,
+    alt,
+    variant = 'square',
+    size = 'm',
+    showAddon,
+    disableAddonHover
 }) => {
 
-  const backlightComp = backlight && (
+    const backlightComp = backlight && (
     //eslint-disable-next-line jsx-a11y/alt-text
-    <NextImage className={classNames(cls.backlight, cls[variant])} alt={alt} src={src} placeholder='blur' blurDataURL={src} fill/>
-  )
+        <NextImage className={classNames(cls.backlight, cls[variant])} alt={alt} src={src} placeholder='blur' blurDataURL={src} fill/>
+    )
 
-  const image = (
+    const image = (
     //eslint-disable-next-line jsx-a11y/alt-text
-    <NextImage className={classNames(cls.image, cls[variant])} alt={alt} src={src} placeholder='blur' blurDataURL={src} fill/>
-  )
+        <NextImage className={classNames(cls.image, cls[variant])} alt={alt} src={src} placeholder='blur' blurDataURL={src} fill/>
+    )
 
-  const addonComp = addon && (
-    <div className={classNames(cls.addon, cls[variant], { [cls.showAddon]: showAddon, [cls.disableAddonHover]: disableAddonHover })}>
-      {addon}
-    </div>
-  )
+    const addonComp = addon && (
+        <div className={classNames(cls.addon, cls[variant], { [cls.showAddon]: showAddon, [cls.disableAddonHover]: disableAddonHover })}>
+            {addon}
+        </div>
+    )
 
-  return (
-    <div
-      className={classNames(cls.container, cls[size], className)}
-    >
-      {backlightComp}
-      {image}
-      {addonComp}
-    </div>
-  )
-  ;
+    return (
+        <div
+            className={classNames(cls.container, cls[size], className)}
+        >
+            {backlightComp}
+            {image}
+            {addonComp}
+        </div>
+    )
+    ;
 })
 
 Image.displayName = 'Image'

@@ -16,38 +16,38 @@ interface ITrackImageProps {
 }
 
 export const TrackImage: React.FunctionComponent<ITrackImageProps> = React.memo(({
-  active,
-  paused,
-  onClick,
-  src,
-  alt,
-  className
+    active,
+    paused,
+    onClick,
+    src,
+    alt,
+    className
 }) => {
 
-  const filter = <Filter>
-    {
-        active 
-            ? <Animtaion paused={paused}/>
-            : <Icon className={cls.icon}/>
-    }
-  </Filter> 
+    const filter = <Filter>
+        {
+            active 
+                ? <Animtaion paused={paused}/>
+                : <Icon className={cls.icon}/>
+        }
+    </Filter> 
 
-  return (
-    <button
-        onClick={onClick}
-        style={{ background: 'rgba(0,0,0,0)', padding: 0, cursor: 'pointer' }}
-    >
-        <Image
-            size={'s'}
-            src={src}
-            alt={alt}
-            backlight
-            addon={filter || undefined}
-            className={className}
-            showAddon={active}
-        />
-    </button>
-  );
+    return (
+        <button
+            onClick={onClick}
+            style={{ background: 'rgba(0,0,0,0)', padding: 0, cursor: 'pointer' }}
+        >
+            <Image
+                size={'s'}
+                src={src}
+                alt={alt}
+                backlight
+                addon={filter || undefined}
+                className={className}
+                showAddon={active}
+            />
+        </button>
+    );
 })
 
 TrackImage.displayName = 'TrackImage'

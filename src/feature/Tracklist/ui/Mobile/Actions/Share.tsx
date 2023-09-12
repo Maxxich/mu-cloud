@@ -9,16 +9,16 @@ interface ILikeDesktopProps {
 }
 
 export const Share: React.FunctionComponent<ILikeDesktopProps> = ({
-  id, onMenuClose
+    id, onMenuClose
 }) => {
 
-  return (
-    <Menu.Button
-    icon={<Icon/>}
-    onClick={() => alert('click')}
-    onClose={onMenuClose}
-  >
+    return (
+        <Menu.Button
+            icon={<Icon/>}
+            onClick={() => alert('click')}
+            onClose={onMenuClose}
+        >
     Поделиться
-  </Menu.Button>
-  )
+        </Menu.Button>
+    )
 };

@@ -38,26 +38,26 @@ export const IconButton: React.FunctionComponent<IProps> = memo(({
     ...rest
 }) => {
 
-  return (
-    <>
-      <button
-        className={classNames(cls.IconButton, cls[size], cls[variant], className)}
-        id={tooltipId}
-        data-tooltip-id={tooltipId}
-        data-tooltip-content={tooltipContent}
-        {...rest}
-      >
-        {icon}
-      </button>
-      {
-        tooltipId && 
+    return (
+        <>
+            <button
+                className={classNames(cls.IconButton, cls[size], cls[variant], className)}
+                id={tooltipId}
+                data-tooltip-id={tooltipId}
+                data-tooltip-content={tooltipContent}
+                {...rest}
+            >
+                {icon}
+            </button>
+            {
+                tooltipId && 
         <Tooltip
-          id={tooltipId}
-          place={tooltipPlace}
+            id={tooltipId}
+            place={tooltipPlace}
         />
-      }
-    </>
-  )
+            }
+        </>
+    )
 })
 
 IconButton.displayName = 'IconButton'

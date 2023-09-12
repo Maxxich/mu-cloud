@@ -14,18 +14,18 @@ export const TogglePause: React.FunctionComponent<ITogglePauseProps> = (props) =
     const paused = useSelector(getIsPaused)
     const dispatch = useAppDispatch()
     const onClick = useCallback((e: SyntheticEvent) => {
-      e.stopPropagation()
+        e.stopPropagation()
         dispatch(playerActions.togglePause())
     }, [dispatch])
 
     const icon = paused ? <IconPlay/> : <IconPause/>
 
-  return (
-    <Button
-        variant='secondary'
-        onClick={onClick}
-    >
-        {icon}
-    </Button>
-  );
+    return (
+        <Button
+            variant='secondary'
+            onClick={onClick}
+        >
+            {icon}
+        </Button>
+    );
 };

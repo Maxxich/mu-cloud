@@ -18,23 +18,23 @@ interface ICarouselProps {
 }
 
 export const Carousel: React.FunctionComponent<ICarouselProps> = ({
-  activeSlide,
+    activeSlide,
 }) => {
 
-  const list = useSelector(getPlaylist)
+    const list = useSelector(getPlaylist)
 
-  return (
-    <div className={classNames(cls.carousel, cls[mapActiveSlideToClass[activeSlide]])}>
-      <div className={cls.slide}>
-        <TrackSlide/>
-      </div>
-      <div className={cls.slide} >
-        <PlaylistSlide
-            tracklist={<Tracklist
-              tracks={list}
-          />}
-        />  
-      </div>
-    </div>
-  );
+    return (
+        <div className={classNames(cls.carousel, cls[mapActiveSlideToClass[activeSlide]])}>
+            <div className={cls.slide}>
+                <TrackSlide/>
+            </div>
+            <div className={cls.slide} >
+                <PlaylistSlide
+                    tracklist={<Tracklist
+                        tracks={list}
+                    />}
+                />  
+            </div>
+        </div>
+    );
 };

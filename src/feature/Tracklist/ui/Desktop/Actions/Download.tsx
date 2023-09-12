@@ -9,19 +9,19 @@ interface IDownloadFeatureProps {
 }
 
 export const Download: React.FunctionComponent<IDownloadFeatureProps> = ({
-  src,
-  author,
-  trackname,
+    src,
+    author,
+    trackname,
 }) => {
 
-  const tooltipId = useId()
+    const tooltipId = useId()
 
-  return <IconButton
-    icon={<Icon/>}   
-    // onClick={onClick} 
-    variant='secondary'
-    tooltipId={`${tooltipId}`}
-    tooltipContent='Скачать'
-    tooltipPlace='top'
-  />;
+    return <IconButton
+        icon={<Icon/>}   
+        // onClick={onClick} 
+        variant='secondary'
+        tooltipId={`${tooltipId}`}
+        tooltipContent='Скачать'
+        tooltipPlace='top'
+    />;
 };

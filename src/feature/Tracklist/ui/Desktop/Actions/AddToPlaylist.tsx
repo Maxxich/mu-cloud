@@ -7,17 +7,17 @@ interface IAddToPlaylistDesktopProps {
 }
 
 export const AddToPlaylist: React.FunctionComponent<IAddToPlaylistDesktopProps> = ({
-id
+    id
 }) => {
 
-  const tooltipId = useId()
+    const tooltipId = useId()
 
-  return <IconButton
-    icon={<Icon/>} 
-    // onClick={onClick} 
-    variant='secondary'
-    tooltipId={`${tooltipId}`}
-    tooltipContent='Добавить в плейлист'
-    tooltipPlace='top'
-  />;
+    return <IconButton
+        icon={<Icon/>} 
+        // onClick={onClick} 
+        variant='secondary'
+        tooltipId={`${tooltipId}`}
+        tooltipContent='Добавить в плейлист'
+        tooltipPlace='top'
+    />;
 };

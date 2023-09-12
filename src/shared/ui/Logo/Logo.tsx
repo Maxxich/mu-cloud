@@ -8,16 +8,16 @@ interface Props {
 }
 
 export const Logo: React.FunctionComponent = memo(({
-  className
+    className
 }: Props) => {
 
 
-  return (
-    <div className={classNames(cls.container, className)}>
-        <LogoSvg className={cls.logo}/>
-        <span className={cls.text}>MUSICLOUD</span>
-    </div>
-  )
+    return (
+        <div className={classNames(cls.container, className)}>
+            <LogoSvg className={cls.logo}/>
+            <span className={cls.text}>MUSICLOUD</span>
+        </div>
+    )
 })
 
 Logo.displayName = 'Logo'

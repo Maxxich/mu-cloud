@@ -12,10 +12,10 @@ export const useImageCroppedWideFile = () => {
     const setImageCroppedWideFile = useCallback((imageFile: File | undefined) => {
         if (imageFile) {
             filesFormData.set(FormDataEntries.IMAGE_CROPPED_WIDE_FILE, imageFile)
-             dispatch(setImageCroppedWideFileMimeType(imageFile.type))
+            dispatch(setImageCroppedWideFileMimeType(imageFile.type))
         } else {
             filesFormData.delete(FormDataEntries.IMAGE_CROPPED_WIDE_FILE)
-             dispatch(setImageCroppedWideFileMimeType(undefined))
+            dispatch(setImageCroppedWideFileMimeType(undefined))
         }
     }, [filesFormData, dispatch])
 

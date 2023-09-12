@@ -7,12 +7,12 @@ interface  InfoProps {
 
 export const Info: React.FunctionComponent< InfoProps> = (props) => {
 
-const track = useSelector(getSelectedTrack)
+    const track = useSelector(getSelectedTrack)
 
-  return (
-    <div className={cls.container}>
-      <span className={cls.track_name}>{track!.name}</span>
-      <span className={cls.author_name}>{track!.owners[0].name}</span>
-    </div>
-  );
+    return (
+        <div className={cls.container}>
+            <span className={cls.track_name}>{track!.name}</span>
+            <span className={cls.author_name}>{track!.owners[0].name}</span>
+        </div>
+    );
 };

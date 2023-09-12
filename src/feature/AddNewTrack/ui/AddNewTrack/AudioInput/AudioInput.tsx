@@ -9,14 +9,14 @@ interface IAudioInputProps {
 }
 
 export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
-  className
+    className
 }) => {
 
-  const isError = useSelector(getIsAudioFileValidationError)
+    const isError = useSelector(getIsAudioFileValidationError)
 
     const {
-      getAudioFile,
-      setAudioFile
+        getAudioFile,
+        setAudioFile
     } = useAudioFile()
 
     const onChangeFileSuccess = useCallback((file: File) => {
@@ -28,17 +28,17 @@ export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
     }, [setAudioFile])
 
 
-  return (
-    <FileInput
-        label='Аудиофайл'
-        onChangeFileSuccess={onChangeFileSuccess}
-        onChangeFileUndefined={onChangeFileUndefined}
-        placeholder='Выбрать аудиофайл...'
-        initialFile={getAudioFile() as File}
-        isError={isError}
-        className={className}
-    />
-  );
+    return (
+        <FileInput
+            label='Аудиофайл'
+            onChangeFileSuccess={onChangeFileSuccess}
+            onChangeFileUndefined={onChangeFileUndefined}
+            placeholder='Выбрать аудиофайл...'
+            initialFile={getAudioFile() as File}
+            isError={isError}
+            className={className}
+        />
+    );
 })
 
 AudioInput.displayName = 'AudioInput'

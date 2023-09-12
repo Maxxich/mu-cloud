@@ -49,7 +49,7 @@ export const AddNewTrackSlice = createSlice({
             }
         },
         setName: (state, action: PayloadAction<string | undefined>) => {
-           state.name = action.payload
+            state.name = action.payload
         },
         validateNameSecondary: (state, action: PayloadAction<string | undefined>) => {
             const name_secondary = action.payload

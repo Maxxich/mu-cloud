@@ -41,20 +41,20 @@ export const CropWideImage: React.FunctionComponent = () => {
     }, [setImageCroppedWideFile, dispatch])
 
 
-  return (
-      <CropImage
-        imageFileURL={image ? URL.createObjectURL(image) : undefined}
-        onCancel={onCancel}
-        onSuccess={onSuccess}
-        aspectRatio={16/9}
-        submitButtonText='Продолжить'
-        cancelButtonText='Отменить'
-        info='Обрежьте изображение для плеера'
-        minHeight={1080}
-        minWidth={1920}
-        title='Плеер'
-        testId='crop-wide'
-        continueButtonTestId='wide-continue'
-      />
-  );
+    return (
+        <CropImage
+            imageFileURL={image ? URL.createObjectURL(image) : undefined}
+            onCancel={onCancel}
+            onSuccess={onSuccess}
+            aspectRatio={16/9}
+            submitButtonText='Продолжить'
+            cancelButtonText='Отменить'
+            info='Обрежьте изображение для плеера'
+            minHeight={1080}
+            minWidth={1920}
+            title='Плеер'
+            testId='crop-wide'
+            continueButtonTestId='wide-continue'
+        />
+    );
 };

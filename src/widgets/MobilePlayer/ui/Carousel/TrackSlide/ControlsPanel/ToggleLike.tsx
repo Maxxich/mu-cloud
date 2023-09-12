@@ -10,25 +10,24 @@ interface IToggleLikeTrackProps {
 }
 
 export const ToggleLike: React.FunctionComponent<IToggleLikeTrackProps> = ({
-  id
+    id
 }) => {
+    const { data: liked } = trackApi.useIsInLikedQuery({ id })
+    const [addTrigger] = trackApi.useAddToLikedMutation()
+    const [removeTrigger] = trackApi.useRemoveFromLikedMutation()
   
-  const { data: liked } = trackApi.useIsInLikedQuery({ id })
-  const [addTrigger] = trackApi.useAddToLikedMutation()
-  const [removeTrigger] = trackApi.useRemoveFromLikedMutation()
-  
-  const icon = liked ? <HeartFill/> : <HeartStorke/>
+    const icon = liked ? <HeartFill/> : <HeartStorke/>
 
-  const onClick = useCallback(() => {
-    if (liked) removeTrigger({ id })
-    else addTrigger({ id })
-  }, [removeTrigger, addTrigger, liked, id])
+    const onClick = useCallback(() => {
+        if (liked) removeTrigger({ id })
+        else addTrigger({ id })
+    }, [removeTrigger, addTrigger, liked, id])
 
-  return (
-    <IconButton
-      onClick={onClick}
-      icon={icon}
-      size={'s'}
-    />
-  );
+    return (
+        <IconButton
+            onClick={onClick}
+            icon={icon}
+            size={'s'}
+        />
+    );
 };

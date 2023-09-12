@@ -27,42 +27,42 @@ export const Signed: React.FunctionComponent<ISignedProps> = (props) => {
     
     const pictures = session?.data?.user.picture_source
     const src = pictures 
-      ? (pictures.small
-        ? (backendUrl + '/' + pictures.small) 
-        : (backendUrl + '/' + avatarPlaceholderSmall))
-      : backendUrl + '/' + avatarPlaceholderSmall
+        ? (pictures.small
+            ? (backendUrl + '/' + pictures.small) 
+            : (backendUrl + '/' + avatarPlaceholderSmall))
+        : backendUrl + '/' + avatarPlaceholderSmall
     
-  return (
-    <>
-        <button onClick={onOpenMenu}>
-            <Image
-                src={src}
-                alt=''
-                variant='circle'
-                backlight
-                size='xs'
-                className={cls.image}
-            />
-        </button>
-        <Menu
-            isOpen={isMenuOpen}
-            onClose={onCloseMenu}
-        >
-            <Menu.Link 
-                href={'/profile'}
-                icon={<UserSvg/>}
+    return (
+        <>
+            <button onClick={onOpenMenu}>
+                <Image
+                    src={src}
+                    alt=''
+                    variant='circle'
+                    backlight
+                    size='xs'
+                    className={cls.image}
+                />
+            </button>
+            <Menu
+                isOpen={isMenuOpen}
                 onClose={onCloseMenu}
             >
+                <Menu.Link 
+                    href={'/profile'}
+                    icon={<UserSvg/>}
+                    onClose={onCloseMenu}
+                >
                 Профиль
-            </Menu.Link>
-            <Menu.Button 
-                icon={<LogoutSvg/>}
-                onClose={onCloseMenu}
-                onClick={() => signOut()}
-            >
+                </Menu.Link>
+                <Menu.Button 
+                    icon={<LogoutSvg/>}
+                    onClose={onCloseMenu}
+                    onClick={() => signOut()}
+                >
                 Выйти
-            </Menu.Button>
-        </Menu>
-    </>
-  );
+                </Menu.Button>
+            </Menu>
+        </>
+    );
 };

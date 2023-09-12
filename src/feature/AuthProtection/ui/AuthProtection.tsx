@@ -26,5 +26,5 @@ export const AuthProtection: React.FunctionComponent<IAuthProtectionProps> = ({
 
     if (!isViewerSignedIn) return null
 
-  return children;
+    return children;
 };

@@ -8,16 +8,16 @@ interface ILikeDesktopProps {
 }
 
 export const Share: React.FunctionComponent<ILikeDesktopProps> = ({
-  id
+    id
 }) => {
-  const tooltipId = useId()
+    const tooltipId = useId()
   
-  return <IconButton
-  icon={<Icon/>}    
-    // onClick={onClick} 
-    variant='secondary'
-    tooltipId={`${tooltipId}`}
-    tooltipContent='Поделиться'
-    tooltipPlace='top'
-  />;
+    return <IconButton
+        icon={<Icon/>}    
+        // onClick={onClick} 
+        variant='secondary'
+        tooltipId={`${tooltipId}`}
+        tooltipContent='Поделиться'
+        tooltipPlace='top'
+    />;
 };

@@ -8,21 +8,21 @@ import { getPassword } from '../../model/selectors/fieldSelectors';
 
 export const PasswordInput: React.FunctionComponent = (props) => {
 
-  const password = useSelector(getPassword)
-  const dispatch = useAppDispatch()
-  const isError = useSelector(getIsPasswordValidationError)
+    const password = useSelector(getPassword)
+    const dispatch = useAppDispatch()
+    const isError = useSelector(getIsPasswordValidationError)
 
-  const onChangePassword = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setPassword(e.target.value))
-  }, [dispatch])
+    const onChangePassword = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(setPassword(e.target.value))
+    }, [dispatch])
   
-  return (
-    <Input
-        label='Пароль'
-        value={password}
-        type='password'
-        onChange={onChangePassword}
-        isError={isError}
-    />
-  );
+    return (
+        <Input
+            label='Пароль'
+            value={password}
+            type='password'
+            onChange={onChangePassword}
+            isError={isError}
+        />
+    );
 };

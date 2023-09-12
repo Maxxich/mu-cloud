@@ -13,27 +13,27 @@ export const SignedIn: React.FunctionComponent = () => {
     
     const pictures = session?.data?.user.picture_source
     const logout = () => {
-      signOut()
+        signOut()
     }
 
-  return (
-    <div className={cls.container}>
-      <Image
-        alt='image'
-        backlight
-        size='xs'
-        variant='circle'
-        src={pictures?.small ? (backendUrl + '/' + pictures.small) : (backendUrl + '/' + avatarPlaceholderSmall)}
-      />
-      <IconButton
-        icon={<IconGear/>}
-        size={'s'}
-      />
-      <IconButton
-        icon={<IconLogout/>}
-        size={'s'}
-        onClick={logout}
-      />
-    </div>
-  );
+    return (
+        <div className={cls.container}>
+            <Image
+                alt='image'
+                backlight
+                size='xs'
+                variant='circle'
+                src={pictures?.small ? (backendUrl + '/' + pictures.small) : (backendUrl + '/' + avatarPlaceholderSmall)}
+            />
+            <IconButton
+                icon={<IconGear/>}
+                size={'s'}
+            />
+            <IconButton
+                icon={<IconLogout/>}
+                size={'s'}
+                onClick={logout}
+            />
+        </div>
+    );
 };

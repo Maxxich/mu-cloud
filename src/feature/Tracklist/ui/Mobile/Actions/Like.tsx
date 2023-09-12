@@ -12,28 +12,28 @@ interface ILikeDesktopProps {
 }
 
 export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
-  id, onMenuClose
+    id, onMenuClose
 }) => {
 
-  const { data: liked } = trackApi.useIsInLikedQuery({ id })
-  const [addTrigger] = trackApi.useAddToLikedMutation()
-  const [removeTrigger] = trackApi.useRemoveFromLikedMutation()
+    const { data: liked } = trackApi.useIsInLikedQuery({ id })
+    const [addTrigger] = trackApi.useAddToLikedMutation()
+    const [removeTrigger] = trackApi.useRemoveFromLikedMutation()
   
-  const icon = liked ? <HeartFill/> : <HeartStorke/>
-  const text = liked ? 'Убрать из добавленных' :  'Добавить к себе'
+    const icon = liked ? <HeartFill/> : <HeartStorke/>
+    const text = liked ? 'Убрать из добавленных' :  'Добавить к себе'
 
-  const onClick = useCallback(() => {
-    if (liked) removeTrigger({ id })
-    else addTrigger({ id })
-  }, [removeTrigger, addTrigger, liked, id])
+    const onClick = useCallback(() => {
+        if (liked) removeTrigger({ id })
+        else addTrigger({ id })
+    }, [removeTrigger, addTrigger, liked, id])
 
-  return (
-    <Menu.Button
-      icon={icon}
-      onClick={onClick}
-      onClose={onMenuClose}
-    >
-      {text}
-    </Menu.Button>
-  )
+    return (
+        <Menu.Button
+            icon={icon}
+            onClick={onClick}
+            onClose={onMenuClose}
+        >
+            {text}
+        </Menu.Button>
+    )
 };

@@ -3,13 +3,13 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { SignUp } from './SignUp'
 
 const meta = {
-	title: 'features/SignUp',
-	component: SignUp,
-	parameters: {
-		layout: 'centered',
-	},
-	argTypes: { onClick: { action: 'clicked' } },
-	tags: ['autodocs'],
+    title: 'features/SignUp',
+    component: SignUp,
+    parameters: {
+        layout: 'centered',
+    },
+    argTypes: { onClick: { action: 'clicked' } },
+    tags: ['autodocs'],
 } satisfies Meta<typeof SignUp>
 
 export default meta
@@ -20,14 +20,14 @@ const args: Story['args'] = {
 }
 
 export const Default: Story = {
-	args
+    args
 }
 Default.decorators = [
     StoreDecorator({})
 ]
 
 export const Error: Story = {
-	args
+    args
 }
 Error.decorators = [
     StoreDecorator({

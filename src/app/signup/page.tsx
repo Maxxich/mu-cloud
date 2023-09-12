@@ -5,13 +5,13 @@ import cls from './signup.module.scss'
 
 export default function SignUpPage() {
 
-  return (
-    <>
-      <div className={cls.logo}>
-        <Logo/>
-      </div>
-      <Text title align='center' className={cls.title}>Зарегистрироваться в MuCloud</Text>
-      <SignUp/>
-    </>
-  )
+    return (
+        <>
+            <div className={cls.logo}>
+                <Logo/>
+            </div>
+            <Text title align='center' className={cls.title}>Зарегистрироваться в MuCloud</Text>
+            <SignUp/>
+        </>
+    )
 }

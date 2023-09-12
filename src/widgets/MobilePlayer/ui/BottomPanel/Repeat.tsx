@@ -20,11 +20,11 @@ export const Repeat: React.FunctionComponent<IRepeatProps> = (props) => {
         dispatch(playerActions.toggleRepeatTrackMode())
     }, [dispatch])
     
-  return (
-    <IconButton
-    icon={<IconRepeat/>}
-    onClick={onChangeRepeatStatus}
-    variant={isRepeat ? 'default' : 'secondary'}
-/>
-  );
+    return (
+        <IconButton
+            icon={<IconRepeat/>}
+            onClick={onChangeRepeatStatus}
+            variant={isRepeat ? 'default' : 'secondary'}
+        />
+    );
 };

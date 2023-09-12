@@ -10,13 +10,12 @@ interface ThemeProviderProps {
     children: ReactNode;
 }
 
-const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme
 
 const ThemeProvider = (props: ThemeProviderProps) => {
     const { initialTheme, children } = props
     const [isThemeInited, setThemeInited] = useState(false)
 
-    const [theme, setTheme] = useState<Theme>(fallbackTheme || Theme.DEFAULT)
+    const [theme, setTheme] = useState<Theme>(Theme.DEFAULT)
 
     useEffect(() => {
         if (!isThemeInited && initialTheme) {

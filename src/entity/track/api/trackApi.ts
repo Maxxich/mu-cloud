@@ -25,6 +25,6 @@ const trackApi = rtkApi.injectEndpoints({
         }),
     }),
     overrideExisting: true,
-  });
+});
   
 export { trackApi }

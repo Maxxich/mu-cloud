@@ -13,26 +13,26 @@ interface IUserProps {
 
 export const User: React.FunctionComponent<IUserProps> = (props) => {
 
-  const session = useSession()
+    const session = useSession()
     
-  if (session.status === 'authenticated') return (
-    <Signed/>
-  )
+    if (session.status === 'authenticated') return (
+        <Signed/>
+    )
 
-  if (session.status === 'loading') return (
-    <div style={{ width: 60, display: 'flex', justifyContent: 'space-around' }}>
-      <Skeleton
-        borderRadius='50%'
-        width={30}
-        height={30}
-      />
-    </div>
-  )
+    if (session.status === 'loading') return (
+        <div style={{ width: 60, display: 'flex', justifyContent: 'space-around' }}>
+            <Skeleton
+                borderRadius='50%'
+                width={30}
+                height={30}
+            />
+        </div>
+    )
 
-  return (
-    <NavLink
-      icon={<IconUser/>}
-      href={'/signin'}
-    />
-  );
+    return (
+        <NavLink
+            icon={<IconUser/>}
+            href={'/signin'}
+        />
+    );
 };

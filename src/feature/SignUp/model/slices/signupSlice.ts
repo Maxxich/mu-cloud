@@ -36,11 +36,11 @@ export const signupSlice = createSlice({
     initialState,
     reducers: {
         setPassword: (state, action: PayloadAction<string>) => {
-           state.password = action.payload
+            state.password = action.payload
         },
         setPasswordConfirm: (state, action: PayloadAction<string>) => {
             state.passwordConfirm = action.payload
-         },
+        },
         setName: (state, action: PayloadAction<string>) => {
             state.name = action.payload
         },
@@ -68,9 +68,9 @@ export const signupSlice = createSlice({
                 state.validationErrors.password.exceedsMaxLenght = false
                 state.validationErrors.password.exceedsMinLenght = false
             }
-         },
+        },
 
-         validatePasswordConfirm: (state, action: PayloadAction<string | undefined>) => {
+        validatePasswordConfirm: (state, action: PayloadAction<string | undefined>) => {
             const passwordConfirm = action.payload
 
             if (!passwordConfirm) {
@@ -85,9 +85,9 @@ export const signupSlice = createSlice({
             } else {
                 state.validationErrors.passwordConfirm.notEqualsToPassword = false 
             }
-         },
+        },
 
-         validateName: (state, action: PayloadAction<string | undefined>) => {
+        validateName: (state, action: PayloadAction<string | undefined>) => {
             const name = action.payload
 
             if (!name) {
@@ -103,9 +103,9 @@ export const signupSlice = createSlice({
             } else {
                 state.validationErrors.name.exceedsMaxLenght = false
             }
-         },
+        },
 
-         validateEmail: (state, action: PayloadAction<string | undefined>) => {
+        validateEmail: (state, action: PayloadAction<string | undefined>) => {
             const email = action.payload
 
             if (!email) {
@@ -114,13 +114,13 @@ export const signupSlice = createSlice({
             } else {
                 state.validationErrors.email.empty = false
             }
-         },
-         validateEmailOnSubmit: (state, action: PayloadAction<string | undefined>) => {
+        },
+        validateEmailOnSubmit: (state, action: PayloadAction<string | undefined>) => {
             const email = action.payload
             if (!validateEmail(email)) {
                 state.validationErrors.email.notEmailFormat = true
             }
-            }
+        }
     },
     extraReducers: (builder) => {
         builder

@@ -8,17 +8,17 @@ import { playerActions } from '../model/slices/playerSlice'
 
 export const useObserveChangeRepeatMode = () => {
 
-  const audio = useAudio()
-  const repeatTrackMode = useSelector(getRepeatTrackMode)
-  const dispatch = useAppDispatch()
+    const audio = useAudio()
+    const repeatTrackMode = useSelector(getRepeatTrackMode)
+    const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    audio.onended = (e: any) => {
-      if (repeatTrackMode) return audio.play()
-      dispatch(playerActions.setNextTrack())
-    }
-    return () => {
-      audio.onended = null
-    }
-  }, [repeatTrackMode, dispatch, audio])
+    useEffect(() => {
+        audio.onended = (e: any) => {
+            if (repeatTrackMode) return audio.play()
+            dispatch(playerActions.setNextTrack())
+        }
+        return () => {
+            audio.onended = null
+        }
+    }, [repeatTrackMode, dispatch, audio])
 }

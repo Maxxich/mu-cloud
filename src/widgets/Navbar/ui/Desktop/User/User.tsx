@@ -6,17 +6,17 @@ import cls from './User.module.scss'
 
 export const User: React.FunctionComponent = (props) => {
 
-  const session = useSession()
+    const session = useSession()
 
-  if (session.status === 'authenticated') return (
-    <SignedIn/>
-  )
+    if (session.status === 'authenticated') return (
+        <SignedIn/>
+    )
 
-  if (session.status === 'loading') return (
-    <Skeleton borderRadius='5px' width={110} height={30} className={cls.skeleton}/>
-  )
+    if (session.status === 'loading') return (
+        <Skeleton borderRadius='5px' width={110} height={30} className={cls.skeleton}/>
+    )
 
-  return (
-    <NotSigned/>
-  );
+    return (
+        <NotSigned/>
+    );
 };

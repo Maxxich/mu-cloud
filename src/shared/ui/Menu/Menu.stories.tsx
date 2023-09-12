@@ -4,12 +4,12 @@ import Icon from '@/shared/assets/svg/svg.svg'
 import { Menu } from './Menu'
 
 const meta = {
-	title: 'shared/Menu',
-	component: Menu,
-	parameters: {
-		layout: 'centered',
+    title: 'shared/Menu',
+    component: Menu,
+    parameters: {
+        layout: 'centered',
         loki: { skip: true },
-	},
+    },
     render: (args) => <Menu {...args}>
         <Menu.Button
             icon={<Icon/>}
@@ -28,7 +28,7 @@ const meta = {
             Удалить
         </Menu.Link>
     </Menu>,
-	tags: ['autodocs'],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Menu>
 
 export default meta
@@ -40,5 +40,5 @@ const args: Story['args'] = {
 }
 
 export const Default: Story = {
-	args
+    args
 }

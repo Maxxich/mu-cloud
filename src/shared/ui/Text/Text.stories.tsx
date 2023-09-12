@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from './Text'
 
 const meta = {
-	title: 'shared/Text',
-	component: Text,
-	parameters: {
-		layout: 'centered',
-	},
-	tags: ['autodocs'],
+    title: 'shared/Text',
+    component: Text,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
 } satisfies Meta<typeof Text>
 
 export default meta
@@ -18,63 +18,63 @@ const args: Story['args'] = {
 }
 
 export const MSize: Story = {
-	args
+    args
 }
 
 export const SSize: Story = {
-	args: {
-		...args,
-		size: 's'
-	}
+    args: {
+        ...args,
+        size: 's'
+    }
 }
 
 export const LSize: Story = {
-	args: {
-		...args,
-		size: 'l'
-	}
+    args: {
+        ...args,
+        size: 'l'
+    }
 }
 
 export const Bold: Story = {
-	args: {
-		...args,
-		bold: true
-	}
+    args: {
+        ...args,
+        bold: true
+    }
 }
 
 export const AlignRight: Story = {
-	args: {
-		...args,
-		align: 'right'
-	}
+    args: {
+        ...args,
+        align: 'right'
+    }
 }
 
 export const AlignCenter: Story = {
-	args: {
-		...args,
-		align: 'center'
-	}
+    args: {
+        ...args,
+        align: 'center'
+    }
 }
 
 export const Error: Story = {
-	args: {
-		...args,
-		variant: 'error'
-	}
+    args: {
+        ...args,
+        variant: 'error'
+    }
 }
 
 
 export const Secondary: Story = {
-	args: {
-		...args,
-		variant: 'secondary'
-	}
+    args: {
+        ...args,
+        variant: 'secondary'
+    }
 }
 
 export const Title: Story = {
-	args: {
-		...args,
-		title: true,
-		children: 'Some title'
-	}
+    args: {
+        ...args,
+        title: true,
+        children: 'Some title'
+    }
 }

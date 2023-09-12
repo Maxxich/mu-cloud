@@ -21,11 +21,11 @@ export const Link: React.FunctionComponent<ILinkProps> = ({
     }
 
 
-  return <NextLink
-    className={classNames(cls.link, mods)}
-    href={href}
-  >
-    {children}
-</NextLink>;
+    return <NextLink
+        className={classNames(cls.link, mods)}
+        href={href}
+    >
+        {children}
+    </NextLink>;
 };
 

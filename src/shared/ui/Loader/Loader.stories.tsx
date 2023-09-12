@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Loader } from './Loader'
 
 const meta = {
-	title: 'shared/Loader',
-	component: Loader,
-	parameters: {
-		layout: 'centered',
-	},
-	tags: ['autodocs'],
+    title: 'shared/Loader',
+    component: Loader,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
 } satisfies Meta<typeof Loader>
 
 export default meta
@@ -17,11 +17,11 @@ const args: Story['args'] = {
 }
 
 export const MSize: Story = {
-	args
+    args
 }
 
 export const LSize: Story = {
-	args: {
+    args: {
         ...args,
         size: 'l'
     }
@@ -29,15 +29,15 @@ export const LSize: Story = {
 
 
 export const XLSize: Story = {
-	args: {
-		...args,
-		size: 'xl'
-	}
+    args: {
+        ...args,
+        size: 'xl'
+    }
 }
 
 export const Centered: Story = {
-	args: {
-		...args,
-		center: true
-	}
+    args: {
+        ...args,
+        center: true
+    }
 }

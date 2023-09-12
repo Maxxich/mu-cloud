@@ -6,10 +6,10 @@ interface IMoreTrackProps {
 
 export const More: React.FunctionComponent<IMoreTrackProps> = (props) => {
 
-  return (
-    <IconButton
-      icon={<IconMore/>}
-      size={'s'}
-    />
-  );
+    return (
+        <IconButton
+            icon={<IconMore/>}
+            size={'s'}
+        />
+    );
 };

@@ -11,16 +11,16 @@ interface IFormProps {
 }
 
 export const Form: React.FunctionComponent<IFormProps> = (props) => {
-  return (
-    <>
-      <FormComp margin='auto' className={cls.form}>
-          <NameInput/>
-          <NameSecondaryInput/>
-          <AudioInput/>
-          <ImageInput className={cls.last_input}/>
-          <Submit/>
-      </FormComp>
-      <FormError/>
-    </>
-  );
+    return (
+        <>
+            <FormComp margin='auto' className={cls.form}>
+                <NameInput/>
+                <NameSecondaryInput/>
+                <AudioInput/>
+                <ImageInput className={cls.last_input}/>
+                <Submit/>
+            </FormComp>
+            <FormError/>
+        </>
+    );
 };

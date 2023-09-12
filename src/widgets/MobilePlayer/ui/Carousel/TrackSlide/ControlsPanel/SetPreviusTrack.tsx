@@ -9,17 +9,17 @@ interface ISetPreviusTrackProps {
 
 export const SetPreviusTrack: React.FunctionComponent<ISetPreviusTrackProps> = (props) => {
 
-  const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
 
-  const onPreviusTrack = useCallback(() => {
-    dispatch(playerActions.setPreviusTrack())
-  }, [dispatch])
+    const onPreviusTrack = useCallback(() => {
+        dispatch(playerActions.setPreviusTrack())
+    }, [dispatch])
 
-  return (
-    <IconButton
-      onClick={onPreviusTrack}
-      icon={<IconPrevius/>}
-      size={'l'}
-    />
-  );
+    return (
+        <IconButton
+            onClick={onPreviusTrack}
+            icon={<IconPrevius/>}
+            size={'l'}
+        />
+    );
 };

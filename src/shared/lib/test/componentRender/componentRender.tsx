@@ -1,3 +1,4 @@
+'use client'
 import { ReactNode } from 'react';
 import { render } from '@testing-library/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
@@ -26,14 +27,14 @@ export function TestProvider(props: TestProviderProps) {
     } = options;
 
     return (
-            <StoreProvider
-                asyncReducers={asyncReducers}
-                initialState={initialState}
-            >
-                <ThemeProvider initialTheme={theme}>
-                    <div className={`app ${theme}`}>{children}</div>
-                </ThemeProvider>
-            </StoreProvider>
+        <StoreProvider
+            asyncReducers={asyncReducers}
+            initialState={initialState}
+        >
+            <ThemeProvider initialTheme={theme}>
+                <div className={`app ${theme}`}>{children}</div>
+            </ThemeProvider>
+        </StoreProvider>
     );
 }
 

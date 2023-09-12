@@ -22,14 +22,14 @@ export const NameInput: React.FunctionComponent<INameInputProps> = memo((props) 
     console.log('render')
 
 
-  return (
-    <Input
-        value={name}
-        onChange={onChange}
-        label='Название'
-        isError={isError}
-    />
-  );
+    return (
+        <Input
+            value={name}
+            onChange={onChange}
+            label='Название'
+            isError={isError}
+        />
+    );
 })
 
 NameInput.displayName = 'NameInput'

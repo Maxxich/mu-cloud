@@ -42,20 +42,20 @@ export const CropSquareImage: React.FunctionComponent = () => {
     }, [setImageCroppedSquareFile, dispatch])
 
 
-  return (
-      <CropImage
-        imageFileURL={image ? URL.createObjectURL(image) : undefined}
-        onCancel={onCancel}
-        onSuccess={onSuccess}
-        aspectRatio={1}
-        submitButtonText='Продолжить'
-        cancelButtonText='Отменить'
-        info='Обрежьте изображение для миниатюры'
-        minHeight={700}
-        minWidth={700}
-        title='Миниатюра'
-        testId='crop-square'
-        continueButtonTestId='square-continue'
-      />
-  );
+    return (
+        <CropImage
+            imageFileURL={image ? URL.createObjectURL(image) : undefined}
+            onCancel={onCancel}
+            onSuccess={onSuccess}
+            aspectRatio={1}
+            submitButtonText='Продолжить'
+            cancelButtonText='Отменить'
+            info='Обрежьте изображение для миниатюры'
+            minHeight={700}
+            minWidth={700}
+            title='Миниатюра'
+            testId='crop-square'
+            continueButtonTestId='square-continue'
+        />
+    );
 };

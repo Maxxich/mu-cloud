@@ -6,7 +6,7 @@ export const CheckIsAuth: React.FunctionComponent = (props) => {
 
     useCheckIsAuthOnRefresh()
     
-  return (
-    <></>
-  );
+    return (
+        <></>
+    );
 };

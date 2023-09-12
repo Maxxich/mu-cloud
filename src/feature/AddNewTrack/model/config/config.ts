@@ -13,7 +13,7 @@ export const config: Config = {
         maxLenght: 15
     },
     name_secondary: {
-            messages: {
+        messages: {
             exceedsMaxLenght: 'Длина подписи должна быть не более 15 символов'
         },
         maxLenght: 15

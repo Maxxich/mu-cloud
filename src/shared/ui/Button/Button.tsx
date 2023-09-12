@@ -16,30 +16,30 @@ interface IButtonSubmitProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button: React.FunctionComponent<IButtonSubmitProps> = memo(({
-  children,
-  fullwidth,
-  variant = 'default',
-  className,
-  addonLeft,
-  addonRight,
-  size = 'm',
-  ...rest
+    children,
+    fullwidth,
+    variant = 'default',
+    className,
+    addonLeft,
+    addonRight,
+    size = 'm',
+    ...rest
 }) => {
 
-  const mods: Mods = {
-    [cls.fullwidth]: fullwidth,
-  }
+    const mods: Mods = {
+        [cls.fullwidth]: fullwidth,
+    }
 
-  return (
-    <button
-      className={classNames(cls.Button, mods, cls[size], cls[variant], className)}
-      {...rest}
-    >
-      <div className={cls.addon}>{addonLeft}</div>
-      {children}
-      <div className={cls.addon}>{addonRight}</div>
-    </button>
-  )
+    return (
+        <button
+            className={classNames(cls.Button, mods, cls[size], cls[variant], className)}
+            {...rest}
+        >
+            <div className={cls.addon}>{addonLeft}</div>
+            {children}
+            <div className={cls.addon}>{addonRight}</div>
+        </button>
+    )
 })
 
 Button.displayName = 'Button'

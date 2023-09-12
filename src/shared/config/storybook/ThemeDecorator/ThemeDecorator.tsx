@@ -1,3 +1,4 @@
+'use client'
 import '@/global/styles/index.scss'
 import { Decorator } from '@storybook/react'
 import { ThemeProvider } from '@/global/providers/ThemeProvider'

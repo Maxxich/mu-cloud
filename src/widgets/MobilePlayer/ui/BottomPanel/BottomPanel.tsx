@@ -15,11 +15,11 @@ export const BottomPanel: React.FunctionComponent<IBottomPanelProps> = ({
     activeSlide
 }) => {
 
-  return ( 
-    <div className={cls.container}>
-        <Repeat/>
-        <ToggleSlide activeSlide={activeSlide} setActiveSlide={setActiveSlide}/>
-        <Shuffle/>
-    </div>
-  );
+    return ( 
+        <div className={cls.container}>
+            <Repeat/>
+            <ToggleSlide activeSlide={activeSlide} setActiveSlide={setActiveSlide}/>
+            <Shuffle/>
+        </div>
+    );
 };

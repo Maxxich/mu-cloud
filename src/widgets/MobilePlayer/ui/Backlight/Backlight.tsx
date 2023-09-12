@@ -9,10 +9,10 @@ export const Backlight: React.FunctionComponent<IBacklightProps> = (props) => {
 
     const track = useSelector(getSelectedTrack)
     
-  return (
-    <img 
-        className={cls.backlight}
-        src={'http://localhost:5001/' + track!.picture_source.square}    
-    />
-  );
+    return (
+        <img 
+            className={cls.backlight}
+            src={'http://localhost:5001/' + track!.picture_source.square}    
+        />
+    );
 };

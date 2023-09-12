@@ -17,17 +17,17 @@ export const SubmitButton: React.FunctionComponent = () => {
         dispatch(signUpByEmail())
     }, [dispatch])
 
-  return (
-    <Button 
-        variant='green' 
-        fullwidth 
-        disabled={status === 'loading' || Boolean(validationError)}    
-        onClick={onFormSubmit}
-    >
-        {status === 'loading'
-            ? 'Загрузка...'
-            : 'Зарегистрироваться'
-        }
-    </Button>
-  );
+    return (
+        <Button 
+            variant='green' 
+            fullwidth 
+            disabled={status === 'loading' || Boolean(validationError)}    
+            onClick={onFormSubmit}
+        >
+            {status === 'loading'
+                ? 'Загрузка...'
+                : 'Зарегистрироваться'
+            }
+        </Button>
+    );
 };

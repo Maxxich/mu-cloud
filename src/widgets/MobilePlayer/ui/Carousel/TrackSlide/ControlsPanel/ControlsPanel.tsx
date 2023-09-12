@@ -15,17 +15,17 @@ interface IControlsPanelProps {
 
 export const ControlsPanel: React.FunctionComponent<IControlsPanelProps> = ({}) => {
 
-  const id = useSelector(getSelectedTrackId)
+    const id = useSelector(getSelectedTrackId)
 
-  if (!id) return null
+    if (!id) return null
 
-  return (
-    <div className={cls.container}>
-      <ToggleLike id={id}/>
-      <SetPreviusTrack/>
-      <TogglePause/>
-      <SetNextTrack/>
-      <More/>
-    </div>
-  );
+    return (
+        <div className={cls.container}>
+            <ToggleLike id={id}/>
+            <SetPreviusTrack/>
+            <TogglePause/>
+            <SetNextTrack/>
+            <More/>
+        </div>
+    );
 };

@@ -20,14 +20,14 @@ export const NameSecondaryInput: React.FunctionComponent<INameSecondaryInputProp
     }, [dispatch])
 
 
-  return (
-    <Input
-        value={nameSecondary}
-        onChange={onChange}
-        isError={isError}
-        label='Дополнительная подпись'
-    />
-  );
+    return (
+        <Input
+            value={nameSecondary}
+            onChange={onChange}
+            isError={isError}
+            label='Дополнительная подпись'
+        />
+    );
 })
 
 NameSecondaryInput.displayName = 'NameSecondaryInput'

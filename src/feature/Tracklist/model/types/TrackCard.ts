@@ -15,9 +15,9 @@ interface ITrackCard {
     track_src: string
   }
   
-  export interface IDesktopCard extends ITrackCard {
+export interface IDesktopCard extends ITrackCard {
 
   }
   
-  export interface IMobileCard extends ITrackCard {
+export interface IMobileCard extends ITrackCard {
   }

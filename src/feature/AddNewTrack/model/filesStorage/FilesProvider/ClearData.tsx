@@ -22,5 +22,5 @@ export const ClearFiles: React.FunctionComponent<IClearFilesProps> = ({
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-  return children;
+    return children;
 };

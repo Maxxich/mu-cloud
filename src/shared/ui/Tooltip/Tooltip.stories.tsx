@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Tooltip } from './Tooltip'
 
 const meta = {
-	title: 'shared/Tooltip',
-	component: Tooltip,
-	parameters: {
-		layout: 'centered',
-	},
+    title: 'shared/Tooltip',
+    component: Tooltip,
+    parameters: {
+        layout: 'centered',
+    },
     render: (props) => <>
         <div
             id={'#QASxc'}
@@ -20,14 +20,14 @@ const meta = {
         </div>
         <Tooltip {...props}/>
     </>,
-	tags: ['autodocs'],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Tooltip>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {
+    args: {
         id: '#QASxc',
         place: 'bottom'
     }

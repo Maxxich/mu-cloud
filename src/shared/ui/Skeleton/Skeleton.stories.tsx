@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Skeleton } from './Skeleton'
 
 const meta = {
-	title: 'shared/Skeleton',
-	component: Skeleton,
-	parameters: {
-		layout: 'centered',
-	},
-	tags: ['autodocs'],
+    title: 'shared/Skeleton',
+    component: Skeleton,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
 } satisfies Meta<typeof Skeleton>
 
 export default meta
@@ -19,5 +19,5 @@ const args: Story['args'] = {
 }
 
 export const Default: Story = {
-	args
+    args
 }

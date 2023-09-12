@@ -41,14 +41,14 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
         }))
     }, [dispatch, getAudioFile, getImageFile, getImageCroppedSquareFile, getImageCroppedWideFile])
 
-  return (
-    <Button 
-        variant={'green'}
-        disabled={Boolean(error)}
-        onClick={onSubmit}
-        fullwidth
-    >
+    return (
+        <Button 
+            variant={'green'}
+            disabled={Boolean(error)}
+            onClick={onSubmit}
+            fullwidth
+        >
         Загрузить
-    </Button>
-  );
+        </Button>
+    );
 };

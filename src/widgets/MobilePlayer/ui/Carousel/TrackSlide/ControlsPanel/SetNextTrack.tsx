@@ -9,17 +9,17 @@ interface ISetNextTrackProps {
 
 export const SetNextTrack: React.FunctionComponent<ISetNextTrackProps> = (props) => {
 
-  const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
 
-  const onNextTrack = useCallback(() => {
-    dispatch(playerActions.setNextTrack())
-  }, [dispatch])
+    const onNextTrack = useCallback(() => {
+        dispatch(playerActions.setNextTrack())
+    }, [dispatch])
 
-  return (
-    <IconButton
-      onClick={onNextTrack}
-      icon={<IconNext/>}
-      size={'l'}
-    />
-  );
+    return (
+        <IconButton
+            onClick={onNextTrack}
+            icon={<IconNext/>}
+            size={'l'}
+        />
+    );
 };

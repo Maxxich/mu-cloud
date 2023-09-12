@@ -10,20 +10,20 @@ interface IDownloadFeatureProps {
 }
 
 export const Download: React.FunctionComponent<IDownloadFeatureProps> = ({
-  src,
-  author,
-  trackname,
-  onMenuClose
+    src,
+    author,
+    trackname,
+    onMenuClose
 }) => {
 
 
-  return (
-    <Menu.Button
-    icon={<Icon/>}
-    onClick={() => alert('click')}
-    onClose={onMenuClose}
-  >
+    return (
+        <Menu.Button
+            icon={<Icon/>}
+            onClick={() => alert('click')}
+            onClose={onMenuClose}
+        >
     Скачать
-    </Menu.Button>
-  )
+        </Menu.Button>
+    )
 };

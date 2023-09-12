@@ -12,16 +12,16 @@ interface IGoToUserProps {
 }
 
 export const GoToUser: React.FunctionComponent<IGoToUserProps> = ({
-  id, author_href, onMenuClose, author
+    id, author_href, onMenuClose, author
 }) => {
 
-  return (
-    <Menu.Link
-        icon={<Icon/>}
-        href={author_href}
-        onClose={onMenuClose}
-    >
-        {'Перейти к ' + author}
-    </Menu.Link>
-  )
+    return (
+        <Menu.Link
+            icon={<Icon/>}
+            href={author_href}
+            onClose={onMenuClose}
+        >
+            {'Перейти к ' + author}
+        </Menu.Link>
+    )
 };

@@ -6,16 +6,16 @@ interface IFilterForActiveProps {
 }
 
 export const Filter: React.FunctionComponent<IFilterForActiveProps> = memo(({
-  children
+    children
 }) => {
 
 
 
-  return (
-    <div className={cls.Filter}>
-      {children}
-    </div>
-  );
+    return (
+        <div className={cls.Filter}>
+            {children}
+        </div>
+    );
 })
 
 Filter.displayName = 'Filter'

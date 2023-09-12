@@ -38,7 +38,7 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
     dispatch(signupActions.validatePassword(password))
     dispatch(signupActions.validatePasswordConfirm(passwordConfirm))
 
-        // @ts-ignore
+    // @ts-ignore
     const error = getValidationError(getState())
 
     if (error) {

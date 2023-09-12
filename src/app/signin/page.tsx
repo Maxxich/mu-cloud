@@ -5,13 +5,13 @@ import cls from './signin.module.scss'
 
 export default function SignInPage() {
 
-  return (
-    <>
-      <div className={cls.logo}>
-        <Logo/>
-      </div>
-      <Text title align='center' className={cls.title}>Войти в MuCloud</Text>
-      <SignIn/>
-    </>
-  )
+    return (
+        <>
+            <div className={cls.logo}>
+                <Logo/>
+            </div>
+            <Text title align='center' className={cls.title}>Войти в MuCloud</Text>
+            <SignIn/>
+        </>
+    )
 }

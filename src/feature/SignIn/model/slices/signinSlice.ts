@@ -13,9 +13,9 @@ export const signinSlice = createSlice({
     initialState,
     reducers: {
         setPassword: (state, action: PayloadAction<string>) => {
-           state.password = action.payload
-           state.status = 'idle'
-           state.errorMessage = undefined
+            state.password = action.payload
+            state.status = 'idle'
+            state.errorMessage = undefined
         },
         setEmail: (state, action: PayloadAction<string>) => {
             state.email = action.payload

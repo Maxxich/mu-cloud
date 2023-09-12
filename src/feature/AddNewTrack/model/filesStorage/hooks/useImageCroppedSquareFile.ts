@@ -11,10 +11,10 @@ export const useImageCroppedSquareFile = () => {
     const setImageCroppedSquareFile = useCallback((imageFile: File | undefined) => {
         if (imageFile) {
             filesFormData.set(FormDataEntries.IMAGE_CROPPED_WIDE_FILE, imageFile)
-             dispatch(setImageCroppedSquareFileMimeType(imageFile.type))
+            dispatch(setImageCroppedSquareFileMimeType(imageFile.type))
         } else {
             filesFormData.delete(FormDataEntries.IMAGE_CROPPED_WIDE_FILE)
-             dispatch(setImageCroppedSquareFileMimeType(undefined))
+            dispatch(setImageCroppedSquareFileMimeType(undefined))
         }
     }, [filesFormData, dispatch])
 

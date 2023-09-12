@@ -25,11 +25,11 @@ interface ILinksProps {
 }
 
 export const Links: React.FunctionComponent<ILinksProps> = (props) => {
-  return (
-    <div className={cls.container}>
-        {LinksData.map(ld => (
-            <Link href={ld.href} key={ld.href}>{ld.children}</Link>
-        ))}
-    </div>
-  );
+    return (
+        <div className={cls.container}>
+            {LinksData.map(ld => (
+                <Link href={ld.href} key={ld.href}>{ld.children}</Link>
+            ))}
+        </div>
+    );
 };

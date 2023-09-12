@@ -10,7 +10,7 @@ export const FormError: React.FunctionComponent<IFormErrorProps> = (props) => {
     
     if (!error) return
 
-  return (
-    <Form.Box margin='auto'>{error}</Form.Box>
-  );
+    return (
+        <Form.Box margin='auto'>{error}</Form.Box>
+    );
 };

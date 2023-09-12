@@ -10,27 +10,27 @@ interface INavBarProps {
 }
 
 const NavbarMobile: React.FunctionComponent<INavBarProps> = (props) => {
-  return ( 
-    <div className={cls.container}>
-      <NavLink
-        icon={<IconHome/>}
-        href={'/'}
-      />
-      <NavLink
-        icon={<IconLibrary/>}
-        href={'/library'}
-      />
-      <NavLink
-        icon={<IconLoupe/>}
-        href={'/search'}
-      />
-      <NavLink
-        icon={<IconUpload/>}
-        href={'/upload'}
-      />
-      <User/>
-    </div>  
-  );
+    return ( 
+        <div className={cls.container}>
+            <NavLink
+                icon={<IconHome/>}
+                href={'/'}
+            />
+            <NavLink
+                icon={<IconLibrary/>}
+                href={'/library'}
+            />
+            <NavLink
+                icon={<IconLoupe/>}
+                href={'/search'}
+            />
+            <NavLink
+                icon={<IconUpload/>}
+                href={'/upload'}
+            />
+            <User/>
+        </div>  
+    );
 };
 
 export default NavbarMobile

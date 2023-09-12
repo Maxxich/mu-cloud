@@ -13,20 +13,20 @@ interface IImageInputProps {
 }
 
 export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
-  className
+    className
 }) => {
 
-  const isImageError = useSelector(getIsImageFileValidationError)
-  const isImageCroppedWideError = useSelector(getIsImageCroppedWideFileValidationError)
-  const isImageCroppedSquareError = useSelector(getIsImageCroppedSquareFileValidationError)
+    const isImageError = useSelector(getIsImageFileValidationError)
+    const isImageCroppedWideError = useSelector(getIsImageCroppedWideFileValidationError)
+    const isImageCroppedSquareError = useSelector(getIsImageCroppedSquareFileValidationError)
 
-  const isError = isImageError || isImageCroppedWideError || isImageCroppedSquareError
+    const isError = isImageError || isImageCroppedWideError || isImageCroppedSquareError
     const {
         getImageFile,
         setImageFile
-      } = useImageFile()
+    } = useImageFile()
 
-      const {
+    const {
 
         setImageCroppedWideFile
     } = useImageCroppedWideFile()
@@ -35,7 +35,7 @@ export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
         setImageCroppedSquareFile
     } = useImageCroppedSquareFile()
 
-      const onChangeFileSuccess = useCallback((file: File) => {
+    const onChangeFileSuccess = useCallback((file: File) => {
         setImageFile(file)
         setImageCroppedWideFile(undefined)
         setImageCroppedSquareFile(undefined)
@@ -48,19 +48,19 @@ export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
     }, [setImageFile, setImageCroppedWideFile, setImageCroppedSquareFile])
 
 
-  return (
-    <FileInput
-        label='Изображение'
-        onChangeFileSuccess={onChangeFileSuccess}
-        onChangeFileUndefined={onChangeFileUndefined}
-        placeholder='Выбрать изображение...'
-        initialFile={getImageFile() as File}
-        isError={isError}
-        className={className}
-        data-testid={'image-input-button'}
-        inputTestId={'input'}
-    />
-  );
+    return (
+        <FileInput
+            label='Изображение'
+            onChangeFileSuccess={onChangeFileSuccess}
+            onChangeFileUndefined={onChangeFileUndefined}
+            placeholder='Выбрать изображение...'
+            initialFile={getImageFile() as File}
+            isError={isError}
+            className={className}
+            data-testid={'image-input-button'}
+            inputTestId={'input'}
+        />
+    );
 })
 
 ImageInput.displayName = 'ImageInput'

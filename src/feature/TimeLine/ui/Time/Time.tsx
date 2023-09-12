@@ -14,13 +14,13 @@ export const Time: React.FunctionComponent<ITimingsProps> = memo(({
     variant
 }) => {
 
-  return (
-    <span 
-        className={classNames(cls.time, cls[variant])}
-    >
-        {children}
-    </span>
-  );
+    return (
+        <span 
+            className={classNames(cls.time, cls[variant])}
+        >
+            {children}
+        </span>
+    );
 })
 
 Time.displayName = 'Time'

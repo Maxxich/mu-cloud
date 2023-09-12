@@ -16,12 +16,12 @@ export const CloseButton: React.FunctionComponent<ICloseButtonProps> = (props) =
         dispatch(playerActions.closePlayer())
     }, [dispatch])
 
-  return (
-    <button 
-        onClick={onClose}
-        className={cls.close}
-    >
-        <IconArrow/>
-    </button>
-  );
+    return (
+        <button 
+            onClick={onClose}
+            className={cls.close}
+        >
+            <IconArrow/>
+        </button>
+    );
 };

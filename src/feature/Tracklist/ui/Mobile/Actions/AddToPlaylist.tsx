@@ -8,17 +8,17 @@ interface IAddToPlaylistDesktopProps {
 }
 
 export const AddToPlaylist: React.FunctionComponent<IAddToPlaylistDesktopProps> = ({
-  id, onMenuClose
+    id, onMenuClose
 }) => {
 
 
-  return (
-    <Menu.Button
-    icon={<Icon/>}
-    onClick={() => alert('click')}
-    onClose={onMenuClose}
-  >
+    return (
+        <Menu.Button
+            icon={<Icon/>}
+            onClick={() => alert('click')}
+            onClose={onMenuClose}
+        >
     Добавить в плейлист
-  </Menu.Button>
-  )
+        </Menu.Button>
+    )
 };

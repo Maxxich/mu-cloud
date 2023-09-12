@@ -17,11 +17,11 @@ export const Shuffle: React.FunctionComponent<IShuffleProps> = (props) => {
     }, [dispatch])
     
     
-  return (
-    <IconButton
-    icon={<IconShuffle/>}
-    onClick={onShufflePlaylist}
-    variant='secondary'
-/>
-  );
+    return (
+        <IconButton
+            icon={<IconShuffle/>}
+            onClick={onShufflePlaylist}
+            variant='secondary'
+        />
+    );
 };

@@ -18,12 +18,12 @@ export const TimeLine: React.FunctionComponent<ITimeLineProps> = ({
     variant
 }) => {
 
-  const handleTouch = (e:any) => {
-    e.stopPropagation()
-  }
+    const handleTouch = (e:any) => {
+        e.stopPropagation()
+    }
 
-  const time = useSelector(getCurrentTrackTime)
-  const timeLenght = useSelector(getCurrentTrackTimeLenght)
+    const time = useSelector(getCurrentTrackTime)
+    const timeLenght = useSelector(getCurrentTrackTimeLenght)
 
     const LeftTime = <Time variant={variant}>
         {formatTime(time!)}
@@ -38,10 +38,10 @@ export const TimeLine: React.FunctionComponent<ITimeLineProps> = ({
 
     const BrowserView = (
         <div>
-        {LeftTime}
-        {InputEl}
-        {RightTime}
-      </div>
+            {LeftTime}
+            {InputEl}
+            {RightTime}
+        </div>
     )
 
     const MobileView = (
@@ -55,19 +55,19 @@ export const TimeLine: React.FunctionComponent<ITimeLineProps> = ({
     )
     
 
-  const mods: Mods = {
-    [cls.browser]: isBrowser
-  }
+    const mods: Mods = {
+        [cls.browser]: isBrowser
+    }
 
-  return(
-    <div
-        className={classNames(cls.container, mods)}
-        onTouchEnd={handleTouch}
-        onTouchMove={handleTouch}
-        onTouchStart={handleTouch}
-    >
-      {isBrowser && BrowserView}
-      {isMobile && MobileView}
-    </div>
-  );
+    return(
+        <div
+            className={classNames(cls.container, mods)}
+            onTouchEnd={handleTouch}
+            onTouchMove={handleTouch}
+            onTouchStart={handleTouch}
+        >
+            {isBrowser && BrowserView}
+            {isMobile && MobileView}
+        </div>
+    );
 };
