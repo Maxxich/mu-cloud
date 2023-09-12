@@ -1,5 +1,5 @@
 import { TracksResponse } from '@/entity/track'
-import { TrackList } from '@/feature/Track'
+import { TrackBanner } from '@/feature/Track'
 
 async function getData(): Promise<TracksResponse> {
     const res = await fetch('http://localhost:5001/tracks/search', {
@@ -19,15 +19,15 @@ async function getData(): Promise<TracksResponse> {
 }
 
 export default async function Home() {
-
+ 
     const data = await getData()
     console.log(data)
 
 
     return (
-        <div>
+        <div style={{ margin: '0 auto', width: '1280px', paddingTop: 100 }}>
             Треки
-            <TrackList tracks={data.tracks}/>
+            <TrackBanner  tracks={[...data.tracks, ...data.tracks, ...data.tracks, ...data.tracks, ...data.tracks, ...data.tracks]}/>
         </div>
     )
 }
