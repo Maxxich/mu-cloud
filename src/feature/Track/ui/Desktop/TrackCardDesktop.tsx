@@ -12,7 +12,7 @@ import { IDesktopCard } from '../../model/types/TrackCard';
 
 
 
-export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
+const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
     author_href, primary_name, image_src, id, track_href, secondary_name,
     duration, author, track_src, onToggleTrack, isSelected, isPaused
 }) => {
@@ -60,3 +60,5 @@ export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
 })
 
 TrackCardDesktop.displayName = 'TrackCardDesktop'
+
+export default TrackCardDesktop

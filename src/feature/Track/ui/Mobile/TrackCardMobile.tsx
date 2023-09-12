@@ -11,7 +11,7 @@ import { TrackImage } from './Image/Image';
 import { Actions } from './Actions/Actions';
 import { IMobileCard } from '../../model/types/TrackCard';
 
-export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
+const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
     author_href, primary_name, image_src, id, track_href, secondary_name,
     isSelected, isPaused, duration, author, track_src, onToggleTrack
 }) => {
@@ -77,3 +77,5 @@ export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
 })
 
 TrackCardMobile.displayName = 'TrackCardMobile'
+
+export default TrackCardMobile

@@ -1,4 +1,4 @@
-import { Tracklist } from '@/feature/Tracklist'
+import { TrackCard } from '@/feature/Track'
 
 type Props = {
     params: {
@@ -30,9 +30,9 @@ async function getTrack(id: number) {
 export default async function TrackPage ({ params: { id } }: Props) {
     const track = await getTrack(Number(id))
     return (
-        <Tracklist
+        <TrackCard
+            track={track}
             tracks={[track]}
-            key={1}
         />
     )
 }

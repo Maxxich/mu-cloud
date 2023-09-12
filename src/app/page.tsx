@@ -1,5 +1,5 @@
 import { TracksResponse } from '@/entity/track'
-import { Tracklist } from '@/feature/Tracklist'
+import { TrackList } from '@/feature/Track'
 
 async function getData(): Promise<TracksResponse> {
     const res = await fetch('http://localhost:5001/tracks/search', {
@@ -27,7 +27,7 @@ export default async function Home() {
     return (
         <div>
             Треки
-            <Tracklist tracks={data.tracks}/>
+            <TrackList tracks={data.tracks}/>
         </div>
     )
 }

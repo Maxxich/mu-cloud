@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { useSelector } from 'react-redux'
-import { Tracklist } from '@/feature/Tracklist'
+import { TrackList } from '@/feature/Track'
 import { getPlaylist } from '@/entity/player'
 import cls from './Carousel.module.scss'
 import { TrackSlide } from './TrackSlide/TrackSlide'
@@ -30,7 +30,7 @@ export const Carousel: React.FunctionComponent<ICarouselProps> = ({
             </div>
             <div className={cls.slide} >
                 <PlaylistSlide
-                    tracklist={<Tracklist
+                    tracklist={<TrackList
                         tracks={list}
                     />}
                 />  
