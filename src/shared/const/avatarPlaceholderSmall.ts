@@ -1,1 +1,3 @@
-export const avatarPlaceholderSmall = 'avatars/AvatarPlaceholder_small.jpg'
+import { backendUrl } from './backendUrl';
+
+export const avatarPlaceholderSmall = backendUrl + '/avatars/AvatarPlaceholder_small.jpg'
