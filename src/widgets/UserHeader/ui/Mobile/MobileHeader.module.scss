@@ -1,0 +1,39 @@
+.image_block {
+    position: relative;
+    height: 375px;
+    width: 100vw;
+    margin: 0 -15px 10px;
+}
+
+.center_image {
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    overflow: hidden;
+    position: fixed;
+}
+
+.name {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.with_button {
+    bottom: 55px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: var(--secondary-color);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.button {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
