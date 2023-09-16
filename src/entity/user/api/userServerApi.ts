@@ -13,22 +13,15 @@ interface SearchUsers {
 interface UsersResponse {
     users: User[],
     total: number
-  }
+}
 
-const bannerLimit = 8
+export const usersBannerLimit = 8
 
-function createUsersSearchParams(params: SearchUsers) {
+export function createUsersSearchParams(params: SearchUsers) {
     return createUrlSearchParams(params)
 }
 
-async function getPopularUsers(): Promise<UsersResponse> {
-    
-    const urlParams = createUsersSearchParams({
-        limit: bannerLimit,
-        order: 'DESC',
-        orderBy: 'listenings_count',
-        page: 1,
-    })
+async function get(urlParams: string): Promise<UsersResponse> {
 
     const res = await fetch(backendUrl + '/users/search?' + urlParams, {
         next: { 
@@ -42,6 +35,39 @@ async function getPopularUsers(): Promise<UsersResponse> {
     return res.json()
 }
 
+
+async function getFollowings(id: number,urlParams: string): Promise<UsersResponse> {
+    const res = await fetch(backendUrl + `/users/subscriptions/${id}?` + urlParams, {
+        next: { 
+            revalidate: 1,
+        },
+    })
+    if (!res.ok) {
+        console.log(res.status)
+        throw new Error('Failed to fetch data')
+    }
+ 
+    return res.json()
+}
+
+async function getByAdress(adress: string): Promise<User> {
+    const res = await fetch(
+        backendUrl + `/users/get-by-id-or-adress/${adress}`, 
+        {
+            next: { 
+                revalidate: 1,
+            },
+        }
+    )
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+ 
+    return res.json()
+}
+
 export const userServerApi = {
-    getPopularUsers
+    get,
+    getByAdress,
+    getFollowings
 }
