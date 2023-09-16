@@ -18,8 +18,3 @@ interface ITrackPictureSource {
   wide: string
   square: string
 }
-
-export interface TracksResponse {
-  tracks: Track[],
-  total: number
-}
