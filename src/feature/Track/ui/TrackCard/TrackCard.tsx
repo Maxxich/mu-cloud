@@ -40,7 +40,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
     if (isMobile) return (
         <TrackCardMobile
             author={track.owners[0].name}
-            author_href={track.owners[0].adress}
+            author_href={'/users/'+ track.owners[0].adress}
             duration={track.duration}
             id={track.id}
             image_src={backendUrl + '/' + track.picture_source.square_small}
@@ -59,7 +59,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
     return (
         <TrackCardDesktop
             author={track.owners[0].name}
-            author_href={track.owners[0].adress}
+            author_href={'/users/'+ track.owners[0].adress}
             duration={track.duration}
             id={track.id}
             image_src={backendUrl + '/' + track.picture_source.square_small}

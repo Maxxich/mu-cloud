@@ -15,40 +15,13 @@ interface TracksResponse {
     total: number
 }
 
-const bannerLimit = 20
+export const tracksBannerLimit = 20
 
-function createTrackSearchParams(params: SearchTracks) {
+export function createTrackSearchParams(params: SearchTracks) {
     return createUrlSearchParams(params)
 }
 
-async function getPopularTracks(): Promise<TracksResponse> {
-    
-    const urlParams = createTrackSearchParams({
-        limit: bannerLimit,
-        order: 'DESC',
-        orderBy: 'listenings_count',
-        page: 1,
-    })
-
-    const res = await fetch(backendUrl + '/tracks/search?' + urlParams, {
-        next: { 
-            revalidate: 1,
-        },
-    })
-    if (!res.ok) {
-        throw new Error('Failed to fetch data')
-    }
- 
-    return res.json()
-}
-
-async function getNewTracks(): Promise<TracksResponse> {
-    const urlParams = createTrackSearchParams({
-        limit: bannerLimit,
-        order: 'DESC',
-        orderBy: 'createdAt',
-        page: 1,
-    })
+async function get(urlParams: string): Promise<TracksResponse> {
 
     const res = await fetch(backendUrl + '/tracks/search?' + urlParams, {
         next: { 
@@ -63,6 +36,38 @@ async function getNewTracks(): Promise<TracksResponse> {
     return res.json()
 }
 
+async function getUserOwn(id: number, urlParams: string): Promise<TracksResponse> {
+
+    const res = await fetch(backendUrl + `/tracks/own/${id}?` + urlParams, {
+        next: { 
+            revalidate: 1,
+        },
+        
+    })
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+ 
+    return res.json()
+}
+
+async function getUserAdded(id: number, urlParams: string): Promise<TracksResponse> {
+
+    const res = await fetch(backendUrl + `/tracks/added/${id}?` + urlParams, {
+        next: { 
+            revalidate: 1,
+        },
+        
+    })
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+ 
+    return res.json()
+}
+
 export const trackServerApi = {
-    getNewTracks, getPopularTracks
+    get,
+    getUserOwn,
+    getUserAdded
 }
