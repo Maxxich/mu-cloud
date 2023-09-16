@@ -1,33 +1,65 @@
-import { TracksResponse } from '@/entity/track'
+import { createTrackSearchParams, trackServerApi, tracksBannerLimit } from '@/entity/track'
+import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
-
-async function getData(): Promise<TracksResponse> {
-    const res = await fetch('http://localhost:5001/tracks/search', {
-        next: { 
-            revalidate: 1,
-        },
-    })
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
- 
-    if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-    }
- 
-    return res.json()
-}
+import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
+import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 
 export default async function Home() {
  
-    const data = await getData()
-    console.log(data)
+    const popularTracksSearch = createTrackSearchParams({
+        limit: tracksBannerLimit,
+        order: 'DESC',
+        orderBy: 'listenings_count',
+        page: 1,
+    })
+    const newTracksSearch = createTrackSearchParams({
+        limit: tracksBannerLimit,
+        order: 'DESC',
+        orderBy: 'createdAt',
+        page: 1,
+    })
+    const popularUsersSearch = createUsersSearchParams({
+        limit: usersBannerLimit,
+        order: 'DESC',
+        orderBy: 'listenings_count',
+        page: 1,
+    })
 
+    const popularTracksData = await trackServerApi.get(popularTracksSearch)
+    const newTracksData = await trackServerApi.get(newTracksSearch)
+    const popularUsersData = await userServerApi.get(popularUsersSearch)
 
     return (
-        <div style={{ margin: '0 auto', width: '1280px', paddingTop: 100 }}>
-            Треки
-            <TrackBanner  tracks={[...data.tracks, ...data.tracks, ...data.tracks, ...data.tracks, ...data.tracks, ...data.tracks]}/>
-        </div>
+        <>
+            {popularTracksData.tracks.length 
+                ? 
+                <ItemsSection>
+                    <ItemsTitle title='Популярные треки' href='/popular-tracks'/>
+                    <TrackBanner tracks={popularTracksData.tracks}/>
+                </ItemsSection>
+                :
+                undefined
+            }
+
+            {newTracksData.tracks.length 
+                ? 
+                <ItemsSection>
+                    <ItemsTitle title='Новые треки' href='/new-tracks'/>
+                    <TrackBanner tracks={newTracksData.tracks}/>
+                </ItemsSection>
+                :
+                undefined
+            }
+
+            {popularUsersData.users.length 
+                ? 
+                <ItemsSection>
+                    <ItemsTitle title='Популярные пользователи' href='/popular-users'/>
+                    <UserBanner users={popularUsersData.users}/>
+                </ItemsSection>
+                :
+                undefined
+            }
+        </>
     )
 }
