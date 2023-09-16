@@ -5,8 +5,8 @@ import { ThemeProvider } from '@/global/providers/ThemeProvider'
 import { PlayerProvider } from '@/global/providers/PlayerProvider/PlayerProvider'
 import { AudioProvider } from '@/global/providers/AudioProvider'
 import { Navbar } from '@/widgets/Navbar'
-// import { CheckIsAuth } from '@/feature/CheckIsAuth'
 import { SessionProvider } from '@/global/providers/SessionProvider/SessionProvider'
+import { PageContainer } from '@/shared/ui/PageContainer/PageContainer'
 
 export const metadata: Metadata = {
     title: 'MuCloud',
@@ -28,8 +28,9 @@ export default function RootLayout({
                 }}>
                     <html lang="en">
                         <body>
-                            {/* <CheckIsAuth/> */}
-                            {children}
+                            <PageContainer>
+                                {children}
+                            </PageContainer>
                             <Navbar/>
                             <AudioProvider>
                                 <PlayerProvider/>
