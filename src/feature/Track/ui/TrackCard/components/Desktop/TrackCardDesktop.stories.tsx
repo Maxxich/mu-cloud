@@ -3,7 +3,7 @@ import Picture from '@/shared/assets/images/images.jpg'
 import { TrackCardDesktop } from './TrackCardDesktop'
 
 const meta = {
-    title: 'feature/TrackCardDesktop',
+    title: 'feature/Track/TrackCard/desktop',
     component:  TrackCardDesktop,
     parameters: {
         layout: 'centered',

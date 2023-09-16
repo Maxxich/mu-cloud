@@ -1,6 +1,7 @@
 'use client'
 import { memo, useCallback, useState } from 'react';
 import Link from 'next/link';
+import classNames from 'classnames';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import cls from './TrackCardDesktop.module.scss'
 import { TrackImage } from './Image/Image';
@@ -8,13 +9,15 @@ import { AddToPlaylist } from './Actions/AddToPlaylist';
 import { Download } from './Actions/Download';
 import { Like } from './Actions/Like';
 import { Share } from './Actions/Share';
-import { IDesktopCard } from '../../model/types/TrackCard';
+import { IDesktopCard } from '../../../../model/types/TrackCard';
+import { mapWidthToClass } from '../../../helpers/mapPropToClass';
 
 
 
-const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
+export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
     author_href, primary_name, image_src, id, track_href, secondary_name,
-    duration, author, track_src, onToggleTrack, isSelected, isPaused
+    duration, author, track_src, onToggleTrack, isSelected, isPaused,
+    width
 }) => {
   
     const onImageClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -23,11 +26,16 @@ const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
 
     const [isHoverAddonVisible, setHoverAddonVisiblity] = useState<boolean>(false)
 
+    const classes = classNames(
+        cls.container, 
+        (width ? mapWidthToClass[width] : undefined)
+    )
+
     return (
         <div
             onMouseEnter={() => setHoverAddonVisiblity(true)}
             onMouseLeave={() => setHoverAddonVisiblity(false)}
-            className={cls.container}
+            className={classes}
         >
             <TrackImage
                 active={isSelected}
@@ -60,5 +68,3 @@ const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
 })
 
 TrackCardDesktop.displayName = 'TrackCardDesktop'
-
-export default TrackCardDesktop

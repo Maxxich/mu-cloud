@@ -37,7 +37,7 @@ export const TrackImage: React.FunctionComponent<ITrackImageProps> = React.memo(
                 size={'s'}
                 src={src}
                 alt={alt}
-                backlight
+                // backlight
                 addon={filter || undefined}
                 className={className}
                 showAddon={active}

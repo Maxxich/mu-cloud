@@ -1,5 +1,6 @@
 import { Url } from 'next/dist/shared/lib/router/router'
 
+export type Width = 'full' | 'adaptive' | 'fixed'
 interface ITrackCard {
     id: number
     primary_name: string
@@ -13,6 +14,7 @@ interface ITrackCard {
     track_href: Url
     author_href: Url
     track_src: string
+    width?: Width
   }
   
 export interface IDesktopCard extends ITrackCard {

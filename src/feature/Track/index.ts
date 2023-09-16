@@ -1,3 +1,3 @@
-export { TrackCard } from './ui/TrackCard'
-export { TrackList } from './ui/TrackList'
-export { TrackBanner } from './ui/TrackBanner'
+export { TrackCard } from './ui/TrackCard/TrackCard'
+export { TrackList } from './ui/TrackList/TrackList'
+export { TrackBanner } from './ui/TrackBanner/TrackBanner'

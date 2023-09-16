@@ -1,7 +1,7 @@
 'use client'
-// import { InfoColumn, AuthorLink, TrackNameLink, Duration, DesktopHoverAddonGroup } from './UI';
-// import { IDesktopCard } from './types';
+
 import { SyntheticEvent, memo, useCallback, useState } from 'react';
+import classNames from 'classnames';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import Icon from '@/shared/assets/svg/svg.svg'
@@ -9,11 +9,13 @@ import { Menu } from '@/shared/ui/Menu/Menu';
 import cls from './TrackCardMobile.module.scss'
 import { TrackImage } from './Image/Image';
 import { Actions } from './Actions/Actions';
-import { IMobileCard } from '../../model/types/TrackCard';
+import { IMobileCard } from '../../../../model/types/TrackCard';
+import { mapWidthToClass } from '../../../helpers/mapPropToClass';
 
-const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
+export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
     author_href, primary_name, image_src, id, track_href, secondary_name,
-    isSelected, isPaused, duration, author, track_src, onToggleTrack
+    isSelected, isPaused, duration, author, track_src, onToggleTrack,
+    width
 }) => {
 
     const onContainerClick = useCallback((e: SyntheticEvent<HTMLDivElement>) => {
@@ -28,13 +30,19 @@ const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
     }, [setIsMenuOpen])
 
     const onMenuClose = useCallback((e: SyntheticEvent<HTMLDivElement | HTMLButtonElement | HTMLAnchorElement>) => {
+        e.stopPropagation()
         setIsMenuOpen(false)
     }, [setIsMenuOpen])
 
+   
+    const classes = classNames(
+        cls.container, 
+        (width ? mapWidthToClass[width] : undefined)
+    )
 
     return (
         <div
-            className={cls.container}
+            className={classes}
             onClick={onContainerClick}
         >
             <TrackImage
@@ -77,5 +85,3 @@ const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
 })
 
 TrackCardMobile.displayName = 'TrackCardMobile'
-
-export default TrackCardMobile

@@ -3,7 +3,7 @@ import Picture from '@/shared/assets/images/images.jpg'
 import { TrackCardMobile } from './TrackCardMobile'
 
 const meta = {
-    title: 'feature/TrackCardMobile',
+    title: 'feature/Track/TrackCard/mobile',
     component:  TrackCardMobile,
     parameters: {
         layout: 'centered',
