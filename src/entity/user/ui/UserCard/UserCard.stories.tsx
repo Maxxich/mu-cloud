@@ -3,7 +3,7 @@ import Image from '@/shared/assets/images/images.jpg'
 import { UserCard } from './UserCard'
 
 const meta = {
-    title: 'entity/UserCard',
+    title: 'entity/User/UserCard',
     component:  UserCard,
     parameters: {
         layout: 'centered',
@@ -27,6 +27,7 @@ export const Row: Story = {
 export const Column: Story = {
     args: {
         ...args,
-        variant: 'column'
+        variant: 'column',
+        fullwidth: undefined
     },
 }

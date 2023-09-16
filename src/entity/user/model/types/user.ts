@@ -10,4 +10,9 @@ export interface UserPictureSouces{
     medium: string | null | undefined
     big: string | null | undefined
   }
-  
+
+
+export interface UsersResponse {
+    users: User[],
+    total: number
+}

@@ -14,7 +14,7 @@
 
 .row {
     display: flex;
-    width: 100%;
+    width: 300px;
     gap: 11px;
     overflow: hidden;
     padding: 8px;
@@ -38,3 +38,26 @@
 }
 
 
+.fullwidth {
+    width: 100%;
+}
+
+.adaptive {
+    width: 100%;
+    flex: 0 0 100%;
+
+    @media (width >= 414px) {
+        width: 50%;
+        flex: 0 0 50%;
+    }
+
+    @media (width >= 680px) {
+        width: 33%;
+        flex: 0 0 33%;
+    }
+
+    @media (width >= 990px) {
+        width: 25%;
+        flex: 0 0 25%;
+    }
+}

@@ -7,33 +7,58 @@ import { Image, ImageSize } from '@/shared/ui/Image/Image';
 import cls from './UserCard.module.scss'
 
 type Variant = 'column' | 'row'
+type Width = 'full' | 'adaptive' | 'fixed'
 
-interface IUserCardProps {
+type ColumnProps =  {
     href: Url
     name: string
     image_src: string
-    variant?: Variant
+    variant?: 'column'
+    width?: 'fixed'
 }
+
+type RowProps = {
+    href: Url
+    name: string
+    image_src: string
+    variant?: 'row'
+    width?: Width
+}
+
+export type IUserCardProps = ColumnProps | RowProps
 
 const mapVariantToSize: Record<Variant, ImageSize> = {
     'column': 'm',
     'row': 's' 
 }
 
+const mapWidthToClass: Record<Width, string> = {
+    'full': cls.fullwidth,
+    'adaptive': cls.adaptive,
+    'fixed': ''
+}
+
 export const UserCard: React.FunctionComponent<IUserCardProps> = memo(({
     variant = 'row',
     href,
     name,
-    image_src
+    image_src,
+    width = 'fixed'
 }) => {
 
 
     const mods: Mods = {
-        [cls.hover_name]: isDesktop
+        [cls.hover_name]: isDesktop,
     }
 
+    const classes = classNames(
+        cls[variant], 
+        mods, 
+        (width ? mapWidthToClass[width] : undefined)
+    )
+
     return (
-        <Link href={href} className={classNames(cls[variant], mods)}>
+        <Link href={href} className={classes} draggable={false}>
             <Image
                 src={image_src}
                 alt={name}
@@ -43,6 +68,7 @@ export const UserCard: React.FunctionComponent<IUserCardProps> = memo(({
             <span className={cls.name}>{name}</span>
         </Link>
     )
+
 })
 
 UserCard.displayName = 'UserCard'

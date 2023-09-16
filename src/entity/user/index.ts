@@ -1,2 +1,5 @@
-export { UserCard } from './ui/UserCard'
+export { UserCard } from './ui/UserCard/UserCard'
 export type { User, UserPictureSouces } from './model/types/user'
+export { UserBanner } from './ui/UserBanner/UserBanner'
+export { UserList } from './ui/UserList/UserList'
+export { userServerApi } from './api/userServerApi'
