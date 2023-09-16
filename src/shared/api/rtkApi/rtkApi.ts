@@ -4,5 +4,5 @@ import { baseQuery } from '../config/config'
 export const rtkApi = createApi({
     baseQuery: baseQuery,
     endpoints: () => ({}),
-    tagTypes: ['Liked']
+    tagTypes: ['Liked', 'subscribe']
 })
