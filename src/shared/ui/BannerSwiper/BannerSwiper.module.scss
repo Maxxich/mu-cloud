@@ -1,0 +1,31 @@
+.swiper {
+    width: fit-content;
+    display: flex;
+    align-items: flex-start;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+}
+
+.overflow-hidden{
+    overflow: hidden;
+}
+
+.overflow-visible{
+    overflow: visible;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.next {
+    right: 0;
+}
+
