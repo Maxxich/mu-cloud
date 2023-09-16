@@ -1,71 +1,28 @@
-import { useSpring, animated } from '@react-spring/web';
-import { useDrag } from '@use-gesture/react';
-import classNames from 'classnames';
-import { ReactNode, useRef } from 'react'
-import cls from './BannerSwiper.module.scss'
+'use client'
 
-const mapOverflowToClass = {
-    'hidden': 'overflow-hidden',
-    'visible': 'overflow-visible',
-}
+import { isMobile } from 'react-device-detect';
+import { BannerSwiperMobile } from './components/mobile/BannerSwiperMobile';
+import { BannerSwiperDesktop } from './components/desktop/BannerSwiperDesktop';
+import { BannerSwiperProps } from './helpers/type';
 
-
-interface ICustomSwiperProps {
-    elements: ReactNode[]
-    rows?: 1 | 3
-    overflow?: 'hidden' | 'visible'
-}
-
-export const BannerSwiper: React.FunctionComponent<ICustomSwiperProps> = ({
-    elements,
-    rows = 1,
-    overflow = 'hidden'
+export const BannerSwiper: React.FunctionComponent<BannerSwiperProps> = ({
+    children,
+    ...rest
 }) => {
 
-    const [{ x }, api] = useSpring(() => ({ x: 0 }))
-    const ref = useRef<HTMLDivElement>()
-    const containerRef = useRef<HTMLDivElement>()
-    const bind = useDrag(({ offset: [ox]  }) => {
-        if (!ref?.current || !containerRef?.current) return 
-
-        const avaliableDragOffset =  -ref.current.offsetWidth + containerRef.current.clientWidth
-
-        if (ox > 0) {
-            api.start({ x: 0 })
-        }
-        else if (ox < avaliableDragOffset) {
-            api.start({ x: avaliableDragOffset });
-        } else {
-            api.start({ x: ox })
-        }
-    })
-
-    var arrayOfArrays = [];
-    for (var i = 0; i < elements.length; i += rows) {
-        arrayOfArrays.push(elements.slice(i, i + rows));
-    }
-
-    const containerClasses = classNames(cls.container, cls[mapOverflowToClass[overflow]])
+    if (isMobile) return (
+        <BannerSwiperMobile
+            {...rest}
+        >
+            {children}
+        </BannerSwiperMobile>
+    )
 
     return (
-        <div 
-            className={containerClasses} 
-            ref={containerRef as any}
+        <BannerSwiperDesktop
+            {...rest}
         >
-            <animated.div 
-                {...bind()} 
-                ref={ref as any} 
-                style={{ x }} 
-                className={cls.swiper}
-            >
-                {arrayOfArrays.map(
-                    (array, i) => (
-                        <div key={i}>
-                            {array.map(element => element)}
-                        </div>
-                    ))
-                }
-            </animated.div>
-        </div>
-    );
+            {children}
+        </BannerSwiperDesktop>
+    )
 };

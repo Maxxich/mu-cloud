@@ -1,20 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import {  BannerSwiper } from './BannerSwiper'
-import { coloredElements } from './helpers/story';
+import { BannerSwiperDesktop } from './BannerSwiperDesktop'
+import { coloredElements } from '../../helpers/story';
 
 const meta = {
-    title: 'shared/BannerSwiper',
-    component: BannerSwiper,
+    title: 'shared/BannerSwiper/desktop',
+    component: BannerSwiperDesktop,
     parameters: {
         layout: 'centered',
     },
-    tags: ['autodocs'],
     render: (args) => (
-        <div style={{ width: '90%', margin: '0 auto' }}>
-            <BannerSwiper {...args}/>
+        <div style={{ border: 'red 1px solid', width: '90%', margin: '0 auto' }}>
+            <BannerSwiperDesktop {...args}/>
         </div>
     )
-} satisfies Meta<typeof BannerSwiper>
+} satisfies Meta<typeof BannerSwiperDesktop>
 
 export default meta
 type Story = StoryObj<typeof meta>;
