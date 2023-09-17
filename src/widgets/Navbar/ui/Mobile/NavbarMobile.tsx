@@ -9,7 +9,7 @@ import { NavLink } from './NavLink/NavLink';
 interface INavBarProps {
 }
 
-const NavbarMobile: React.FunctionComponent<INavBarProps> = (props) => {
+export const NavbarMobile: React.FunctionComponent<INavBarProps> = (props) => {
     return ( 
         <div className={cls.container}>
             <NavLink
@@ -32,5 +32,3 @@ const NavbarMobile: React.FunctionComponent<INavBarProps> = (props) => {
         </div>  
     );
 };
-
-export default NavbarMobile

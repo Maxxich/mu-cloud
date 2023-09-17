@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import cls from './Links.module.scss'
 import { ILinkProps, Link } from './Link';
 
@@ -22,11 +23,14 @@ const LinksData: ILinkProps[] = [
 ]
 
 interface ILinksProps {
+    className?: string
 }
 
-export const Links: React.FunctionComponent<ILinksProps> = (props) => {
+export const Links: React.FunctionComponent<ILinksProps> = ({
+    className
+}) => {
     return (
-        <div className={cls.container}>
+        <div className={classNames(cls.container, className)}>
             {LinksData.map(ld => (
                 <Link href={ld.href} key={ld.href}>{ld.children}</Link>
             ))}

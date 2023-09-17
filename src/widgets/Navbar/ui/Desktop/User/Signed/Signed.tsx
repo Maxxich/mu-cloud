@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { signOut, useSession } from 'next-auth/react';
 import { Image } from '@/shared/ui/Image/Image';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
@@ -7,7 +8,13 @@ import { backendUrl } from '@/shared/const/backendUrl';
 import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall';
 import cls from './Signed.module.scss'
 
-export const SignedIn: React.FunctionComponent = () => {
+interface Props {
+    className?: string
+}
+
+export const SignedIn: React.FunctionComponent<Props> = ({
+    className
+}) => {
 
     const session = useSession()
     
@@ -17,7 +24,7 @@ export const SignedIn: React.FunctionComponent = () => {
     }
 
     return (
-        <div className={cls.container}>
+        <div className={classNames(cls.container, className)}>
             <Image
                 alt='image'
                 backlight

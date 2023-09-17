@@ -14,6 +14,8 @@ interface IUserProps {
 export const User: React.FunctionComponent<IUserProps> = (props) => {
 
     const session = useSession()
+
+    console.log(session)
     
     if (session.status === 'authenticated') return (
         <Signed/>

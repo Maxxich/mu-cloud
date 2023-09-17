@@ -1,12 +1,15 @@
-'use client'
-import { isMobile } from 'react-device-detect';
-import { NavbarMobileAsync } from './Mobile/NavbarMobile.async';
-import { NavbarDesktopAsync } from './Desktop/NavbarDesktop.async';
+import { InterfaceSeparator } from '@/shared/ui/InterfaceSeparator/InterfaceSeparator'
+import { NavbarDesktop } from './Desktop/NavbarDesktop';
+import { NavbarMobile } from './Mobile/NavbarMobile';
 
 interface INavbarProps {
 }
 
 export const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
-    if (isMobile) return <NavbarMobileAsync/>
-    return <NavbarDesktopAsync/>
+    return (
+        <InterfaceSeparator
+            desktopComponent={<NavbarDesktop/>}
+            mobileComponent={<NavbarMobile/>}
+        />
+    )
 };

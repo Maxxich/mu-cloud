@@ -20,7 +20,7 @@ export const NavLink: React.FunctionComponent<ILinkNavbarProps> = memo(({
 
     console.log(pathname)
 
-    let variant: 'primary' | 'secondary' = pathname.startsWith(href) ? 'primary' : 'secondary'
+    let variant: 'primary' | 'secondary' = pathname?.startsWith(href) ? 'primary' : 'secondary'
 
     if (pathname !== '/' && href === '/') variant = 'secondary'
 
