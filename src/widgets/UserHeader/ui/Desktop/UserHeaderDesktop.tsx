@@ -1,23 +1,21 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 import { isMobile } from 'react-device-detect';
-import { useSession } from 'next-auth/react';
 import { backendUrl } from '@/shared/const/backendUrl';
-import { User } from '@/entity/user';
+import { getNoun } from '@/shared/lib/getNoun/getNoun';
 import { avatarPlaceholder } from '@/shared/const/avatarPlaceholderSmall';
 import cls from './UserHeader.module.scss'
 import { Subscribe } from '../Subscribe';
+import { HeaderProps } from '../../types/HeaderProps';
 
-interface IHeaderProps {
-    user: User
-}
-
-export const UserHeaderDesktop: React.FunctionComponent<IHeaderProps> = ({
+export const UserHeaderDesktop: React.FunctionComponent<HeaderProps> = ({
     user,
+    totalTracks,
+    listeningCount,
+    viewerId
 }) => {
 
-    const session = useSession()
-    const viewerId = session?.data?.user.id
+    console.log(viewerId)
 
     const mods: Mods = {
         [cls.desktop]: !isMobile
@@ -51,9 +49,9 @@ export const UserHeaderDesktop: React.FunctionComponent<IHeaderProps> = ({
                 <div className={cls.subtitle}>
                     {user.adress}
                     &nbsp;
-                    20000 прослушиваний
+                    {listeningCount} {getNoun(listeningCount, 'прослушивание', 'прослушивания' , 'прослушиваний')}
                     &nbsp;
-                    10 треков
+                    {totalTracks} {getNoun(totalTracks, 'трек', 'трека' , 'треков')}
                 </div>
 
             </div>

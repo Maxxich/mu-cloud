@@ -1,23 +1,16 @@
-'use client'
-
 import * as React from 'react';
-import { isMobile } from 'react-device-detect';
-import { User } from '@/entity/user';
+import { InterfaceSeparator } from '@/shared/ui/InterfaceSeparator/InterfaceSeparator';
 import { UserHeaderMobile } from './Mobile/MobileHeaderMobile';
 import { UserHeaderDesktop } from './Desktop/UserHeaderDesktop';
+import { HeaderProps } from '../types/HeaderProps';
 
-interface IUserHeaderProps {
-    user: User
-}
-
-export const UserHeader: React.FunctionComponent<IUserHeaderProps> = ({
-    user
-}) => {
-
-    if (isMobile) return <UserHeaderMobile user={user}/>
+export const UserHeader: React.FunctionComponent<HeaderProps> = (props) => {
 
     return (
-        <UserHeaderDesktop user={user}/>
-    );
+        <InterfaceSeparator
+            desktopComponent={<UserHeaderDesktop {...props}/>}
+            mobileComponent={<UserHeaderMobile {...props}/>}
+        />
+    )
 };
 

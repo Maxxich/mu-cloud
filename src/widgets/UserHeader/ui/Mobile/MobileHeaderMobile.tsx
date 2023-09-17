@@ -1,22 +1,21 @@
 import Image from 'next/image';
-import { useSession } from 'next-auth/react';
+import classNames from 'classnames';
 import { backendUrl } from '@/shared/const/backendUrl';
-import { User } from '@/entity/user';
 import { avatarPlaceholder } from '@/shared/const/avatarPlaceholderSmall';
+import { getNoun } from '@/shared/lib/getNoun/getNoun';
 import cls from './MobileHeader.module.scss'
 import { Subscribe } from '../Subscribe';
-import classNames from 'classnames';
+import { HeaderProps } from '../../types/HeaderProps';
 
-interface IHeaderProps {
-    user: User
-}
 
-export const UserHeaderMobile: React.FunctionComponent<IHeaderProps> = ({
+
+export const UserHeaderMobile: React.FunctionComponent<HeaderProps> = ({
     user,
+    totalTracks,
+    listeningCount,
+    viewerId
 }) => {
-    const session = useSession()
-    const viewerId = session?.data?.user.id
-        
+  
     const url = user.picture_source.big ? (backendUrl + '/' + user.picture_source.big) : avatarPlaceholder
 
 
@@ -45,9 +44,9 @@ export const UserHeaderMobile: React.FunctionComponent<IHeaderProps> = ({
             <div className={cls.subtitle}>
                 {user.adress}
                 &nbsp;
-                20000 прослушиваний
+                {listeningCount} {getNoun(listeningCount, 'прослушивание', 'прослушивания' , 'прослушиваний')}
                 &nbsp;
-                10 треков
+                {totalTracks} {getNoun(totalTracks, 'трек', 'трека' , 'треков')}
             </div>
         </header>
     );
