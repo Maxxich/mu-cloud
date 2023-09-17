@@ -66,8 +66,25 @@ async function getByAdress(adress: string): Promise<User> {
     return res.json()
 }
 
+async function getListeningsCountById(id: number): Promise<number> {
+    const res = await fetch(
+        backendUrl + `/users/listenings-count/${id}`, 
+        {
+            next: { 
+                revalidate: 1,
+            },
+        }
+    )
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+ 
+    return res.json()
+}
+
 export const userServerApi = {
     get,
     getByAdress,
-    getFollowings
+    getFollowings,
+    getListeningsCountById
 }
