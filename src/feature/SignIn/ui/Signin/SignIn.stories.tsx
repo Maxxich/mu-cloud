@@ -3,7 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { SignIn } from './Signin'
 
 const meta = {
-    title: 'features/SignIn',
+    title: 'feature/SignIn',
     component: SignIn,
     parameters: {
         layout: 'centered',
@@ -23,7 +23,26 @@ export const Default: Story = {
     args
 }
 Default.decorators = [
-    StoreDecorator({})
+    StoreDecorator({
+        signin: {
+            email: 'example@email.ru',
+            password: '00001111',
+            status:'idle'
+        }
+    })
+]
+
+export const Loading: Story = {
+    args
+}
+Loading.decorators = [
+    StoreDecorator({
+        signin: {
+            email: 'example@email.ru',
+            password: '00001111',
+            status:'loading'
+        }
+    })
 ]
 
 export const Error: Story = {
@@ -32,8 +51,10 @@ export const Error: Story = {
 Error.decorators = [
     StoreDecorator({
         signin: {
-            errorMessage: 'Неправильные данные для входа',
-            email: 'asdfasdfasdf'
+            email: 'example@email.ru',
+            password: '00001111',
+            status: 'error',
+            errorMessage: 'Неправильные данные для входа'
         }
     })
 ]
