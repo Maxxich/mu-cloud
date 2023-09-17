@@ -18,6 +18,14 @@ async function refreshToken(token: JWT): Promise<JWT> {
         backendTokens: response,
     };
 }
+
+async function logOut(token: JWT): Promise<void> {
+    await fetch(backendUrl + '/auth-private/logout', {
+        headers: {
+            authorization: `Bearer ${token.backendTokens.accessToken}`,
+        },
+    });
+} 
   
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -74,5 +82,11 @@ export const authOptions: NextAuthOptions = {
 
     pages: {
         signIn: '/signin'
+    },
+
+    events: {
+        async signOut({ token }) {
+            await logOut(token)
+        },
     }
 };
