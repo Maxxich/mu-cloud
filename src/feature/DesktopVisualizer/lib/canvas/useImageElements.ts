@@ -3,8 +3,8 @@ import { Track } from '@/entity/track'
 
 export const useImageElements = (track: Track) => {
 
-    const [image, setImage] = useState<HTMLImageElement>()
-    const [imageSquare, setImageSquare] = useState<HTMLImageElement>()
+    const [image, setImage] = useState<HTMLImageElement>(new Image())
+    const [imageSquare, setImageSquare] = useState<HTMLImageElement>(new Image())
 
     useEffect(() => {
         if (!track) return

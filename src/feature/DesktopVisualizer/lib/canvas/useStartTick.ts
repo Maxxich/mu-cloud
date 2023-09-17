@@ -2,16 +2,12 @@ import { useCallback, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { getIsSmallPictureActive, getSelectedTrack } from '@/entity/player'
 import { useAudio } from '@/shared/lib/useAudio/useAudio'
-import { createTick } from './utils'
-import { defaultBarColor, fftSize, mobileCoefficient } from '../config'
+import { useResizeListener } from './useResizeListener'
+import { useImageElements } from './useImageElements'
+import { createTick } from '../utils'
+import { defaultBarColor, fftSize, mobileCoefficient } from '../../config'
 
-export const useStartTick = ({
-    image,
-    squareImage
-} : {
-    image: HTMLImageElement
-    squareImage: HTMLImageElement
-}) => {
+export const useStartTick = () => {
 
     const ref = useRef<HTMLCanvasElement>()
     const prevVolumesRef = useRef<number[]>([])
@@ -19,6 +15,10 @@ export const useStartTick = ({
     const audio = useAudio()
     const track = useSelector(getSelectedTrack)
     const isSmallPictureActive = useSelector(getIsSmallPictureActive)
+
+    const {
+        image, imageSquare
+    } = useImageElements(track!)
 
     const startTick = useCallback(() => {
         if (!ref?.current) return
@@ -32,7 +32,7 @@ export const useStartTick = ({
             image,
             mobileCoefficient,
             prevVolumes: prevVolumesRef.current,
-            squareImage: squareImage,
+            squareImage: imageSquare,
             isSmallPictureActive,
             animationIdRef,
         })
@@ -41,11 +41,13 @@ export const useStartTick = ({
       
         }
         tick()
-    }, [audio, image, isSmallPictureActive, squareImage, track])
+    }, [audio, image, isSmallPictureActive, imageSquare, track])
 
-    return {
-        startTick,
+    useResizeListener({
+        animationIdRef,
         ref,
-        animationIdRef
-    }
+        startTick,
+    })
+
+    return { ref }
 }
