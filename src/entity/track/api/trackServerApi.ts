@@ -1,6 +1,8 @@
 import { backendUrl } from '@/shared/const/backendUrl'
 import { createUrlSearchParams } from '@/shared/lib/createUrlSearchParams/createUrlSearchParams'
 import { Track } from '../model/types/track'
+import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc'
+import { createTrackImagesSrc } from '../lib/createTrackImageSrc'
 
 interface SearchTracks {
     page?: number, 
@@ -33,7 +35,16 @@ async function get(urlParams: string): Promise<TracksResponse> {
         throw new Error('Failed to fetch data')
     }
  
-    return res.json()
+    const data = await res.json() as TracksResponse
+    data.tracks.map(
+        (t) => {
+            t.owners.map(o => o.picture_source = createUserImagesSrc(o))
+            t.feates.map(f => f.picture_source = createUserImagesSrc(f))
+            t.picture_source = createTrackImagesSrc(t)
+            return t
+        }
+    )
+    return data
 }
 
 async function getUserOwn(id: number, urlParams: string): Promise<TracksResponse> {
@@ -48,7 +59,16 @@ async function getUserOwn(id: number, urlParams: string): Promise<TracksResponse
         throw new Error('Failed to fetch data')
     }
  
-    return res.json()
+    const data = await res.json() as TracksResponse
+    data.tracks.map(
+        (t) => {
+            t.owners.map(o => o.picture_source = createUserImagesSrc(o))
+            t.feates.map(f => f.picture_source = createUserImagesSrc(f))
+            t.picture_source = createTrackImagesSrc(t)
+            return t
+        }
+    )
+    return data
 }
 
 async function getUserAdded(id: number, urlParams: string): Promise<TracksResponse> {
@@ -63,7 +83,16 @@ async function getUserAdded(id: number, urlParams: string): Promise<TracksRespon
         throw new Error('Failed to fetch data')
     }
  
-    return res.json()
+    const data = await res.json() as TracksResponse
+    data.tracks.map(
+        (t) => {
+            t.owners.map(o => o.picture_source = createUserImagesSrc(o))
+            t.feates.map(f => f.picture_source = createUserImagesSrc(f))
+            t.picture_source = createTrackImagesSrc(t)
+            return t
+        }
+    )
+    return data
 }
 
 export const trackServerApi = {

@@ -1,5 +1,3 @@
-import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall';
-import { backendUrl } from '@/shared/const/backendUrl';
 import cls from './UserList.module.scss'
 import { UserCard } from '../UserCard/UserCard';
 import { User } from '../../model/types/user';
@@ -16,7 +14,7 @@ export const UserList: React.FunctionComponent<IUserListProps> = ({
             {users.map(u => (
                 <UserCard 
                     href={`/users/${u.adress}`}
-                    image_src={u.picture_source.small ? (backendUrl + '/' + u.picture_source.small) : avatarPlaceholderSmall}  
+                    image_src={u.picture_source.small}  
                     name={u.name}
                     variant={'row'}
                     width={'adaptive'}

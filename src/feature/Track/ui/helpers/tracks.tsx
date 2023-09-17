@@ -1,19 +1,20 @@
 import { Track } from '@/entity/track';
 import { User } from '@/entity/user';
+import Image from '@/shared/assets/images/images.jpg'
 
 const user: User = {
     adress: '@maxich',
     id: 1,
     name: 'Maxich',
     picture_source: {
-        big: 'https://www.google.com/',
-        medium: 'https://www.google.com/',
-        small: 'https://www.google.com/'
+        big: Image.src,
+        medium: Image.src,
+        small: Image.src
     }
 }
 
 const track: Track = {
-    audio_src: 'https://www.google.com/',
+    audio_src: Image.src,
     duration: 123,
     feates: [],
     id: 1,
@@ -22,10 +23,10 @@ const track: Track = {
         user
     ],
     picture_source: {
-        square: 'https://www.google.com/',
-        square_medium: 'https://www.google.com/',
-        square_small: 'https://www.google.com/',
-        wide: 'https://www.google.com/'
+        square: Image.src,
+        square_medium: Image.src,
+        square_small: Image.src,
+        wide: Image.src
     },
     color: undefined,
     name_secondary: 'Jaiden Stylez'

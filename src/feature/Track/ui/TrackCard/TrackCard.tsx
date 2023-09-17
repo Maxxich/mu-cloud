@@ -4,7 +4,6 @@ import { useCallback } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import { getIsPaused, getPlaylist, getSelectedTrackId, playerActions } from '@/entity/player';
-import { backendUrl } from '@/shared/const/backendUrl';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { Track as ITrack } from '@/entity/track';
 import { TrackCardMobile } from './components/Mobile/TrackCardMobile';
@@ -43,7 +42,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
             author_href={'/users/'+ track.owners[0].adress}
             duration={track.duration}
             id={track.id}
-            image_src={backendUrl + '/' + track.picture_source.square_small}
+            image_src={track.picture_source.square_small}
             isPaused={isPaused}
             isSelected={selectedTrackId === track.id}
             onToggleTrack={onToggleTrack}
@@ -62,7 +61,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
             author_href={'/users/'+ track.owners[0].adress}
             duration={track.duration}
             id={track.id}
-            image_src={backendUrl + '/' + track.picture_source.square_small}
+            image_src={track.picture_source.square_small}
             isPaused={isPaused}
             isSelected={selectedTrackId === track.id}
             onToggleTrack={onToggleTrack}

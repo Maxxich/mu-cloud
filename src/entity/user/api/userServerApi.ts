@@ -1,6 +1,7 @@
 import { backendUrl } from '@/shared/const/backendUrl'
 import { createUrlSearchParams } from '@/shared/lib/createUrlSearchParams/createUrlSearchParams'
 import { User } from '../model/types/user'
+import { createUserImagesSrc } from '../lib/createUserImageSrc'
 
 interface SearchUsers {
     page?: number, 
@@ -14,6 +15,7 @@ interface UsersResponse {
     users: User[],
     total: number
 }
+
 
 export const usersBannerLimit = 8
 
@@ -32,7 +34,14 @@ async function get(urlParams: string): Promise<UsersResponse> {
         throw new Error('Failed to fetch data')
     }
  
-    return res.json()
+    const data = await res.json() as UsersResponse
+    data.users.map(
+        (u) => {
+            u.picture_source = createUserImagesSrc(u)
+            return u
+        }
+    )
+    return data
 }
 
 
@@ -47,7 +56,14 @@ async function getFollowings(id: number,urlParams: string): Promise<UsersRespons
         throw new Error('Failed to fetch data')
     }
  
-    return res.json()
+    const data = await res.json() as UsersResponse
+    data.users.map(
+        (u) => {
+            u.picture_source = createUserImagesSrc(u)
+            return u
+        }
+    )
+    return data
 }
 
 async function getByAdress(adress: string): Promise<User> {
@@ -63,7 +79,9 @@ async function getByAdress(adress: string): Promise<User> {
         throw new Error('Failed to fetch data')
     }
  
-    return res.json()
+    const data = await res.json() as User
+    data.picture_source = createUserImagesSrc(data)
+    return data
 }
 
 async function getListeningsCountById(id: number): Promise<number> {
