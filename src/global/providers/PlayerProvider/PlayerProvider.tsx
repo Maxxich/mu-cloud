@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { getIsPlayerOpened, getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
 import { MobilePlayerContorls } from '@/feature/MobilePlayerContorls';
 import { MobilePlayer } from '@/widgets/MobilePlayer';
+import { DesktopPlayer } from '@/widgets/DesktopPlayer';
+import { DesktopVisualizer } from '@/feature/DesktopVisualizer';
 
 interface IPlayerProviderProps {
 }
@@ -29,5 +31,10 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = (pr
         </>
     )
 
-    return null
+    return (
+        <>
+            {isOpened && <DesktopVisualizer track={selectedTrack}/>}
+            <DesktopPlayer/>
+        </>
+    )
 };
