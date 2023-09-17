@@ -20,3 +20,10 @@ padding: 0;
     justify-content: space-between;
     align-items: center;
 }
+
+.desktop {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

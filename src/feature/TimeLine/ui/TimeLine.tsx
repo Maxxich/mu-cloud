@@ -1,7 +1,6 @@
 'use client'
 
 import { isBrowser } from 'react-device-detect';
-import { isMobile } from 'react-device-detect';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { getCurrentTrackTime, getCurrentTrackTimeLenght } from '@/entity/player';
@@ -37,7 +36,7 @@ export const TimeLine: React.FunctionComponent<ITimeLineProps> = ({
     const InputEl =  <Input variant={variant}/>
 
     const BrowserView = (
-        <div>
+        <div className={cls.desktop}>
             {LeftTime}
             {InputEl}
             {RightTime}
@@ -66,8 +65,8 @@ export const TimeLine: React.FunctionComponent<ITimeLineProps> = ({
             onTouchMove={handleTouch}
             onTouchStart={handleTouch}
         >
-            {isBrowser && BrowserView}
-            {isMobile && MobileView}
+            {variant === 'desktop' && BrowserView}
+            {variant === 'mobile' && MobileView}
         </div>
     );
 };
