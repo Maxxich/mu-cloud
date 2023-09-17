@@ -19,9 +19,6 @@ export const NameInput: React.FunctionComponent<INameInputProps> = memo((props) 
         dispatch(setName(e.target.value))
     }, [dispatch])
 
-    console.log('render')
-
-
     return (
         <Input
             value={name}

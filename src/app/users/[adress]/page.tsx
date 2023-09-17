@@ -14,7 +14,6 @@ type Props = {
 }
 
 export async function generateMetadata({ params: { adress } }: Props) {
-    console.log(adress)
     const user = await userServerApi.getByAdress(adress)
     return {
         title: user.name + ' | ' + 'MuCloud'
@@ -55,7 +54,6 @@ export default async function TrackPage ({ params: { adress } }: Props) {
     const listeningCount = await userServerApi.getListeningsCountById(user.id)
 
     const session = await getServerSession(authOptions)
-    console.log(session)
     const viewerId = session?.user.id
 
     return (

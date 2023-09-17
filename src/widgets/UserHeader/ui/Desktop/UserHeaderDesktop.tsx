@@ -13,8 +13,6 @@ export const UserHeaderDesktop: React.FunctionComponent<HeaderProps> = ({
     viewerId
 }) => {
 
-    console.log(viewerId)
-
     const mods: Mods = {
         [cls.desktop]: !isMobile
     }

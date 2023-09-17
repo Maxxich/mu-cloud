@@ -52,7 +52,6 @@ async function getFollowings(id: number,urlParams: string): Promise<UsersRespons
         },
     })
     if (!res.ok) {
-        console.log(res.status)
         throw new Error('Failed to fetch data')
     }
  

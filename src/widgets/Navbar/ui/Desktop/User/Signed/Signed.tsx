@@ -4,8 +4,7 @@ import { Image } from '@/shared/ui/Image/Image';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import IconGear from '@/shared/assets/svg/Gear.svg'
 import IconLogout from '@/shared/assets/svg/Logout.svg'
-import { backendUrl } from '@/shared/const/backendUrl';
-import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall';
+import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc';
 import cls from './Signed.module.scss'
 
 interface Props {
@@ -17,8 +16,8 @@ export const SignedIn: React.FunctionComponent<Props> = ({
 }) => {
 
     const session = useSession()
-    
-    const pictures = session?.data?.user.picture_source
+    const user = session!.data!.user
+    const pictures = createUserImagesSrc(user)
     const logout = () => {
         signOut()
     }
@@ -30,7 +29,7 @@ export const SignedIn: React.FunctionComponent<Props> = ({
                 backlight
                 size='xs'
                 variant='circle'
-                src={pictures?.small ? (backendUrl + '/' + pictures.small) : (backendUrl + '/' + avatarPlaceholderSmall)}
+                src={pictures.small}
             />
             <IconButton
                 icon={<IconGear/>}

@@ -1,11 +1,10 @@
 import { useCallback, useState } from 'react';
 import { useSession, signOut } from 'next-auth/react'
 import { Image } from '@/shared/ui/Image/Image';
-import { backendUrl } from '@/shared/const/backendUrl';
-import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall';
 import { CloseMenuEvent, Menu, OpenMenuEvent } from '@/shared/ui/Menu/Menu';
 import UserSvg from '@/shared/assets/svg/User.svg'
 import LogoutSvg from '@/shared/assets/svg/Logout.svg'
+import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc';
 import cls from './User.module.scss'
 
 interface ISignedProps {
@@ -25,12 +24,8 @@ export const Signed: React.FunctionComponent<ISignedProps> = (props) => {
         setMenuOpen(true)
     }, [setMenuOpen])
     
-    const pictures = session?.data?.user.picture_source
-    const src = pictures 
-        ? (pictures.small
-            ? (backendUrl + '/' + pictures.small) 
-            : (backendUrl + '/' + avatarPlaceholderSmall))
-        : backendUrl + '/' + avatarPlaceholderSmall
+    const pictures = createUserImagesSrc(session!.data!.user)
+    const src = pictures.small
     
     return (
         <>

@@ -16,7 +16,6 @@ export const Link: React.FunctionComponent<ILinkProps> = ({
 }) => {
 
     const pathname = usePathname()
-    console.log(pathname)
     const mods: Mods = {
         [cls.primary]: pathname === href
     }
