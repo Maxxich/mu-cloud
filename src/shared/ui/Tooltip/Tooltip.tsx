@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import { ITooltip, Tooltip as TooltipEl } from 'react-tooltip';
 import classNames from 'classnames';
