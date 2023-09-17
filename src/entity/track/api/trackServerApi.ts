@@ -1,7 +1,7 @@
 import { backendUrl } from '@/shared/const/backendUrl'
 import { createUrlSearchParams } from '@/shared/lib/createUrlSearchParams/createUrlSearchParams'
-import { Track } from '../model/types/track'
 import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc'
+import { Track } from '../model/types/track'
 import { createTrackImagesSrc } from '../lib/createTrackImageSrc'
 
 interface SearchTracks {
