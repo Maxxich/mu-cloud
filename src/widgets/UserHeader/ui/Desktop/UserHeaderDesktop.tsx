@@ -1,9 +1,7 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 import { isMobile } from 'react-device-detect';
-import { backendUrl } from '@/shared/const/backendUrl';
 import { getNoun } from '@/shared/lib/getNoun/getNoun';
-import { avatarPlaceholder } from '@/shared/const/avatarPlaceholderSmall';
 import cls from './UserHeader.module.scss'
 import { Subscribe } from '../Subscribe';
 import { HeaderProps } from '../../types/HeaderProps';
@@ -26,7 +24,7 @@ export const UserHeaderDesktop: React.FunctionComponent<HeaderProps> = ({
         mods
     )
         
-    const url = user.picture_source.big ? (backendUrl + '/' + user.picture_source.big) : avatarPlaceholder
+    const url = user.picture_source.big
 
     return (
         <header 

@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import classNames from 'classnames';
-import { backendUrl } from '@/shared/const/backendUrl';
-import { avatarPlaceholder } from '@/shared/const/avatarPlaceholderSmall';
 import { getNoun } from '@/shared/lib/getNoun/getNoun';
 import cls from './MobileHeader.module.scss'
 import { Subscribe } from '../Subscribe';
@@ -16,7 +14,7 @@ export const UserHeaderMobile: React.FunctionComponent<HeaderProps> = ({
     viewerId
 }) => {
   
-    const url = user.picture_source.big ? (backendUrl + '/' + user.picture_source.big) : avatarPlaceholder
+    const url = user.picture_source.big
 
 
     const nameMods: Mods = {
