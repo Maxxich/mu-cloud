@@ -1,6 +1,8 @@
+import { getServerSession } from 'next-auth/next'
 import { createTrackSearchParams, trackServerApi, tracksBannerLimit } from '@/entity/track'
 import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
+import { authOptions } from '@/shared/config/authConfig';
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { UserHeader } from '@/widgets/UserHeader'
@@ -50,10 +52,19 @@ export default async function TrackPage ({ params: { adress } }: Props) {
     })
 
     const followings = await userServerApi.getFollowings(user.id, followingsSearch)
+    const listeningCount = await userServerApi.getListeningsCountById(user.id)
+
+    const session = await getServerSession(authOptions)
+    console.log(session)
+    const viewerId = session?.user.id
+
     return (
         <>
             <UserHeader
                 user={user}
+                listeningCount={listeningCount}
+                totalTracks={ownTracks.total}
+                viewerId={viewerId}
             />
             {ownTracks.tracks.length 
                 ? 
