@@ -1,0 +1,33 @@
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.info_hidden {
+    display: none;
+    opacity: 0;
+}
+
+.author{
+    color: #fff;
+    font-size: 30px;
+    line-height: 33px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.name{
+    color: #fff;
+    font-size: 40px;
+    line-height: 43px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
