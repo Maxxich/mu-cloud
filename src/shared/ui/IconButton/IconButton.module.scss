@@ -41,6 +41,14 @@
     }
 }
 
+.willRotate {
+  transition: all 0.2s ease-in 0s;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
 .secondary{
   & svg {
     fill: var(--secondary-color); 
@@ -63,8 +71,8 @@
   
   .l {  
       & svg {
-      height: var(--font-line-l);
-      width: var(--font-line-l);
+      height: 26px;
+      width: 26px;
     }
   }
   

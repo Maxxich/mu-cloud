@@ -11,15 +11,29 @@ interface IBaseIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   variant?: ButtonVariant
   size?: 's' | 'm' | 'l' | 'xl',
   className?: string,
+  rotated?: boolean,
+  willRotate?: boolean
 }
 
-interface IIconButtonProps extends IBaseIconButtonProps {
+interface IIconButtonWillRotateProps extends IBaseIconButtonProps {
+    rotated?: boolean,
+    willRotate: true
+}
+
+interface IIconButtonWillNotRotateProps extends IBaseIconButtonProps {
+    rotated?: never,
+    willRotate?: never
+}
+
+type IButtonWithRotate = IIconButtonWillRotateProps | IIconButtonWillNotRotateProps
+
+type IIconButtonProps = IButtonWithRotate & {
     tooltipId?: never,
     tooltipContent?: never
     tooltipPlace?: never
 }
 
-interface IIconButtonWithTooltipProps extends IBaseIconButtonProps {
+type IIconButtonWithTooltipProps = IButtonWithRotate &  {
   tooltipId: string,
   tooltipContent: string
   tooltipPlace?: PlacesType
@@ -35,20 +49,37 @@ export const IconButton: React.FunctionComponent<IProps> = memo(({
     tooltipContent,
     tooltipId,
     tooltipPlace,
+    rotated,
+    willRotate,
     ...rest
 }) => {
 
+    const mods: Mods = {
+        [cls.rotated]: rotated
+    }
+
+    const btn = 
+        <button
+            className={classNames(cls.IconButton, cls[size], cls[variant], className)}
+            id={tooltipId}
+            data-tooltip-id={tooltipId}
+            data-tooltip-content={tooltipContent}
+            {...rest}
+        >
+            {icon}
+        </button>
+
     return (
         <>
-            <button
-                className={classNames(cls.IconButton, cls[size], cls[variant], className)}
-                id={tooltipId}
-                data-tooltip-id={tooltipId}
-                data-tooltip-content={tooltipContent}
-                {...rest}
-            >
-                {icon}
-            </button>
+            {
+                willRotate
+                    ?  (
+                        <div className={classNames(cls.willRotate, mods)}>
+                            {btn}
+                        </div>
+                    )
+                    : btn 
+            }
             {
                 tooltipId && 
         <Tooltip
