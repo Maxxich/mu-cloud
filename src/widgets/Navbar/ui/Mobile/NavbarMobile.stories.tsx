@@ -7,6 +7,7 @@ const meta = {
     component: NavbarMobile,
     parameters: {
         layout: 'centered',
+        loki: { skip: true },
     },
     argTypes: { onClick: { action: 'clicked' } },
     tags: ['autodocs'],

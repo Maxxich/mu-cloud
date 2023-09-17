@@ -8,6 +8,7 @@ const meta = {
     component: NavbarDesktop,
     parameters: {
         layout: 'centered',
+        loki: { skip: true },
     },
     argTypes: { onClick: { action: 'clicked' } },
     tags: ['autodocs'],
