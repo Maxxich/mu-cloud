@@ -7,7 +7,7 @@ interface Props {
   className?: string 
 }
 
-export const Logo: React.FunctionComponent = memo(({
+export const Logo: React.FunctionComponent<Props> = memo(({
     className
 }: Props) => {
 
