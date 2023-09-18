@@ -22,6 +22,7 @@
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@react-spring/web": "^9.7.3",
     "@reduxjs/toolkit": "^1.9.5",
     "@tomfreudenberg/next-auth-mock": "^0.5.6",

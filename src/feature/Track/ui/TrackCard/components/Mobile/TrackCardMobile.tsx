@@ -1,6 +1,6 @@
 'use client'
 
-import { SyntheticEvent, memo, useCallback, useState } from 'react';
+import { SyntheticEvent, memo, useCallback, Fragment } from 'react';
 import classNames from 'classnames';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
@@ -8,7 +8,7 @@ import Icon from '@/shared/assets/svg/svg.svg'
 import { Menu } from '@/shared/ui/Menu/Menu';
 import cls from './TrackCardMobile.module.scss'
 import { TrackImage } from './Image/Image';
-import { Actions } from './Actions/Actions';
+import { ActionsMenu } from './Actions/ActionsMenu';
 import { IMobileCard } from '../../../../model/types/TrackCard';
 import { mapWidthToClass } from '../../../helpers/mapPropToClass';
 
@@ -21,18 +21,6 @@ export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
     const onContainerClick = useCallback((e: SyntheticEvent<HTMLDivElement>) => {
         onToggleTrack(id)
     }, [onToggleTrack, id])
-
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-
-    const onOpenMenu = useCallback((e: SyntheticEvent<HTMLButtonElement>) => {
-        e.stopPropagation()
-        setIsMenuOpen(true)
-    }, [setIsMenuOpen])
-
-    const onMenuClose = useCallback((e: SyntheticEvent<HTMLDivElement | HTMLButtonElement | HTMLAnchorElement>) => {
-        e.stopPropagation()
-        setIsMenuOpen(false)
-    }, [setIsMenuOpen])
 
    
     const classes = classNames(
@@ -62,24 +50,28 @@ export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
                 <span className={cls.author}>{author}</span>
             </div>
             <span className={cls.duration}>{toMinuteFormat(duration)}</span>
-            <IconButton
-                icon={<Icon/>}
-                variant='secondary'
-                onClick={onOpenMenu}
-            />
-            <Menu
-                isOpen={isMenuOpen}
-                onClose={onMenuClose}
+            <Menu.Wrapper
+                as={Fragment}
             >
-                <Actions
-                    author={author}
-                    id={id}
-                    onMenuClose={onMenuClose}
-                    primary_name={primary_name}
-                    track_src={track_src}
-                    author_href={author_href}
-                />
-            </Menu>
+                {({ open }) => (
+                    <>
+                        <Menu.Button>
+                            <IconButton
+                                icon={<Icon/>}
+                                variant='secondary'
+                            />
+                        </Menu.Button>
+                        <ActionsMenu
+                            author={author}
+                            id={id}
+                            primary_name={primary_name}
+                            track_src={track_src}
+                            author_href={author_href}
+                            open={open}
+                        />
+                    </>
+                )}
+            </Menu.Wrapper>
         </div>
     );
 })

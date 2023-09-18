@@ -5,40 +5,47 @@ import { Menu } from './Menu'
 
 const meta = {
     title: 'shared/Menu',
-    component: Menu,
+    component: Menu.Wrapper,
     parameters: {
         layout: 'centered',
         loki: { skip: true },
     },
-    render: (args) => <Menu {...args}>
-        <Menu.Button
-            icon={<Icon/>}
-            onClick={(e: SyntheticEvent<HTMLButtonElement | HTMLAnchorElement | HTMLDivElement>) => {}}
-            // @ts-ignore
-            onClose={args.onClose}
-        >
-            Удалить
-        </Menu.Button>
-        <Menu.Link
-            icon={<Icon/>}
-            href={'asdf'}
-            // @ts-ignore
-            onClose={args.onClose}
-        >
-            Удалить
-        </Menu.Link>
-    </Menu>,
+    render: () => <Menu.Wrapper as='div' style={{ position: 'relative', width: 'fit-content', marginLeft: 'auto' }}>
+        {({ open }) => (
+            <>
+                <Menu.Button>
+                    <button>
+                        open
+                    </button>
+                </Menu.Button>
+                <Menu.Items
+                    open={open}
+                >
+                    <Menu.Item
+                        icon={<Icon/>}
+                        component='button'
+                        onClick={(e: SyntheticEvent<HTMLButtonElement>) => {}}
+                    >
+                        Удалить
+                    </Menu.Item>
+                    <Menu.Item
+                        icon={<Icon/>}
+                        component='link'
+                        href={'/'}
+                    >
+                        Удалить
+                    </Menu.Item>
+                </Menu.Items>
+            </>
+        )}
+    </Menu.Wrapper>,
     tags: ['autodocs'],
 } satisfies Meta<typeof Menu>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
-const args: Story['args'] = {
-    isOpen: true,
-    onClose: (e: SyntheticEvent<HTMLButtonElement | HTMLAnchorElement | HTMLDivElement>) => {}
-}
 
 export const Default: Story = {
-    args
+    
 }

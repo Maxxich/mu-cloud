@@ -1,0 +1,46 @@
+.item {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: var(--menu-item-background);
+
+    &:active {
+        transform: scale(0.98)
+    }
+}
+
+.icon_position {
+    flex: 0 0 22px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > svg {
+        height: 16px;
+        width: 16px;
+        fill: var(--secondary-color);
+    }
+}
+
+.text {
+    flex: 1 1 auto;
+    text-align: start; 
+    color: var(--primary-color);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+}
+
+.active {
+    background-color: var(--menu-item-active-background);
+}

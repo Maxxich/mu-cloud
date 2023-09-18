@@ -1,5 +1,4 @@
 import { useCallback } from 'react'
-import { SyntheticEvent } from 'react';
 import HeartFill from '@/shared/assets/svg/HeartFill.svg'
 import HeartStorke from '@/shared/assets/svg/HeartStroke.svg'
 import { Menu } from '@/shared/ui/Menu/Menu';
@@ -8,11 +7,10 @@ import { trackApi } from '@/entity/track';
 
 interface ILikeDesktopProps {
   id: number
-  onMenuClose: (e: SyntheticEvent<HTMLButtonElement, Event>) => void
 }
 
 export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
-    id, onMenuClose
+    id
 }) => {
 
     const { data: liked } = trackApi.useIsInLikedQuery({ id })
@@ -28,12 +26,12 @@ export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
     }, [removeTrigger, addTrigger, liked, id])
 
     return (
-        <Menu.Button
+        <Menu.Item
+            component='button'
             icon={icon}
             onClick={onClick}
-            onClose={onMenuClose}
         >
             {text}
-        </Menu.Button>
+        </Menu.Item>
     )
 };
