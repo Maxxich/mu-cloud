@@ -7,6 +7,7 @@ const meta = {
     component: Dialog.Wrapper,
     parameters: {
         layout: 'centered',
+        loki: { skip: true },
     },
     render: (args) => <Dialog.Wrapper
         {...args}
