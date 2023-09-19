@@ -4,7 +4,7 @@ import { SyntheticEvent, memo, useCallback, Fragment, useState } from 'react';
 import classNames from 'classnames';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
-import Icon from '@/shared/assets/svg/svg.svg'
+import IconMore from '@/shared/assets/svg/More.svg'
 import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 import cls from './TrackCardMobile.module.scss'
 import { TrackImage } from './Image/Image';
@@ -63,7 +63,7 @@ export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
             </div>
             <span className={cls.duration}>{toMinuteFormat(duration)}</span>
             <IconButton
-                icon={<Icon/>}
+                icon={<IconMore/>}
                 variant='secondary'
                 onClick={onOpenMenu}
             />

@@ -1,6 +1,6 @@
 import { SyntheticEvent } from 'react';
 import { Url } from 'next/dist/shared/lib/router/router';
-import Icon from '@/shared/assets/svg/svg.svg'
+import Icon from '@/shared/assets/svg/User.svg'
 import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 
 

@@ -12,6 +12,7 @@ interface IActionsProps {
     author: string
     author_href: Url
     onMenuClose: (e: SyntheticEvent<HTMLButtonElement | HTMLAnchorElement, Event>) => void
+
 }
 
 export const ActionsMenu: React.FunctionComponent<IActionsProps> = ({

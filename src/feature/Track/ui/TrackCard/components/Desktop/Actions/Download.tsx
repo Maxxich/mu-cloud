@@ -18,7 +18,6 @@ export const Download: React.FunctionComponent<IDownloadFeatureProps> = ({
 
     const onClick = () => {
         const link = document.createElement('a');
-        alert(src)
         link.href = src;
         link.setAttribute('download', `${trackname} + ' - ' + ${author}`);
         link.setAttribute('target', '_blank');
