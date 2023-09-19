@@ -3,6 +3,7 @@
 import { useCallback } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useSelector } from 'react-redux';
+import { backendUrl } from '@/shared/const/backendUrl';
 import { getIsPaused, getPlaylist, getSelectedTrackId, playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { Track as ITrack } from '@/entity/track';
@@ -48,7 +49,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
             onToggleTrack={onToggleTrack}
             primary_name={track.name}
             track_href={'/tracks/' + track.id}
-            track_src={track.audio_src}
+            track_src={backendUrl + '/' + track.audio_src}
             secondary_name={track.name_secondary}
             width={width}
         />
@@ -67,7 +68,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
             onToggleTrack={onToggleTrack}
             primary_name={track.name}
             track_href={'/tracks/' + track.id}
-            track_src={track.audio_src}
+            track_src={backendUrl + '/' + track.audio_src}
             secondary_name={track.name_secondary}
             width={width}
         />

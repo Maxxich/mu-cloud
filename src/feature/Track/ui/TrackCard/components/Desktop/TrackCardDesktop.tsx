@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import cls from './TrackCardDesktop.module.scss'
 import { TrackImage } from './Image/Image';
-import { AddToPlaylist } from './Actions/AddToPlaylist';
 import { Download } from './Actions/Download';
 import { Like } from './Actions/Like';
 import { Share } from './Actions/Share';
@@ -57,7 +56,6 @@ export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
             <div className={classNames(cls.actions, {
                 [cls.hidden]: !isHoverAddonVisible
             })}>
-                <AddToPlaylist id={id}/>
                 <Download author={author} trackname={primary_name} src={track_src}/>
                 <Like id={id}/>
                 <Share id={id}/>

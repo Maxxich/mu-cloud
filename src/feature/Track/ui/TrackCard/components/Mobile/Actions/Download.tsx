@@ -1,6 +1,6 @@
 import { SyntheticEvent } from 'react';
-import Icon from '@/shared/assets/svg/svg.svg'
 import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import IconDownload from '@/shared/assets/svg/Download.svg'
 
 interface IDownloadFeatureProps {
   src: string
@@ -16,11 +16,19 @@ export const Download: React.FunctionComponent<IDownloadFeatureProps> = ({
     onMenuClose
 }) => {
 
+    const onClick = () => {
+        const link = document.createElement('a');
+        link.href = src;
+        link.setAttribute('download', `${trackname} + ' - ' + ${author}`);
+        link.setAttribute('target', '_blank');
+        document.body.appendChild(link);
+        link.click();
+    }
 
     return (
         <MobileMenu.Button
-            icon={<Icon/>}
-            onClick={() => alert('click')}
+            icon={<IconDownload/>}
+            onClick={onClick}
             onClose={onMenuClose}
         >
             Скачать
