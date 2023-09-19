@@ -1,0 +1,17 @@
+.menu{
+    position: relative;
+}
+
+.items {
+    width: 200px;
+    border-radius: 5px;
+    background: var(--menu-container-bg);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 4px;
+}
+
+.item {
+    padding: 8px;
+}
