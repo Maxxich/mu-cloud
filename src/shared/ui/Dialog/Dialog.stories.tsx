@@ -36,6 +36,7 @@ type Story = StoryObj<typeof meta>;
 
 
 export const Default: Story = {
+    // @ts-ignore
     args: {
         open: true,
         onClose: () => {}

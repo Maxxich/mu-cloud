@@ -23,9 +23,14 @@
     --menu-bg: rgb(0 0 0 / 80%);
     --menu-container-bg: #2c3a4b;
 
+    // diaog 
+    --dialog-bg: rgb(0 0 0 / 80%);
+    --dialog-panel-bg: #2c3a4b;
+
     // button
         // default
         --button-bg-color: #3C5169;
+        --button-outline-color-focused: #5d7fa5;
         --button-bg-color-hovered: #4E6888;
         --button-bg-color-disabled: #2C3847;
         --button-text-color: #fff;
@@ -33,6 +38,7 @@
 
         // danger
         --button-bg-color-danger: #BC0E0E;
+        --button-outline-color-danger-focused: #e03838;
         --button-bg-color-danger-hovered: #DF2626;
         --button-bg-color-danger-disabled: #600B0B;
         --button-text-color-danger: #fff;
@@ -40,6 +46,7 @@
 
         // green
         --button-bg-color-green: #07AE2B;
+        --button-outline-color-green-focused: #25ec50;
         --button-bg-color-green-hovered: #14D73F;
         --button-bg-color-green-disabled: #0A5319;
         --button-text-color-green: #fff;
