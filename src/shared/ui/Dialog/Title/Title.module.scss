@@ -1,0 +1,13 @@
+.title {
+    flex: 1 1 auto;
+    text-align: center; 
+    color: var(--primary-color);
+    text-decoration: none;
+    align-self: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    font-weight: 700;
+    max-width: 250px;
+    white-space: nowrap;
+    }

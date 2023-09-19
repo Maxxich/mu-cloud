@@ -21,6 +21,10 @@
   &:hover {
     background: var(--button-bg-color-hovered);
   }
+
+  &:focus {
+    outline: var(--button-outline-color-focused) solid;
+  }
 }
 
 .danger {
@@ -34,6 +38,10 @@
   & svg {
     fill: var(--button-text-color-danger);
   }
+
+  &:focus {
+    outline: var(--button-outline-color-danger-focused) solid;
+  }
 }
 
 .green {
@@ -46,6 +54,10 @@
 
   & svg {
     fill: var(--button-text-color-green);
+  }
+
+  &:focus {
+    outline: var(--button-outline-color-green-focused) solid;
   }
 }
 

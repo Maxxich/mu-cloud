@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { memo } from 'react'
+import { MutableRefObject, forwardRef, memo } from 'react'
 import cls from './Button.module.scss'
 
 
@@ -13,9 +13,10 @@ interface IButtonSubmitProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   addonRight?: React.ReactElement
   addonLeft?: React.ReactElement
   size?:  'm' | 'l' | 'xl', 
+  ref?: MutableRefObject<HTMLElement>
 }
 
-export const Button: React.FunctionComponent<IButtonSubmitProps> = memo(({
+export const Button: React.FunctionComponent<IButtonSubmitProps> = memo(forwardRef(({
     children,
     fullwidth,
     variant = 'default',
@@ -24,7 +25,7 @@ export const Button: React.FunctionComponent<IButtonSubmitProps> = memo(({
     addonRight,
     size = 'm',
     ...rest
-}) => {
+}, ref) => {
 
     const mods: Mods = {
         [cls.fullwidth]: fullwidth,
@@ -34,12 +35,13 @@ export const Button: React.FunctionComponent<IButtonSubmitProps> = memo(({
         <button
             className={classNames(cls.Button, mods, cls[size], cls[variant], className)}
             {...rest}
+            ref={ref as any}
         >
             <div className={cls.addon}>{addonLeft}</div>
             {children}
             <div className={cls.addon}>{addonRight}</div>
         </button>
     )
-})
+}))
 
 Button.displayName = 'Button'

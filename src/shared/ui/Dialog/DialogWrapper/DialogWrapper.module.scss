@@ -1,0 +1,17 @@
+.relative {
+    position: relative;
+}
+
+.wrapper {
+    background: var(--dialog-bg);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 7px;
+    top: 0;
+    left: 0;
+}
