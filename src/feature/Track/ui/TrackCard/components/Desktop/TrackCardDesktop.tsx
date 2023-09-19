@@ -54,14 +54,14 @@ export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
                 </Link>
                 <Link href={author_href} className={cls.link_author}>{author}</Link>
             </div>
-            {isHoverAddonVisible && (
-                <div className={cls.actions}>
-                    <AddToPlaylist id={id}/>
-                    <Download author={author} trackname={primary_name} src={track_src}/>
-                    <Like id={id}/>
-                    <Share id={id}/>
-                </div>
-            )}
+            <div className={classNames(cls.actions, {
+                [cls.hidden]: !isHoverAddonVisible
+            })}>
+                <AddToPlaylist id={id}/>
+                <Download author={author} trackname={primary_name} src={track_src}/>
+                <Like id={id}/>
+                <Share id={id}/>
+            </div>
             <span className={cls.duration}>{toMinuteFormat(duration)}</span>
         </div>
     );

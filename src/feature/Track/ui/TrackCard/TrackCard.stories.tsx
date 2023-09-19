@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { SessionDecorator } from '@/shared/config/storybook/SessionDecorator/SessionDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { TrackCard } from './TrackCard'
 import { tracks } from '../helpers/tracks'
@@ -9,6 +10,10 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
+    decorators: [
+        SessionDecorator,
+        StoreDecorator({})
+    ],
     tags: ['autodocs'],
 } satisfies Meta<typeof TrackCard>
 

@@ -1,18 +1,20 @@
-import { useCallback } from 'react'
+import { useSession } from 'next-auth/react';
+import { SyntheticEvent, useCallback } from 'react'
 import HeartFill from '@/shared/assets/svg/HeartFill.svg'
 import HeartStorke from '@/shared/assets/svg/HeartStroke.svg'
-import { Menu } from '@/shared/ui/Menu/Menu';
 import { trackApi } from '@/entity/track';
+import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 
 
 interface ILikeDesktopProps {
   id: number
+  onMenuClose: (e: SyntheticEvent<HTMLButtonElement, Event>) => void
 }
 
 export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
-    id
+    id, onMenuClose
 }) => {
-
+    const session = useSession()
     const { data: liked } = trackApi.useIsInLikedQuery({ id })
     const [addTrigger] = trackApi.useAddToLikedMutation()
     const [removeTrigger] = trackApi.useRemoveFromLikedMutation()
@@ -25,13 +27,17 @@ export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
         else addTrigger({ id })
     }, [removeTrigger, addTrigger, liked, id])
 
+    if (!session.data) {
+        return null
+    }
+
     return (
-        <Menu.Item
-            component='button'
+        <MobileMenu.Button
             icon={icon}
             onClick={onClick}
+            onClose={onMenuClose}
         >
             {text}
-        </Menu.Item>
+        </MobileMenu.Button>
     )
 };

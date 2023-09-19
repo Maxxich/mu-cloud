@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { SessionDecorator } from '@/shared/config/storybook/SessionDecorator/SessionDecorator'
 import Picture from '@/shared/assets/images/images.jpg'
 import { TrackCardMobile } from './TrackCardMobile'
 
@@ -9,6 +10,9 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
+    decorators: [
+        SessionDecorator
+    ]
 } satisfies Meta<typeof TrackCardMobile>
 
 export default meta

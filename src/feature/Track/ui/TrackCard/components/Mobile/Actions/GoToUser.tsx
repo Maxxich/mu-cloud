@@ -1,25 +1,27 @@
+import { SyntheticEvent } from 'react';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Icon from '@/shared/assets/svg/svg.svg'
-import { Menu } from '@/shared/ui/Menu/Menu';
+import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 
 
 interface IGoToUserProps {
   id: number
   author_href: Url
   author: string
+  onMenuClose: (e: SyntheticEvent<HTMLAnchorElement, Event>) => void
 }
 
 export const GoToUser: React.FunctionComponent<IGoToUserProps> = ({
-    id, author_href, author
+    id, author_href, author, onMenuClose
 }) => {
 
     return (
-        <Menu.Item
-            component='link'
+        <MobileMenu.Link
             icon={<Icon/>}
             href={author_href}
+            onClose={onMenuClose}
         >
             {'Перейти к ' + author}
-        </Menu.Item>
+        </MobileMenu.Link>
     )
 };

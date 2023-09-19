@@ -1,22 +1,24 @@
+import { SyntheticEvent } from 'react';
 import Icon from '@/shared/assets/svg/svg.svg'
-import { Menu } from '@/shared/ui/Menu/Menu';
+import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 
 
 interface ILikeDesktopProps {
   id: number
+  onMenuClose: (e: SyntheticEvent<HTMLButtonElement, Event>) => void
 }
 
 export const Share: React.FunctionComponent<ILikeDesktopProps> = ({
-    id
+    id, onMenuClose
 }) => {
 
     return (
-        <Menu.Item
-            component={'button'}
+        <MobileMenu.Button
             icon={<Icon/>}
             onClick={() => alert('click')}
+            onClose={onMenuClose}
         >
-    Поделиться
-        </Menu.Item>
+            Поделиться
+        </MobileMenu.Button>
     )
 };

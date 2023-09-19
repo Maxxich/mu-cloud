@@ -1,5 +1,5 @@
+import { SyntheticEvent } from 'react';
 import { Url } from 'next/dist/shared/lib/router/router';
-import { Menu } from '@/shared/ui/Menu/Menu';
 import { Like } from './Like';
 import { Download } from './Download';
 import { Share } from './Share';
@@ -11,21 +11,19 @@ interface IActionsProps {
     primary_name: string,
     author: string
     author_href: Url
-    open: boolean
+    onMenuClose: (e: SyntheticEvent<HTMLButtonElement | HTMLAnchorElement, Event>) => void
 }
 
 export const ActionsMenu: React.FunctionComponent<IActionsProps> = ({
-    author, id, primary_name, track_src, author_href, open
+    author, id, primary_name, track_src, author_href, onMenuClose
 }) => {
     return (
-        <Menu.Items
-            open={open}
-        >
-            <Download author={author} trackname={primary_name} src={track_src}/>
-            <Like id={id}/>
-            <Share id={id}/>
-            <GoToUser id={id} author_href={author_href} author={author}/>
-        </Menu.Items>
+        <>
+            <Download author={author} trackname={primary_name} src={track_src} onMenuClose={onMenuClose}/>
+            <Like id={id} onMenuClose={onMenuClose}/>
+            <Share id={id} onMenuClose={onMenuClose}/>
+            <GoToUser id={id} author_href={author_href} onMenuClose={onMenuClose} author={author}/>
+        </>
     );
 };
 
