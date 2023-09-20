@@ -1,39 +1,55 @@
 import { useCallback } from 'react'
 import { CropImage } from '@/shared/ui/CropImage';
-import { useImageCroppedWideFile } from '@/feature/AddNewTrack/model/filesStorage/hooks/useImageCroppedWideFile';
+import { useFile } from '@/entity/fileStorage';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { useImageFile } from '../../../model/filesStorage/hooks/useImageFile';
+import { setImageCroppedWideFileMimeType } from '../../..//model/services/setImageCroppedWideFileMimeType';
 import { AddNewTrackActions } from '../../../model/slices/AddNewTrackSlice';
-import { useImageCroppedSquareFile } from '../../../model/filesStorage/hooks/useImageCroppedSquareFile';
+import { FilesContext } from '../../../model/filesStorage/FilesContext';
+import { setImageFileMimeType } from '../../..//model/services/setImageFileMimeType';
+import { FormDataEntries } from '../../../model/filesStorage/types';
+import { setImageCroppedSquareFileMimeType } from '../../..//model/services/setImageCroppedSquareFileMimeType';
 
 
 export const CropSquareImage: React.FunctionComponent = () => {
 
-    const {
-        getImageFile,
-        setImageFile
-    } = useImageFile()
-
     const dispatch = useAppDispatch()
+    const {
+        deleteFile: deleteImageFile,
+        getFile: getImageFile,
+    } = useFile({
+        formDataEntryName: FormDataEntries.IMAGE_FILE,
+        context: FilesContext,
+        onSetFile: (file) => dispatch(setImageFileMimeType(file.type)),
+        onDeleteFile: () => dispatch(setImageFileMimeType(undefined))
+    })
 
     const {
-
-        setImageCroppedWideFile
-    } = useImageCroppedWideFile()
+        deleteFile: deleteImageCroppedWideFile,
+    } = useFile({
+        formDataEntryName: FormDataEntries.IMAGE_CROPPED_WIDE_FILE,
+        context: FilesContext,
+        onSetFile: (file) => dispatch(setImageCroppedWideFileMimeType(file.type)),
+        onDeleteFile: () => dispatch(setImageCroppedWideFileMimeType(undefined))
+    })
 
     const {
-        setImageCroppedSquareFile
-    } = useImageCroppedSquareFile()
-
+        deleteFile: deleteImageCroppedSquareFile,
+        setFile: setImageCroppedSquareFile
+    } = useFile({
+        formDataEntryName: FormDataEntries.IMAGE_CROPPED_SQUARE_FILE,
+        context: FilesContext,
+        onSetFile: (file) => dispatch(setImageCroppedSquareFileMimeType(file.type)),
+        onDeleteFile: () => dispatch(setImageCroppedSquareFileMimeType(undefined))
+    })
 
     const image = getImageFile() as File | undefined
 
     const onCancel = useCallback(() => {
-        setImageCroppedSquareFile(undefined)
-        setImageFile(undefined)
-        setImageCroppedWideFile(undefined)
+        deleteImageCroppedSquareFile()
+        deleteImageFile()
+        deleteImageCroppedWideFile()
         dispatch(AddNewTrackActions.setTab('form'))
-    }, [setImageCroppedWideFile, dispatch, setImageCroppedSquareFile, setImageFile])
+    }, [deleteImageCroppedWideFile, dispatch, deleteImageCroppedSquareFile, deleteImageFile])
 
 
     const onSuccess = useCallback((file: File) => {

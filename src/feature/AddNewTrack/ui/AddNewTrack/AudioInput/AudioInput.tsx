@@ -1,8 +1,12 @@
 import { useCallback, memo } from 'react'
 import { useSelector } from 'react-redux';
 import { FileInput } from '@/shared/ui/FileInput/FileInput';
-import { useAudioFile } from '../../../model/filesStorage/hooks/useAudioFile';
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
+import { useFile } from '@/entity/fileStorage';
+import { setAudioFileMimeType } from '../../../model/services/setAudioFileMimeType';
 import { getIsAudioFileValidationError } from '../../../model/selectors/getIsAudioFileValidationError';
+import { FilesContext } from '../../../model/filesStorage/FilesContext';
+import { FormDataEntries } from '../../../model/filesStorage/types';
 
 interface IAudioInputProps {
   className?: string
@@ -13,19 +17,26 @@ export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
 }) => {
 
     const isError = useSelector(getIsAudioFileValidationError)
+    const dispatch = useAppDispatch()
 
     const {
-        getAudioFile,
-        setAudioFile
-    } = useAudioFile()
+        deleteFile,
+        getFile,
+        setFile
+    } = useFile({
+        formDataEntryName: FormDataEntries.AUDIO_FILE,
+        context: FilesContext,
+        onSetFile: (file) => dispatch(setAudioFileMimeType(file.type)),
+        onDeleteFile: () => dispatch(setAudioFileMimeType(undefined))
+    })
 
     const onChangeFileSuccess = useCallback((file: File) => {
-        setAudioFile(file)
-    }, [setAudioFile])
+        setFile(file)
+    }, [setFile])
 
     const onChangeFileUndefined = useCallback(() => {
-        setAudioFile(undefined)
-    }, [setAudioFile])
+        deleteFile()
+    }, [deleteFile])
 
 
     return (
@@ -34,7 +45,7 @@ export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
             onChangeFileSuccess={onChangeFileSuccess}
             onChangeFileUndefined={onChangeFileUndefined}
             placeholder='Выбрать аудиофайл...'
-            initialFile={getAudioFile() as File}
+            initialFile={getFile() as File}
             isError={isError}
             className={className}
         />
