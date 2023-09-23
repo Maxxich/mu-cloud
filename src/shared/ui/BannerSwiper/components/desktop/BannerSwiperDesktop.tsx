@@ -112,7 +112,6 @@ export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = (
             className={containerClasses} 
             ref={containerRef as any}
         >
-            {!isStart && <button className={cls.prev} onClick={onPrevius}><IconArrow/></button>}
             <animated.div 
                 ref={ref as any} 
                 style={{ x }} 
@@ -126,6 +125,7 @@ export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = (
                     ))
                 }
             </animated.div>
+            {!isStart && <button className={cls.prev} onClick={onPrevius}><IconArrow/></button>}
             {!isEnd && <button className={cls.next} onClick={onNext}><IconArrow/></button>}
         </div>
     );
