@@ -27,7 +27,7 @@ export default function RootLayout({
                     }
                 }}>
                     <html lang="en">
-                        <body>
+                        <body className='app__default_theme'>
                             <PageContainer>
                                 {children}
                             </PageContainer>
