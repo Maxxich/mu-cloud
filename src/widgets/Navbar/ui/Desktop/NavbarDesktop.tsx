@@ -10,7 +10,7 @@ export const NavbarDesktop: React.FunctionComponent = (props) => {
             <nav className={cls.nav}>
                 <Logo className={cls.flex_fixed_width}/>
                 <Links className={cls.flex_fixed_width}/>
-                <User className={cls.flex_fixed_width}/>
+                <User/>
             </nav>
         </div>
     )
