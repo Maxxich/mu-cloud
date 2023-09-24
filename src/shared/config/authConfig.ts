@@ -9,13 +9,15 @@ async function refreshToken(token: JWT): Promise<JWT> {
         headers: {
             authorization: `Refresh ${token.backendTokens.refreshToken}`,
         },
+        cache: 'no-cache'
     });
   
     const response = await res.json();
   
     return {
         ...token,
-        backendTokens: response,
+        backendTokens: response.backendTokens,
+        user: response.user,
     };
 }
 
@@ -63,7 +65,11 @@ export const authOptions: NextAuthOptions = {
     ],
   
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({ token, user, trigger }) {
+
+            if (trigger === 'update') {
+                return await refreshToken(token);
+            }
   
             if (user) return { ...token, ...user };
   
