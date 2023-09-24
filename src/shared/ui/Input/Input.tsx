@@ -17,11 +17,12 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
     addonLeft,
     className,
     isError,
+    disabled,
     ...rest
 }, ref) => {
 
     const mods: Mods = {
-        [cls.danger]: isError
+        [cls.danger]: isError,
     }
 
     const addonMods: Mods = {
@@ -45,6 +46,7 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
             </div>}
             <input className={classNames(cls.Input, mods)}
                 ref={ref}
+                disabled={disabled}
                 {...rest}
             />
         </div>
@@ -59,8 +61,12 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
         <label className={classNames(cls.label, labelMods)}>{label}</label>
     )
 
+    const stackMods: Mods = {
+        [cls.disabled]: disabled
+    }
+
     return (
-        <VStack max gap="8" className={className}>
+        <VStack max gap="8" className={classNames(cls.container, stackMods, className)}>
             {labelComp}
             {input}
         </VStack>    

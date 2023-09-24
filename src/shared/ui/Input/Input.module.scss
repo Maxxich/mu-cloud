@@ -21,6 +21,14 @@
     }
 }
 
+.container {
+  transition: all 0.2s ease 0s;
+}
+
+.disabled {
+  opacity: 0.6;
+}
+
 
 // .error {
 //     align-self: flex-end;
