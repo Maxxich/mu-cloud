@@ -5,6 +5,9 @@ import { AddNewTrackSchema } from '@/feature/AddNewTrack'
 import { SigninSchema } from '@/feature/SignIn'
 import { SignupSchema } from '@/feature/SignUp'
 import { rtkApi } from '@/shared/api'
+import { EditProfileSchema } from '@/feature/EditProfile'
+import { ChangeAvatarSchema } from '@/feature/ChangeAvatar'
+import { ChangeNameAndAdressSchema } from '@/feature/ChangeNameAndAdress'
 
 export interface StateSchema {
     player: PlayerSchema
@@ -15,6 +18,9 @@ export interface StateSchema {
     signin?: SigninSchema
     signup?: SignupSchema
     addNewTrack?: AddNewTrackSchema
+    changeAvatar?: ChangeAvatarSchema
+    ChangeNameAndAdress?: ChangeNameAndAdressSchema
+    EditProfile?: EditProfileSchema
 }
 
 export interface ReducerManager {
