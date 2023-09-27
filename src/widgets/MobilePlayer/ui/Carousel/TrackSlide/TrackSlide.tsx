@@ -19,7 +19,7 @@ export const TrackSlide: React.FunctionComponent<ITrackSlideProps> = (props) => 
         <div className={cls.container}>
             <div className={cls.image_container}>
                 <Image
-                    src={'http://localhost:5001/' + track!.picture_source.square}
+                    src={track!.picture_source.square}
                     smaller={isPaused}
                     alt={track!.name}
                 />
