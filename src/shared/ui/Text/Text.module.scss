@@ -40,6 +40,7 @@
 .size_m {
     &.title {
         font: var(--font-l);
+        font-size: var(--font-size-l);
     }
 
     &.text {
@@ -50,6 +51,7 @@
 .size_l {
     &.title {
         font: var(--font-xl);
+        font-size: var(--font-size-xl);
     }
 
     &.text {
