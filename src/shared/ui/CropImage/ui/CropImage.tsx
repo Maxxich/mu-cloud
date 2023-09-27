@@ -43,7 +43,7 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
     const cropperContainerRef = useRef<HTMLDivElement>()
   
     const crop = ((e: Cropper.CropEvent<HTMLImageElement>) => {    
-        if (e.detail.width < minWidth || e.detail.height < minHeight) { 
+        if (Math.ceil(e.detail.width) < minWidth || Math.ceil(e.detail.height) < minHeight) { 
             setError(`Minimal resolution should be ${minWidth}:${minHeight}`)
         } else {            
             setError(null)
@@ -57,8 +57,8 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
         const width = cropper?.getCroppedCanvas().width
         const height = cropper?.getCroppedCanvas().height
         if (!height || !width) return onError('width or height error')
-        if (width < minWidth) return onError('width error')
-        if (height < minHeight) return onError('height error')
+        if (Math.ceil(width) < minWidth) return onError('width error')
+        if (Math.ceil(height) < minHeight) return onError('height error')
         cropper?.getCroppedCanvas().toBlob((blob) => {
             if (blob) {
                 onSuccess(new File([blob], 'image.png' , {
@@ -93,15 +93,6 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
     return (
         <div className={classNames(cls.wrapper)} style={{ height }} data-testid={testId}>
             <div className={classNames(cls.container, mods)}>
-                {/* <PositionHeader
-          title={title}
-          extraLeft={<IconButton
-            extraIcon={<IconArrowLeftLong/>}
-            onClick={onCancel}
-          />}
-        />
-        <> */}
-
                 <div className={cls.cropper_wrapper}
                     ref={cropperContainerRef as any}
                 >
