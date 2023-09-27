@@ -56,6 +56,12 @@
     }
 }
 
+.addonRight {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
 .input_container {
     outline:none;
     border: 1px solid transparent;

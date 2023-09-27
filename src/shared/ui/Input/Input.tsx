@@ -7,6 +7,7 @@ import { VStack } from '../Stack'
 interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   label?: string
   addonLeft?: React.ReactElement
+  addonRight?: React.ReactElement 
   className?: string
   isError?: boolean
   ref?: React.Ref<HTMLInputElement>
@@ -18,6 +19,7 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
     className,
     isError,
     disabled,
+    addonRight,
     ...rest
 }, ref) => {
 
@@ -49,6 +51,9 @@ export const Input = memo(React.forwardRef<HTMLInputElement, IInputProps>(({
                 disabled={disabled}
                 {...rest}
             />
+            {addonRight && <div className={cls.addonRight}>
+                {addonRight}
+            </div>}
         </div>
     )
 

@@ -55,6 +55,13 @@
   }
 }
 
+.xs {
+  & svg {
+    height: 12px;
+    width: 12px;
+  }
+}
+
 .s {  
   & svg {
     height: var(--font-line-s);
