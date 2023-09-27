@@ -24,7 +24,8 @@ export const Signed: React.FunctionComponent<ISignedProps> = (props) => {
         setMenuOpen(true)
     }, [setMenuOpen])
     
-    const pictures = createUserImagesSrc(session!.data!.user)
+    if (!session?.data?.user) return null
+    const pictures = createUserImagesSrc(session?.data?.user)
     const src = pictures.small
     
     return (
