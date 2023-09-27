@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { viewerActions } from '@/entity/viewer';
+import { signIn } from 'next-auth/react';
+import { backendUrl } from '@/shared/const/backendUrl';
 import { getPassword,getEmail, getName, getPasswordConfirm } from '../selectors/fieldSelectors';
 import { getValidationError } from '../selectors/getValidationError';
 import { signupActions } from '../slices/signupSlice';
@@ -50,7 +51,7 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
     }
 
     try {
-        const response = await fetch('http://localhost:5001/auth/signup', {
+        const response = await fetch(backendUrl + '/auth/signup', {
             method: 'POST',
             body: JSON.stringify(body),
             headers: {
@@ -68,15 +69,33 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
         }
 
         //@ts-ignore
-        const data = await response.json() as SuccessResponse
+        const signInResponse = await signIn('credentials', {
+            email,
+            password,
+            redirect: true,
+            callbackUrl: new URL(location.href).searchParams.get('callbackUrl') ?? '/',
+            // callbackUrl: '/profile'
+        })
 
-        dispatch(viewerActions.setCredentials({
-            ...data,
-            checking: false
-        }));
+
+        if (!signInResponse) {
+            alert('1')
+            return rejectWithValue('Сервер недоступен')
+        }
+
+        if (signInResponse.status == 400) {
+            alert('2')
+            return rejectWithValue('Неверные данные для входа');
+        }
+        
+        if (!signInResponse.ok) {
+            alert('3')
+            return rejectWithValue('Сервер недоступен')
+        }
 
         return 
     } catch (e) {
+        alert('4')
         return rejectWithValue('Произошла неожиданная ошибка');
     }
 });

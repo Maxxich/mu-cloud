@@ -33,13 +33,12 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
     }
 
     try {
-        alert(new URLSearchParams(window.location.search).get('callbackUrl'))
-        alert(new URL(location.href).searchParams.get('callbackUrl'))
         const response = await signIn('credentials', {
             email,
             password,
-            redirect: false,
-            callbackUrl: new URL(location.href).searchParams.get('callbackUrl') ?? undefined
+            redirect: true,
+            callbackUrl: new URL(location.href).searchParams.get('callbackUrl') ?? '/',
+            // callbackUrl: '/profile'
         })
 
 
