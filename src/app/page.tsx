@@ -5,7 +5,6 @@ import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 
 export default async function Home() {
- 
     const popularTracksSearch = createTrackSearchParams({
         limit: tracksBannerLimit,
         order: 'DESC',

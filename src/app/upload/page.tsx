@@ -1,9 +1,19 @@
+import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 import { AddNewTrack } from '@/feature/AddNewTrack';
+import { authOptions } from '@/shared/config/authConfig';
 import Logo from '@/shared/assets/svg/Logo.svg'
 import { Text } from '@/shared/ui/Text/Text';
 import cls from './upload.module.scss'
 
-export default function addTrack () {
+export default async function addTrack () {
+
+    const session = await getServerSession(authOptions)
+
+    if (!session) {
+        redirect('/signin?callbackUrl=/upload')
+    }
+
     return (
         <>
             <div className={cls.logo}>
