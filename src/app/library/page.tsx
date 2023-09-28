@@ -6,6 +6,7 @@ import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } 
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { TrackBanner } from '@/feature/Track'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 
 
 export default async function LibraryPage() {
@@ -44,6 +45,7 @@ export default async function LibraryPage() {
     })
 
     const followings = await userServerApi.getFollowings(id, followingsSearch)
+    const isMobile = getIsMobile()
 
     return (
         <>  
@@ -53,6 +55,7 @@ export default async function LibraryPage() {
                     <ItemsTitle title='Мои треки' href='/library/own'/>
                     <TrackBanner
                         tracks={ownTracks.tracks}
+                        isMobile={isMobile}
                     />
                 </ItemsSection>
                 :
@@ -65,6 +68,7 @@ export default async function LibraryPage() {
                     <ItemsTitle title='Добавленные' href='/library/added'/>
                     <TrackBanner
                         tracks={addedTracks.tracks}
+                        isMobile={isMobile}
                     />
                 </ItemsSection>
                 :

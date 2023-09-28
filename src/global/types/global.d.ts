@@ -17,3 +17,5 @@ type OptionalRecord<K extends keyof any, T> = {
 };
 
 type Mods = Record<string, boolean | string | undefined>
+
+declare module 'server-only'

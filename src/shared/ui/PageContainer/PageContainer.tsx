@@ -1,26 +1,26 @@
 import { ReactNode } from 'react'
 import classNames from 'classnames';
 import cls from './PageContainer.module.scss'
-import { InterfaceSeparator } from '../InterfaceSeparator/InterfaceSeparator';
 
 interface IPageContainerProps {
     children: ReactNode
+    isMobile: boolean
 }
 
 export const PageContainer: React.FunctionComponent<IPageContainerProps> = ({
-    children
+    children,
+    isMobile
 }) => {
 
-    return <InterfaceSeparator
-        desktopComponent={
-            <div className={classNames(cls.conatiner, cls.paddingDesktop)}>
-                {children}
-            </div>
-        }
-        mobileComponent={
-            <div className={classNames(cls.conatiner, cls.paddingMobile)}>
-                {children}
-            </div>
-        }
-    />
+    if (isMobile) return (
+        <div className={classNames(cls.conatiner, cls.paddingMobile)}>
+            {children}
+        </div>
+    )
+    
+    return (
+        <div className={classNames(cls.conatiner, cls.paddingDesktop)}>
+            {children}
+        </div>
+    )
 };

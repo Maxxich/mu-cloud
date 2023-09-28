@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback } from 'react';
-import { isMobile } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import { backendUrl } from '@/shared/const/backendUrl';
 import { getIsPaused, getPlaylist, getSelectedTrackId, playerActions } from '@/entity/player';
@@ -15,10 +14,11 @@ interface ITrackProps {
     track: ITrack
     tracks: ITrack[]
     width?: Width
+    isMobile: boolean
 }
 
 export const TrackCard: React.FunctionComponent<ITrackProps> = ({
-    track, tracks, width
+    track, tracks, width, isMobile
 }) => {
 
     const isPaused = useSelector(getIsPaused)

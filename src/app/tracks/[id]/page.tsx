@@ -1,4 +1,5 @@
 import { TrackCard } from '@/feature/Track'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 
 type Props = {
     params: {
@@ -29,10 +30,12 @@ async function getTrack(id: number) {
 
 export default async function TrackPage ({ params: { id } }: Props) {
     const track = await getTrack(Number(id))
+    const isMobile = getIsMobile()
     return (
         <TrackCard
             track={track}
             tracks={[track]}
+            isMobile={isMobile}
         />
     )
 }

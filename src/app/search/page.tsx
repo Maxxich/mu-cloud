@@ -5,6 +5,7 @@ import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { Text } from '@/shared/ui/Text/Text'
 import { Header } from './Header'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 
 type Props = {
     searchParams: {
@@ -35,16 +36,23 @@ export default async function Search({
 
     const tracks = await trackServerApi.get(tracksSearch)
     const users = await userServerApi.get(usersSearch)
+    const isMobile = getIsMobile()
     
     return (
         <>
-            <Header search={search}/>
+            <Header 
+                search={search}
+                isMobile={isMobile}
+            />
 
             {search && tracks.tracks.length 
                 ? 
                 <ItemsSection>
                     <ItemsTitle title='Новые треки' href={'/search/tracks?search=' + search}/>
-                    <TrackBanner tracks={tracks.tracks}/>
+                    <TrackBanner 
+                        tracks={tracks.tracks}
+                        isMobile={isMobile}
+                    />
                 </ItemsSection>
                 :
                 null

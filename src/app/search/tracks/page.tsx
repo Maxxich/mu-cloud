@@ -1,5 +1,6 @@
 import { createTrackSearchParams, trackServerApi } from '@/entity/track'
 import { TrackList } from '@/feature/Track'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { Text } from '@/shared/ui/Text/Text'
@@ -28,6 +29,7 @@ export default async function SearchTracks({
     })
 
     const tracks = await trackServerApi.get(usersSearch)
+    const isMobile = getIsMobile()
     
     return (
         <>
@@ -39,7 +41,10 @@ export default async function SearchTracks({
                     ? 
                     <ItemsSection>
                         <ItemsTitle title='Пользователи'/>
-                        <TrackList tracks={tracks.tracks}/>
+                        <TrackList 
+                            tracks={tracks.tracks}
+                            isMobile={isMobile}
+                        />
                     </ItemsSection>
                     :
                     null

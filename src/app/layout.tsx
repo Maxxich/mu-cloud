@@ -7,6 +7,7 @@ import { AudioProvider } from '@/global/providers/AudioProvider'
 import { Navbar } from '@/widgets/Navbar'
 import { SessionProvider } from '@/global/providers/SessionProvider/SessionProvider'
 import { PageContainer } from '@/shared/ui/PageContainer/PageContainer'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 
 export const metadata: Metadata = {
     title: 'MuCloud',
@@ -18,6 +19,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+    const isMobile = getIsMobile()
+
     return (
         <ThemeProvider>
             <SessionProvider>
@@ -28,12 +32,12 @@ export default function RootLayout({
                 }}>
                     <html lang="en">
                         <body className='app__default_theme'>
-                            <PageContainer>
+                            <PageContainer isMobile={isMobile}>
                                 {children}
                             </PageContainer>
-                            <Navbar/>
+                            <Navbar isMobile={isMobile}/>
                             <AudioProvider>
-                                <PlayerProvider/>
+                                <PlayerProvider isMobile={isMobile}/>
                             </AudioProvider>
                         </body>
                     </html>

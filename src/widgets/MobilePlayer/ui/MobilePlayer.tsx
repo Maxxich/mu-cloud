@@ -9,6 +9,7 @@ import { CloseButton } from './CloseButton/CloseButton';
 import { Backlight } from './Backlight/Backlight';
 
 interface IPlayerExpandedProps {
+    
 }
 
 export const MobilePlayer: React.FunctionComponent<IPlayerExpandedProps> = (props) => {

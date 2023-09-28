@@ -6,6 +6,7 @@ import { authOptions } from '@/shared/config/authConfig';
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { UserHeader } from '@/widgets/UserHeader'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile';
 
 type Props = {
     params: {
@@ -56,6 +57,8 @@ export default async function TrackPage ({ params: { adress } }: Props) {
     const session = await getServerSession(authOptions)
     const viewerId = session?.user.id
 
+    const isMobile = getIsMobile()
+
     return (
         <>
             <UserHeader
@@ -63,6 +66,7 @@ export default async function TrackPage ({ params: { adress } }: Props) {
                 listeningCount={listeningCount}
                 totalTracks={ownTracks.total}
                 viewerId={viewerId}
+                isMobile={isMobile}
             />
             {ownTracks.tracks.length 
                 ? 
@@ -70,6 +74,7 @@ export default async function TrackPage ({ params: { adress } }: Props) {
                     <ItemsTitle title='Треки'/>
                     <TrackBanner
                         tracks={ownTracks.tracks}
+                        isMobile={isMobile}
                     />
                 </ItemsSection>
                 :
@@ -82,6 +87,7 @@ export default async function TrackPage ({ params: { adress } }: Props) {
                     <ItemsTitle title='Добавленные'/>
                     <TrackBanner
                         tracks={addedTracks.tracks}
+                        isMobile={isMobile}
                     />
                 </ItemsSection>
                 :

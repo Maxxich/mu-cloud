@@ -18,7 +18,7 @@ interface ICarouselProps {
 }
 
 export const Carousel: React.FunctionComponent<ICarouselProps> = ({
-    activeSlide,
+    activeSlide
 }) => {
 
     const list = useSelector(getPlaylist)
@@ -32,6 +32,7 @@ export const Carousel: React.FunctionComponent<ICarouselProps> = ({
                 <PlaylistSlide
                     tracklist={<TrackList
                         tracks={list}
+                        isMobile={true}
                     />}
                 />  
             </div>

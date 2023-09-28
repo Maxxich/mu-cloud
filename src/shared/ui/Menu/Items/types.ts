@@ -6,5 +6,5 @@ interface ItemsProps {
     open: boolean
 }
 
-type IItemsProps = React.ComponentProps<typeof HeadlessMenu.Items> & ItemsProps
+export type IItemsProps = React.ComponentProps<typeof HeadlessMenu.Items> & ItemsProps
 export type ItemsComponent = React.FunctionComponent<IItemsProps>

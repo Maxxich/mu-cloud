@@ -1,6 +1,4 @@
 'use client'
-
-import { isMobile } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import { getIsPlayerOpened, getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
 import { MobilePlayerContorls } from '@/feature/MobilePlayerContorls';
@@ -9,9 +7,12 @@ import { DesktopPlayer } from '@/widgets/DesktopPlayer';
 import { DesktopVisualizer } from '@/feature/DesktopVisualizer';
 
 interface IPlayerProviderProps {
+    isMobile: boolean
 }
 
-export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = (props) => {
+export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = ({
+    isMobile
+}) => {
 
     const selectedTrack = useSelector(getSelectedTrack)
 

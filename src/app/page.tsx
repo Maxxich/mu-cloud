@@ -1,6 +1,7 @@
 import { createTrackSearchParams, trackServerApi, tracksBannerLimit } from '@/entity/track'
 import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 
@@ -27,6 +28,7 @@ export default async function Home() {
     const popularTracksData = await trackServerApi.get(popularTracksSearch)
     const newTracksData = await trackServerApi.get(newTracksSearch)
     const popularUsersData = await userServerApi.get(popularUsersSearch)
+    const isMobile = getIsMobile()
 
     return (
         <>
@@ -34,7 +36,10 @@ export default async function Home() {
                 ? 
                 <ItemsSection>
                     <ItemsTitle title='Популярные треки' href='/popular-tracks'/>
-                    <TrackBanner tracks={popularTracksData.tracks}/>
+                    <TrackBanner 
+                        tracks={popularTracksData.tracks}
+                        isMobile={isMobile}
+                    />
                 </ItemsSection>
                 :
                 undefined
@@ -44,7 +49,10 @@ export default async function Home() {
                 ? 
                 <ItemsSection>
                     <ItemsTitle title='Новые треки' href='/new-tracks'/>
-                    <TrackBanner tracks={newTracksData.tracks}/>
+                    <TrackBanner 
+                        tracks={newTracksData.tracks}
+                        isMobile={isMobile}
+                    />
                 </ItemsSection>
                 :
                 undefined

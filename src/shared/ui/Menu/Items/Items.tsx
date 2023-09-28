@@ -1,16 +1,18 @@
-import * as React from 'react';
 import { ItemsDesktop } from './ItemsDesktop/ItemsDesktop';
 import { ItemsMobile } from './ItemsMobile/ItemsMobile';
-import { ItemsComponent } from './types';
-import { InterfaceSeparator } from '../../InterfaceSeparator/InterfaceSeparator';
+import { IItemsProps } from './types';
 
-export const Items: ItemsComponent = (props) => {
+export const Items:  React.FunctionComponent<IItemsProps & {
+    isMobile: boolean
+}> = ({
+    isMobile,
+    ...props
+}) => {
 
-    return (
-        <InterfaceSeparator
-            desktopComponent={<ItemsDesktop {...props}/>}
-            mobileComponent={<ItemsMobile {...props}/>}
-        />
+    if (isMobile) return (
+        <ItemsMobile {...props}/>
     )
+
+    return  <ItemsDesktop {...props}/>
 };
 

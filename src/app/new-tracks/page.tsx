@@ -1,5 +1,6 @@
 import { createTrackSearchParams, trackServerApi } from '@/entity/track'
 import { TrackList } from '@/feature/Track'
+import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { Pagination } from '@/widgets/Pagination'
@@ -25,12 +26,16 @@ export default async function Home({
     })
 
     const newTracksData = await trackServerApi.get(newTracksSearch)
+    const isMobile = getIsMobile()
 
     return (
         <>
             <ItemsSection>
                 <ItemsTitle title='Новые треки'/>
-                <TrackList tracks={newTracksData.tracks}/>
+                <TrackList 
+                    tracks={newTracksData.tracks}
+                    isMobile={isMobile}
+                />
             </ItemsSection>
             <Pagination total={newTracksData.total}/>
         </>

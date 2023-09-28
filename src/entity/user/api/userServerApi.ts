@@ -11,7 +11,7 @@ interface SearchUsers {
     orderBy?: 'createdAt' | 'listenings_count',
   }
 
-interface UsersResponse {
+export interface UsersResponse {
     users: User[],
     total: number
 }

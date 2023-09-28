@@ -1,27 +1,27 @@
 import { BannerSwiperMobile } from './components/mobile/BannerSwiperMobile';
 import { BannerSwiperDesktop } from './components/desktop/BannerSwiperDesktop';
 import { BannerSwiperProps } from './helpers/type';
-import { InterfaceSeparator } from '../InterfaceSeparator/InterfaceSeparator';
 
-export const BannerSwiper: React.FunctionComponent<BannerSwiperProps> = ({
+export const BannerSwiper: React.FunctionComponent<BannerSwiperProps & {
+    isMobile: boolean
+}> = ({
     children,
+    isMobile,
     ...rest
 }) => {
 
-    return <InterfaceSeparator
-        desktopComponent={
-            <BannerSwiperDesktop
-                {...rest}
-            >
-                {children}
-            </BannerSwiperDesktop>
-        }
-        mobileComponent={
-            <BannerSwiperMobile
-                {...rest}
-            >
-                {children}
-            </BannerSwiperMobile>
-        }
-    />
-};
+    if (isMobile) return (
+        <BannerSwiperMobile
+            {...rest}
+        >
+            {children}
+        </BannerSwiperMobile>
+    )
+    return (
+        <BannerSwiperDesktop
+            {...rest}
+        >
+            {children}
+        </BannerSwiperDesktop>
+    )
+}

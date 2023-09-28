@@ -1,16 +1,17 @@
-import { InterfaceSeparator } from '@/shared/ui/InterfaceSeparator/InterfaceSeparator'
 import { NavbarDesktop } from './Desktop/NavbarDesktop';
 import { NavbarMobile } from './Mobile/NavbarMobile';
-import { ServerSeparator } from '@/shared/ui/InterfaceSeparator/ServerSeparator';
 
 interface INavbarProps {
+    isMobile: boolean
 }
 
-export const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
-    return (
-        <InterfaceSeparator
-            mobileComponent={<NavbarMobile/>}
-            desktopComponent={<NavbarDesktop/>}
-        />
+export const Navbar: React.FunctionComponent<INavbarProps> = ({
+    isMobile
+}) => {
+
+    if (isMobile) return (
+        <NavbarMobile/>
     )
+    
+    return <NavbarDesktop/>
 };
