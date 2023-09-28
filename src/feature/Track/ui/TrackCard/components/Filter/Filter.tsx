@@ -2,7 +2,7 @@ import { ReactElement, memo } from 'react';
 import cls from './Filter.module.scss'
 
 interface IFilterForActiveProps {
-  children: ReactElement
+  children?: ReactElement
 }
 
 export const Filter: React.FunctionComponent<IFilterForActiveProps> = memo(({

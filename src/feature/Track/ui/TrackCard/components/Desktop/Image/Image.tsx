@@ -36,14 +36,13 @@ export const TrackImage: React.FunctionComponent<ITrackImageProps> = React.memo(
         <button
             onClick={onClick}
             style={{ background: 'rgba(0,0,0,0)', padding: 0, cursor: 'pointer' }}
+            className={className}
         >
             <Image
                 size={'s'}
                 src={src}
                 alt={alt}
-                // backlight
                 addon={filter || undefined}
-                className={className}
                 showAddon={active}
             />
         </button>
