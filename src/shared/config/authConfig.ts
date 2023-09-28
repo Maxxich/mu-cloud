@@ -12,12 +12,15 @@ async function refreshToken(token: JWT): Promise<JWT> {
         cache: 'no-cache'
     });
   
-    const response = await res.json();
-  
+    const response = await res.json();  
     return {
         ...token,
-        backendTokens: response.backendTokens,
-        user: response.user,
+        backendTokens: {
+            accessToken: response.accessToken,
+            refreshToken: response.refreshToken,
+        },
+        expiresIn: response.expiresIn,
+        user: response.user,    
     };
 }
 
@@ -65,21 +68,31 @@ export const authOptions: NextAuthOptions = {
     ],
   
     callbacks: {
-        async jwt({ token, user, trigger }) {
-
+        async jwt({ token, user, trigger, }) {
             if (trigger === 'update') {
                 return await refreshToken(token);
             }
-  
-            if (user) return { ...token, ...user };
-  
-            if (new Date().getTime() < token.backendTokens.expiresIn)
-                return token;
-  
+
+            if (user) {
+                return { ...token, ...user }
+            };
+
+            const time = new Date().getTime()
+            if (time < token.expiresIn){
+                return token
+            }
             return await refreshToken(token);
         },
   
         async session({ token, session }) {
+            if (!token.backendTokens?.refreshToken) {
+                console.log(token)
+                console.log(session)
+                session.error = 'inactive-user'
+                session.user = undefined
+                session.backendTokens = undefined
+                return session
+            }
             session.user = token.user;
             session.backendTokens = token.backendTokens;
             return session;

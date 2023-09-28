@@ -11,17 +11,17 @@ type Props = {
     }
 }
 
-export default async function NewTracks({
+export default async function PopularTracks({
     searchParams
 }: Props) {
 
     const page = searchParams['page'] ?? '1'
     const per_page = searchParams['per_page'] ?? '5'
 
-    const newTracksData = await trackServerApi.get({
+    const popularTracksData = await trackServerApi.get({
         limit: Number(per_page),
         order: 'DESC',
-        orderBy: 'createdAt',
+        orderBy: 'listenings_count',
         page: Number(page),
     })
     const isMobile = getIsMobile()
@@ -30,14 +30,14 @@ export default async function NewTracks({
         <>
             <div>
                 <ItemsSection>
-                    <ItemsTitle title='Новые треки'/>
+                    <ItemsTitle title='Популярные треки'/>
                     <TrackList 
-                        tracks={newTracksData.tracks}
+                        tracks={popularTracksData.tracks}
                         isMobile={isMobile}
                     />
                 </ItemsSection>
             </div>
-            <Pagination total={newTracksData.total}/>
+            <Pagination total={popularTracksData.total}/>
         </>
     )
 }

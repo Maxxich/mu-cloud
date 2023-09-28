@@ -2,13 +2,14 @@ import { User } from '@/entity/user';
 
 declare module 'next-auth' {
   interface Session {
-    user: User
+    user: User | undefined
 
     backendTokens: {
       accessToken: string;
       refreshToken: string;
-      expiresIn: number;
-    };
+    } | undefined
+    expiresIn: number;
+    error?: string 
   }
 }
 
@@ -20,7 +21,7 @@ declare module 'next-auth/jwt' {
     backendTokens: {
       accessToken: string;
       refreshToken: string;
-      expiresIn: number;
     };
+    expiresIn: number;
   }
 }

@@ -1,6 +1,4 @@
-import { trackServerApi } from '@/entity/track'
-import { TrackList } from '@/feature/Track'
-import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { UserList, userServerApi } from '@/entity/user'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { Pagination } from '@/widgets/Pagination'
@@ -11,33 +9,31 @@ type Props = {
     }
 }
 
-export default async function NewTracks({
+export default async function PopularUsers({
     searchParams
 }: Props) {
 
     const page = searchParams['page'] ?? '1'
     const per_page = searchParams['per_page'] ?? '5'
 
-    const newTracksData = await trackServerApi.get({
+    const popularUsersData = await userServerApi.get({
         limit: Number(per_page),
         order: 'DESC',
-        orderBy: 'createdAt',
+        orderBy: 'listenings_count',
         page: Number(page),
     })
-    const isMobile = getIsMobile()
 
     return (
         <>
             <div>
                 <ItemsSection>
-                    <ItemsTitle title='Новые треки'/>
-                    <TrackList 
-                        tracks={newTracksData.tracks}
-                        isMobile={isMobile}
+                    <ItemsTitle title='Популярные треки'/>
+                    <UserList 
+                        users={popularUsersData.users}
                     />
                 </ItemsSection>
             </div>
-            <Pagination total={newTracksData.total}/>
+            <Pagination total={popularUsersData.total}/>
         </>
     )
 }

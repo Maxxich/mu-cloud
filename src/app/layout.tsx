@@ -8,6 +8,7 @@ import { Navbar } from '@/widgets/Navbar'
 import { SessionProvider } from '@/global/providers/SessionProvider/SessionProvider'
 import { PageContainer } from '@/shared/ui/PageContainer/PageContainer'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { AuthErrorHandler } from '@/global/providers/AuthErrorHandler'
 
 export const metadata: Metadata = {
     title: 'MuCloud',
@@ -25,23 +26,25 @@ export default function RootLayout({
     return (
         <ThemeProvider>
             <SessionProvider>
-                <StoreProvider initialState={{
-                    player: {
-                        currentTrackId: 1
-                    }
-                }}>
-                    <html lang="en">
-                        <body className='app__default_theme'>
-                            <PageContainer isMobile={isMobile}>
-                                {children}
-                            </PageContainer>
-                            <Navbar isMobile={isMobile}/>
-                            <AudioProvider>
-                                <PlayerProvider isMobile={isMobile}/>
-                            </AudioProvider>
-                        </body>
-                    </html>
-                </StoreProvider>
+                <AuthErrorHandler>
+                    <StoreProvider initialState={{
+                        player: {
+                            currentTrackId: 1
+                        }
+                    }}>
+                        <html lang="en">
+                            <body className='app__default_theme'>
+                                <PageContainer isMobile={isMobile}>
+                                    {children}
+                                </PageContainer>
+                                <Navbar isMobile={isMobile}/>
+                                <AudioProvider>
+                                    <PlayerProvider isMobile={isMobile}/>
+                                </AudioProvider>
+                            </body>
+                        </html>
+                    </StoreProvider>
+                </AuthErrorHandler>
             </SessionProvider>
         </ThemeProvider>
     )

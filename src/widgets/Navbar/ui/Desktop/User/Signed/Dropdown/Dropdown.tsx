@@ -10,7 +10,9 @@ import cls from './Dropdown.module.scss'
 export function Dropdown() {
 
     const logout = () => {
-        signOut()
+        signOut({
+            redirect: false
+        })
     }
 
     return (

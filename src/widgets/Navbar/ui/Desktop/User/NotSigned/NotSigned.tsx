@@ -13,7 +13,7 @@ export const NotSigned: React.FunctionComponent<Props> = ({
     return (
         <div className={classNames(cls.container, className)}>
             <Link
-                href={'/api/auth/signin'} 
+                href={'/signin'} 
             >
             Войти
             </Link>

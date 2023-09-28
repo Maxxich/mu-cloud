@@ -17,6 +17,7 @@ export const SignedIn: React.FunctionComponent<Props> = ({
     const user = session?.data?.user
 
     if (!user) return null
+
     const pictures = createUserImagesSrc(user)
 
     return (

@@ -7,3 +7,4 @@ export { getIsViewerChecking } from './model/selectors/getIsViewerChecking/getIs
 export { getViewerPictureSources } from './model/selectors/getViewerPictureSource/getViewerPictureSources'
 export { getViewerId } from './model/selectors/getViewerId/getViewerId'
 export { getAccessToken } from './model/selectors/getAccessToken/getAccessToken'
+export { ProtectedPage } from './ui/ProtectedPage'

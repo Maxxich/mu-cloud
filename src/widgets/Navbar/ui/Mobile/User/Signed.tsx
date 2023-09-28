@@ -54,7 +54,9 @@ export const Signed: React.FunctionComponent<ISignedProps> = (props) => {
                 <MobileMenu.Button 
                     icon={<LogoutSvg/>}
                     onClose={onCloseMenu}
-                    onClick={() => signOut()}
+                    onClick={() => signOut({
+                        redirect: false
+                    })}
                 >
                 Выйти
                 </MobileMenu.Button>

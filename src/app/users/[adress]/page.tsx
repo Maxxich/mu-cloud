@@ -7,6 +7,7 @@ import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { UserHeader } from '@/widgets/UserHeader'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile';
+import { redirect } from 'next/navigation';
 
 type Props = {
     params: {
@@ -47,7 +48,11 @@ export default async function TrackPage ({ params: { adress } }: Props) {
     const listeningCount = await userServerApi.getListeningsCountById(user.id)
 
     const session = await getServerSession(authOptions)
-    const viewerId = session?.user.id
+
+    const viewerId = session?.user?.id
+    if (viewerId === user.id) {
+        redirect('/library')
+    }
 
     const isMobile = getIsMobile()
 
@@ -63,7 +68,10 @@ export default async function TrackPage ({ params: { adress } }: Props) {
             {ownTracks.tracks.length 
                 ? 
                 <ItemsSection>
-                    <ItemsTitle title='Треки'/>
+                    <ItemsTitle 
+                        title='Треки'
+                        href={`/users/${adress}/own-tracks`}
+                    />
                     <TrackBanner
                         tracks={ownTracks.tracks}
                         isMobile={isMobile}
@@ -76,7 +84,10 @@ export default async function TrackPage ({ params: { adress } }: Props) {
             {addedTracks.tracks.length 
                 ? 
                 <ItemsSection>
-                    <ItemsTitle title='Добавленные'/>
+                    <ItemsTitle 
+                        title='Добавленные'
+                        href={`/users/${adress}/added-tracks`}
+                    />
                     <TrackBanner
                         tracks={addedTracks.tracks}
                         isMobile={isMobile}
@@ -89,7 +100,10 @@ export default async function TrackPage ({ params: { adress } }: Props) {
             {followings.users.length 
                 ? 
                 <ItemsSection>
-                    <ItemsTitle title='Подписки'/>
+                    <ItemsTitle 
+                        title='Подписки'
+                        href={`/users/${adress}/followings`}
+                    />
                     <UserBanner
                         users={followings.users}
                         isMobile={isMobile}

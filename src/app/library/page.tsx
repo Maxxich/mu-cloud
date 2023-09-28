@@ -7,12 +7,14 @@ import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { TrackBanner } from '@/feature/Track'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { UserHeader } from '@/widgets/UserHeader'
+import { ProtectedPage } from '@/entity/viewer'
 
 
 export default async function LibraryPage() {
     const session = await getServerSession(authOptions)
 
-    if (!session) {
+    if (!session?.user) {
         redirect('/signin?callbackUrl=/library')
     }
 
@@ -39,10 +41,20 @@ export default async function LibraryPage() {
         page: 1
     })
 
+    const user = await userServerApi.getByAdress(session.user.adress)
+    const listeningCount = await userServerApi.getListeningsCountById(session.user.id)
+
     const isMobile = getIsMobile()
 
     return (
-        <>  
+        <ProtectedPage>  
+            <UserHeader
+                user={user}
+                listeningCount={listeningCount}
+                totalTracks={ownTracks.total}
+                viewerId={session.user.id}
+                isMobile={isMobile}
+            />
             {ownTracks.tracks.length 
                 ? 
                 <ItemsSection>
@@ -81,6 +93,6 @@ export default async function LibraryPage() {
                 :
                 undefined
             }
-        </>
+        </ProtectedPage>
     )
 }
