@@ -8,6 +8,7 @@ import { backendUrl } from '@/shared/const/backendUrl'
 import { Image as ImageComp } from '@/shared/ui/Image/Image'
 import IconImageFile from '@/shared/assets/svg/ImageFile.svg'
 import { useFile } from '@/entity/fileStorage'
+import { avatarPlaceholder } from '@/shared/const/avatarPlaceholderSmall'
 import cls from './Image.module.scss'
 import { FilesContext } from '../../model/fileStorage/FilesContext'
 import { FormDataEntries } from '../../model/fileStorage/types'
@@ -60,8 +61,9 @@ export const Image: React.FunctionComponent = memo(() => {
     const [isHover, setIsHover] = useState<boolean>(false)
     const showFogging = (isMobile || isHover) && status === 'edit'
 
-    if (!mediumPictureSrc) return null
-    const src = backendUrl + '/' + mediumPictureSrc
+    const src = mediumPictureSrc 
+        ? (backendUrl + '/' + mediumPictureSrc)
+        : avatarPlaceholder
 
     return (
         <div className={cls.marginBottom}>
