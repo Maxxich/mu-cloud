@@ -13,13 +13,13 @@ export const PageContainer: React.FunctionComponent<IPageContainerProps> = ({
 }) => {
 
     if (isMobile) return (
-        <div className={classNames(cls.conatiner, cls.paddingMobile)}>
+        <div className={classNames(cls.pageConatiner, cls.paddingMobile)}>
             {children}
         </div>
     )
     
     return (
-        <div className={classNames(cls.conatiner, cls.paddingDesktop)}>
+        <div className={classNames(cls.pageConatiner, cls.paddingDesktop)}>
             {children}
         </div>
     )
