@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Form } from '@/shared/ui/Form/Form';
+import cls from './FormError.module.scss'
 import { getValidationError } from '../../model/selectors/getValidationError';
 import { getRequestError } from '../../model/selectors/getRequestError';
 
@@ -13,6 +14,6 @@ export const FormError: React.FunctionComponent<IFormErrorProps> = (props) => {
     if (!requestError && !validationError) return
 
     return (
-        <Form.Box margin='auto'>{requestError || validationError}</Form.Box>
+        <Form.Box margin='auto' className={cls.marginBottom}>{requestError || validationError}</Form.Box>
     );
 };
