@@ -1,7 +1,7 @@
 'use client'
 import * as React from 'react';
 import { Image } from '@/shared/ui/Image/Image';
-import Icon from '@/shared/assets/svg/svg.svg'
+import IconPlay from '@/shared/assets/svg/Play.svg'
 import cls from './Image.module.scss'
 import { Animtaion } from '../../PlayingAnimation/Animation';
 import { Filter } from '../../Filter/Filter';
@@ -28,7 +28,7 @@ export const TrackImage: React.FunctionComponent<ITrackImageProps> = React.memo(
         {
             active 
                 ? <Animtaion paused={paused}/>
-                : <Icon className={cls.icon}/>
+                : <IconPlay className={cls.icon}/>
         }
     </Filter> 
 

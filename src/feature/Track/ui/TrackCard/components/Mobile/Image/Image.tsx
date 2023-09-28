@@ -23,9 +23,7 @@ export const TrackImage: React.FunctionComponent<ITrackImageProps> = React.memo(
 
     const filter = <Filter>
         {
-            active 
-                ? <Animtaion paused={paused}/>
-                : <Icon className={cls.icon}/>
+            active ? <Animtaion paused={paused}/> : null
         }
     </Filter> 
 
