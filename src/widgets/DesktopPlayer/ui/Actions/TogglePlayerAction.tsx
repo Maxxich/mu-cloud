@@ -16,7 +16,7 @@ export const TogglePlayerAction: React.FunctionComponent<ITogglePlayerActionProp
 
     return (
         <IconButton
-            rotated={isOpened}
+            rotated={!isOpened}
             willRotate
             icon={<IconArrowBottom/>}
             size={'l'}
