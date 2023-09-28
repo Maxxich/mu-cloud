@@ -5,10 +5,6 @@ import { ILinkProps, Link } from './Link';
 
 const LinksData: ILinkProps[] = [
     {
-        children: 'Главная',
-        href: '/'
-    },
-    {
         children: 'Библиотека',
         href: '/library'
     },
