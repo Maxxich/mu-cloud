@@ -4,7 +4,7 @@ import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc'
 import { Track } from '../model/types/track'
 import { createTrackImagesSrc } from '../lib/createTrackImageSrc'
 
-interface SearchTracks {
+interface Params {
     page?: number, 
     limit?: number,
     search?: string
@@ -17,20 +17,19 @@ interface TracksResponse {
     total: number
 }
 
-export const tracksBannerLimit = 20
+const bannerLimit = 20
 
-export function createTrackSearchParams(params: SearchTracks) {
-    return createUrlSearchParams(params)
-}
-
-async function get(urlParams: string): Promise<TracksResponse> {
-
-    const res = await fetch(backendUrl + '/tracks/search?' + urlParams, {
-        next: { 
-            revalidate: 1,
-        },
-        
-    })
+async function get(params: Params): Promise<TracksResponse> {
+    
+    const res = await fetch(
+        backendUrl + '/tracks/search?' + createUrlSearchParams(params), 
+        {
+            next: { 
+                revalidate: 1,
+            },
+            
+        }
+    )
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -47,14 +46,33 @@ async function get(urlParams: string): Promise<TracksResponse> {
     return data
 }
 
-async function getUserOwn(id: number, urlParams: string): Promise<TracksResponse> {
-
-    const res = await fetch(backendUrl + `/tracks/own/${id}?` + urlParams, {
+async function getOneById(id: number): Promise<Track> {
+    
+    const res = await fetch(`http://localhost:5001/tracks/by-id/${id}`, {
         next: { 
             revalidate: 1,
         },
-        
     })
+ 
+    if (!res.ok) {
+        throw new Error('404 Трек не найден!(')
+    }
+ 
+    const track = await res.json()
+    track.picture_source = createTrackImagesSrc(track)
+    return track
+}
+
+async function getUserOwn(id: number, params: Params): Promise<TracksResponse> {
+
+    const res = await fetch(
+        backendUrl + `/tracks/own/${id}?` + createUrlSearchParams(params), 
+        {
+            next: { 
+                revalidate: 1,
+            },    
+        }
+    )
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -71,14 +89,17 @@ async function getUserOwn(id: number, urlParams: string): Promise<TracksResponse
     return data
 }
 
-async function getUserAdded(id: number, urlParams: string): Promise<TracksResponse> {
+async function getUserAdded(id: number, params: Params): Promise<TracksResponse> {
 
-    const res = await fetch(backendUrl + `/tracks/added/${id}?` + urlParams, {
-        next: { 
-            revalidate: 1,
-        },
-        
-    })
+    const res = await fetch(
+        backendUrl + `/tracks/added/${id}?` + createUrlSearchParams(params), 
+        {
+            next: { 
+                revalidate: 1,
+            },
+            
+        }
+    )
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -98,5 +119,9 @@ async function getUserAdded(id: number, urlParams: string): Promise<TracksRespon
 export const trackServerApi = {
     get,
     getUserOwn,
-    getUserAdded
+    getUserAdded,
+    getOneById,
+    bannerLimit
 }
+
+export type { TracksResponse }

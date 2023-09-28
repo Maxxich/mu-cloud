@@ -1,8 +1,8 @@
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { authOptions } from '@/shared/config/authConfig'
-import { createTrackSearchParams, trackServerApi, tracksBannerLimit } from '@/entity/track'
-import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } from '@/entity/user'
+import { trackServerApi } from '@/entity/track'
+import { UserBanner, userServerApi } from '@/entity/user'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { TrackBanner } from '@/feature/Track'
@@ -18,33 +18,27 @@ export default async function LibraryPage() {
 
     const id = session.user.id
 
-    const ownTracksSearch = createTrackSearchParams({
-        limit: tracksBannerLimit,
+    const ownTracks = await trackServerApi.getUserOwn(id, {
+        limit: trackServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'createdAt',
         page: 1
     })
 
-    const ownTracks = await trackServerApi.getUserOwn(id, ownTracksSearch)
-
-    
-    const addedTracksSearch = createTrackSearchParams({
-        limit: tracksBannerLimit,
+    const addedTracks = await trackServerApi.getUserAdded(id, {
+        limit: trackServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'createdAt',
         page: 1
     })
 
-    const addedTracks = await trackServerApi.getUserAdded(id, addedTracksSearch)
-
-    const followingsSearch = createUsersSearchParams({
-        limit: usersBannerLimit,
+    const followings = await userServerApi.getFollowings(id, {
+        limit: userServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'createdAt',
         page: 1
     })
 
-    const followings = await userServerApi.getFollowings(id, followingsSearch)
     const isMobile = getIsMobile()
 
     return (
@@ -81,6 +75,7 @@ export default async function LibraryPage() {
                     <ItemsTitle title='Подписки' href='/library/followings'/>
                     <UserBanner
                         users={followings.users}
+                        isMobile={isMobile}
                     />
                 </ItemsSection>
                 :

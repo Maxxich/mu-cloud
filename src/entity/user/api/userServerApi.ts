@@ -3,7 +3,7 @@ import { createUrlSearchParams } from '@/shared/lib/createUrlSearchParams/create
 import { User } from '../model/types/user'
 import { createUserImagesSrc } from '../lib/createUserImageSrc'
 
-interface SearchUsers {
+interface Params {
     page?: number, 
     limit?: number,
     search?: string
@@ -11,25 +11,24 @@ interface SearchUsers {
     orderBy?: 'createdAt' | 'listenings_count',
   }
 
-export interface UsersResponse {
+interface UsersResponse {
     users: User[],
     total: number
 }
 
 
-export const usersBannerLimit = 8
+const bannerLimit = 8
 
-export function createUsersSearchParams(params: SearchUsers) {
-    return createUrlSearchParams(params)
-}
+async function get(params: Params): Promise<UsersResponse> {
 
-async function get(urlParams: string): Promise<UsersResponse> {
-
-    const res = await fetch(backendUrl + '/users/search?' + urlParams, {
-        next: { 
-            revalidate: 1,
-        },
-    })
+    const res = await fetch(
+        backendUrl + '/users/search?' + createUrlSearchParams(params),
+        {
+            next: { 
+                revalidate: 1,
+            },
+        }
+    )
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -45,12 +44,15 @@ async function get(urlParams: string): Promise<UsersResponse> {
 }
 
 
-async function getFollowings(id: number,urlParams: string): Promise<UsersResponse> {
-    const res = await fetch(backendUrl + `/users/subscriptions/${id}?` + urlParams, {
-        next: { 
-            revalidate: 1,
-        },
-    })
+async function getFollowings(id: number, params: Params): Promise<UsersResponse> {
+    const res = await fetch(
+        backendUrl + `/users/subscriptions/${id}?` + createUrlSearchParams(params),
+        {
+            next: { 
+                revalidate: 1,
+            },
+        }
+    )
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -103,5 +105,7 @@ export const userServerApi = {
     get,
     getByAdress,
     getFollowings,
-    getListeningsCountById
+    getListeningsCountById,
+    bannerLimit,
 }
+export type { UsersResponse }

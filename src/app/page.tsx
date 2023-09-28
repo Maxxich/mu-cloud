@@ -1,33 +1,30 @@
-import { createTrackSearchParams, trackServerApi, tracksBannerLimit } from '@/entity/track'
-import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } from '@/entity/user'
+import { trackServerApi } from '@/entity/track'
+import { UserBanner, userServerApi } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 
 export default async function Home() {
-    const popularTracksSearch = createTrackSearchParams({
-        limit: tracksBannerLimit,
+    const popularTracksData = await trackServerApi.get({
+        limit: trackServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'listenings_count',
         page: 1,
     })
-    const newTracksSearch = createTrackSearchParams({
-        limit: tracksBannerLimit,
+    const newTracksData = await trackServerApi.get({
+        limit: trackServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'createdAt',
         page: 1,
     })
-    const popularUsersSearch = createUsersSearchParams({
-        limit: usersBannerLimit,
+    const popularUsersData = await userServerApi.get({
+        limit: userServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'listenings_count',
         page: 1,
     })
 
-    const popularTracksData = await trackServerApi.get(popularTracksSearch)
-    const newTracksData = await trackServerApi.get(newTracksSearch)
-    const popularUsersData = await userServerApi.get(popularUsersSearch)
     const isMobile = getIsMobile()
 
     return (
@@ -62,7 +59,10 @@ export default async function Home() {
                 ? 
                 <ItemsSection>
                     <ItemsTitle title='Популярные пользователи' href='/popular-users'/>
-                    <UserBanner users={popularUsersData.users}/>
+                    <UserBanner 
+                        users={popularUsersData.users}
+                        isMobile={isMobile}
+                    />
                 </ItemsSection>
                 :
                 undefined

@@ -1,11 +1,11 @@
-import { createTrackSearchParams, trackServerApi, tracksBannerLimit } from '@/entity/track'
-import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } from '@/entity/user'
+import { trackServerApi } from '@/entity/track'
+import { UserBanner, userServerApi } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { Text } from '@/shared/ui/Text/Text'
-import { Header } from './Header'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { Header } from './Header'
 
 type Props = {
     searchParams: {
@@ -19,23 +19,21 @@ export default async function Search({
 
     const search: string = (searchParams['search'] ?? '') as string
 
-    const tracksSearch = createTrackSearchParams({
-        limit: tracksBannerLimit,
+    const tracks = await trackServerApi.get({
+        limit: trackServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'listenings_count',
         page: 1,
         search
     })
-    const usersSearch = createUsersSearchParams({
-        limit: usersBannerLimit,
+    const users = await userServerApi.get({
+        limit: userServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'listenings_count',
         page: 1,
         search
     })
 
-    const tracks = await trackServerApi.get(tracksSearch)
-    const users = await userServerApi.get(usersSearch)
     const isMobile = getIsMobile()
     
     return (
@@ -62,7 +60,10 @@ export default async function Search({
                 ? 
                 <ItemsSection>
                     <ItemsTitle title='Пользователи' href={'/search/users?search=' + search}/>
-                    <UserBanner users={users.users}/>
+                    <UserBanner 
+                        users={users.users}
+                        isMobile={isMobile}    
+                    />
                 </ItemsSection>
                 :
                 null

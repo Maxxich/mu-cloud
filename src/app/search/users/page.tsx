@@ -1,4 +1,4 @@
-import { UserList, createUsersSearchParams, userServerApi } from '@/entity/user'
+import { UserList, userServerApi } from '@/entity/user'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { Text } from '@/shared/ui/Text/Text'
@@ -18,15 +18,13 @@ export default async function SearchUsers({
     const page = searchParams['page'] ?? '1'
     const per_page = searchParams['per_page'] ?? '5'
 
-    const usersSearch = createUsersSearchParams({
+    const users = await userServerApi.get({
         limit: Number(per_page),
         order: 'DESC',
         orderBy: 'listenings_count',
         page: Number(page),
         search
     })
-
-    const users = await userServerApi.get(usersSearch)
     
     return (
         <>

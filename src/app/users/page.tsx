@@ -1,12 +1,8 @@
-import { UserList, createUsersSearchParams, userServerApi } from '@/entity/user'
+import { UserList, userServerApi } from '@/entity/user'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 
 export default async function Users() {
-    const params = createUsersSearchParams({
-        
-    })
-    const usersData = await userServerApi.get(params)
-
+    const usersData = await userServerApi.get({})
 
     return (
         <>

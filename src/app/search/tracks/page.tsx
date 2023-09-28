@@ -1,4 +1,4 @@
-import { createTrackSearchParams, trackServerApi } from '@/entity/track'
+import { trackServerApi } from '@/entity/track'
 import { TrackList } from '@/feature/Track'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
@@ -20,15 +20,13 @@ export default async function SearchTracks({
     const page = searchParams['page'] ?? '1'
     const per_page = searchParams['per_page'] ?? '5'
 
-    const usersSearch = createTrackSearchParams({
+    const tracks = await trackServerApi.get({
         limit: Number(per_page),
         order: 'DESC',
         orderBy: 'listenings_count',
         page: Number(page),
         search
     })
-
-    const tracks = await trackServerApi.get(usersSearch)
     const isMobile = getIsMobile()
     
     return (

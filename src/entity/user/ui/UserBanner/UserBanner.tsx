@@ -6,17 +6,19 @@ interface IProps {
     users: User[]
     className?: string
     marginBottom?: boolean
+    isMobile: boolean
 }
 
 
 export const UserBanner: React.FunctionComponent<IProps> = ({
     users,
     className,
-    marginBottom
+    marginBottom,
+    isMobile
 }) => {
 
     return (
-        <BannerSwiper marginBottom={marginBottom}  className={className}>
+        <BannerSwiper marginBottom={marginBottom}  className={className} isMobile={isMobile}>
             {users.map(u => (
                 <UserCard 
                     href={`/users/${u.adress}`}

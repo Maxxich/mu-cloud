@@ -1,6 +1,6 @@
 import { getServerSession } from 'next-auth/next'
-import { createTrackSearchParams, trackServerApi, tracksBannerLimit } from '@/entity/track'
-import { UserBanner, createUsersSearchParams, userServerApi, usersBannerLimit } from '@/entity/user'
+import { trackServerApi } from '@/entity/track'
+import { UserBanner, userServerApi } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
 import { authOptions } from '@/shared/config/authConfig';
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
@@ -21,37 +21,29 @@ export async function generateMetadata({ params: { adress } }: Props) {
     }
 }
 
-
 export default async function TrackPage ({ params: { adress } }: Props) {
     const user = await userServerApi.getByAdress(adress)
 
-    const ownTracksSearch = createTrackSearchParams({
-        limit: tracksBannerLimit,
+    const ownTracks = await trackServerApi.getUserOwn(user.id, {
+        limit: trackServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'createdAt',
         page: 1
     })
 
-    const ownTracks = await trackServerApi.getUserOwn(user.id, ownTracksSearch)
-
-    
-    const addedTracksSearch = createTrackSearchParams({
-        limit: tracksBannerLimit,
+    const addedTracks = await trackServerApi.getUserAdded(user.id, {
+        limit: trackServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'createdAt',
         page: 1
     })
 
-    const addedTracks = await trackServerApi.getUserAdded(user.id, addedTracksSearch)
-
-    const followingsSearch = createUsersSearchParams({
-        limit: usersBannerLimit,
+    const followings = await userServerApi.getFollowings(user.id, {
+        limit: userServerApi.bannerLimit,
         order: 'DESC',
         orderBy: 'createdAt',
         page: 1
     })
-
-    const followings = await userServerApi.getFollowings(user.id, followingsSearch)
     const listeningCount = await userServerApi.getListeningsCountById(user.id)
 
     const session = await getServerSession(authOptions)
@@ -100,6 +92,7 @@ export default async function TrackPage ({ params: { adress } }: Props) {
                     <ItemsTitle title='Подписки'/>
                     <UserBanner
                         users={followings.users}
+                        isMobile={isMobile}
                     />
                 </ItemsSection>
                 :
