@@ -18,6 +18,13 @@ const trackApi = rtkApi.injectEndpoints({
             }),
             invalidatesTags:  ['Liked'], 
         }), 
+
+        delete: builder.mutation<void, {id: number}>({
+            query: ({ id }) => ({
+                url: `/tracks-private/owner/${id}`,
+                method: 'DELETE',
+            }),
+        }), 
     
         isInLiked: builder.query<boolean, {id: number}> ({
             query: ({ id }) => `/tracks-private/like/${id}`,

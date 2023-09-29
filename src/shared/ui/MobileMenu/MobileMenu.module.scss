@@ -71,3 +71,11 @@
     text-overflow: ellipsis;
     font-size: 16px;
 }
+
+.danger {
+    color: var(--menu-item-danger);
+
+    & > svg {
+        fill: var(--menu-item-danger);
+    }
+}

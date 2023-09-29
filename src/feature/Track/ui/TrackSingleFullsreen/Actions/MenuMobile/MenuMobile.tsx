@@ -1,14 +1,16 @@
 'use client'
 
 import { useCallback, useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { CloseMenuEvent, MobileMenu as MobileMenuComp, OpenMenuEvent } from '@/shared/ui/MobileMenu/MobileMenu';
 import IconMore from '@/shared/assets/svg/More.svg' 
+import { backendUrl } from '@/shared/const/backendUrl';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import { Track } from '@/entity/track';
+import { Delete } from './Delete';
 import { Download } from '../../../TrackCard/components/Mobile/Actions/Download';
 import { Share } from '../../../TrackCard/components/Mobile/Actions/Share';
 import { GoToUser } from '../../../TrackCard/components/Mobile/Actions/GoToUser';
-import { backendUrl } from '@/shared/const/backendUrl';
 
 interface ISignedProps {
     track: Track
@@ -34,6 +36,9 @@ export const MobileMenu: React.FunctionComponent<ISignedProps> = ({
     const primary_name = track.name
     const track_src = backendUrl + '/' + track.audio_src
     const id = track.id
+
+    const session = useSession()
+    const userId = session?.data?.user?.id
         
     return (
         <>
@@ -61,6 +66,12 @@ export const MobileMenu: React.FunctionComponent<ISignedProps> = ({
                     onMenuClose={onCloseMenu} 
                     author={authorName}
                 />
+                {
+                    track.owners[0].id === userId && <Delete 
+                        id={id}
+                        onMenuClose={onCloseMenu}
+                    />
+                }
             </MobileMenuComp>
         </>
     );

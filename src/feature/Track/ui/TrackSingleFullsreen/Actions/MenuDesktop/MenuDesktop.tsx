@@ -7,6 +7,8 @@ import { Track } from '@/entity/track';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import { Download } from './Download';
 import { Share } from './Share';
+import { useSession } from 'next-auth/react';
+import { Delete } from './Delete';
 
 interface IMenuDesktopProps {
     track: Track
@@ -22,6 +24,9 @@ export const MenuDesktop: React.FunctionComponent<IMenuDesktopProps> = ({
     const track_src = backendUrl + '/' + track.audio_src
     const id = track.id
 
+    const session = useSession()
+    const userId = session?.data?.user?.id
+
     return (
         <Menu.Wrapper as='div' style={{ position: 'relative' }}>
             {({ open }) => (
@@ -34,14 +39,6 @@ export const MenuDesktop: React.FunctionComponent<IMenuDesktopProps> = ({
                     <Menu.Items
                         open={open}
                     >
-                        {/* <Menu.Item
-                            component={'link'}
-                            href={`/users/${track.owners[0].adress}`}
-                            icon={<IconUser/>}
-                            isMobile={isMobile}
-                        >
-                            {userActionText}
-                        </Menu.Item> */}
                         <Download
                             author={authorName} 
                             trackname={primary_name} 
@@ -50,6 +47,9 @@ export const MenuDesktop: React.FunctionComponent<IMenuDesktopProps> = ({
                         <Share
                             id={id} 
                         />
+                        {
+                            track.owners[0].id === userId && <Delete id={id}/>
+                        }
                     </Menu.Items>
                 </>
             )}

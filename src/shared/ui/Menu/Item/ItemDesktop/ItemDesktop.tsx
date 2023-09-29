@@ -10,7 +10,8 @@ export const ItemDesktop: React.FunctionComponent<ItemProps> = ({
     icon,
     href,
     component,
-    onClick
+    onClick,
+    danger
 }) => {
 
     const onClickWrapped = (e: SyntheticEvent<HTMLButtonElement>) => {
@@ -33,10 +34,14 @@ export const ItemDesktop: React.FunctionComponent<ItemProps> = ({
                     // @ts-ignore
                     onClick={onClickWrapped}
                 >
-                    <div className={cls.icon_position}>
+                    <div className={classNames(cls.icon_position, {
+                        [cls.danger]: danger
+                    })}>
                         {icon}
                     </div>
-                    <span className={cls.text}>{children}</span>
+                    <span className={classNames(cls.text, {
+                        [cls.danger]: danger
+                    })}>{children}</span>
                 </Link>
             )}
         </HeadlessMenu.Item>
@@ -54,10 +59,14 @@ export const ItemDesktop: React.FunctionComponent<ItemProps> = ({
                         }
                     )}
                 >
-                    <div className={cls.icon_position}>
+                    <div className={classNames(cls.icon_position, {
+                        [cls.danger]: danger
+                    })}>
                         {icon}
                     </div>
-                    <span className={cls.text}>{children}</span>
+                    <span className={classNames(cls.text, {
+                        [cls.danger]: danger
+                    })}>{children}</span>
                 </button>
             )}
         </HeadlessMenu.Item>

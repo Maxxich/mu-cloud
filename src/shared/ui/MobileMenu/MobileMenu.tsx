@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { default as NextLink } from 'next/link'
 import { Url } from 'next/dist/shared/lib/router/router';
 import cls from './MobileMenu.module.scss'
+import classNames from 'classnames';
 
 interface IMenuProps {
     children?: React.ReactNode
@@ -46,6 +47,7 @@ interface IMenuButtonProps {
     children: string
     onClick: (e: SyntheticEvent<HTMLButtonElement>) => void
     onClose: (e: SyntheticEvent<HTMLButtonElement>) => void
+    danger?: boolean
 }
 
 
@@ -54,6 +56,7 @@ const Button: React.FunctionComponent<IMenuButtonProps> = ({
     icon,
     onClick,
     onClose,
+    danger
 }) => {
 
     const onButtonClick = useCallback((e: SyntheticEvent<HTMLButtonElement>) => {
@@ -65,10 +68,14 @@ const Button: React.FunctionComponent<IMenuButtonProps> = ({
         <button className={cls.button}
             onClick={onButtonClick}
         >
-            <div className={cls.button_icon_position}>
+            <div className={classNames(cls.button_icon_position, {
+                [cls.danger]: danger
+            })}>
                 {icon}
             </div>
-            <span className={cls.button_text}>{children}</span>
+            <span className={classNames(cls.button_text, {
+                [cls.danger]: danger
+            })}>{children}</span>
         </button>
     )
 };

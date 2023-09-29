@@ -44,3 +44,11 @@
 .active {
     background-color: var(--menu-item-active-background);
 }
+
+.danger {
+    color: var(--menu-item-danger);
+
+    & > svg {
+        fill: var(--menu-item-danger);
+    }
+}
