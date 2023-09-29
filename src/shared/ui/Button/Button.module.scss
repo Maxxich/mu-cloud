@@ -5,7 +5,7 @@
   cursor: pointer;
   border-radius: 10px;
   gap:11px;
-  padding: 6px 22px;
+  padding: 11px 26px;
   transition: all 0.1s linear 0s;
   background: var(--button-bg-color);
   color: var(--button-text-color);
@@ -23,7 +23,7 @@
   }
 
   &:focus {
-    outline: var(--button-outline-color-focused) solid;
+    outline: var(--button-outline-color-focused) solid 2px;
   }
 }
 
@@ -40,7 +40,7 @@
   }
 
   &:focus {
-    outline: var(--button-outline-color-danger-focused) solid;
+    outline: var(--button-outline-color-danger-focused) solid 2px;
   }
 }
 
@@ -57,7 +57,7 @@
   }
 
   &:focus {
-    outline: var(--button-outline-color-green-focused) solid;
+    outline: var(--button-outline-color-green-focused) solid 2px;
   }
 }
 
@@ -108,10 +108,12 @@
 
 .m {
   font: var(--font-m);
+  font-size: 12px;
+  line-height: 15px;
 
   & svg {
-    height: var(--font-line-m);
-    width: var(--font-line-m);
+    height: 15px;
+    width: 15px;
   }
 }
 

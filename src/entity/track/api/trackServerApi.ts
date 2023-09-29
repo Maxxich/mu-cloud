@@ -46,6 +46,24 @@ async function get(params: Params): Promise<TracksResponse> {
     return data
 }
 
+async function getListeningCountById(id: number): Promise<number> {
+    
+    const res = await fetch(
+        backendUrl + `/tracks/number-of-listening/${id}`, 
+        {
+            next: { 
+                revalidate: 1,
+            },
+            
+        }
+    )
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+ 
+    return await res.json() as number
+}
+
 async function getOneById(id: number): Promise<Track> {
     
     const res = await fetch(`http://localhost:5001/tracks/by-id/${id}`, {
@@ -121,6 +139,7 @@ export const trackServerApi = {
     getUserOwn,
     getUserAdded,
     getOneById,
+    getListeningCountById,
     bannerLimit
 }
 

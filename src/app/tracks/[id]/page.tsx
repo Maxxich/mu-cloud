@@ -1,5 +1,5 @@
 import { trackServerApi } from '@/entity/track'
-import { TrackCard } from '@/feature/Track'
+import { TrackSingleFullsreen } from '@/feature/Track'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 
 type Props = {
@@ -17,14 +17,15 @@ export async function generateMetadata({ params: { id } }: Props) {
 
 export default async function TrackPage ({ params: { id } }: Props) {
     const track = await trackServerApi.getOneById(Number(id))
+    const listenings = await trackServerApi.getListeningCountById(Number(id))
 
     const isMobile = getIsMobile()
 
     return (
-        <TrackCard
+        <TrackSingleFullsreen
             track={track}
-            tracks={[track]}
             isMobile={isMobile}
+            listenings={listenings}
         />
     )
 }

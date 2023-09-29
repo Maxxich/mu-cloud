@@ -1,0 +1,35 @@
+.linkAuthor {
+    color: var(--primary-color);
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.textColumn {
+    flex: 1 1 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+}
+
+.trackname {
+    max-width: 100%;
+    font-size: 16px;
+    color: var(--primary-color);
+    line-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.listenings {
+    font-size: 14px;
+    color: var(--primary-color);
+    white-space: nowrap;
+    line-height: 20px;
+}
