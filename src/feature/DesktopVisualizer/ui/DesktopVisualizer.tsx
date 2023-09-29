@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const DesktopVisualizer: React.FunctionComponent<Props> = ({
-    track
+    track,
 }) => {
 
     const audio = useAudio()

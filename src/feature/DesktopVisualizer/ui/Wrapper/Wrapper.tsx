@@ -9,7 +9,7 @@ interface IWrapperProps {
 }
 
 export const Wrapper: React.FunctionComponent<IWrapperProps> = ({
-    children
+    children,
 }) => {
 
     const isInterfaceHidden = useSelector(getIsInterfaceHidden)

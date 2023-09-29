@@ -1,5 +1,7 @@
+'use client'
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
+import { useSpring, animated } from '@react-spring/web';
 import { TimeLine } from '@/feature/TimeLine';
 import { getIsInterfaceHidden, getIsPlayerOpened } from '@/entity/player';
 import { SetNextTrackAction } from './Actions/SetNextTrackAction';
@@ -8,8 +10,6 @@ import { ShufflePlaylistAction } from './Actions/ShufflePlaylistAction';
 import { TogglePauseAction } from './Actions/TogglePauseAction';
 import { ToggleRepeatStatusAction } from './Actions/ToggleRepeatStatusAction';
 import { ToggleSmallPictureAction } from './Actions/ToggleSmallPictureAction';
-// import { ToggleLikeAction } from './Actions/ToggleLikeAction';
-// import { TrackInfoAction } from './Actions/TrackInfoAction';
 import { TogglePlayerAction } from './Actions/TogglePlayerAction';
 import cls from './DesktopPlayer.module.scss'
 
@@ -17,6 +17,14 @@ export const DesktopPlayer: React.FunctionComponent = () => {
 
     const isOpened = useSelector(getIsPlayerOpened)
     const isInterfaceHidden = useSelector(getIsInterfaceHidden)
+
+    const [props, api] = useSpring(
+        () => ({
+            from: { opacity: 0, y: 58 },
+            to: { opacity: 1, y: 0 },
+        }),
+        []
+    )
 
     const wrapperMods: Mods = {
         [cls.transparent]: isOpened,
@@ -30,7 +38,7 @@ export const DesktopPlayer: React.FunctionComponent = () => {
     
     return(
         <>
-            <div className={wrapperClasses}>
+            <animated.div className={wrapperClasses} style={props}>
                 <div className={cls.inner}>
                     <SetPreviousTrackAction/>
                     <TogglePauseAction/>
@@ -39,11 +47,9 @@ export const DesktopPlayer: React.FunctionComponent = () => {
                     <ShufflePlaylistAction/>
                     <TimeLine variant='desktop'/>
                     <ToggleSmallPictureAction/>
-                    {/* <ToggleLikeAction/> */}
-                    {/* <TrackInfoAction/> */}
                     <TogglePlayerAction/>
                 </div>
-            </div>
+            </animated.div>
         </>
     );
 };

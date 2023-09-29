@@ -1,7 +1,7 @@
 .container {
     height: 40px;
     width: 100%;
-    background: var(--mobile-player-bg);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--secondary-color);
     display: flex;
     align-items: center;
