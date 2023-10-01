@@ -2,8 +2,8 @@ import { SyntheticEvent, useCallback } from 'react';
 import { createPortal } from 'react-dom'
 import { default as NextLink } from 'next/link'
 import { Url } from 'next/dist/shared/lib/router/router';
-import cls from './MobileMenu.module.scss'
 import classNames from 'classnames';
+import cls from './MobileMenu.module.scss'
 
 interface IMenuProps {
     children?: React.ReactNode

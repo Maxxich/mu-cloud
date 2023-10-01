@@ -1,3 +1,5 @@
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 import { trackServerApi } from '@/entity/track'
 import { userServerApi } from '@/entity/user'
 import { TrackList } from '@/feature/Track'
@@ -6,8 +8,6 @@ import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { Pagination } from '@/widgets/Pagination'
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
 
 type Props = {
     searchParams: {

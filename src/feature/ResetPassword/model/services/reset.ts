@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
+import { backendUrl } from '@/shared/const/backendUrl';
 import { getEmail } from '../selectors/getEmail';
 import { ResetPasswordActions } from '../slices/ResetPasswordSlice';
-import { backendUrl } from '@/shared/const/backendUrl';
 
 //@ts-ignore
 export const reset = createAsyncThunk<void, void>('ResetPassword/reset', async (_, thunkApi) => {

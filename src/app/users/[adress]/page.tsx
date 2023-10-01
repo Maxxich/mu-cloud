@@ -1,4 +1,5 @@
 import { getServerSession } from 'next-auth/next'
+import { redirect } from 'next/navigation';
 import { trackServerApi } from '@/entity/track'
 import { UserBanner, userServerApi } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
@@ -7,7 +8,6 @@ import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
 import { UserHeader } from '@/widgets/UserHeader'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile';
-import { redirect } from 'next/navigation';
 
 type Props = {
     params: {
