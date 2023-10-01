@@ -31,7 +31,7 @@ export const signinSlice = createSlice({
                 state.errorMessage = undefined
             })
             .addCase(signInByEmail.fulfilled, (state) => {
-                state.status = 'success';
+                state.status = 'idle';
                 state.errorMessage = undefined
             })
             .addCase(signInByEmail.rejected, (state, action) => {

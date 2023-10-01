@@ -12,6 +12,7 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoa
 import cls from './Signin.module.scss'
 import { FormError } from './FormError/FormError';
 import { SignUpRedirect } from './SignUpRedirect/SignUpRedirect';
+import { ResetPasswordRedirect } from './ResetPasswordRedirect/ResetPasswordRedirect'
 import { signInByEmail } from '../../model/services/signIn'
 import { getPassword } from '../../model/selectors/getPassword'
 import { getEmail } from '../../model/selectors/getEmail'
@@ -69,6 +70,7 @@ export const SignIn = memo(() => {
                 </Button>
             </Form>
             <SignUpRedirect/>
+            <ResetPasswordRedirect/>
             <FormError/>
         </DynamicModuleLoader>
     )

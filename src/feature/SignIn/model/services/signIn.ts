@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 import { signIn } from 'next-auth/react'
 import { getPassword } from '../selectors/getPassword';
 import { getEmail } from '../selectors/getEmail';
@@ -19,6 +20,7 @@ interface SuccessResponse {
     refresh_token: string
 }
 
+//@ts-ignore
 export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (_, thunkApi) => {
     const { dispatch, rejectWithValue, getState } = thunkApi;
 
@@ -27,11 +29,6 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
     // @ts-ignore
     const password = getPassword(getState())
 
- 
-    const body = {
-        password, email
-    }
-
     try {
         const response = await signIn('credentials', {
             email,
@@ -39,28 +36,18 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
             redirect: false,
         })
 
+        if (!window.navigator.onLine) {
+            return toast('Ошибка. Нет соединения с интернетом')
+        }
 
         if (!response) {
-            return rejectWithValue('Сервер недоступен')
+            return toast('Сервер недоступен')
         }
 
-        if (response.status == 400) {
+        if (response.error) {
             return rejectWithValue('Неверные данные для входа');
         }
-        
-        if (!response.ok) {
-            return rejectWithValue('Сервер недоступен')
-        }
 
-        //@ts-ignore
-        // const data = await response.json() as SuccessResponse
-
-        // dispatch(viewerActions.setCredentials({
-        //     ...data,
-        //     checking: false
-        // }));
-
-        return 
     } catch (e) {
         return rejectWithValue('Произошла неожиданная ошибка');
     }
