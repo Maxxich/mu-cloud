@@ -1,22 +1,19 @@
-'use client'
-import classNames from 'classnames';
-import { usePathname, useSearchParams } from 'next/navigation';
-import cls from './NotSigned.module.scss'
-import { Link } from '../../Links/Link';
 
-interface Props {
-    className?: string
+'use client'
+import { usePathname, useSearchParams } from 'next/navigation';
+import IconUser from '@/shared/assets/svg/User.svg'
+import { NavLink } from '../NavLink/NavLink';
+
+interface INotSignedProps {
 }
 
-export const NotSigned: React.FunctionComponent<Props> = ({
-    className
-}) => {
+export const NotSigned: React.FunctionComponent<INotSignedProps> = (props) => {
 
     const pathnName = usePathname()
     const urlSearchParams = useSearchParams()
     const callbackUrl = urlSearchParams.get('callbackUrl')
-    
 
+    
     const href = (
         [
             '/signin',
@@ -29,15 +26,11 @@ export const NotSigned: React.FunctionComponent<Props> = ({
             )
             :  '/signin?callbackUrl=' + pathnName
     )
-
-
+    
     return (
-        <div className={classNames(cls.container, className)}>
-            <Link
-                href={href} 
-            >
-            Войти
-            </Link>
-        </div>
-    );
+        <NavLink
+            icon={<IconUser/>}
+            href={href}
+        />
+    )
 };

@@ -1,10 +1,9 @@
 
 'use client'
 import { useSession } from 'next-auth/react'
-import IconUser from '@/shared/assets/svg/User.svg'
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Signed } from './Signed';
-import { NavLink } from '../NavLink/NavLink';
+import { NotSigned } from './NotSigned';
 
 interface IUserProps {
 }
@@ -31,9 +30,6 @@ export const User: React.FunctionComponent<IUserProps> = (props) => {
     )
 
     return (
-        <NavLink
-            icon={<IconUser/>}
-            href={'/signin'}
-        />
+        <NotSigned/>
     );
 };
