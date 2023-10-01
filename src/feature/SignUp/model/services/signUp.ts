@@ -1,5 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { signIn } from 'next-auth/react';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { removeTrailingSpaces } from '@/shared/lib/removeTrailingSpaces/removeTrailingSpaces';
 import { backendUrl } from '@/shared/const/backendUrl';
 import { getPassword,getEmail, getName, getPasswordConfirm } from '../selectors/fieldSelectors';
 import { getValidationError } from '../selectors/getValidationError';
@@ -47,7 +48,9 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
     }
  
     const body = {
-        password, email, name
+        password, 
+        email,
+        name: removeTrailingSpaces(name!)
     }
 
     try {
@@ -65,37 +68,29 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
         }
 
         if (response.status !== 201) {
-            return rejectWithValue('Произошла неожиданная ошибка')
+            try {
+                const data = await response.json()
+                if (typeof data.message !== 'object') {
+                    throw Error()
+                }
+                if (data.message.includes('name must be longer than or equal to 4 characters')) {
+                    return rejectWithValue('Минимальная длина имени 4 символа')
+                }
+                if (data.message.includes('Email exist')) {
+                    return rejectWithValue('Пользователь с таким Email уже существует')
+                }
+                throw Error()
+            } catch (error) {
+                return rejectWithValue('Произошла неожиданная ошибка')
+            }
         }
 
-        //@ts-ignore
-        const signInResponse = await signIn('credentials', {
+        await signIn('credentials', {
             email,
             password,
-            redirect: true,
-            callbackUrl: new URL(location.href).searchParams.get('callbackUrl') ?? '/',
-            // callbackUrl: '/profile'
+            redirect: false,
         })
-
-
-        if (!signInResponse) {
-            alert('1')
-            return rejectWithValue('Сервер недоступен')
-        }
-
-        if (signInResponse.status == 400) {
-            alert('2')
-            return rejectWithValue('Неверные данные для входа');
-        }
-        
-        if (!signInResponse.ok) {
-            alert('3')
-            return rejectWithValue('Сервер недоступен')
-        }
-
-        return 
     } catch (e) {
-        alert('4')
         return rejectWithValue('Произошла неожиданная ошибка');
     }
 });

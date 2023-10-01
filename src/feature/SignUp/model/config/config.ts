@@ -11,17 +11,25 @@ export const config: Config = {
     email: {
         messages: {
             empty: 'Email адрес не должен быть пустым',
-            notEmailFormat: 'Неккоректный Email'
+            notEmailFormat: 'Неккоректный Email',
+            hasBannedSymbols: 'Email не должен содержать пробелы'
         },
+        bannedSymbols: [
+            ' '
+        ],
     },
     password: {
         messages: {
             empty: 'Пароль не должен быть пустым',
             exceedsMaxLenght: 'Длина пароля должна быть не более 50 символов',
-            exceedsMinLenght: 'Длина пароля должна быть не менее 8 символов'
+            exceedsMinLenght: 'Длина пароля должна быть не менее 8 символов',
+            hasBannedSymbols: 'Пароль не должен содержать пробелы'
         },
         maxLenght: 50,
-        minLenght: 8
+        minLenght: 8,
+        bannedSymbols: [
+            ' '
+        ],
     },
     passwordConfirm: {
         messages: {

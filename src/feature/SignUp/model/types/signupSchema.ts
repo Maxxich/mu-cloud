@@ -5,7 +5,9 @@ export type Config = {
         messages: {
             empty: string
             notEmailFormat: string
+            hasBannedSymbols: string
         },
+        bannedSymbols: string[]
     },
     name: {
         messages: {
@@ -25,7 +27,9 @@ export type Config = {
             empty: string
             exceedsMaxLenght: string
             exceedsMinLenght: string
+            hasBannedSymbols: string
         },
+        bannedSymbols: string[]
         maxLenght: number
         minLenght: number
     },
@@ -35,6 +39,7 @@ type ValidationErrors = {
     email: {
         empty: boolean
         notEmailFormat: boolean
+        hasBannedSymbols: boolean
     }
     name: {
         empty: boolean
@@ -44,6 +49,7 @@ type ValidationErrors = {
         empty: boolean
         exceedsMaxLenght: boolean 
         exceedsMinLenght: boolean
+        hasBannedSymbols: boolean
     },
     passwordConfirm: {
         empty: boolean
@@ -52,10 +58,10 @@ type ValidationErrors = {
 }
 
 export interface SignupSchema {
-    email: string | undefined
-    name: string | undefined
-    passwordConfirm: string | undefined
-    password: string | undefined
+    email: string
+    name: string
+    passwordConfirm: string
+    password: string 
     status: 'idle' | 'loading' | 'error' | 'success',
     errorMessage?: ErrorMessage
     validationErrors: ValidationErrors

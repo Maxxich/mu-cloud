@@ -5,15 +5,16 @@ import { signUpByEmail } from '../services/signUp'
 import { config } from '../config/config'
 
 const initialState: SignupSchema = {
-    email: undefined,
-    password: undefined,
-    name: undefined,
-    passwordConfirm: undefined,
+    email: '',
+    password: '',
+    name: '',
+    passwordConfirm: '',
     status: 'idle',
     validationErrors: {
         email: {
             empty: false,
-            notEmailFormat: false
+            notEmailFormat: false,
+            hasBannedSymbols: false
         },
         name: {
             empty: false,
@@ -22,11 +23,13 @@ const initialState: SignupSchema = {
         password: {
             empty: false,
             exceedsMaxLenght: false,
-            exceedsMinLenght: false
+            exceedsMinLenght: false,
+            hasBannedSymbols: false
         },
         passwordConfirm: {
             empty: false,
-            notEqualsToPassword: false
+            notEqualsToPassword: false,
+
         }
     }
 }
@@ -68,6 +71,9 @@ export const signupSlice = createSlice({
                 state.validationErrors.password.exceedsMaxLenght = false
                 state.validationErrors.password.exceedsMinLenght = false
             }
+
+            
+            state.validationErrors.password.hasBannedSymbols = (config.password.bannedSymbols.some((symbol) => state.password.includes(symbol)))
         },
 
         validatePasswordConfirm: (state, action: PayloadAction<string | undefined>) => {
@@ -114,6 +120,8 @@ export const signupSlice = createSlice({
             } else {
                 state.validationErrors.email.empty = false
             }
+
+            state.validationErrors.email.hasBannedSymbols = (config.email.bannedSymbols.some((symbol) => state.email.includes(symbol)))
         },
         validateEmailOnSubmit: (state, action: PayloadAction<string | undefined>) => {
             const email = action.payload
