@@ -13,6 +13,10 @@
     position: relative;
 }
 
+.disabled {
+    opacity: 0.6;
+  }
+
 .file_button{
     background: var(--input-color);
     width: 100%;
@@ -40,6 +44,7 @@
         opacity: 0.9;
         transform: scale(0.98);
     }
+
 }
 
 .file_button.danger:focus{

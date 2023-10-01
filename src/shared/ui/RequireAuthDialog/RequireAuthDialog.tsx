@@ -21,7 +21,7 @@ export const RequireAuthDialog: React.FunctionComponent<IRequireAuthDialogProps>
     }
 
     const onSign = () => {
-        onClose(false)
+        onClose(true)
         router.push('/signin')
     }
 

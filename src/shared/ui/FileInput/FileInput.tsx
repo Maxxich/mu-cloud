@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState, SyntheticEvent, memo, forwardRef } from 'react';
+import { useRef, useState, SyntheticEvent, memo, forwardRef, useEffect } from 'react';
 import classNames from 'classnames';
 import cls from './FileInput.module.scss'
 import { VStack } from '../Stack';
@@ -31,6 +31,11 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
     const [ fileName, setFileName]  = useState<string | undefined>(initialFile?.name)
 
     const inputRef = useRef<HTMLInputElement>()
+
+
+    useEffect(() => {
+        setFileName(initialFile?.name)
+    }, [initialFile])
 
     const refCb = (e: HTMLInputElement) => {
         inputRef.current = e;
@@ -107,8 +112,12 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
         </button>
     )
 
+    const stackMods: Mods = {
+        [cls.disabled]: rest.disabled
+    }
+
     return (
-        <VStack max gap="8" className={classNames(cls.margin, className)}>
+        <VStack max gap="8" className={classNames(cls.margin, stackMods,  className)}>
             {invisibleInput}
             {labelComp}
             {fileButton}
