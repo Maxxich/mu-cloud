@@ -6,7 +6,7 @@ import { backendUrl } from '@/shared/const/backendUrl';
 import { Track } from '@/entity/track';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import { Download } from './Download';
-import { Share } from './Share';
+import { Copy } from './Copy';
 import { useSession } from 'next-auth/react';
 import { Delete } from './Delete';
 
@@ -44,7 +44,7 @@ export const MenuDesktop: React.FunctionComponent<IMenuDesktopProps> = ({
                             trackname={primary_name} 
                             src={track_src} 
                         />
-                        <Share
+                        <Copy
                             id={id} 
                         />
                         {

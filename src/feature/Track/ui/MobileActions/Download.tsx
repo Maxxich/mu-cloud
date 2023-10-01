@@ -1,3 +1,4 @@
+'use client'
 import { SyntheticEvent } from 'react';
 import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 import IconDownload from '@/shared/assets/svg/Download.svg'

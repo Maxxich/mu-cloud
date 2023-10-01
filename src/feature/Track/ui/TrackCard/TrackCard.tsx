@@ -13,12 +13,13 @@ import { Width } from '../../model/types/TrackCard';
 interface ITrackProps {
     track: ITrack
     tracks: ITrack[]
-    width?: Width
     isMobile: boolean
+    showIsDeleted?: boolean
+    width?: Width
 }
 
 export const TrackCard: React.FunctionComponent<ITrackProps> = ({
-    track, tracks, width, isMobile
+    track, tracks, width, isMobile, showIsDeleted
 }) => {
 
     const isPaused = useSelector(getIsPaused)
@@ -52,6 +53,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
             track_src={backendUrl + '/' + track.audio_src}
             secondary_name={track.name_secondary}
             width={width}
+            showIsDeleted={showIsDeleted}
         />
     )
 
@@ -71,6 +73,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
             track_src={backendUrl + '/' + track.audio_src}
             secondary_name={track.name_secondary}
             width={width}
+            showIsDeleted={showIsDeleted}
         />
     )
 };

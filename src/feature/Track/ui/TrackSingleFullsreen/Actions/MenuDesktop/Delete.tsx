@@ -1,6 +1,7 @@
 'use client'
 
 import { SyntheticEvent, useCallback } from 'react';
+import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import IconTrash from '@/shared/assets/svg/Trash.svg'
 import { Menu } from '@/shared/ui/Menu/Menu';
@@ -22,8 +23,9 @@ export const Delete: React.FunctionComponent<ILikeDesktopProps> = ({
         try {
             await triggerDelete({ id }).unwrap()
             router.back()
+            toast('Трек удален')
         } catch (error) {
-            alert('Ошибка при удалении')
+            toast('Ошибка')
         }
     }, [id, router, triggerDelete])
 

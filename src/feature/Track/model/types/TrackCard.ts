@@ -15,6 +15,7 @@ interface ITrackCard {
     author_href: Url
     track_src: string
     width?: Width
+    showIsDeleted?: boolean
   }
   
 export interface IDesktopCard extends ITrackCard {

@@ -5,11 +5,13 @@ import { TrackCard } from '../TrackCard/TrackCard';
 interface ITrackListProps {
     tracks: Track[]
     isMobile: boolean
+    showIsDeleted?: boolean
 }
 
 export const TrackList: React.FunctionComponent<ITrackListProps> = ({
     tracks,
-    isMobile
+    isMobile,
+    showIsDeleted
 }) => {
     return (
         <div className={cls.container}>
@@ -19,6 +21,7 @@ export const TrackList: React.FunctionComponent<ITrackListProps> = ({
                 key={t.id}
                 width={'adaptive'}
                 isMobile={isMobile}
+                showIsDeleted={showIsDeleted}
             />)}
         </div>
     )

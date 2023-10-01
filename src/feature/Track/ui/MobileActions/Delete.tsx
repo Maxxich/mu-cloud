@@ -1,3 +1,5 @@
+'use client'
+import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { SyntheticEvent, useCallback } from 'react';
 import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
@@ -22,8 +24,9 @@ export const Delete: React.FunctionComponent<IDownloadFeatureProps> = ({
         try {
             await triggerDelete({ id }).unwrap()
             router.back()
+            toast('Трек удален')
         } catch (error) {
-            alert('Ошибка при удалении')
+            toast('Ошибка')
         }
     }, [id, router, triggerDelete])
 

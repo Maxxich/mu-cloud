@@ -1,38 +1,37 @@
 'use client'
-import { useCallback, useId, useState } from 'react';
-import toast from 'react-hot-toast';
 import { useSession } from 'next-auth/react';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
-import IconHeartFill from '@/shared/assets/svg/HeartFill.svg'
-import IconHeartStroke from '@/shared/assets/svg/HeartStroke.svg'
-import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog/RequireAuthDialog';
+import toast from 'react-hot-toast';
+import { Dispatch, SetStateAction, SyntheticEvent, useCallback } from 'react'
+import HeartFill from '@/shared/assets/svg/HeartFill.svg'
+import HeartStorke from '@/shared/assets/svg/HeartStroke.svg'
 import { trackApi } from '@/entity/track';
+import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 
 
 interface ILikeDesktopProps {
   id: number
+  onMenuClose: (e: SyntheticEvent<HTMLButtonElement, Event>) => void
+  setIsAuthDialogOpen: Dispatch<SetStateAction<boolean>>
   setIsDeleted?: (bool: boolean) => void
 }
 
 export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
-    id,
-    setIsDeleted
+    id, 
+    onMenuClose,
+    setIsAuthDialogOpen,
+    setIsDeleted,
 }) => {
     const session = useSession()
     const { data: liked } = trackApi.useIsInLikedQuery({ id })
     const [addTrigger] = trackApi.useAddToLikedMutation()
     const [removeTrigger] = trackApi.useRemoveFromLikedMutation()
-
-    const tooltipId = useId()
-    const [isOpen, setIsOpen] = useState(false)
-
-    const onClose = () => {
-        setIsOpen(false)
-    }
+  
+    const icon = liked ? <HeartFill/> : <HeartStorke/>
+    const text = liked ? 'Убрать из добавленных' :  'Добавить к себе'
 
     const onClick = useCallback(async () => {
         if (!session.data) {
-            return setIsOpen(true)
+            return setIsAuthDialogOpen(true)
         }
         if (liked) {
             try {
@@ -53,26 +52,15 @@ export const Like: React.FunctionComponent<ILikeDesktopProps> = ({
                 setIsDeleted && setIsDeleted(true)
             }
         }
-    }, [removeTrigger, addTrigger, liked, id, session.data, setIsDeleted])
-
-    const icon = liked ? <IconHeartFill/> : <IconHeartStroke/>
-    const tooltipContent = liked ? 'Убрать из добавленных' : 'Добавить к себе'
+    }, [removeTrigger, addTrigger, liked, id, setIsAuthDialogOpen, session, setIsDeleted])
 
     return (
-        <>
-            <IconButton
-                icon={icon}    
-                onClick={onClick} 
-                variant='secondary'
-                size={'s'}
-                tooltipId={`${tooltipId}`}
-                tooltipContent={tooltipContent}
-                tooltipPlace='top'
-            />
-            <RequireAuthDialog
-                open={isOpen}
-                onClose={onClose}
-            />
-        </>
+        <MobileMenu.Button
+            icon={icon}
+            onClick={onClick}
+            onClose={onMenuClose}
+        >
+            {text}
+        </MobileMenu.Button>
     )
 };

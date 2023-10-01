@@ -1,10 +1,14 @@
 'use client'
 
-import { SyntheticEvent, memo, useCallback, Fragment, useState } from 'react';
+import { SyntheticEvent, memo, useCallback, useState } from 'react';
 import classNames from 'classnames';
+import { useSelector } from 'react-redux';
+import { getIsPlayerOpened, playerActions } from '@/entity/player';
+import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import IconMore from '@/shared/assets/svg/More.svg'
+import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog/RequireAuthDialog';
 import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
 import cls from './TrackCardMobile.module.scss'
 import { TrackImage } from './Image/Image';
@@ -13,10 +17,23 @@ import { IMobileCard } from '../../../../model/types/TrackCard';
 import { mapWidthToClass } from '../../../helpers/mapPropToClass';
 
 export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
-    author_href, primary_name, image_src, id, track_href, secondary_name,
+    author_href, primary_name, image_src, id, secondary_name,
     isSelected, isPaused, duration, author, track_src, onToggleTrack,
-    width
+    width, showIsDeleted
 }) => {
+
+    const isPlayerOpen = useSelector(getIsPlayerOpened)
+    const dispatch = useAppDispatch()
+
+    const [isAuthDialogOpen, setIsAuthDialogOpen] = useState(false)
+    const [isDeleted, setIsDeleted] = useState(false)
+
+    const onDialogClose = (willRedirect: boolean) => {
+        if (willRedirect && isPlayerOpen) {
+            dispatch(playerActions.closePlayer())
+        }
+        setIsAuthDialogOpen(false)
+    }
 
     const onContainerClick = useCallback((e: SyntheticEvent<HTMLDivElement>) => {
         onToggleTrack(id)
@@ -34,9 +51,13 @@ export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
         setIsMenuOpen(false)
     }, [setIsMenuOpen])
 
+    const mods: Mods = {
+        [cls.deleted]: isDeleted && showIsDeleted
+    }
    
     const classes = classNames(
         cls.container, 
+        mods,
         (width ? mapWidthToClass[width] : undefined)
     )
 
@@ -67,6 +88,10 @@ export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
                 variant='secondary'
                 onClick={onOpenMenu}
             />
+            <RequireAuthDialog
+                open={isAuthDialogOpen}
+                onClose={onDialogClose}
+            />
             <MobileMenu
                 isOpen={isMenuOpen}
                 onClose={onMenuClose}
@@ -78,6 +103,8 @@ export const TrackCardMobile: React.FunctionComponent<IMobileCard> = memo(({
                     primary_name={primary_name}
                     track_src={track_src}
                     author_href={author_href}
+                    setIsAuthDialogOpen={setIsAuthDialogOpen}
+                    setIsDeleted={setIsDeleted}
                 />
             </MobileMenu>
         </div>

@@ -7,10 +7,10 @@ import IconMore from '@/shared/assets/svg/More.svg'
 import { backendUrl } from '@/shared/const/backendUrl';
 import { IconButton } from '@/shared/ui/IconButton/IconButton';
 import { Track } from '@/entity/track';
-import { Delete } from './Delete';
-import { Download } from '../../../TrackCard/components/Mobile/Actions/Download';
-import { Share } from '../../../TrackCard/components/Mobile/Actions/Share';
-import { GoToUser } from '../../../TrackCard/components/Mobile/Actions/GoToUser';
+import { GoToUser } from '../../../MobileActions/GoToUser'
+import { Copy } from '../../../MobileActions/Copy'
+import { Download } from '../../../MobileActions/Download'
+import { Delete } from '../../../MobileActions/Delete';
 
 interface ISignedProps {
     track: Track
@@ -56,12 +56,11 @@ export const MobileMenu: React.FunctionComponent<ISignedProps> = ({
                     src={track_src} 
                     onMenuClose={onCloseMenu}
                 />
-                <Share 
+                <Copy 
                     id={id} 
                     onMenuClose={onCloseMenu}
                 />
                 <GoToUser 
-                    id={id} 
                     author_href={authorHref} 
                     onMenuClose={onCloseMenu} 
                     author={authorName}

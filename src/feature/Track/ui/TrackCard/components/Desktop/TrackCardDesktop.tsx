@@ -7,7 +7,7 @@ import cls from './TrackCardDesktop.module.scss'
 import { TrackImage } from './Image/Image';
 import { Download } from './Actions/Download';
 import { Like } from './Actions/Like';
-import { Share } from './Actions/Share';
+import { Copy } from './Actions/Copy';
 import { IDesktopCard } from '../../../../model/types/TrackCard';
 import { mapWidthToClass } from '../../../helpers/mapPropToClass';
 
@@ -16,7 +16,7 @@ import { mapWidthToClass } from '../../../helpers/mapPropToClass';
 export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
     author_href, primary_name, image_src, id, track_href, secondary_name,
     duration, author, track_src, onToggleTrack, isSelected, isPaused,
-    width
+    width, showIsDeleted
 }) => {
   
     const onImageClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -24,9 +24,15 @@ export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
     }, [onToggleTrack, id])
 
     const [isHoverAddonVisible, setHoverAddonVisiblity] = useState<boolean>(false)
+    const [isDeleted, setIsDeleted] = useState(false)
+
+    const mods: Mods = {
+        [cls.deleted]: isDeleted  && showIsDeleted
+    }
 
     const classes = classNames(
         cls.container, 
+        mods,
         (width ? mapWidthToClass[width] : undefined)
     )
 
@@ -57,8 +63,8 @@ export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
                 [cls.hidden]: !isHoverAddonVisible
             })}>
                 <Download author={author} trackname={primary_name} src={track_src}/>
-                <Like id={id}/>
-                <Share id={id}/>
+                <Like id={id} setIsDeleted={setIsDeleted}/>
+                <Copy id={id}/>
             </div>
             <span className={cls.duration}>{toMinuteFormat(duration)}</span>
         </div>

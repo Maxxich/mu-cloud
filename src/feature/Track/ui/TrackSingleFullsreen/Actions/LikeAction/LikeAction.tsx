@@ -1,5 +1,6 @@
 'use client'
 import { useSession } from 'next-auth/react';
+import { toast } from 'react-hot-toast';
 import { useCallback, useState } from 'react';
 import { trackApi } from '@/entity/track';
 import { Button } from '@/shared/ui/Button/Button';
@@ -26,14 +27,25 @@ export const LikeAction: React.FunctionComponent<IPlayActionProps> = ({
         setIsOpen(false)
     }
 
-    const onClick = useCallback(() => {
+    const onClick = useCallback(async () => {
         if (!session.data) {
             return setIsOpen(true)
         }
         if (liked) {
-            removeTrigger({ id })
+            try {
+                await removeTrigger({ id }).unwrap()
+                toast('Удалено из добавленных')
+            } catch (error) {
+                toast('Ошибка')
+            }
+            
         } else {
-            addTrigger({ id })
+            try {
+                await addTrigger({ id }).unwrap()
+                toast('Добавлено')
+            } catch (error) {
+                toast('Ошибка')
+            }
         }
     }, [removeTrigger, addTrigger, liked, id, session.data])
 

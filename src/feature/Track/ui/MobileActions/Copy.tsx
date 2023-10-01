@@ -1,8 +1,9 @@
 'use client'
 
+import toast from 'react-hot-toast';
 import { SyntheticEvent } from 'react';
 import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
-import IconShare from '@/shared/assets/svg/Share.svg'
+import IconCopy from '@/shared/assets/svg/Copy.svg'
 import { frontUrl } from '@/shared/const/frontUrl';
 
 
@@ -11,7 +12,7 @@ interface ILikeDesktopProps {
   onMenuClose: (e: SyntheticEvent<HTMLButtonElement, Event>) => void
 }
 
-export const Share: React.FunctionComponent<ILikeDesktopProps> = ({
+export const Copy: React.FunctionComponent<ILikeDesktopProps> = ({
     id, onMenuClose
 }) => {
 
@@ -19,18 +20,19 @@ export const Share: React.FunctionComponent<ILikeDesktopProps> = ({
     const onClick = () => {
         if (navigator?.clipboard?.writeText) {
             navigator.clipboard.writeText(frontUrl + '/tracks/' + id)
+            toast('Ссылка скопирована')
         } else {
-            alert('Данная функция временно не работает из-за отсутствия сертификата SSL')
+            toast('Ошибка')
         }
     }
 
     return (
         <MobileMenu.Button
-            icon={<IconShare/>}
+            icon={<IconCopy/>}
             onClick={onClick}
             onClose={onMenuClose}
         >
-            Поделиться
+            Копировать ссылку
         </MobileMenu.Button>
     )
 };
