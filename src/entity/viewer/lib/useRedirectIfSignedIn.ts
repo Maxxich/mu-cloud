@@ -11,5 +11,5 @@ export const useRedirectIfSignedIn = () => {
         if (session.status === 'authenticated') {
             redirect(searchParams.get('callbackUrl') ?? '/')
         }
-    }, [session.status])
+    }, [session, searchParams])
 }

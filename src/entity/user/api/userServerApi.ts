@@ -101,11 +101,37 @@ async function getListeningsCountById(id: number): Promise<number> {
     return res.json()
 }
 
+async function confirmEmailByToken(token: string): Promise<boolean> {
+    try {
+        const res = await fetch(
+            backendUrl + `/auth/confirm?token=${token}`, 
+            {
+                cache: 'no-cache'
+            }
+        )
+    
+        if (res.status === 400) {
+            return false
+        }
+    
+        if (!res.ok) {
+            throw new Error()
+        }
+     
+        return true
+    } catch (error) {
+        throw new Error('Failed to fetch data')
+    }
+}
+
+
+
 export const userServerApi = {
     get,
     getByAdress,
     getFollowings,
     getListeningsCountById,
+    confirmEmailByToken,
     bannerLimit,
 }
 export type { UsersResponse }

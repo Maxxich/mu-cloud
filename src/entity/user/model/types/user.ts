@@ -3,6 +3,9 @@ export interface User {
     name: string
     id: number
     picture_source: UserPictureSouces
+    email: {
+        confirmed: boolean
+    }
 }
   
 export interface UserPictureSouces{

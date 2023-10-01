@@ -22,6 +22,13 @@ const userRtkApi = rtkApi.injectEndpoints({
             query: ({ id }) => `/user-private/sub/${id}`,
             providesTags: ['subscribe'],
         }),
+
+        sendEmailConfirmation: builder.mutation<void, void>({
+            query: () => ({
+                url: '/auth-private/confirm/link',
+                method: 'GET'
+            })
+        }),
     }),
     overrideExisting: true,
 });
