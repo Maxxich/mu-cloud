@@ -1,4 +1,5 @@
 import { getSession } from 'next-auth/react'
+import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getName } from '../selectors/getName';
 import { getNameSecondary } from '../selectors/getNameSecondary';
@@ -11,11 +12,12 @@ interface Props {
     imageFile: FormDataEntryValue | null,
     audioFile: FormDataEntryValue | null,
     imageCroppedWideFile: FormDataEntryValue | null,
-    imageCroppedSquareFile: FormDataEntryValue | null
+    imageCroppedSquareFile: FormDataEntryValue | null,
+    deleteAllFiles: () => void
 } 
 
 export const upload = createAsyncThunk('AddNewTrack/upload', async (
-    { imageFile, audioFile, imageCroppedSquareFile, imageCroppedWideFile }: Props,
+    { imageFile, audioFile, imageCroppedSquareFile, imageCroppedWideFile, deleteAllFiles }: Props,
     thunkApi
 ) => {
     const { dispatch, getState } = thunkApi;
@@ -31,8 +33,8 @@ export const upload = createAsyncThunk('AddNewTrack/upload', async (
 
     const session = await getSession()
 
-    const viewerId = session?.user.id
-    const accessToken = session?.backendTokens.accessToken
+    const viewerId = session?.user?.id
+    const accessToken = session?.backendTokens?.accessToken
 
 
     dispatch(AddNewTrackActions.validateName(name))
@@ -48,32 +50,31 @@ export const upload = createAsyncThunk('AddNewTrack/upload', async (
     const imageCroppedSquareFileError = !imageCroppedSquareFile
 
     if (error) {
-        return
+        return toast('Ошибка')
+    }
+
+    if (!window.navigator.onLine) {
+        return toast('Ошибка. Нет соединения с интернетом')
     }
 
     if (!viewerId || !accessToken) {
-        alert('Произошла неожиданная ошибка. Требуется авторизация')
-        return
+        return toast('Ошибка. Требуется авторизация')
     }
 
     if (audioFileError) {
-        alert('Произошла неожиданная ошибка при загрузке аудиофайла')
-        return
+        return toast('Ошибка при загрузке аудиофайла')
     }
 
     if (imageFileError) {
-        alert('Произошла неожиданная ошибка при загрузке изображения')
-        return
+        return toast('Ошибка при загрузке изображения')
     }
 
     if (imageCroppedWideFileError) {
-        alert('Произошла неожиданная ошибка при кадрировании изображения')
-        return
+        return toast('Ошибка при кадрировании изображения')
     }
 
     if (imageCroppedSquareFileError) {
-        alert('Произошла неожиданная ошибка при кадрировании изображения')
-        return
+        return toast('Ошибка при кадрировании изображения')
     }
 
     const formData = new FormData()
@@ -84,24 +85,28 @@ export const upload = createAsyncThunk('AddNewTrack/upload', async (
     formData.append('widePicture', imageCroppedWideFile)
     formData.append('feats_ids', JSON.stringify([]))
     formData.append('owners_ids', JSON.stringify([]))
-    // formData.append('color', color || '')
     try {
+        dispatch(AddNewTrackActions.startLoad())
         const response = await fetch('http://localhost:5001/tracks-private/upload', {
             method: 'POST',
             body: formData,
             headers: {
-                // 'Content-Type': 'multipart/form-data',
                 'Authorization': 'Bearer ' + accessToken
             },
         })
 
         if (response.status != 201) {
-            // return rejectWithValue('Неверные данные для входа');
-            return alert('Произошла ошибка во время загрузки на сервер')
+            dispatch(AddNewTrackActions.setIdle())
+            return toast('Ошибка во время загрузки на сервер')
+
         }
 
-        alert('Трек успешно загружен!')
+        toast('Сохранено')
+        dispatch(AddNewTrackActions.reset())
+        deleteAllFiles()
+        dispatch(AddNewTrackActions.setIdle())
     } catch (error) {
-        alert('Произошла ошибка во время загрузки на сервер')
+        toast('Ошибка во время загрузки на сервер')
+        dispatch(AddNewTrackActions.setIdle())
     }
 });

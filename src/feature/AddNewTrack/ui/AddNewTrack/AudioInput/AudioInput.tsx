@@ -6,6 +6,7 @@ import { useFile } from '@/entity/fileStorage';
 import { setAudioFileMimeType } from '../../../model/services/setAudioFileMimeType';
 import { getIsAudioFileValidationError } from '../../../model/selectors/getIsAudioFileValidationError';
 import { FilesContext } from '../../../model/filesStorage/FilesContext';
+import { getStatus } from '../../../model/selectors/getStatus';
 import { FormDataEntries } from '../../../model/filesStorage/types';
 
 interface IAudioInputProps {
@@ -18,6 +19,7 @@ export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
 
     const isError = useSelector(getIsAudioFileValidationError)
     const dispatch = useAppDispatch()
+    const status = useSelector(getStatus)
 
     const {
         deleteFile,
@@ -44,6 +46,7 @@ export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
             label='Аудиофайл'
             onChangeFileSuccess={onChangeFileSuccess}
             onChangeFileUndefined={onChangeFileUndefined}
+            disabled={status === 'loading'}
             placeholder='Выбрать аудиофайл...'
             initialFile={getFile() as File}
             isError={isError}

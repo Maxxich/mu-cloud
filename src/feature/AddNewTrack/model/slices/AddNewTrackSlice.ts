@@ -27,6 +27,7 @@ const initialState: AddNewTrackSchema = {
         }
     },
     tab: 'form',
+    status: 'idle'
 }
 
 export const AddNewTrackSlice = createSlice({
@@ -132,6 +133,29 @@ export const AddNewTrackSlice = createSlice({
         setTab: (state, action: PayloadAction<Tab>) => {
             state.tab = action.payload
         },
+        startLoad: (state) => {
+            state.status = 'loading'
+        },
+        setIdle: (state) => {
+            state.status = 'idle'
+        },
+        reset: (state) => {
+            state.name = ''
+            state.name_secondary = ''
+            state.audioFileMimeType = undefined
+            state.imageCroppedSquareMimeType = undefined
+            state.imageCroppedWideMimeType = undefined
+            state.imageFileMimeType = undefined
+            state.validationErrors.audioFile.empty = false
+            state.validationErrors.audioFile.invalidMimeType = false
+            state.validationErrors.imageCroppedSquareFile.empty = false
+            state.validationErrors.imageCroppedWideFile.empty = false
+            state.validationErrors.imageFile.empty = false
+            state.validationErrors.imageFile.invalidMimeType = false
+            state.validationErrors.name.empty = false
+            state.validationErrors.name.exceedsMaxLenght = false
+            state.validationErrors.name_secondary.exceedsMaxLenght = false
+        }
     },
 })
 

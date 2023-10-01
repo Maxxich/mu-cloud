@@ -9,6 +9,7 @@ import { getIsImageCroppedSquareFileValidationError } from '../../../model/selec
 import { setImageCroppedSquareFileMimeType } from '../../../model/services/setImageCroppedSquareFileMimeType';
 import { setImageCroppedWideFileMimeType } from '../../../model/services/setImageCroppedWideFileMimeType';
 import { setImageFileMimeType } from '../../../model/services/setImageFileMimeType';
+import { getStatus } from '../../../model/selectors/getStatus';
 import { FormDataEntries } from '../../../model/filesStorage/types';
 import { FilesContext } from '../../../model/filesStorage/FilesContext';
 
@@ -23,6 +24,7 @@ export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
     const isImageError = useSelector(getIsImageFileValidationError)
     const isImageCroppedWideError = useSelector(getIsImageCroppedWideFileValidationError)
     const isImageCroppedSquareError = useSelector(getIsImageCroppedSquareFileValidationError)
+    const status = useSelector(getStatus)
 
     const isError = isImageError || isImageCroppedWideError || isImageCroppedSquareError
     const dispatch = useAppDispatch()
@@ -75,6 +77,7 @@ export const ImageInput: React.FunctionComponent<IImageInputProps> = memo(({
             onChangeFileUndefined={onChangeFileUndefined}
             placeholder='Выбрать изображение...'
             initialFile={getImageFile() as File}
+            disabled={status === 'loading'}
             isError={isError}
             className={className}
             data-testid={'image-input-button'}

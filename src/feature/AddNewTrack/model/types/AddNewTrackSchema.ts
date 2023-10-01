@@ -73,4 +73,5 @@ export interface AddNewTrackSchema {
     audioFileMimeType?: string | undefined
     validationErrors: ValidationErrors
     tab: Tab
+    status: 'idle' | 'loading'
 }
