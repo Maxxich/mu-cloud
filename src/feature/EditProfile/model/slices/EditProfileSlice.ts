@@ -13,7 +13,7 @@ const initialState: EditProfileSchema = {
         adress: {
             empty: false,
             exceedsMaxLenght: false,
-            haveBannedSymbols: false
+            hasBannedSymbols: false
         },
         name: {
             empty: false,
@@ -48,7 +48,7 @@ export const EditProfileSlice = createSlice({
             state.validationErrors.adress.empty = (state.adress.length === 0)
                 && (state.initialAdress.length !== 0)
             state.validationErrors.adress.exceedsMaxLenght = (state.adress.length > config.adress.maxLenght)
-            state.validationErrors.adress.haveBannedSymbols = (config.adress.bannedSymbols.some((symbol) => state.adress.includes(symbol)))
+            state.validationErrors.adress.hasBannedSymbols = (config.adress.bannedSymbols.some((symbol) => state.adress.includes(symbol)))
         },
         setName: (state, action: PayloadAction<string>) => {
             if (state.status !== 'edit') return
@@ -103,7 +103,7 @@ export const EditProfileSlice = createSlice({
             state.adress = state.initialAdress
             state.validationErrors.adress.empty = false
             state.validationErrors.adress.exceedsMaxLenght = false
-            state.validationErrors.adress.haveBannedSymbols = false
+            state.validationErrors.adress.hasBannedSymbols = false
             state.name = state.initialName
             state.validationErrors.name.empty = false
             state.validationErrors.name.exceedsMaxLenght = false

@@ -33,7 +33,7 @@ type ValidationErrors = {
     adress: {
         empty: boolean
         exceedsMaxLenght: boolean
-        haveBannedSymbols: boolean
+        hasBannedSymbols: boolean
     },
     name: {
         empty: boolean

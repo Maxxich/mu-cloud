@@ -35,9 +35,9 @@ export const EditProfile = memo((props: EditProfileProps) => {
     const dispatch = useAppDispatch()
     const status = useSelector(getStatus)
     const session = useSession()
-    const name = session?.data?.user.name
-    const adress = session?.data?.user.adress.startsWith('@') 
-        ? session.data.user.adress.slice(1)
+    const name = session?.data?.user?.name
+    const adress = session?.data?.user?.adress.startsWith('@') 
+        ? session.data.user?.adress.slice(1)
         : ''
 
     useEffect(() => {
@@ -51,6 +51,7 @@ export const EditProfile = memo((props: EditProfileProps) => {
             session.update()
             dispatch(EditProfileActions.setIdle())
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status])
 
     if (!session?.data) return null
