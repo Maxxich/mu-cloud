@@ -25,7 +25,7 @@ export default async function OwnTracks({
 }: Props) {
 
     const page = searchParams['page'] ?? '1'
-    const per_page = searchParams['per_page'] ?? '5'
+    const per_page = searchParams['per_page'] ?? process.env.NEXT_PUBLIC_STANDART_PER_PAGE
 
     const session = await getServerSession(authOptions)
 

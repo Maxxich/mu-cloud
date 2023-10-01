@@ -75,6 +75,7 @@ export default async function LibraryPage() {
                     <TrackBanner
                         tracks={addedTracks.tracks}
                         isMobile={isMobile}
+                        showIsDeleted
                     />
                 </ItemsSection>
                 :

@@ -28,7 +28,7 @@ export default async function Followings({
 }: Props) {
 
     const page = searchParams['page'] ?? '1'
-    const per_page = searchParams['per_page'] ?? '5'
+    const per_page = searchParams['per_page'] ?? process.env.NEXT_PUBLIC_STANDART_PER_PAGE
 
     const user = await userServerApi.getByAdress(adress)
 

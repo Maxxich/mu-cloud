@@ -16,7 +16,7 @@ export default async function SearchUsers({
 
     const search: string = (searchParams['search'] ?? '') as string
     const page = searchParams['page'] ?? '1'
-    const per_page = searchParams['per_page'] ?? '5'
+    const per_page = searchParams['per_page'] ?? process.env.NEXT_PUBLIC_STANDART_PER_PAGE
 
     const users = await userServerApi.get({
         limit: Number(per_page),

@@ -9,6 +9,8 @@ import { SessionProvider } from '@/global/providers/SessionProvider/SessionProvi
 import { PageContainer } from '@/shared/ui/PageContainer/PageContainer'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { AuthErrorHandler } from '@/global/providers/AuthErrorHandler'
+import { Toast } from '@/feature/Toast'
+import { ConfirmEmailWarningDialog } from '@/feature/ConfirmEmailWarningDialog'
 
 export const metadata: Metadata = {
     title: 'MuCloud',
@@ -41,6 +43,8 @@ export default function RootLayout({
                                 <AudioProvider>
                                     <PlayerProvider isMobile={isMobile}/>
                                 </AudioProvider>
+                                <Toast isMobile={isMobile}/>
+                                <ConfirmEmailWarningDialog/>
                             </body>
                         </html>
                     </StoreProvider>

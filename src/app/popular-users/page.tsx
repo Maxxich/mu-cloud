@@ -14,7 +14,7 @@ export default async function PopularUsers({
 }: Props) {
 
     const page = searchParams['page'] ?? '1'
-    const per_page = searchParams['per_page'] ?? '5'
+    const per_page = searchParams['per_page'] ?? process.env.NEXT_PUBLIC_STANDART_PER_PAGE
 
     const popularUsersData = await userServerApi.get({
         limit: Number(per_page),
