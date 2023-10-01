@@ -17,7 +17,7 @@ export const Pagination: React.FunctionComponent<IPaginationProps> = ({
     const router = useRouter()
     const pathname = usePathname()
     const page = searchParams.get('page') ?? '1'
-    const per_page = searchParams.get('per_page') ?? '5'
+    const per_page = searchParams.get('per_page') ?? process.env.NEXT_PUBLIC_STANDART_PER_PAGE
     const search = searchParams.get('search') ?? ''
     const totalPages = Math.ceil(total/Number(per_page))
 
