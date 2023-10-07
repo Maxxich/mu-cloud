@@ -1,22 +1,7 @@
 import { StateSchema } from '@/global/providers/StoreProvider';
+import { checkError } from '@/shared/lib/checkError/checkError';
 
 export const getIsImageFileValidationError = (state: StateSchema): boolean => {
     const errors = state?.addNewTrack?.validationErrors.imageFile
-
-    if (!errors) return false
-
-    const entries = Object.entries(errors)
-
-    if (!errors) return false
-
-    for (let entry in entries) {
-        const [errorKey, flag]: [string, boolean] = entries[entry]
-        if (flag) {
-            // @ts-ignore
-            return true
-        }
-    }
-
-    return false
-    
+    return checkError(errors) 
 }
