@@ -5,7 +5,7 @@ interface IDrawImage {
 }
 
 export const drawCenterImage = ({ context,canvas, image }: IDrawImage): void => {
-    const ratio = 600/1080
+    const ratio = 900/1080
     let x
     let y 
     let height

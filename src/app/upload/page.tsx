@@ -1,10 +1,8 @@
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import { AddNewTrack } from '@/feature/AddNewTrack';
+import { Choose } from '@/shared/ui/Choose/Choose';
 import { authOptions } from '@/shared/config/authConfig';
-import Logo from '@/shared/assets/svg/Logo.svg'
-import { Text } from '@/shared/ui/Text/Text';
-import cls from './upload.module.scss'
+import cls from './Upload.module.scss'
 
 export default async function addTrack () {
 
@@ -15,12 +13,20 @@ export default async function addTrack () {
     }
 
     return (
-        <>
-            <div className={cls.logo}>
-                <Logo/>
-            </div>
-            <Text title align='center' className={cls.title}>Загрузить трек</Text>
-            <AddNewTrack/>
-        </>
+        <div className={cls.container}>
+            <Choose.Link 
+                href='/upload/new'
+            >
+                Новый способ
+            </Choose.Link>
+            <Choose.Separator>
+                или
+            </Choose.Separator>
+            <Choose.Link
+                href='/upload/deprecated'
+            >
+                Старый способ (deprecated)
+            </Choose.Link>
+        </div>
     )
 }

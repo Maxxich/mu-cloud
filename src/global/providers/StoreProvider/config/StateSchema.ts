@@ -8,6 +8,7 @@ import { rtkApi } from '@/shared/api'
 import { ResetPasswordSchema } from '@/feature/ResetPassword'
 import { EditProfileSchema } from '@/feature/EditProfile'
 import { ConfirmResetPasswordSchema } from '@/feature/ConfirmResetPassword'
+import { AddNewTrackSeparateImageLoadingSchema } from '@/feature/AddNewTrackSeparateImageLoading'
 
 export interface StateSchema {
     player: PlayerSchema
@@ -18,6 +19,7 @@ export interface StateSchema {
     signin?: SigninSchema
     signup?: SignupSchema
     addNewTrack?: AddNewTrackSchema
+    addNewTrackSeparateImageLoading?: AddNewTrackSeparateImageLoadingSchema
     EditProfile?: EditProfileSchema
     resetPassword?: ResetPasswordSchema
     confirmResetPassword?: ConfirmResetPasswordSchema
