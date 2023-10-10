@@ -5,5 +5,4 @@ export interface BannerSwiperProps {
     rows?: 1 | 3
     overflow?: 'hidden' | 'visible'
     className?: string
-    marginBottom?: boolean
 }

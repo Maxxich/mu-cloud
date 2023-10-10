@@ -3,35 +3,63 @@ import {  BannerSwiper } from './BannerSwiper'
 import { coloredElements } from './helpers/story';
 
 const meta = {
-    title: 'shared/BannerSwiper',
+    title: 'shared/BannerSwiper (client)',
     component: BannerSwiper,
-    parameters: {
-        layout: 'centered',
-    },
-    tags: ['autodocs'],
-    render: (args) => (
-        <div style={{ width: '90%', margin: '0 auto' }}>
-            <BannerSwiper {...args}/>
-        </div>
-    )
+    tags: ['autodocs']
 } satisfies Meta<typeof BannerSwiper>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
 const args: Story['args'] = {
-    children: coloredElements
+    children: coloredElements,
+    isMobile: false
 }
 
-export const One: Story = {
+export const OneDesktop: Story = {
     args: {
         ...args,
-    }
+    },
+    render: (args) => (
+        <div style={{ width: '600px',margin: '0 auto' }}>
+            <BannerSwiper {...args}/>
+        </div>
+    )
 }
 
-export const Three: Story = {
+export const ThreeDesktop: Story = {
     args: {
         ...args,
         rows: 3
-    }
+    },
+    render: (args) => (
+        <div style={{ width: '600px',margin: '0 auto' }}>
+            <BannerSwiper {...args}/>
+        </div>
+    )
+}
+
+export const OneMobile: Story = {
+    args: {
+        ...args,
+        isMobile: true
+    },
+    render: (args) => (
+        <div style={{ width: '300px',margin: '0 auto' }}>
+            <BannerSwiper {...args}/>
+        </div>
+    )
+}
+
+export const ThreeMobile: Story = {
+    args: {
+        ...args,
+        rows: 3,
+        isMobile: true
+    },
+    render: (args) => (
+        <div style={{ width: '300px',margin: '0 auto' }}>
+            <BannerSwiper {...args}/>
+        </div>
+    )
 }

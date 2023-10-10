@@ -1,20 +1,18 @@
 'use client'
 import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, memo } from 'react'
 import IconArrow from '@/shared/assets/svg/ArrowBottom.svg'
 import { BannerSwiperProps } from '../../helpers/type';
 import { mapOverflowToClass } from '../../helpers/mapPropsToClass';
 import cls from '../../BannerSwiper.module.scss'
+import { config } from '../../config';
 
-const scrollCoef = 0.8
-
-export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = ({
+export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = memo(({
     children,
     rows = 1,
     overflow = 'hidden',
     className,
-    marginBottom
 }) => {
 
     const [isStart, setIsStart] = useState<boolean>(true)
@@ -60,7 +58,7 @@ export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = (
     const onNext = () => {
         if (!ref?.current || !containerRef?.current) return
 
-        const scrollWidth = containerRef.current.offsetWidth * scrollCoef
+        const scrollWidth = containerRef.current.offsetWidth * config.scrollCoef
 
         const avaliableDragOffset =  -ref.current.offsetWidth + containerRef.current.offsetWidth
 
@@ -80,7 +78,7 @@ export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = (
     const onPrevius = () => {
         if (!ref?.current || !containerRef?.current) return
 
-        const scrollWidth = containerRef.current.offsetWidth * scrollCoef
+        const scrollWidth = containerRef.current.offsetWidth * config.scrollCoef
 
         if (ref.current.offsetWidth <= containerRef.current.offsetWidth) return
         if (x.get() + scrollWidth >= 0) {
@@ -97,14 +95,9 @@ export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = (
         arrayOfArrays.push(children.slice(i, i + rows));
     }
 
-    const mods: Mods = {
-        [cls.marginBottom]: marginBottom
-    }
-
     const containerClasses = classNames(
         cls.container, 
         cls[mapOverflowToClass[overflow]], 
-        mods,
         className
     )
 
@@ -130,4 +123,6 @@ export const BannerSwiperDesktop: React.FunctionComponent<BannerSwiperProps> = (
             {!isEnd && <button className={cls.next} onClick={onNext}><IconArrow/></button>}
         </div>
     );
-};
+})
+
+BannerSwiperDesktop.displayName = 'BannerSwiperDesktop'

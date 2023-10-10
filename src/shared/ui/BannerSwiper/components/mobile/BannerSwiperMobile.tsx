@@ -12,7 +12,6 @@ export const BannerSwiperMobile: React.FunctionComponent<BannerSwiperProps> = ({
     rows = 1,
     overflow = 'hidden',
     className,
-    marginBottom
 }) => {
 
     const [{ x }, api] = useSpring(() => ({ x: 0 }))
@@ -40,14 +39,9 @@ export const BannerSwiperMobile: React.FunctionComponent<BannerSwiperProps> = ({
         arrayOfArrays.push(children.slice(i, i + rows));
     }
 
-    const mods: Mods = {
-        [cls.marginBottom]: marginBottom
-    }
-
     const containerClasses = classNames(
         cls.container, 
         cls[mapOverflowToClass[overflow]], 
-        mods,
         className
     )
 
