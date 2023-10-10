@@ -1,7 +1,8 @@
+'use client'
 import { useRouter } from 'next/navigation';
 import { useRef, MutableRefObject } from 'react';
-import { Button } from '../Button/Button';
-import { Dialog } from '../Dialog/Dialog';
+import { Button } from '../Button';
+import { Dialog } from '../Dialog';
 
 interface IRequireAuthDialogProps {
     open: boolean
