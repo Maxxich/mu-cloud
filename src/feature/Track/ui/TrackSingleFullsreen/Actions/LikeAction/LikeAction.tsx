@@ -3,10 +3,10 @@ import { useSession } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
 import { useCallback, useState } from 'react';
 import { trackApi } from '@/entity/track';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import IconHeartFill from '@/shared/assets/svg/HeartFill.svg'
 import IconHeartStroke from '@/shared/assets/svg/HeartStroke.svg'
-import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog/RequireAuthDialog';
+import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog';
 
 interface IPlayActionProps {
     id: number

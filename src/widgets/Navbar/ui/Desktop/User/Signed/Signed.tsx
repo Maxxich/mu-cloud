@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useSession } from 'next-auth/react';
-import { Image } from '@/shared/ui/Image/Image';
+import { Image } from '@/shared/ui/Image';
 import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc';
 import cls from './Signed.module.scss'
 import { Dropdown } from './Dropdown/Dropdown';

@@ -5,8 +5,8 @@ import { userServerApi } from '@/entity/user'
 import { TrackList } from '@/feature/Track'
 import { authOptions } from '@/shared/config/authConfig'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
-import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
-import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
+import { ItemsSection } from '@/shared/ui/ItemsSection'
+import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { Pagination } from '@/widgets/Pagination'
 
 type Props = {

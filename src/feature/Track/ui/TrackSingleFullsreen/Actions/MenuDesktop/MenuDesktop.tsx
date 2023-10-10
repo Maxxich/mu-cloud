@@ -1,11 +1,11 @@
 'use client'
 import { Fragment } from 'react';
 import { useSession } from 'next-auth/react';
-import { Menu } from '@/shared/ui/Menu/Menu' 
+import { Menu } from '@/shared/ui/Menu' 
 import IconMore from '@/shared/assets/svg/More.svg' 
 import { backendUrl } from '@/shared/const/backendUrl';
 import { Track } from '@/entity/track';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import { Download } from './Download';
 import { Copy } from './Copy';
 import { Delete } from './Delete';

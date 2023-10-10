@@ -4,6 +4,7 @@
         "selector-class-pattern": null,
         "no-duplicate-selectors": null,
         "no-descending-specificity": null,
-        "scss/at-import-partial-extension": null
+        "scss/at-import-partial-extension": null,
+        "indentation": 4
     }
 }

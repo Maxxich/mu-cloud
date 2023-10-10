@@ -2,8 +2,8 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { UserList, userServerApi } from '@/entity/user'
 import { authOptions } from '@/shared/config/authConfig'
-import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
-import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
+import { ItemsSection } from '@/shared/ui/ItemsSection'
+import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { Pagination } from '@/widgets/Pagination'
 
 type Props = {

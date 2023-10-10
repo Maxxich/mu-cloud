@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import cls from './FormError.module.scss'
 import { getValidationError } from '../../model/selectors/getValidationError';
 import { getRequestError } from '../../model/selectors/getRequestError';

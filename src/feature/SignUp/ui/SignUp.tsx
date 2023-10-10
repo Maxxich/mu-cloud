@@ -1,7 +1,7 @@
 'use client'
 
 import { memo } from 'react'
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import { useRedirectIfSignedIn } from '@/entity/viewer'
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './SignUp.module.scss'

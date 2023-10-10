@@ -2,7 +2,7 @@
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { SyntheticEvent, useCallback } from 'react';
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 import IconTrash from '@/shared/assets/svg/Trash.svg'
 import { trackApi } from '@/entity/track';
 

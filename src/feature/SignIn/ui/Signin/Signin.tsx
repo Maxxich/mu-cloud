@@ -3,9 +3,9 @@
 import { memo } from 'react'
 import { useCallback, SyntheticEvent, ChangeEvent } from 'react'
 import { useSelector } from 'react-redux'
-import { Input } from '@/shared/ui/Input/Input'
-import { Form } from '@/shared/ui/Form/Form';
-import { Button } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input'
+import { Form } from '@/shared/ui/Form';
+import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { useRedirectIfSignedIn } from '@/entity/viewer'
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';

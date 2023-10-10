@@ -1,6 +1,6 @@
 import { useCallback, memo } from 'react'
 import { useSelector } from 'react-redux';
-import { FileInput } from '@/shared/ui/FileInput/FileInput';
+import { FileInput } from '@/shared/ui/FileInput';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { useFile } from '@/entity/fileStorage';
 import { getIsImageSquareFileValidationError } from '../../../model/selectors/getIsImageSquareFileValidationError';

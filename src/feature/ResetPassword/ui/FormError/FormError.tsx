@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import { getError } from '../../model/selectors/getError';
 
 interface IFormErrorProps {

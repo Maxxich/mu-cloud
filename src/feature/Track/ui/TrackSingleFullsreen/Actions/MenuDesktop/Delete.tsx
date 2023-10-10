@@ -4,7 +4,7 @@ import { SyntheticEvent, useCallback } from 'react';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import IconTrash from '@/shared/assets/svg/Trash.svg'
-import { Menu } from '@/shared/ui/Menu/Menu';
+import { Menu } from '@/shared/ui/Menu';
 import { trackApi } from '@/entity/track';
 
 

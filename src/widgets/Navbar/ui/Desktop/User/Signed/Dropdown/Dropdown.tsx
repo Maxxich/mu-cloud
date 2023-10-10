@@ -1,8 +1,8 @@
 'use client'
 import { Fragment } from 'react'
 import { signOut } from 'next-auth/react';
-import { Menu } from '@/shared/ui/Menu/Menu' 
-import { IconButton } from '@/shared/ui/IconButton/IconButton'
+import { Menu } from '@/shared/ui/Menu' 
+import { IconButton } from '@/shared/ui/IconButton'
 import IconGear from '@/shared/assets/svg/Gear.svg'
 import IconLogout from '@/shared/assets/svg/Logout.svg'
 import cls from './Dropdown.module.scss'

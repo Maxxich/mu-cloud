@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { IconButton } from '@/shared/ui/IconButton/IconButton'
+import { IconButton } from '@/shared/ui/IconButton'
 import IconNext from '@/shared/assets/svg/Next.svg'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { playerActions } from '@/entity/player';

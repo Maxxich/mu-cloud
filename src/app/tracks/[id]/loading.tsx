@@ -1,4 +1,4 @@
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { Loader } from '@/shared/ui/Loader';
 
 export default function LoadingTracks () {
     return <Loader/>

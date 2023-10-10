@@ -4,7 +4,7 @@ import { getIsPaused, playerActions } from '@/entity/player';
 import IconNext from '@/shared/assets/svg/Next.svg'
 import IconXmark from '@/shared/assets/svg/Xmark.svg'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { Button } from './Button/Button';
+import { Button } from './Button';
 
 interface IRightAddonProps {
 }

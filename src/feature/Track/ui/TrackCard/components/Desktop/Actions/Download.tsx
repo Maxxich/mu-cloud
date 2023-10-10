@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import IconDownload from '@/shared/assets/svg/Download.svg'
 
 interface IDownloadFeatureProps {

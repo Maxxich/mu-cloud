@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/Input';
 import { setPasswordConfirm } from '../../model/selectors/setPasswordConfirm';
 import { getPasswordConfirm } from '../../model/selectors/fieldSelectors';
 import { getIsPasswordConfirmValidationError } from '../../model/selectors/getIsPasswordConfirmValidationError';

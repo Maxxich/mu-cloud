@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import cls from './ResetPasswordRedirect.module.scss'
 
 interface IResetPasswordRedirectProps {

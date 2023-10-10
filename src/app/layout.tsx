@@ -6,7 +6,7 @@ import { PlayerProvider } from '@/global/providers/PlayerProvider/PlayerProvider
 import { AudioProvider } from '@/global/providers/AudioProvider'
 import { Navbar } from '@/widgets/Navbar'
 import { SessionProvider } from '@/global/providers/SessionProvider/SessionProvider'
-import { PageContainer } from '@/shared/ui/PageContainer/PageContainer'
+import { PageContainer } from '@/shared/ui/PageContainer'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { AuthErrorHandler } from '@/global/providers/AuthErrorHandler'
 import { Toast } from '@/feature/Toast'

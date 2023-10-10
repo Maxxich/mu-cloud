@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/Input';
 import { setEmail } from '../../model/services/setEmail';
 import { getIsEmailValidationError } from '../../model/services/getIsEmailValidationError';
 import { getEmail } from '../../model/selectors/fieldSelectors';

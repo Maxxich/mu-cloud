@@ -2,10 +2,10 @@
 import { useCallback, useId, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useSession } from 'next-auth/react';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import IconHeartFill from '@/shared/assets/svg/HeartFill.svg'
 import IconHeartStroke from '@/shared/assets/svg/HeartStroke.svg'
-import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog/RequireAuthDialog';
+import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog';
 import { trackApi } from '@/entity/track';
 
 

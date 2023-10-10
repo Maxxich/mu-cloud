@@ -1,9 +1,9 @@
 import { trackServerApi } from '@/entity/track'
 import { UserBanner, userServerApi } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
-import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
-import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
-import { Text } from '@/shared/ui/Text/Text'
+import { ItemsSection } from '@/shared/ui/ItemsSection'
+import { ItemsTitle } from '@/shared/ui/ItemsTitle'
+import { Text } from '@/shared/ui/Text'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
 import { Header } from './Header'
 

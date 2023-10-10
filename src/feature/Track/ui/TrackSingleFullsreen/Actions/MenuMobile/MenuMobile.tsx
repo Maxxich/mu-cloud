@@ -2,10 +2,10 @@
 
 import { useCallback, useState } from 'react';
 import { useSession } from 'next-auth/react';
-import { CloseMenuEvent, MobileMenu as MobileMenuComp, OpenMenuEvent } from '@/shared/ui/MobileMenu/MobileMenu';
+import { CloseMenuEvent, MobileMenu as MobileMenuComp, OpenMenuEvent } from '@/shared/ui/MobileMenu';
 import IconMore from '@/shared/assets/svg/More.svg' 
 import { backendUrl } from '@/shared/const/backendUrl';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import { Track } from '@/entity/track';
 import { GoToUser } from '../../../MobileActions/GoToUser'
 import { Copy } from '../../../MobileActions/Copy'

@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import Logo from '@/shared/assets/svg/Logo.svg'
 import { authOptions } from '@/shared/config/authConfig'
-import { Text } from '@/shared/ui/Text/Text'
+import { Text } from '@/shared/ui/Text'
 import { ConfirmResetPassword } from '@/feature/ConfirmResetPassword'
 import cls from './Confirm.module.scss'
 

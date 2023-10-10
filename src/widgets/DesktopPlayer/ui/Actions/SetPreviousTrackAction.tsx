@@ -1,6 +1,6 @@
 import { useId } from 'react';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import { playerActions } from '@/entity/player';
 import IconPrevius from '@/shared/assets/svg/Previus.svg'
 

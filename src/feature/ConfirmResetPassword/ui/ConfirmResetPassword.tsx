@@ -1,7 +1,7 @@
 'use client'
 import { memo } from 'react'
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import { PasswordInput } from './PasswordInput/PasswordInput';
 import { PasswordConfirmInput } from './PasswordConfirmInput/PasswordConfirmInput';
 import { SubmitButton } from './SubmitButton/SubmitButton';

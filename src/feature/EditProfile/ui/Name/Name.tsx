@@ -1,7 +1,7 @@
 'use client'
 import { ChangeEvent, useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { Input } from '@/shared/ui/Input/Input'
+import { Input } from '@/shared/ui/Input'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { getName } from '../../model/selectors/getName'
 import { getStatus } from '../../model/selectors/getStatus'

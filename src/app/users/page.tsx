@@ -1,5 +1,5 @@
 import { UserList, userServerApi } from '@/entity/user'
-import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
+import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 
 export default async function Users() {
     const usersData = await userServerApi.get({})

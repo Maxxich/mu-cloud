@@ -3,11 +3,11 @@ import { useSession } from 'next-auth/react';
 import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { useCallback, useState } from 'react';
-import { IconButton } from '@/shared/ui/IconButton/IconButton'
+import { IconButton } from '@/shared/ui/IconButton'
 import HeartFill from '@/shared/assets/svg/HeartFill.svg'
 import HeartStorke from '@/shared/assets/svg/HeartStroke.svg'
 import { trackApi } from '@/entity/track';
-import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog/RequireAuthDialog';
+import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog';
 import { getIsPlayerOpened, playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 

@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import classNames from 'classnames';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { SignedIn } from './Signed/Signed';
 import { NotSigned } from './NotSigned/NotSigned';
 import cls from './User.module.scss'

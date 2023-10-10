@@ -2,12 +2,12 @@
 import { memo, useCallback, useState } from 'react'
 import classNames from 'classnames'
 import { signOut, useSession } from 'next-auth/react';
-import { Text } from '@/shared/ui/Text/Text';
-import { Button } from '@/shared/ui/Button/Button';
-import { Dialog } from '@/shared/ui/Dialog/Dialog';
+import { Text } from '@/shared/ui/Text';
+import { Button } from '@/shared/ui/Button';
+import { Dialog } from '@/shared/ui/Dialog';
 import { backendUrl } from '@/shared/const/backendUrl';
 import { useRedirectIfSignedOut } from '@/entity/viewer/lib/useRedirectIfSignedOut';
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import cls from './RemoveProfile.module.scss'
 
 interface RemoveProfileProps {

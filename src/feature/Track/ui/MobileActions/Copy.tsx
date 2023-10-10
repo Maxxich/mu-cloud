@@ -2,7 +2,7 @@
 
 import toast from 'react-hot-toast';
 import { SyntheticEvent } from 'react';
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 import IconCopy from '@/shared/assets/svg/Copy.svg'
 import { frontUrl } from '@/shared/const/frontUrl';
 

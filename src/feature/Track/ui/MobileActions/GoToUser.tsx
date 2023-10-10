@@ -3,7 +3,7 @@ import { SyntheticEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Icon from '@/shared/assets/svg/User.svg'
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 import { getIsPlayerOpened, playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 

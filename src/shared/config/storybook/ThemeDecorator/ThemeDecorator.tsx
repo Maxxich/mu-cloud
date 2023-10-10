@@ -7,9 +7,7 @@ import { Theme } from '@/shared/const/theme'
 export const ThemeDecorator = (theme: Theme) => {
     const decorator: Decorator = (story) => (
         <ThemeProvider>
-            <div className={`${theme}`}>
-                {story()}
-            </div>
+            {story()}
         </ThemeProvider>
     )
 

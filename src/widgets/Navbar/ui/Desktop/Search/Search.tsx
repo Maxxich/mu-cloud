@@ -2,8 +2,8 @@
 
 import { ChangeEvent, FormEvent, memo, useCallback, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
-import { Input } from '@/shared/ui/Input/Input';
+import { IconButton } from '@/shared/ui/IconButton';
+import { Input } from '@/shared/ui/Input';
 import IconSearch from '@/shared/assets/svg/Loupe.svg'
 import cls from './Search.module.scss'
 

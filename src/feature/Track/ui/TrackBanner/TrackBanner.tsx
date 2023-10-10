@@ -1,5 +1,5 @@
 import { Track } from '@/entity/track';
-import { BannerSwiper } from '@/shared/ui/BannerSwiper/BannerSwiper';
+import { BannerSwiper } from '@/shared/ui/BannerSwiper';
 import { TrackCard } from '../TrackCard/TrackCard';
 
 interface ISlickProps {

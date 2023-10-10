@@ -4,8 +4,8 @@ import { trackServerApi } from '@/entity/track'
 import { UserBanner, userServerApi } from '@/entity/user'
 import { TrackBanner } from '@/feature/Track'
 import { authOptions } from '@/shared/config/authConfig';
-import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
-import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
+import { ItemsSection } from '@/shared/ui/ItemsSection'
+import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { UserHeader } from '@/widgets/UserHeader'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile';
 

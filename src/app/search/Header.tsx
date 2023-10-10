@@ -1,4 +1,4 @@
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { Search } from '@/widgets/Navbar/ui/Desktop/Search/Search';
 
 interface IHeaderProps {

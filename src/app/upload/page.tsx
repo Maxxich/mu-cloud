@@ -1,6 +1,6 @@
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import { Choose } from '@/shared/ui/Choose/Choose';
+import { Choose } from '@/shared/ui/Choose';
 import { authOptions } from '@/shared/config/authConfig';
 import cls from './Upload.module.scss'
 

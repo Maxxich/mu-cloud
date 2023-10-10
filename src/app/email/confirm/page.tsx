@@ -1,6 +1,6 @@
 import { userServerApi } from '@/entity/user'
-import { Form } from '@/shared/ui/Form/Form'
-import { Text } from '@/shared/ui/Text/Text'
+import { Form } from '@/shared/ui/Form'
+import { Text } from '@/shared/ui/Text'
 import Logo from '@/shared/assets/svg/Logo.svg'
 import cls from './Confirm.module.scss'
 

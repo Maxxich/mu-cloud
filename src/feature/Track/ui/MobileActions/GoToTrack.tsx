@@ -2,7 +2,7 @@
 import { SyntheticEvent } from 'react';
 import { useSelector } from 'react-redux';
 import IconVinyl from '@/shared/assets/svg/Vinyl.svg'
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 import { getIsPlayerOpened, playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 

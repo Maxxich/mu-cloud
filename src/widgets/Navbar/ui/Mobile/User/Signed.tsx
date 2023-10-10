@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useSession, signOut } from 'next-auth/react'
-import { Image } from '@/shared/ui/Image/Image';
-import { CloseMenuEvent, MobileMenu, OpenMenuEvent } from '@/shared/ui/MobileMenu/MobileMenu';
+import { Image } from '@/shared/ui/Image';
+import { CloseMenuEvent, MobileMenu, OpenMenuEvent } from '@/shared/ui/MobileMenu';
 import UserSvg from '@/shared/assets/svg/User.svg'
 import LogoutSvg from '@/shared/assets/svg/Logout.svg'
 import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc';

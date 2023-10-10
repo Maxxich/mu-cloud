@@ -1,7 +1,7 @@
 'use client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { Pagination as HeadlessPagination } from 'react-headless-pagination';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import IconPrevius from '@/shared/assets/svg/Previus.svg'
 import IconNext from '@/shared/assets/svg/Next.svg'
 import cls from './Pagination.module.scss'

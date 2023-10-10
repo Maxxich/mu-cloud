@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import { getRequestErrorMessage } from '../../model/selectors/getRequestErrorMessage';
 import { getValidationError } from '../../model/selectors/getValidationError';
 

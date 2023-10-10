@@ -1,9 +1,9 @@
 import { trackServerApi } from '@/entity/track'
 import { TrackList } from '@/feature/Track'
 import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
-import { ItemsSection } from '@/shared/ui/ItemsSection/ItemsSection'
-import { ItemsTitle } from '@/shared/ui/ItemsTitle/ItemsTitle'
-import { Text } from '@/shared/ui/Text/Text'
+import { ItemsSection } from '@/shared/ui/ItemsSection'
+import { ItemsTitle } from '@/shared/ui/ItemsTitle'
+import { Text } from '@/shared/ui/Text'
 import { Pagination } from '@/widgets/Pagination'
 
 type Props = {

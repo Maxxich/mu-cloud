@@ -2,7 +2,7 @@
 
 import toast from 'react-hot-toast';
 import { useId } from 'react';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import IconCopy from '@/shared/assets/svg/Copy.svg'
 import { frontUrl } from '@/shared/const/frontUrl';
 

@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/Input';
 import { getEmail } from '../../model/selectors/getEmail';
 import { ResetPasswordActions } from '../../model/slices/ResetPasswordSlice';
 import { getStatus } from '../../model/selectors/getStatus';

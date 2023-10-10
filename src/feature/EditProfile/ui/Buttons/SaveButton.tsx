@@ -3,7 +3,7 @@
 
 import { SyntheticEvent, useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { Button } from '@/shared/ui/Button/Button'
+import { Button } from '@/shared/ui/Button'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { useFile } from '@/entity/fileStorage'
 import { getIsProfileDataChanged } from '../../model/selectors/getIsProfileDataChanged'

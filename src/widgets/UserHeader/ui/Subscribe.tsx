@@ -1,7 +1,7 @@
 'use client'
 import { useCallback } from 'react'
 import { userRtkApi } from '@/entity/user';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 
 interface ISubscribeProps {
     className?: string

@@ -2,10 +2,10 @@
 import classNames from 'classnames'
 import toast from 'react-hot-toast';
 import { memo, useCallback } from 'react'
-import { Form } from '@/shared/ui/Form/Form';
-import { Button } from '@/shared/ui/Button/Button';
+import { Form } from '@/shared/ui/Form';
+import { Button } from '@/shared/ui/Button';
 import { userRtkApi } from '@/entity/user';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import cls from './ConfirmEmail.module.scss'
 
 interface ConfirmEmailProps {

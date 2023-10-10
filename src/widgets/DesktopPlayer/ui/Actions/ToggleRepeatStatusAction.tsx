@@ -2,7 +2,7 @@ import { useId } from 'react';
 import { useSelector } from 'react-redux';
 import { getRepeatTrackMode, playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import IconRepeat from '@/shared/assets/svg/Repeat.svg'
 
 interface IToggleRepeatStatusActionProps {

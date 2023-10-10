@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import { AddNewTrack } from '@/feature/AddNewTrack';
 import { authOptions } from '@/shared/config/authConfig';
 import Logo from '@/shared/assets/svg/Logo.svg'
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import cls from './addTrackDeprecated.module.scss'
 
 export default async function addTrackDeprecated () {

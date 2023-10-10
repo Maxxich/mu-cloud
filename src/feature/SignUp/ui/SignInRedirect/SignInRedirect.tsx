@@ -1,7 +1,7 @@
 'use client'
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Form } from '@/shared/ui/Form/Form';
+import { Form } from '@/shared/ui/Form';
 import cls from './SignInRedirect.module.scss'
 
 interface ISignInRedirectProps {

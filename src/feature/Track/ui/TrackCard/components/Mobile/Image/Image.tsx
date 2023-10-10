@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image } from '@/shared/ui/Image/Image';
+import { Image } from '@/shared/ui/Image';
 import { Animtaion } from '../../PlayingAnimation/Animation';
 import { Filter } from '../../Filter/Filter';
 

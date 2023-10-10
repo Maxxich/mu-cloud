@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link';
-import { Logo } from '@/shared/ui/Logo/Logo';
+import { Logo } from '@/shared/ui/Logo';
 import cls from './NavbarDesktop.module.scss'
 import { Links } from './Links/Links';
 import { User } from './User';

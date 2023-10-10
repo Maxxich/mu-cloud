@@ -4,7 +4,7 @@ import { memo } from 'react'
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { FileManager } from '@/entity/fileStorage';
-import { Form } from './Form/Form';
+import { Form } from './Form';
 import { CropWideImage } from './CropWideImage/CropWideImage';
 import { CropSquareImage } from './CropSquareImage/CropSquareImage';
 import { getTab } from '../../model/selectors/getTab';

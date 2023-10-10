@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { getCurrentTrackTime, getCurrentTrackTimeLenght } from '@/entity/player';
 import { formatTime } from '@/shared/lib/formatTime/formatTime';
 import { Time } from './Time/Time';
-import { Input } from './Input/Input';
+import { Input } from './Input';
 import cls from './TimeLine.module.scss'
 
 interface ITimeLineProps {

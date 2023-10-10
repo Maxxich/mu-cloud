@@ -1,9 +1,9 @@
 'use client'
 import { SyntheticEvent, useCallback, useState } from 'react';
-import { IconButton } from '@/shared/ui/IconButton/IconButton'
+import { IconButton } from '@/shared/ui/IconButton'
 import IconMore from '@/shared/assets/svg/More.svg'
 import { backendUrl } from '@/shared/const/backendUrl';
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 import { Track } from '@/entity/track';
 import { ActionsMenu } from './ActionsMenu';
 

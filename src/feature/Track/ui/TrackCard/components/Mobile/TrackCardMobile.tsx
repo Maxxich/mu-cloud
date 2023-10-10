@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux';
 import { getIsPlayerOpened, playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
-import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import { IconButton } from '@/shared/ui/IconButton';
 import IconMore from '@/shared/assets/svg/More.svg'
-import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog/RequireAuthDialog';
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 import cls from './TrackCardMobile.module.scss'
 import { TrackImage } from './Image/Image';
 import { ActionsMenu } from './Actions/ActionsMenu';

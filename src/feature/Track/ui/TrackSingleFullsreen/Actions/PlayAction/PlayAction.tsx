@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getIsPaused, getSelectedTrackId, playerActions } from '@/entity/player';
 import { Track } from '@/entity/track';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import IconPlay from '@/shared/assets/svg/Play.svg'
 import IconPause from '@/shared/assets/svg/Pause.svg'
 

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { SyntheticEvent, useCallback } from 'react';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { getStatus } from '../../model/selectors/getStatus'
 import { reset } from '../../model/services/reset';

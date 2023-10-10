@@ -2,7 +2,7 @@
 
 
 import { useCallback } from 'react'
-import { Button } from '@/shared/ui/Button/Button'
+import { Button } from '@/shared/ui/Button'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { EditProfileActions } from '../../model/slices/EditProfileSlice'
 

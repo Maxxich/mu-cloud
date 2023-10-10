@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { SyntheticEvent } from 'react';
 import IconCopy from '@/shared/assets/svg/Copy.svg'
 import { frontUrl } from '@/shared/const/frontUrl';
-import { Menu } from '@/shared/ui/Menu/Menu';
+import { Menu } from '@/shared/ui/Menu';
 
 
 interface ILikeDesktopProps {

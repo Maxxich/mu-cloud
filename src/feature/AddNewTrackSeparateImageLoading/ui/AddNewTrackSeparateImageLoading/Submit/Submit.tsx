@@ -1,6 +1,6 @@
 import { useCallback, SyntheticEvent } from 'react';
 import { useSelector } from 'react-redux';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { useDeleteAllFiles, useGetFile } from '@/entity/fileStorage';
 import { getValidationError } from '../../../model/selectors/getValidationError';

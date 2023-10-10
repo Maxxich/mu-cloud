@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import { AddNewTrackSeparateImageLoading } from '@/feature/AddNewTrackSeparateImageLoading';
 import { authOptions } from '@/shared/config/authConfig';
 import Logo from '@/shared/assets/svg/Logo.svg'
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import cls from './addTrackNew.module.scss'
 
 export default async function addTrackNew () {

@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, SyntheticEvent, useCallback } from 'react'
 import HeartFill from '@/shared/assets/svg/HeartFill.svg'
 import HeartStorke from '@/shared/assets/svg/HeartStroke.svg'
 import { trackApi } from '@/entity/track';
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 
 
 interface ILikeDesktopProps {

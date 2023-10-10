@@ -1,6 +1,6 @@
 import { SyntheticEvent } from 'react';
 import IconDownload from '@/shared/assets/svg/Download.svg'
-import { Menu } from '@/shared/ui/Menu/Menu';
+import { Menu } from '@/shared/ui/Menu';
 
 interface IDownloadFeatureProps {
   src: string

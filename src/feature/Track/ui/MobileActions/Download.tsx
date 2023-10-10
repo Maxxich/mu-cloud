@@ -1,6 +1,6 @@
 'use client'
 import { SyntheticEvent } from 'react';
-import { MobileMenu } from '@/shared/ui/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
 import IconDownload from '@/shared/assets/svg/Download.svg'
 
 interface IDownloadFeatureProps {

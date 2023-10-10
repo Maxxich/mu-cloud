@@ -5,7 +5,7 @@ const meta = {
     title: 'shared/Text',
     component: Text,
     parameters: {
-        layout: 'centered',
+        layout: 'padded',
     },
     tags: ['autodocs'],
 } satisfies Meta<typeof Text>

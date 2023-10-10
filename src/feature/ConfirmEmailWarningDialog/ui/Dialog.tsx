@@ -1,8 +1,8 @@
 'use client'
 import { useRouter } from 'next/navigation';
 import { MutableRefObject, memo, useEffect, useRef, useState } from 'react'
-import { Dialog as DialogElement } from '@/shared/ui/Dialog/Dialog';
-import { Button } from '@/shared/ui/Button/Button';
+import { Dialog as DialogElement } from '@/shared/ui/Dialog';
+import { Button } from '@/shared/ui/Button';
 
 interface ConfirmEmailWarningDialogProps {
 }

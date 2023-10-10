@@ -1,6 +1,6 @@
 'use client'
 import * as React from 'react';
-import { Image } from '@/shared/ui/Image/Image';
+import { Image } from '@/shared/ui/Image';
 import IconPlay from '@/shared/assets/svg/Play.svg'
 import cls from './Image.module.scss'
 import { Animtaion } from '../../PlayingAnimation/Animation';

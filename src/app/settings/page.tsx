@@ -4,7 +4,7 @@ import { EditProfile } from '@/feature/EditProfile';
 import { authOptions } from '@/shared/config/authConfig';
 import { RemoveProfile } from '@/feature/RemoveProfile';
 import { ConfirmEmail } from '@/feature/ConfirmEmail';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import Logo from '@/shared/assets/svg/Logo.svg'
 import cls from './Settings.module.scss'
 

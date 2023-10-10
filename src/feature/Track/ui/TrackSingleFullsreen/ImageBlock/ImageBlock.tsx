@@ -1,6 +1,6 @@
 'use client'
 import { animated, useSpring } from '@react-spring/web';
-import { Image } from '@/shared/ui/Image/Image';
+import { Image } from '@/shared/ui/Image';
 import { Track } from '@/entity/track';
 import cls from './ImageBlock.module.scss'
 

@@ -1,7 +1,7 @@
 
 'use client'
 import { useSession } from 'next-auth/react'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Signed } from './Signed';
 import { NotSigned } from './NotSigned';
 

@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import { memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSession } from 'next-auth/react';
-import { Form } from'@/shared/ui/Form/Form'
+import { Form } from'@/shared/ui/Form'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { FileManager } from '@/entity/fileStorage';
 import cls from './EditProfile.module.scss'
-import { Image } from '../Image/Image';
+import { Image } from '../Image';
 import { Name } from '../Name/Name';
 import { Adress } from '../Adress/Adress';
 import { EditButton } from '../Buttons/EditButton';
