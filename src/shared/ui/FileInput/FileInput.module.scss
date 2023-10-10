@@ -15,7 +15,7 @@
 
 .disabled {
     opacity: 0.6;
-  }
+}
 
 .file_button{
     background: var(--input-color);
@@ -96,8 +96,8 @@
     transform: translateY(-50%);
 
     & svg {
-        height: var(--font-line-m);
-        width: var(--font-line-m);
+        height: 24px;
+        width: 24px;
         fill: var(--secondary-color);
     }
 }
@@ -114,7 +114,7 @@
     color: var(--danger-color);
 
     &::placeholder{
-      color: var(--danger-color);
+        color: var(--danger-color);
     }
 
     

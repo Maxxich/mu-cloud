@@ -3,7 +3,7 @@ import Icon from '@/shared/assets/svg/svg.svg'
 import { FileInput } from './FileInput'
 
 const meta = {
-    title: 'shared/FileInput',
+    title: 'shared/FileInput (client)',
     component: FileInput,
     parameters: {
         layout: 'centered',

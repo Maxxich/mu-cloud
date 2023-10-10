@@ -9,10 +9,10 @@ interface IInputFileProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
     onChangeFileUndefined: () => void
     label?: string
     addonLeft?: React.ReactElement
-    className?: string
     isError?: boolean
-    initialFile?: File | null
+    initialFileName?: string
     inputTestId?: string
+    className?: string
 }
 
 export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forwardRef(({
@@ -23,19 +23,19 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
     onChangeFileUndefined,
     className,
     isError = '',
-    initialFile,
+    initialFileName,
     inputTestId,
     ...rest
 }, ref) => {
 
-    const [ fileName, setFileName]  = useState<string | undefined>(initialFile?.name)
+    const [ fileName, setFileName]  = useState<string | undefined>(initialFileName)
 
     const inputRef = useRef<HTMLInputElement>()
 
 
     useEffect(() => {
-        setFileName(initialFile?.name)
-    }, [initialFile])
+        setFileName(initialFileName)
+    }, [initialFileName])
 
     const refCb = (e: HTMLInputElement) => {
         inputRef.current = e;
@@ -72,7 +72,6 @@ export const FileInput: React.FunctionComponent<IInputFileProps>  = memo(forward
 
     const invisibleInput = (
         <input className={classNames(cls.invisible_input)}
-            // {...rest}
             type={'file'} 
             ref={refCb} 
             onChange={handleChange}
