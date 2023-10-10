@@ -5,7 +5,7 @@ const meta = {
     title: 'shared/ItemsTitle',
     component: ItemsTitle,
     parameters: {
-        layout: 'centered',
+        layout: 'padded',
     },
     tags: ['autodocs'],
 } satisfies Meta<typeof ItemsTitle>
