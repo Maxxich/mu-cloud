@@ -9,83 +9,83 @@
     padding: 5px;
 
     &:hover {
-      background: var(--icon-button-bg-hovered);
-      transform: scale(1.05);
+        background: var(--icon-button-bg-hovered);
+        transform: scale(1.05);
     }
 
     &:active {
-      transform: scale(0.95);
-      background: var(--icon-button-bg-active);
+        transform: scale(0.95);
+        background: var(--icon-button-bg-active);
     } 
 
     & svg {
-      fill: var(--primary-color); 
+        fill: var(--primary-color); 
     }
 
     &:disabled{
-      cursor: default;
+        cursor: default;
 
-      &:active {
-        transform: none;
-        background: transparent;
-      }
+        &:active {
+            transform: none;
+            background: transparent;
+        }
 
-      &:hover {
-        transform: none;
-        background: transparent;
-      }
+        &:hover {
+            transform: none;
+            background: transparent;
+        }
 
-      & svg {
-        fill: var(--icon-button-disabled-color); 
-      }
+        & svg {
+            fill: var(--icon-button-disabled-color); 
+        }
     }
 }
 
 .willRotate {
-  transition: all 0.2s ease-in 0s;
+    transition: all 0.2s ease-in 0s;
 }
 
 .rotated {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .secondary{
-  & svg {
-    fill: var(--secondary-color); 
-  }
+    & svg {
+        fill: var(--secondary-color); 
+    }
 }
 
 .xs {
-  & svg {
-    height: 12px;
-    width: 12px;
-  }
+    & svg {
+        height: 12px;
+        width: 12px;
+    }
 }
 
 .s {  
-  & svg {
-    height: var(--font-line-s);
-    width: var(--font-line-s);
-  }
+    & svg {
+        height: 20px;;
+        width: 20px;
+    }
 }
 
 .m {  
     & svg {
-      height: var(--font-line-m);
-      width: var(--font-line-m);
+        height: 24px;
+        width: 24px;
     }
-  }
+}
   
-  .l {  
-      & svg {
-      height: 26px;
-      width: 26px;
+.l {  
+    & svg {
+        height: 28px;
+        width: 28px;
     }
-  }
+}
   
-  .xl {
-      & svg {
-      height: var(--font-line-xl);
-      width: var(--font-line-xl);
+.xl {
+    & svg {
+        height: 32px;
+        width: 32px;
     }
-  }
+}

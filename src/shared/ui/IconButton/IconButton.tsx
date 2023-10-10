@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { PlacesType } from 'react-tooltip'
 import { memo } from 'react'
 import cls from './IconButton.module.scss'
-import { Tooltip } from '../Tooltip/Tooltip'
+import { Tooltip } from '../Tooltip'
 
 type ButtonVariant = 'default' | 'secondary'
 
