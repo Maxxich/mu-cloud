@@ -4,9 +4,6 @@ import { Tooltip } from './Tooltip'
 const meta = {
     title: 'shared/Tooltip',
     component: Tooltip,
-    parameters: {
-        layout: 'centered',
-    },
     render: (props) => <>
         <div
             id={'#QASxc'}

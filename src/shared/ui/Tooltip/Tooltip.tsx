@@ -1,15 +1,17 @@
 'use client'
 import * as React from 'react';
-import { ITooltip, Tooltip as TooltipEl } from 'react-tooltip';
+import { ITooltip, Tooltip as TooltipEl,PlacesType } from 'react-tooltip';
 import classNames from 'classnames';
 import cls from './Tooltip.module.scss'
 
 interface ITooltipProps extends ITooltip {
-    className?: string
+    className?: string,
+    place: PlacesType | undefined
 }
 
 export const Tooltip: React.FunctionComponent<ITooltipProps> = React.memo(({
     className,
+    place,
     ...rest
 }) => {
 
@@ -23,6 +25,7 @@ export const Tooltip: React.FunctionComponent<ITooltipProps> = React.memo(({
             }}
             delayHide={0}
             delayShow={0}
+            place={place}
             {...rest}
         
         />
