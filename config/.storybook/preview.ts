@@ -1,9 +1,10 @@
 import type { Preview } from "@storybook/react";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { themes } from '@storybook/theming';
+import { Theme } from "../../src/shared/const/theme"
+import { PortalsDecorator } from "../../src/shared/config/storybook/PortalsDecorator/PortalsDecorator"
 import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator/StyleDecorator"
 import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator"
-import { PortalsDecorator } from "../../src/shared/config/storybook/PortalsDecorator/PortalsDecorator"
-import { Theme } from "../../src/shared/const/theme"
-import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
 
 const preview: Preview = {
   parameters: {
@@ -14,6 +15,10 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    docs: {
+      theme: themes.dark,
+    },
+    layout: 'centered',
     nextRouter: {
       Provider: AppRouterContext.Provider,
     },
@@ -22,7 +27,7 @@ const preview: Preview = {
 		StyleDecorator,
 		ThemeDecorator(Theme.DEFAULT),
     PortalsDecorator
-	]
+	],
 };
 
 export default preview;

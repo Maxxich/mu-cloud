@@ -15,7 +15,7 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
   webpackFinal: (config: any) => {
     config.resolve.alias["@"] = path.resolve(__dirname, "..", "..", "src");
