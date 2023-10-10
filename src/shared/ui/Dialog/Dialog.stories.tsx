@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Dialog } from './Dialog'
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 const meta = {
     title: 'shared/Dialog',
     component: Dialog.Wrapper,
     parameters: {
-        layout: 'centered',
         loki: { skip: true },
     },
     render: (args) => <Dialog.Wrapper
@@ -29,7 +28,6 @@ const meta = {
             </Dialog.ButtonsGroup>
         </Dialog.Panel>
     </Dialog.Wrapper>,
-    tags: ['autodocs'],
 } satisfies Meta<typeof Dialog.Wrapper>
 
 export default meta
