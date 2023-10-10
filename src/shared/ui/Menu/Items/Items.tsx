@@ -1,18 +1,20 @@
-import { ItemsDesktop } from './ItemsDesktop/ItemsDesktop';
-import { ItemsMobile } from './ItemsMobile/ItemsMobile';
-import { IItemsProps } from './types';
+import { Menu as HeadlessMenu } from '@headlessui/react'
+import classNames from 'classnames';
+import cls from './ItemsDesktop.module.scss'
+import { ItemsComponent } from './types';
 
-export const Items:  React.FunctionComponent<IItemsProps & {
-    isMobile: boolean
-}> = ({
-    isMobile,
-    ...props
+
+
+export const Items: ItemsComponent = ({
+    children,
+    className,
 }) => {
 
-    if (isMobile) return (
-        <ItemsMobile {...props}/>
+    return (
+        <HeadlessMenu.Items 
+            className={classNames(cls.menu_bg, className)} 
+        >
+            {children}
+        </HeadlessMenu.Items>
     )
-
-    return  <ItemsDesktop {...props}/>
 };
-

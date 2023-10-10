@@ -4,7 +4,7 @@ import Icon from '@/shared/assets/svg/svg.svg'
 import { Menu } from './Menu'
 
 const meta = {
-    title: 'shared/Menu',
+    title: 'shared/Menu (client)',
     component: Menu.Wrapper,
     parameters: {
         layout: 'centered',
@@ -26,20 +26,19 @@ const meta = {
                         component='button'
                         onClick={(e: SyntheticEvent<HTMLButtonElement>) => {}}
                     >
-                        Удалить
+                        Button 1
                     </Menu.Item>
                     <Menu.Item
                         icon={<Icon/>}
                         component='link'
                         href={'/'}
                     >
-                        Удалить
+                        Link 1
                     </Menu.Item>
                 </Menu.Items>
             </>
         )}
     </Menu.Wrapper>,
-    tags: ['autodocs'],
 } satisfies Meta<typeof Menu>
 
 export default meta
