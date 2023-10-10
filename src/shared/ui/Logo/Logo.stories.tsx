@@ -5,7 +5,6 @@ const meta = {
     title: 'shared/Logo',
     component: Logo,
     parameters: {
-        layout: 'centered',
         loki: { skip: true },
     },
     tags: ['autodocs'],
