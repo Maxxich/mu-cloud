@@ -1,140 +1,141 @@
 .Button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 10px;
-  gap:11px;
-  padding: 11px 26px;
-  transition: all 0.1s linear 0s;
-  background: var(--button-bg-color);
-  color: var(--button-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+    gap:11px;
+    padding: 11px 26px;
+    transition: all 0.1s linear 0s;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
 
-  &:active {
-    transform: scale(0.95);
-  }    
+    &:active {
+        transform: scale(0.95);
+    }    
 
-  & svg {
-    fill: var(--button-text-color);
-  }
+    & svg {
+        fill: var(--button-text-color);
+    }
 
-  &:hover {
-    background: var(--button-bg-color-hovered);
-  }
+    &:hover {
+        background: var(--button-bg-color-hovered);
+    }
 
-  &:focus {
-    outline: var(--button-outline-color-focused) solid 2px;
-  }
+    &:focus {
+        outline: var(--button-outline-color-focused) solid 2px;
+    }
 }
 
 .danger {
-  background: var(--button-bg-color-danger);
-  color: var(--button-text-color-danger);
+    background: var(--button-bg-color-danger);
+    color: var(--button-text-color-danger);
 
-  &:hover {
-    background: var(--button-bg-color-danger-hovered);
-  }
+    &:hover {
+        background: var(--button-bg-color-danger-hovered);
+    }
 
-  & svg {
-    fill: var(--button-text-color-danger);
-  }
+    & svg {
+        fill: var(--button-text-color-danger);
+    }
 
-  &:focus {
-    outline: var(--button-outline-color-danger-focused) solid 2px;
-  }
+    &:focus {
+        outline: var(--button-outline-color-danger-focused) solid 2px;
+    }
 }
 
 .green {
-  background: var(--button-bg-color-green);
-  color: var(--button-text-color-green);
+    background: var(--button-bg-color-green);
+    color: var(--button-text-color-green);
 
-  &:hover {
-    background: var(--button-bg-color-green-hovered);
-  }
+    &:hover {
+        background: var(--button-bg-color-green-hovered);
+    }
 
-  & svg {
-    fill: var(--button-text-color-green);
-  }
+    & svg {
+        fill: var(--button-text-color-green);
+    }
 
-  &:focus {
-    outline: var(--button-outline-color-green-focused) solid 2px;
-  }
+    &:focus {
+        outline: var(--button-outline-color-green-focused) solid 2px;
+    }
 }
 
 .Button:disabled {
-  cursor: default;
-  background: var(--button-bg-color-disabled);
-  color: var(--button-text-color-disabled);
-
-  & svg {
-    fill: var(--button-text-color-disabled);
-  }
-
-  &.green {
-    background: var(--button-bg-color-green-disabled);
-    color: var(--button-text-color-green-disabled);
+    cursor: default;
+    background: var(--button-bg-color-disabled);
+    color: var(--button-text-color-disabled);
 
     & svg {
-      fill: var(--button-text-color-green-disabled);
+        fill: var(--button-text-color-disabled);
     }
-  }
 
-  &.danger {
-    background: var(--button-bg-color-danger-disabled);
-    color: var(--button-text-color-danger-disabled);
+    &.green {
+        background: var(--button-bg-color-green-disabled);
+        color: var(--button-text-color-green-disabled);
 
-    & svg {
-      fill: var(--button-text-color-danger-disabled);
+        & svg {
+            fill: var(--button-text-color-green-disabled);
+        }
     }
-  }
 
-  &:active {
-    transform: none;
-  }
+    &.danger {
+        background: var(--button-bg-color-danger-disabled);
+        color: var(--button-text-color-danger-disabled);
+
+        & svg {
+            fill: var(--button-text-color-danger-disabled);
+        }
+    }
+
+    &:active {
+        transform: none;
+    }
 }
 
 .fullwidth {
-  width: 100%;
+    width: 100%;
 
-  &:active {
-    opacity: 0.9;
-    transform: scale(0.98);
+    &:active {
+        opacity: 0.9;
+        transform: scale(0.98);
 
-    &:disabled {
-      opacity: 1;
-    }
-  }  
+        &:disabled {
+            opacity: 1;
+        }
+    }  
 }
 
 .m {
-  font: var(--font-m);
-  font-size: 12px;
-  line-height: 15px;
+    font-size: 12px;
+    line-height: 15px;
 
-  & svg {
-    height: 15px;
-    width: 15px;
-  }
+    & svg {
+        height: 15px;
+        width: 15px;
+    }
 }
 
 .l {
-  font: var(--font-l);
+    font-size: 24px;
+    line-height: 32px;
 
     & svg {
-    height: var(--font-line-l);
-    width: var(--font-line-l);
-  }
+        height: 32px;
+        width: 32px;
+    }
 }
 
 .xl {
-  font: var(--font-xl);
+    font-size: 32px;
+    line-height: 40px;
 
     & svg {
-    height: var(--font-line-xl);
-    width: var(--font-line-xl);
-  }
+        height: 40px;
+        width: 40px;
+    }
 }
 
 .addon {
-  display: flex;
+    display: flex;
 }

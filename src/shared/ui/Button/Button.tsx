@@ -2,18 +2,17 @@ import classNames from 'classnames'
 import { MutableRefObject, forwardRef, memo } from 'react'
 import cls from './Button.module.scss'
 
-
 type ButtonVariant = 'default' | 'danger' | 'green'
 
 interface IButtonSubmitProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string,
-  fullwidth?:boolean
-  variant?: ButtonVariant
-  className?: string,
-  addonRight?: React.ReactElement
-  addonLeft?: React.ReactElement
-  size?:  'm' | 'l' | 'xl', 
-  ref?: MutableRefObject<HTMLElement>
+    children: string,
+    fullwidth?:boolean
+    variant?: ButtonVariant
+    addonRight?: React.ReactElement
+    addonLeft?: React.ReactElement
+    size?:  'm' | 'l' | 'xl', 
+    ref?: MutableRefObject<HTMLElement>
+    className?: string,
 }
 
 export const Button: React.FunctionComponent<IButtonSubmitProps> = memo(forwardRef(({
