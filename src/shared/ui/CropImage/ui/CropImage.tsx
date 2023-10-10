@@ -1,12 +1,12 @@
 'use client'
-import cls from './CropImage.module.scss'
 import Cropper, { ReactCropperElement } from 'react-cropper';
 import { useEffect, useCallback , useRef, useState, memo } from 'react'
 import 'cropperjs/dist/cropper.css';
 import { isMobile } from 'react-device-detect';
 import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
+import cls from './CropImage.module.scss'
 import './style.css'
 
 interface ICropper {
