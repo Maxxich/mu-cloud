@@ -6,9 +6,6 @@ import { Image } from './Image'
 const meta = {
     title: 'shared/Image',
     component: Image,
-    parameters: {
-        layout: 'centered',
-    },
     tags: ['autodocs'],
 } satisfies Meta<typeof Image>
 
