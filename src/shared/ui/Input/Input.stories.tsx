@@ -5,9 +5,6 @@ import { Input } from './Input'
 const meta = {
     title: 'shared/Input',
     component: Input,
-    parameters: {
-        layout: 'centered',
-    },
     argTypes: { onClick: { action: 'clicked' } },
     tags: ['autodocs'],
 } satisfies Meta<typeof Input>
