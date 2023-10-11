@@ -1,6 +1,6 @@
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/global/providers/StoreProvider';
-import { ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
 import { AddNewTrackReducer } from '@/feature/AddNewTrack';
 import { rtkApi } from '@/shared/api';
 import { playerReducer } from '@/entity/player';
