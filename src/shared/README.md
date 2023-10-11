@@ -1,4 +1,6 @@
-## Shared
+Shared
+
+## UI
 
 - [BannerSwiper](/src/shared/ui/BannerSwiper)
 - [Button](/src/shared/ui/Button)
@@ -22,4 +24,19 @@
 - [Stack](/src/shared/ui/Stack)
 - [Text](/src/shared/ui/Text)
 - [Tooltip](/src/shared/ui/Tooltip)
+
+## Config
+
+- Storybook [Decorators](/src/shared/config/storybook)
+- Next-auth [authConfig](/src/shared/config/authConfig.ts)
+- [DynamicModuleLoader](/src/shared/config/DynamicModuleLoader/)
+
+
+## Assets
+
+- Svg [Icons](/src/shared/assets/svg)
+
+## API
+
+- RTK Query [base](/src/shared/api/rtkApi)
 
