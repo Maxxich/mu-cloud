@@ -4,7 +4,7 @@ import { isBrowser } from 'react-device-detect';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { getCurrentTrackTime, getCurrentTrackTimeLenght } from '@/entity/player';
-import { formatTime } from '@/shared/lib/formatTime/formatTime';
+import { formatTime } from '@/shared/lib/helpers/formatTime/formatTime';
 import { Time } from './Time/Time';
 import { Input } from './Input';
 import cls from './TimeLine.module.scss'

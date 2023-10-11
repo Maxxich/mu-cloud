@@ -1,9 +1,9 @@
 import { backendUrl } from '@/shared/const/backendUrl'
-import { createUrlSearchParams } from '@/shared/lib/createUrlSearchParams/createUrlSearchParams'
+import { createUrlSearchParams } from '@/shared/lib/helpers/createUrlSearchParams/createUrlSearchParams'
 import { User } from '../model/types/user'
 import { createUserImagesSrc } from '../lib/createUserImageSrc'
 
-interface Params {
+interface Params extends URLSearchParams  {
     page?: number, 
     limit?: number,
     search?: string

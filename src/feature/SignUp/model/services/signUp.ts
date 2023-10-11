@@ -1,6 +1,6 @@
 import { signIn } from 'next-auth/react';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { removeTrailingSpaces } from '@/shared/lib/removeTrailingSpaces/removeTrailingSpaces';
+import { removeTrailingSpaces } from '@/shared/lib/helpers/removeTrailingSpaces/removeTrailingSpaces';
 import { backendUrl } from '@/shared/const/backendUrl';
 import { getPassword,getEmail, getName, getPasswordConfirm } from '../selectors/fieldSelectors';
 import { getValidationError } from '../selectors/getValidationError';

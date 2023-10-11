@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
-import { useAudio } from '@/shared/lib/useAudio/useAudio'
+import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
 import { playerActions } from '../model/slices/playerSlice'
 import { getSelectedTrack } from '../model/selectors/getSelectedTrack/getSelectedTrack'
 

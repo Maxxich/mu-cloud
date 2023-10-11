@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { getIsPlayerOpened, playerActions } from '@/entity/player';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
+import { toMinuteFormat } from '@/shared/lib/helpers/toMinuteFormat/toMinuteFormat';
 import { IconButton } from '@/shared/ui/IconButton';
 import IconMore from '@/shared/assets/svg/More.svg'
 import { RequireAuthDialog } from '@/shared/ui/RequireAuthDialog';

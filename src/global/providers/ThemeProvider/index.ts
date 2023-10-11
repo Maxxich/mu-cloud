@@ -1,5 +1,5 @@
 'use client'
 
-import ThemeProvider from './ui/ThemeProvider'
+import ThemeProvider from './ThemeProvider'
 
 export { ThemeProvider }

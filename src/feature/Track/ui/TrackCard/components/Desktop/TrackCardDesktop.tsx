@@ -2,7 +2,7 @@
 import { memo, useCallback, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { toMinuteFormat } from '@/shared/lib/toMinuteFormat/toMinuteFormat';
+import { toMinuteFormat } from '@/shared/lib/helpers/toMinuteFormat/toMinuteFormat';
 import cls from './TrackCardDesktop.module.scss'
 import { TrackImage } from './Image/Image';
 import { Download } from './Actions/Download';

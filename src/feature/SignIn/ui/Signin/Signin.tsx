@@ -8,7 +8,7 @@ import { Form } from '@/shared/ui/Form';
 import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { useRedirectIfSignedIn } from '@/entity/viewer'
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './Signin.module.scss'
 import { FormError } from './FormError/FormError';
 import { SignUpRedirect } from './SignUpRedirect/SignUpRedirect';

@@ -1,66 +1,15 @@
-export type Config = {
-    name: {
-        messages: {
-            empty: string
-            exceedsMaxLenght: string
-        },
-        maxLenght: number
-    },
-    name_secondary: {
-        messages: {
-            exceedsMaxLenght: string
-        }
-        maxLenght: number
-    }
-    audioFile: {
-        messages: {
-            invalidMimeType: string
-            empty: string
-        },
-        validMimeTypes: string[]
-    },
-    imageFile: {
-        messages: {
-            invalidMimeType: string
-            empty: string
-        },
-        validMimeTypes: string[]
-    },
-    imageCroppedWideFile: {
-        messages: {
-            empty: string
-        }
-    },
-    imageCroppedSquareFile: {
-        messages: {
-            empty: string
-        }
-    }
+export type FieldsAndErrors = {
+    name: ['empty', 'exceedsMaxLenght']
+    name_secondary: ['exceedsMaxLenght']
+    audioFile: ['empty', 'invalidMimeType']
+    imageFile: ['empty', 'invalidMimeType']
+    imageCroppedWideFile: ['empty']
+    imageCroppedSquareFile: ['empty']
 }
 
-type ValidationErrors = {
-    name: {
-        empty: boolean
-        exceedsMaxLenght: boolean
-    }
-    name_secondary: {
-        exceedsMaxLenght: boolean
-    },
-    audioFile: {
-        invalidMimeType: boolean
-        empty: boolean
-    },
-    imageFile: {
-        invalidMimeType: boolean
-        empty: boolean
-    },
-    imageCroppedWideFile: {
-        empty: boolean
-    },
-    imageCroppedSquareFile: {
-        empty: boolean
-    }
-}
+type ValidationErrosFlags = ErrrosFlags<FieldsAndErrors>
+
+export type Config = ErrorsConfig<ValidationErrosFlags>
 
 export type Tab = 'form' | 'cropWideImage' | 'cropSquareImage'
 
@@ -71,7 +20,7 @@ export interface AddNewTrackSchema {
     imageCroppedWideMimeType?: string | undefined
     imageCroppedSquareMimeType?: string | undefined
     audioFileMimeType?: string | undefined
-    validationErrors: ValidationErrors
+    validationErrors: ValidationErrosFlags
     tab: Tab
     status: 'idle' | 'loading'
 }

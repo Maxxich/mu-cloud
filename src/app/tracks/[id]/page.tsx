@@ -1,6 +1,6 @@
 import { trackServerApi } from '@/entity/track'
 import { TrackSingleFullsreen } from '@/feature/Track'
-import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { getIsMobile } from '@/shared/lib/helpers/getIsMobile/getIsMobile'
 
 type Props = {
     params: {

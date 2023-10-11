@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useSession } from 'next-auth/react';
 import { Form } from'@/shared/ui/Form'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
 import { FileManager } from '@/entity/fileStorage';
 import cls from './EditProfile.module.scss'
 import { Image } from '../Image';

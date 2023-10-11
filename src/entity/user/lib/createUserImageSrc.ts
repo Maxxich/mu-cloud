@@ -1,5 +1,5 @@
 import { backendUrl } from '@/shared/const/backendUrl'
-import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholderSmall'
+import { avatarPlaceholderSmall } from '@/shared/const/avatarPlaceholders'
 import { User } from '../model/types/user'
 
 type ReturnImages = User['picture_source']

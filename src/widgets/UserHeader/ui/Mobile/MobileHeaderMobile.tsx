@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import classNames from 'classnames';
-import { getNoun } from '@/shared/lib/getNoun/getNoun';
+import { getNoun } from '@/shared/lib/helpers/getNoun/getNoun';
 import cls from './MobileHeader.module.scss'
 import { Subscribe } from '../Subscribe';
 import { HeaderProps } from '../../types/HeaderProps';

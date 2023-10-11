@@ -4,7 +4,7 @@ import { TrackBanner } from '@/feature/Track'
 import { ItemsSection } from '@/shared/ui/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { Text } from '@/shared/ui/Text'
-import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { getIsMobile } from '@/shared/lib/helpers/getIsMobile/getIsMobile'
 import { Header } from './Header'
 
 type Props = {

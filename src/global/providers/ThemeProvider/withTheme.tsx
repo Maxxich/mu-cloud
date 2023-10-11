@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Theme } from '@/shared/const/theme'
 import ThemeProvider from './ThemeProvider'
+import { Theme } from './Theme'
 
 export const withTheme = (Component: React.ComponentType) => {
     const withThemeComponent = () => {

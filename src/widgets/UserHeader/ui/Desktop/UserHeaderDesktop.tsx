@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 import { isMobile } from 'react-device-detect';
-import { getNoun } from '@/shared/lib/getNoun/getNoun';
+import { getNoun } from '@/shared/lib/helpers/getNoun/getNoun';
 import cls from './UserHeader.module.scss'
 import { Subscribe } from '../Subscribe';
 import { HeaderProps } from '../../types/HeaderProps';

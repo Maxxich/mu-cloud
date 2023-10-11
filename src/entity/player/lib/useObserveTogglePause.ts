@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useAudio } from '@/shared/lib/useAudio/useAudio'
+import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { getIsPaused } from '../model/selectors/getIsPaused/getIsPaused'
 import { playerActions } from '../model/slices/playerSlice'

@@ -6,7 +6,7 @@ import { UserBanner, userServerApi } from '@/entity/user'
 import { ItemsSection } from '@/shared/ui/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { TrackBanner } from '@/feature/Track'
-import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { getIsMobile } from '@/shared/lib/helpers/getIsMobile/getIsMobile'
 import { UserHeader } from '@/widgets/UserHeader'
 import { ProtectedPage } from '@/entity/viewer'
 

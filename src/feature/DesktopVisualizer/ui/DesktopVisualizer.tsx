@@ -1,5 +1,5 @@
 import { Track } from '@/entity/track'
-import { useAudio } from '@/shared/lib/useAudio/useAudio';
+import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio';
 import { Canvas } from './Canvas/Canvas'
 import { Wrapper } from './Wrapper/Wrapper'
 import { Info } from './Info/Info';

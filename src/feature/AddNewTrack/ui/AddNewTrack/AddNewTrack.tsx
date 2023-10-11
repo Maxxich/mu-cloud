@@ -2,7 +2,7 @@
 
 import { memo } from 'react'
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
 import { FileManager } from '@/entity/fileStorage';
 import { Form } from './Form/Form';
 import { CropWideImage } from './CropWideImage/CropWideImage';

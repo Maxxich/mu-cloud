@@ -7,7 +7,7 @@ import { authOptions } from '@/shared/config/authConfig';
 import { ItemsSection } from '@/shared/ui/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { UserHeader } from '@/widgets/UserHeader'
-import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile';
+import { getIsMobile } from '@/shared/lib/helpers/getIsMobile/getIsMobile';
 
 type Props = {
     params: {

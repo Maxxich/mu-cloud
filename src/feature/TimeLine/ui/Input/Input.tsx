@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import { useAudio } from '@/shared/lib/useAudio/useAudio';
+import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio';
 import { getCurrentTrackTime, getCurrentTrackTimeLenght } from '@/entity/player';
 import cls from './Input.module.scss'
 

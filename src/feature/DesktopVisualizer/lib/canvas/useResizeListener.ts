@@ -1,6 +1,6 @@
 import { useCallback, MutableRefObject, useEffect } from 'react'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
-import { useAudio } from '@/shared/lib/useAudio/useAudio'
+import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
 import { processKeystroke } from '../utils'
 
 export const useResizeListener = ({

@@ -1,6 +1,6 @@
 import { trackServerApi } from '@/entity/track'
 import { TrackList } from '@/feature/Track'
-import { getIsMobile } from '@/shared/lib/getIsMobile/getIsMobile'
+import { getIsMobile } from '@/shared/lib/helpers/getIsMobile/getIsMobile'
 import { ItemsSection } from '@/shared/ui/ItemsSection'
 import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { Pagination } from '@/widgets/Pagination'

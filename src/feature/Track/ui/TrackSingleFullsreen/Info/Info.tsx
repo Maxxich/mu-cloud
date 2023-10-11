@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { animated, useSpring } from '@react-spring/web';
 import { Track } from '@/entity/track';
-import { formatListenings } from '@/shared/lib/formatListenings/formatListenings';
+import { formatListenings } from '@/shared/lib/helpers/formatListenings/formatListenings';
 import cls from './Info.module.scss'
 
 

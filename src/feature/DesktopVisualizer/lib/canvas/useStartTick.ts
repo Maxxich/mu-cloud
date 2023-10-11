@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { getIsSmallPictureActive, getSelectedTrack } from '@/entity/player'
-import { useAudio } from '@/shared/lib/useAudio/useAudio'
+import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
 import { useResizeListener } from './useResizeListener'
 import { useImageElements } from './useImageElements'
 import { createTick } from '../utils'

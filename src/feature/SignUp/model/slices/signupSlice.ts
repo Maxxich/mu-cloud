@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { validateEmail } from '@/shared/lib/validateEmail/validateEmail'
+import { validateEmail } from '@/shared/lib/helpers/validateEmail/validateEmail'
 import { ErrorMessage, SignupSchema } from '../types/signupSchema'
 import { signUpByEmail } from '../services/signUp'
 import { config } from '../config/config'

@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
-import { useAudio } from '@/shared/lib/useAudio/useAudio'
+import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
 import { getRepeatTrackMode } from '../model/selectors/getRepeatTrackMode/getRepeatTrackMode'
 import { playerActions } from '../model/slices/playerSlice'
 

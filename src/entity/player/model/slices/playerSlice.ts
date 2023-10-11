@@ -1,6 +1,6 @@
 
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { shuffle } from '@/shared/lib/shuffle/shuffle'
+import { shuffle } from '@/shared/lib/helpers/shuffle/shuffle'
 import { Track } from '@/entity/track'
 import { PlayerSchema } from '../types/playerSchema'
 
