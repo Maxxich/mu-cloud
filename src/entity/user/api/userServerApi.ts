@@ -3,7 +3,7 @@ import { createUrlSearchParams } from '@/shared/lib/helpers/createUrlSearchParam
 import { User } from '../model/types/user'
 import { createUserImagesSrc } from '../lib/createUserImageSrc'
 
-interface Params extends URLSearchParams  {
+interface Params extends OptionalRecord<string, string | number>  {
     page?: number, 
     limit?: number,
     search?: string

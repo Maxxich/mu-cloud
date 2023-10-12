@@ -20,14 +20,19 @@ const args: Story['args'] = {
     name: 'Maxich',
 }
 
-export const Row: Story = {
-    args
-}
-
 export const Column: Story = {
     args: {
         ...args,
         variant: 'column',
-        fullwidth: undefined
+        width: 'fixed'
+    },
+}
+
+
+export const Row: Story = {
+    args: {
+        ...args,
+        variant: 'row',
+        width: 'fixed'
     },
 }
