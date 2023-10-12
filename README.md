@@ -78,3 +78,49 @@ Cлои (layers): `feature`, `entity`, `page`
 - [Stack](/src/shared/ui/Stack)
 - [Text](/src/shared/ui/Text)
 - [Tooltip](/src/shared/ui/Tooltip)
+
+
+## Сущности (entities)
+
+- [fileStorage](/src/entity/fileStorage)
+- [player](/src/entity/player)
+- [track](/src/entity/track)
+- [user](/src/entity/user)
+- [viewer](/src/entity/viewer)
+
+## Фичи (features)
+
+- [AddNewTrack](/src/feature/AddNewTrack)
+- [AddNewTrackSeparateImageLoading](/src/feature/AddNewTrackSeparateImageLoading)
+- [ConfirmEmail](/src/feature/ConfirmEmail)
+- [CropImage](/src/feature/CropImage)
+- [ConfirmEmailWarningDialog](/src/feature/ConfirmEmailWarningDialog)
+- [ConfirmResetPassword](/src/feature/ConfirmResetPassword)
+- [DesktopVisualizer](/src/feature/DesktopVisualizer)
+- [EditProfile](/src/feature/EditProfile)
+- [RemoveProfile](/src/feature/RemoveProfile)
+- [ResetPassword](/src/feature/ResetPassword)
+- [SignIn](/src/feature/SignIn)
+- [SignUp](/src/feature/SignUp)
+- [TimeLine](/src/feature/TimeLine)
+- [Toast](/src/feature/Toast)
+- [Track](/src/feature/Track)
+
+
+## Виджеты (widgets)
+
+- [DesktopPlayer](/src/widgets/DesktopPlayer)
+- [MobilePlayer](/src/widgets/MobilePlayer)
+- [MobilePlayerContorls](/src/widgets/MobilePlayerContorls)
+- [Navbar](/src/widgets/Navbar)
+- [Pagination](/src/widgets/Pagination)
+- [UserHeader](/src/widgets/UserHeader)
+
+
+## Evironment переменные (.env)
+
+- NEXTAUTH_URL
+- NEXTAUTH_SECRET
+- NEXT_PUBLIC_STANDART_PER_PAGE
+- BACKEND_URL
+- FRONTEND_URL
