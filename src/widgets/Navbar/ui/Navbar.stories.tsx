@@ -1,28 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { SessionDecorator } from '@/shared/config/storybook/SessionDecorator/SessionDecorator';
 import { Navbar } from './Navbar'
 
 const meta = {
-    title: 'widgets/Navbar/Navbar',
+    title: 'widgets/Navbar',
     component: Navbar,
     parameters: {
         layout: 'centered',
-        loki: { skip: true },
+        session: 'authenticated'
     },
-    argTypes: { onClick: { action: 'clicked' } },
-    tags: ['autodocs'],
 } satisfies Meta<typeof Navbar>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
 const args: Story['args'] = {
-    
+    isMobile: false
 }
 
-export const Default: Story = {
+export const Desktop: Story = {
     args
 }
-Default.decorators = [
-    SessionDecorator
-]
+export const Mobile: Story = {
+    args: {
+        ...args,
+        isMobile: true
+    }
+}

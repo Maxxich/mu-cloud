@@ -13,7 +13,7 @@ interface ISearchProps {
 export const Search: React.FunctionComponent<ISearchProps> = memo((props) => {
 
     const searchParams = useSearchParams()
-    const [search, setSearch] = useState<string>(searchParams.get('search') ?? '')
+    const [search, setSearch] = useState<string>(searchParams?.get('search') ?? '')
     const router = useRouter()
 
     const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {

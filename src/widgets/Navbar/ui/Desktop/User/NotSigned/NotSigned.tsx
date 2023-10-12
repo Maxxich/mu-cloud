@@ -14,7 +14,7 @@ export const NotSigned: React.FunctionComponent<Props> = ({
 
     const pathnName = usePathname()
     const urlSearchParams = useSearchParams()
-    const callbackUrl = urlSearchParams.get('callbackUrl')
+    const callbackUrl = urlSearchParams?.get('callbackUrl')
     
 
     const href = (
