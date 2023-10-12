@@ -2,7 +2,9 @@ import { User } from '@/entity/user';
 
 declare module 'next-auth' {
   interface Session {
-    user: User | undefined
+    user: User & {email: {
+      confirmed: boolean
+    }} | undefined
 
     backendTokens: {
       accessToken: string;
@@ -16,7 +18,9 @@ declare module 'next-auth' {
 
 declare module 'next-auth/jwt' {
   interface JWT {
-    user: User
+    user: User & {email: {
+      confirmed: boolean
+    }}
 
     backendTokens: {
       accessToken: string;

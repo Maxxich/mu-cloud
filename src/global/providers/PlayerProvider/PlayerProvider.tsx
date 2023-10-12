@@ -1,7 +1,7 @@
 'use client'
 import { useSelector } from 'react-redux';
 import { getIsPlayerOpened, getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
-import { MobilePlayerContorls } from '@/feature/MobilePlayerContorls';
+import { MobilePlayerContorls } from '@/widgets/MobilePlayerContorls';
 import { MobilePlayer } from '@/widgets/MobilePlayer';
 import { DesktopPlayer } from '@/widgets/DesktopPlayer';
 import { DesktopVisualizer } from '@/feature/DesktopVisualizer';
