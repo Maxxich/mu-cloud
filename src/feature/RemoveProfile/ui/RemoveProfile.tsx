@@ -6,7 +6,7 @@ import { Text } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
 import { Dialog } from '@/shared/ui/Dialog';
 import { backendUrl } from '@/shared/const/backendUrl';
-import { useRedirectIfSignedOut } from '@/entity/viewer/lib/useRedirectIfSignedOut';
+import { useRedirectIfSignedOut } from '@/entity/viewer';
 import { Form } from '@/shared/ui/Form';
 import cls from './RemoveProfile.module.scss'
 
