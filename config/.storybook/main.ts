@@ -9,6 +9,8 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     "storybook-addon-next-router",
+    'storybook-addon-mock',
+    '@tomfreudenberg/next-auth-mock/storybook',
   ],
   framework: {
     name: "@storybook/nextjs",
@@ -33,7 +35,7 @@ const config: StorybookConfig = {
 			use: ["@svgr/webpack"]
 		})
 		
-
+    config.resolve.alias['@tomfreudenberg/next-auth-mock/storybook/preview-mock-auth-states'] = path.resolve(__dirname, 'previewMockAuthStates.ts')
     return config
   }
 };
