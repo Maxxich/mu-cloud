@@ -1,43 +1,20 @@
 export type ErrorMessage = 'Сервер недоступен' | 'Ссылка устарела'
 
-export type Config = {
-    passwordConfirm: {
-        messages: {
-            empty: string
-            notEqualsToPassword: string
-        },
-    },
-    password: {
-        messages: {
-            empty: string
-            exceedsMaxLenght: string
-            exceedsMinLenght: string
-            hasBannedSymbols: string
-        },
-        bannedSymbols: string[]
-        maxLenght: number
-        minLenght: number
-    },
+type FieldsAndErrors = {
+    passwordConfirm: ['empty', 'notEqualsToPassword']
+    password: ['empty', 'exceedsMaxLenght', 'exceedsMinLenght', 'hasBannedSymbols']
+
 }
 
-type ValidationErrors = {
-    password: {
-        empty: boolean
-        exceedsMaxLenght: boolean 
-        exceedsMinLenght: boolean
-        hasBannedSymbols: boolean
-    },
-    passwordConfirm: {
-        empty: boolean
-        notEqualsToPassword: boolean
-    },
-}
+type ValidationErrosFlags = ErrrosFlags<FieldsAndErrors>
+
+export type Config = ErrorsConfig<ValidationErrosFlags>
 
 export interface ConfirmResetPasswordSchema {
     passwordConfirm: string
     password: string 
     status: 'idle' | 'loading' | 'error' | 'success',
     errorMessage?: ErrorMessage
-    validationErrors: ValidationErrors
+    validationErrors: ValidationErrosFlags
     requestError?: string | undefined
 }
