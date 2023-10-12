@@ -1,9 +1,5 @@
 import { Config } from '../types/AddNewTrackSeparateImageLoadingSchema'
 
-
-
-
-
 export const config: Config = {
     name: {
         messages: {
