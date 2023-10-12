@@ -1,4 +1,4 @@
-export type FieldsAndErrors = {
+type FieldsAndErrors = {
     name: ['empty', 'exceedsMaxLenght']
     name_secondary: ['exceedsMaxLenght']
     audioFile: ['empty', 'invalidMimeType']

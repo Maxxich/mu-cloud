@@ -7,6 +7,7 @@ import { getAudioFileMimeType } from '../selectors/getAudioFileMimeType';
 import { getImageFileMimeType } from '../selectors/getImageFileMimeType';
 import { AddNewTrackActions } from '../slices/AddNewTrackSlice';
 import { getValidationError } from '../selectors/getValidationError';
+import { backendUrl } from '@/shared/const/backendUrl';
 
 interface Props {
     imageFile: FormDataEntryValue | null,
@@ -87,7 +88,7 @@ export const upload = createAsyncThunk('AddNewTrack/upload', async (
     formData.append('owners_ids', JSON.stringify([]))
     try {
         dispatch(AddNewTrackActions.startLoad())
-        const response = await fetch('http://localhost:5001/tracks-private/upload', {
+        const response = await fetch(backendUrl + '/tracks-private/upload', {
             method: 'POST',
             body: formData,
             headers: {
