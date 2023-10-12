@@ -23,7 +23,7 @@ export const Image: React.FunctionComponent = memo(() => {
     const session = useSession()
     const dispatch = useAppDispatch()
     const status = useSelector(getStatus)
-    const mediumPictureSrc = session?.data?.user.picture_source.medium
+    const mediumPictureSrc = session?.data?.user?.picture_source.medium
 
     const croppedExist = useSelector(getIsAvatarEdited)
 

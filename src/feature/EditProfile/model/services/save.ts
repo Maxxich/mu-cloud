@@ -30,7 +30,7 @@ export const save = createAsyncThunk('EditProfile/save', async (
     const initialAdress = getInitialAdress(getState())
 
     const session = await getSession()
-    const accessToken = session?.backendTokens.accessToken
+    const accessToken = session?.backendTokens?.accessToken
 
 
     dispatch(EditProfileActions.validateName())

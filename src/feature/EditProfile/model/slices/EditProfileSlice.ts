@@ -48,7 +48,7 @@ export const EditProfileSlice = createSlice({
             state.validationErrors.adress.empty = (state.adress.length === 0)
                 && (state.initialAdress.length !== 0)
             state.validationErrors.adress.exceedsMaxLenght = (state.adress.length > config.adress.maxLenght)
-            state.validationErrors.adress.hasBannedSymbols = (config.adress.bannedSymbols.some((symbol) => state.adress.includes(symbol)))
+            state.validationErrors.adress.hasBannedSymbols = (config.adress.bannedSymbols.some((symbol: string) => state.adress.includes(symbol)))
         },
         setName: (state, action: PayloadAction<string>) => {
             if (state.status !== 'edit') return
@@ -126,20 +126,6 @@ export const EditProfileSlice = createSlice({
             state.requestError = action.payload
         }
     },
-    // extraReducers: (builder) => {
-    //     builder
-    //         .addCase(, (state) => {
-    //             state.error = undefined;
-    //             state.isLoading = true;
-    //         })
-    //         .addCase(, (state) => {
-    //             state.isLoading = false;
-    //         })
-    //         .addCase(, (state, action) => {
-    //             state.isLoading = false;
-    //             state.error = action.payload;
-    //         });
-    // },
 })
 
 export const { actions: EditProfileActions } = EditProfileSlice
