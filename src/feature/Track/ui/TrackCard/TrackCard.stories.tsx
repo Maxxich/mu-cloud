@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { SessionDecorator } from '@/shared/config/storybook/SessionDecorator/SessionDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { TrackCard } from './TrackCard'
 import { tracks } from '../helpers/tracks'
@@ -9,9 +8,11 @@ const meta = {
     component:  TrackCard,
     parameters: {
         layout: 'centered',
+        nextAuthMock: {
+            session: 'authenticated'
+        }
     },
     decorators: [
-        SessionDecorator,
         StoreDecorator({})
     ],
     tags: ['autodocs'],
@@ -22,7 +23,8 @@ type Story = StoryObj<typeof meta>
 
 const args: Story['args'] = {
     track: tracks[0],
-    tracks: [tracks[0]]
+    tracks: [tracks[0]],
+    isMobile: false
 }
 
 export const Playing: Story = {
@@ -68,6 +70,26 @@ export const NotSelected: Story = {
 }
 
 NotSelected.decorators = [
+    StoreDecorator({
+        player: {
+            list: [],
+            currentTrackId: undefined,
+            currentTrackTime: undefined,
+            currentTrackTimeLenght: undefined,
+            isPaused: true
+        }
+    })
+]
+
+
+export const Mobile: Story = {
+    args: {
+        ...args,
+        isMobile: true
+    },
+}
+
+Mobile.decorators = [
     StoreDecorator({
         player: {
             list: [],
