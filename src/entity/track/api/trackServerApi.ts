@@ -4,7 +4,7 @@ import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc'
 import { Track } from '../model/types/track'
 import { createTrackImagesSrc } from '../lib/createTrackImageSrc'
 
-interface Params {
+interface Params extends OptionalRecord<string, string | number> {
     page?: number, 
     limit?: number,
     search?: string
