@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { getIsPaused, getSelectedTrack } from '@/entity/player';
 import { TimeLine } from '@/feature/TimeLine';
 import cls from './TrackSlide.module.scss'
-import { Image } from './Image';
+import { Image } from './Image/Image';
 import { Info } from './Info/Info';
 import { ControlsPanel } from './ControlsPanel/ControlsPanel';
 
