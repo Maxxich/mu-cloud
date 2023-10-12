@@ -1,1 +1,0 @@
-export { AuthProtection } from './ui/AuthProtection'
