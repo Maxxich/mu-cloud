@@ -9,7 +9,7 @@ export const useRedirectIfSignedIn = () => {
     const searchParams = useSearchParams()
     useEffect(() => {
         if (session.status === 'authenticated') {
-            redirect(searchParams.get('callbackUrl') ?? '/')
+            redirect(searchParams?.get('callbackUrl') ?? '/')
         }
     }, [session, searchParams])
 }
