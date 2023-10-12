@@ -7,8 +7,10 @@ const meta = {
     component: SignIn,
     parameters: {
         layout: 'centered',
+        nextAuthMock: {
+            session: 'unknown'
+        }
     },
-    argTypes: { onClick: { action: 'clicked' } },
     tags: ['autodocs'],
 } satisfies Meta<typeof SignIn>
 

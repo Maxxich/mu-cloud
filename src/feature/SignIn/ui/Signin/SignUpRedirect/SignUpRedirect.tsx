@@ -10,7 +10,7 @@ interface ISignUpRedirectProps {
 export const SignUpRedirect: React.FunctionComponent<ISignUpRedirectProps> = (props) => {
 
     const urlSearchParams = useSearchParams()
-    const callbackUrl = urlSearchParams.get('callbackUrl')
+    const callbackUrl = urlSearchParams?.get('callbackUrl')
     
 
     const href = (
