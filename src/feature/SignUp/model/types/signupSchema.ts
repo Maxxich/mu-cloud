@@ -1,61 +1,15 @@
 export type ErrorMessage = 'Сервер недоступен' | 'Неправильные данные для входа'
 
-export type Config = {
-    email: {
-        messages: {
-            empty: string
-            notEmailFormat: string
-            hasBannedSymbols: string
-        },
-        bannedSymbols: string[]
-    },
-    name: {
-        messages: {
-            exceedsMaxLenght: string
-            empty: string
-        }
-        maxLenght: number
-    }
-    passwordConfirm: {
-        messages: {
-            empty: string
-            notEqualsToPassword: string
-        },
-    },
-    password: {
-        messages: {
-            empty: string
-            exceedsMaxLenght: string
-            exceedsMinLenght: string
-            hasBannedSymbols: string
-        },
-        bannedSymbols: string[]
-        maxLenght: number
-        minLenght: number
-    },
+type FieldsAndErrors = {
+    email: ['empty', 'notEmailFormat', 'hasBannedSymbols']
+    name: ['exceedsMaxLenght', 'empty']
+    passwordConfirm: ['empty', 'notEqualsToPassword']
+    password: ['empty', 'exceedsMaxLenght', 'exceedsMinLenght', 'hasBannedSymbols']
 }
 
-type ValidationErrors = {
-    email: {
-        empty: boolean
-        notEmailFormat: boolean
-        hasBannedSymbols: boolean
-    }
-    name: {
-        empty: boolean
-        exceedsMaxLenght: boolean
-    },
-    password: {
-        empty: boolean
-        exceedsMaxLenght: boolean 
-        exceedsMinLenght: boolean
-        hasBannedSymbols: boolean
-    },
-    passwordConfirm: {
-        empty: boolean
-        notEqualsToPassword: boolean
-    },
-}
+type ValidationErrosFlags = ErrrosFlags<FieldsAndErrors>
+
+export type Config = ErrorsConfig<ValidationErrosFlags>
 
 export interface SignupSchema {
     email: string
@@ -64,6 +18,6 @@ export interface SignupSchema {
     password: string 
     status: 'idle' | 'loading' | 'error' | 'success',
     errorMessage?: ErrorMessage
-    validationErrors: ValidationErrors
+    validationErrors: ValidationErrosFlags
     requestError?: string | undefined
 }

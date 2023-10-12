@@ -7,6 +7,9 @@ const meta = {
     component: SignUp,
     parameters: {
         layout: 'centered',
+        nextAuthMock: {
+            session: 'unknown'
+        }
     },
     argTypes: { onClick: { action: 'clicked' } },
     tags: ['autodocs'],
