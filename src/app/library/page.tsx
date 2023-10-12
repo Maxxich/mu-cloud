@@ -8,7 +8,6 @@ import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { TrackBanner } from '@/feature/Track'
 import { getIsMobile } from '@/shared/lib/helpers/getIsMobile/getIsMobile'
 import { UserHeader } from '@/widgets/UserHeader'
-import { ProtectedPage } from '@/entity/viewer'
 
 
 export default async function LibraryPage() {
@@ -47,7 +46,7 @@ export default async function LibraryPage() {
     const isMobile = getIsMobile()
 
     return (
-        <ProtectedPage>  
+        <>  
             <UserHeader
                 user={user}
                 listeningCount={listeningCount}
@@ -94,6 +93,6 @@ export default async function LibraryPage() {
                 :
                 undefined
             }
-        </ProtectedPage>
+        </>
     )
 }
