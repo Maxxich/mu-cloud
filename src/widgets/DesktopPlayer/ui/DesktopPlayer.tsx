@@ -12,6 +12,7 @@ import { ToggleRepeatStatusAction } from './Actions/ToggleRepeatStatusAction';
 import { ToggleSmallPictureAction } from './Actions/ToggleSmallPictureAction';
 import { TogglePlayerAction } from './Actions/TogglePlayerAction';
 import cls from './DesktopPlayer.module.scss'
+import { TogglePlaylistAction } from './Actions/TogglePlaylistAction';
 
 export const DesktopPlayer: React.FunctionComponent = () => {
 
@@ -46,6 +47,7 @@ export const DesktopPlayer: React.FunctionComponent = () => {
                     <ToggleRepeatStatusAction/>
                     <ShufflePlaylistAction/>
                     <TimeLine variant='desktop'/>
+                    <TogglePlaylistAction/>
                     <ToggleSmallPictureAction/>
                     <TogglePlayerAction/>
                 </div>

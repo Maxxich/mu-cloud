@@ -55,21 +55,31 @@
 .xs {
     height: var(--avatar-size-xs);
     width: var(--avatar-size-xs);
+    flex: 0 0 var(--avatar-size-xs);
 }
 
 .s {
     height: var(--avatar-size-s);
     width: var(--avatar-size-s);
+    flex: 0 0 var(--avatar-size-s);
 }
 
 .m {
     height: var(--avatar-size-m);    
-    width: var(--avatar-size-m);    
+    width: var(--avatar-size-m); 
+    flex: 0 0 var(--avatar-size-m);   
 }
 
 .l {
     height: var(--avatar-size-l);
     width: var(--avatar-size-l);
+    flex: 0 0 var(--avatar-size-l);
+}
+
+.size_40 {
+    height: 40px;
+    width: 40px;
+    flex: 0 0 40px;
 }
 
 .showAddon {

@@ -111,6 +111,7 @@ const slice = createSlice({
             state.interfaceHidden = action.payload
         },
         toggleShowPlaylist(state: PlayerSchema){
+            console.log(state.showPlaylist)
             state.showPlaylist = !state.showPlaylist
         },
         closeShowPlaylist(state: PlayerSchema){

@@ -5,6 +5,7 @@ import { MobilePlayerContorls } from '@/widgets/MobilePlayerContorls';
 import { MobilePlayer } from '@/widgets/MobilePlayer';
 import { DesktopPlayer } from '@/widgets/DesktopPlayer';
 import { DesktopVisualizer } from '@/feature/DesktopVisualizer';
+import { DesktopPlaylist } from '@/widgets/DesktopPlaylist';
 
 interface IPlayerProviderProps {
     isMobile: boolean
@@ -36,6 +37,7 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = ({
         <>
             {isOpened && <DesktopVisualizer track={selectedTrack}/>}
             <DesktopPlayer/>
+            <DesktopPlaylist/>
         </>
     )
 };
