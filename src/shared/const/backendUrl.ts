@@ -1,1 +1,1 @@
-export const backendUrl = process.env.BACKEND_URL || 'http://localhost:5001'
+export const backendUrl = process.env.BACKEND_URL || 'http://95.163.236.151:5001'
