@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { animated } from '@react-spring/web';
 import { ReactNode } from 'react'
 import { useSelector } from 'react-redux';
 import { getIsInterfaceHidden } from '@/entity/player';
@@ -6,10 +7,12 @@ import cls from './Wrapper.module.scss'
 
 interface IWrapperProps {
     children: ReactNode
+    style: any
 }
 
 export const Wrapper: React.FunctionComponent<IWrapperProps> = ({
     children,
+    style,
 }) => {
 
     const isInterfaceHidden = useSelector(getIsInterfaceHidden)
@@ -24,8 +27,8 @@ export const Wrapper: React.FunctionComponent<IWrapperProps> = ({
     )
 
     return (
-        <div className={wrapperClasses}>
+        <animated.div className={wrapperClasses} style={style}>
             {children}
-        </div>
+        </animated.div>
     )
 };

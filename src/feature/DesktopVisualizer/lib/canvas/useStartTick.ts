@@ -2,10 +2,10 @@ import { useCallback, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { getIsSmallPictureActive, getSelectedTrack } from '@/entity/player'
 import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
+import { defaultBarColor, fftSize, mobileCoefficient } from '@/entity/vizualizer'
+import { createTick } from '@/entity/vizualizer'
 import { useResizeListener } from './useResizeListener'
 import { useImageElements } from './useImageElements'
-import { createTick } from '../utils'
-import { defaultBarColor, fftSize, mobileCoefficient } from '../../config'
 
 export const useStartTick = () => {
 

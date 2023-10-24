@@ -1,31 +1,29 @@
-import { Track } from '@/entity/track'
-import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio';
-import { Canvas } from './Canvas/Canvas'
-import { Wrapper } from './Wrapper/Wrapper'
-import { Info } from './Info/Info';
-import { useOverflowY } from '../lib/useOverflowY';
-import { useHideInterface } from '../lib/useHideInterface';
+import { useTransition } from '@react-spring/web';
+import { useSelector } from 'react-redux';
+import { getIsPlayerOpened } from '@/entity/player';
+import { Track } from '@/entity/track';
+import { DesktopVisualizerComponent } from './DesktopVisualizerComponent';
 
-interface Props {
-    track: Track
+interface IDesktopVisualizerProps {
+    selectedTrack: Track
 }
 
-export const DesktopVisualizer: React.FunctionComponent<Props> = ({
-    track,
+export const DesktopVisualizer: React.FunctionComponent<IDesktopVisualizerProps> = ({
+    selectedTrack
 }) => {
 
-    const audio = useAudio()
+    const isOpened = useSelector(getIsPlayerOpened)
 
-    useHideInterface()
-    useOverflowY()
-
-    if (!audio) return null
-
-    return (
-        <Wrapper>
-            <Canvas/>
-            <Info track={track}/>
-        </Wrapper>
-    );
-};
-
+    const transition = useTransition(isOpened, {
+        from: { opacity: 0, y: window.innerHeight * 2 },
+        enter: { opacity: 1, y: 0 },
+        leave: { opacity: 0, y: window.innerHeight * 2 },
+        config: {
+            duration: 300,
+        },
+    })
+    
+    return transition((style, item) => 
+        item ? <DesktopVisualizerComponent style={style} track={selectedTrack}/> : null
+    )
+}

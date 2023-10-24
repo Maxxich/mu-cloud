@@ -1,14 +1,17 @@
 import { useEffect, useRef } from 'react'
-import { playerActions } from '@/entity/player'
+import { useSelector } from 'react-redux'
+import { getPlaylistOpened, playerActions } from '@/entity/player'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 
 export const useHideInterface = () => {
 
     const dispatch = useAppDispatch()
     const timerRef = useRef<any>()
+    const playlistOpened = useSelector(getPlaylistOpened)
 
     useEffect(() => {
         const timerId = setTimeout(() => {
+            if (playlistOpened) return
             dispatch(playerActions.setInterfaceHidden(true))
         }, 2500)
         timerRef.current = timerId
@@ -16,6 +19,7 @@ export const useHideInterface = () => {
             clearTimeout(timerRef.current)
             dispatch(playerActions.setInterfaceHidden(false))
             const timerId = setTimeout(() => {
+                if (playlistOpened) return
                 dispatch(playerActions.setInterfaceHidden(true))
             }, 2500)
             timerRef.current = timerId
