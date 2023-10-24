@@ -1,11 +1,11 @@
 'use client'
+
 import { useSelector } from 'react-redux';
 import { getIsPlayerOpened, getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
 import { MobilePlayerContorls } from '@/widgets/MobilePlayerContorls';
 import { MobilePlayer } from '@/widgets/MobilePlayer';
-import { DesktopPlayer } from '@/widgets/DesktopPlayer';
+import { DesktopPlayer, PlaylistWhileOpenedVisualizer } from '@/widgets/DesktopPlayer';
 import { DesktopVisualizer } from '@/feature/DesktopVisualizer';
-import { DesktopPlaylist } from '@/widgets/DesktopPlaylist';
 
 interface IPlayerProviderProps {
     isMobile: boolean
@@ -19,6 +19,8 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = ({
 
     const isOpened = useSelector(getIsPlayerOpened)
 
+
+
     useObserveChangeCurrentTrack()
     useObserveTogglePause()
     useObserveChangeRepeatMode()
@@ -29,15 +31,15 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = ({
     if (isMobile) return (
         <>
             <MobilePlayerContorls selectedTrack={selectedTrack}/>
-            {isOpened && <MobilePlayer/>}
+            <MobilePlayer/>
         </>
     )
 
     return (
         <>
-            {isOpened && <DesktopVisualizer track={selectedTrack}/>}
+            <DesktopVisualizer selectedTrack={selectedTrack}/>
+            <PlaylistWhileOpenedVisualizer/>
             <DesktopPlayer/>
-            <DesktopPlaylist/>
         </>
     )
 };
