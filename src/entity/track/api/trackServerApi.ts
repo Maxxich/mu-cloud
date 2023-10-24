@@ -66,7 +66,7 @@ async function getListeningCountById(id: number): Promise<number> {
 
 async function getOneById(id: number): Promise<Track> {
     
-    const res = await fetch(`http://localhost:5001/tracks/by-id/${id}`, {
+    const res = await fetch(backendUrl + `/tracks/by-id/${id}`, {
         next: { 
             revalidate: 1,
         },

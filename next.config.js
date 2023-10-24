@@ -8,6 +8,12 @@ const nextConfig = {
               port: '5001',
               pathname: '/**',
             },
+            {
+              protocol: 'http',
+              hostname: 'localhost',
+              port: '5001',
+              pathname: '/**',
+            },
           ],
     },
     webpack: (config) => {

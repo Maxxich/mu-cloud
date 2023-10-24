@@ -1,6 +1,7 @@
 import { getSession } from 'next-auth/react'
 import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { backendUrl } from '@/shared/const/backendUrl';
 import { getName } from '../selectors/getName';
 import { getNameSecondary } from '../selectors/getNameSecondary';
 import { getAudioFileMimeType } from '../selectors/getAudioFileMimeType';
@@ -81,7 +82,7 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
     formData.append('owners_ids', JSON.stringify([]))
     try {
         dispatch(AddNewTrackSeparateImageLoadingActions.startLoad())
-        const response = await fetch('http://localhost:5001/tracks-private/upload', {
+        const response = await fetch(backendUrl + '/tracks-private/upload', {
             method: 'POST',
             body: formData,
             headers: {
