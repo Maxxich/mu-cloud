@@ -38,7 +38,7 @@ export default async function SearchTracks({
                 {search && tracks.tracks.length 
                     ? 
                     <ItemsSection>
-                        <ItemsTitle title='Пользователи'/>
+                        <ItemsTitle title='Треки'/>
                         <TrackList 
                             tracks={tracks.tracks}
                             isMobile={isMobile}
