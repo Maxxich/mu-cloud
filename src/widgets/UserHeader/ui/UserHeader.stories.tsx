@@ -8,6 +8,9 @@ const meta = {
     component: UserHeader,
     parameters: {
         layout: 'centered',
+        loki: {
+            skip: true
+        }
     },
     decorators: [
         StoreDecorator({})
