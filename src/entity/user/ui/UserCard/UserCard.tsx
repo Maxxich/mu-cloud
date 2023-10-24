@@ -6,8 +6,8 @@ import { memo } from 'react'
 import { Image, ImageSize } from '@/shared/ui/Image';
 import cls from './UserCard.module.scss'
 
-type Variant = 'column' | 'row'
-type Width = 'full' | 'adaptive' | 'fixed'
+export type Variant = 'column' | 'row'
+export type Width = 'full' | 'adaptive' | 'fixed'
 
 type ColumnProps =  {
     href: Url
@@ -32,7 +32,7 @@ const mapVariantToSize: Record<Variant, ImageSize> = {
     'row': 's' 
 }
 
-const mapWidthToClass: Record<Width, string> = {
+export const mapWidthToClass: Record<Width, string> = {
     'full': cls.fullwidth,
     'adaptive': cls.adaptive,
     'fixed': ''
