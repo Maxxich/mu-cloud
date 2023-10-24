@@ -1,1 +1,1 @@
-export const frontUrl = process.env.FRONTEND_URL || 'http://localhost:3000'
+export const frontUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'

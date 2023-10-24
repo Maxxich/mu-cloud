@@ -117,7 +117,7 @@ Cлои (layers): `feature`, `entity`, `page`
 - [UserHeader](/src/widgets/UserHeader)
 
 
-## Evironment переменные (.env)
+## Evironment переменные (.env.local)
 
 - NEXTAUTH_URL
 - NEXTAUTH_SECRET
