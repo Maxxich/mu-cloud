@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit'
 import { playerReducer } from '@/entity/player';
-import { viewerReducer } from '@/entity/viewer';
 import { rtkApi } from '@/shared/api';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './ReducerManager';
@@ -13,7 +12,6 @@ export function createReduxStore(
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         player: playerReducer,
-        viewer: viewerReducer,
         [rtkApi.reducerPath]: rtkApi.reducer
     };
 
