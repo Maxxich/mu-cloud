@@ -2,9 +2,9 @@
 import { ReactNode } from 'react';
 import { render } from '@testing-library/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
-import { StateSchema, StoreProvider } from '@/global/providers/StoreProvider';
-import { Theme } from '@/shared/const/theme';
 import { ThemeProvider } from '@/global/providers/ThemeProvider';
+import { StateSchema, StoreProvider } from '@/global/providers/StoreProvider';
+import { Theme } from '@/global/providers/ThemeProvider/Theme';
 import '@/global/styles/index.scss';
 
 export interface componentRenderOptions {
