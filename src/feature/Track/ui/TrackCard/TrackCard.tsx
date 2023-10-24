@@ -16,10 +16,11 @@ interface ITrackProps {
     isMobile: boolean
     showIsDeleted?: boolean
     width?: Width
+    activeInMenu?: boolean
 }
 
 export const TrackCard: React.FunctionComponent<ITrackProps> = ({
-    track, tracks, width, isMobile, showIsDeleted
+    track, tracks, width, isMobile, showIsDeleted, activeInMenu
 }) => {
 
     const isPaused = useSelector(getIsPaused)
@@ -74,6 +75,7 @@ export const TrackCard: React.FunctionComponent<ITrackProps> = ({
             secondary_name={track.name_secondary}
             width={width}
             showIsDeleted={showIsDeleted}
+            activeInMenu={activeInMenu}
         />
     )
 };

@@ -19,8 +19,8 @@ interface ITrackCard {
   }
   
 export interface IDesktopCard extends ITrackCard {
-
-  }
+  activeInMenu?: boolean
+}
   
 export interface IMobileCard extends ITrackCard {
-  }
+}

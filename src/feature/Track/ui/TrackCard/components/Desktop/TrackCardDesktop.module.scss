@@ -5,6 +5,7 @@
     align-items: center;
     padding: 7px;
     transition: all 0.3s ease 0s;
+    border-radius: 5px;
 }
 
 .deleted {
@@ -94,4 +95,8 @@
 
 .hidden {
     display: none;
+}
+
+.activeInMenu {
+    background-color: var(--tap-background);
 }

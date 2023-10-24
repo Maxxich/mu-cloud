@@ -9,6 +9,9 @@ const meta = {
         layout: 'centered',
         nextAuthMock: {
             session: 'authenticated'
+        },
+        loki: {
+            skip: true
         }
     },
     tags: ['autodocs'],

@@ -16,7 +16,7 @@ import { mapWidthToClass } from '../../../helpers/mapPropToClass';
 export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
     author_href, primary_name, image_src, id, track_href, secondary_name,
     duration, author, track_src, onToggleTrack, isSelected, isPaused,
-    width, showIsDeleted
+    width, showIsDeleted, activeInMenu
 }) => {
   
     const onImageClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -27,7 +27,8 @@ export const TrackCardDesktop: React.FunctionComponent<IDesktopCard> = memo(({
     const [isDeleted, setIsDeleted] = useState(false)
 
     const mods: Mods = {
-        [cls.deleted]: isDeleted  && showIsDeleted
+        [cls.deleted]: isDeleted  && showIsDeleted,
+        [cls.activeInMenu]: activeInMenu
     }
 
     const classes = classNames(
