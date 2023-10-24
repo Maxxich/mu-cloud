@@ -1,0 +1,29 @@
+.container {
+    padding: 0 15px 10px;
+    width: 400px;
+    max-height: 60vh;
+    background: var(--bg-panel-color-trasparent);
+    position: absolute;
+    right: 0;
+    bottom: 65px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #000;
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: scroll;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.tracks_container {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 0 0 calc(100% - 20px);
+    padding: 0 6px 0 0 ;
+    margin: 0 -6px 0 0;
+}

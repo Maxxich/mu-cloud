@@ -12,7 +12,7 @@ import { ToggleRepeatStatusAction } from './Actions/ToggleRepeatStatusAction';
 import { ToggleSmallPictureAction } from './Actions/ToggleSmallPictureAction';
 import { TogglePlayerAction } from './Actions/TogglePlayerAction';
 import cls from './DesktopPlayer.module.scss'
-import { TogglePlaylistAction } from './Actions/TogglePlaylistAction';
+import { TogglePlaylistAction } from './Actions/TogglePlaylistAction/TogglePlaylistAction';
 
 export const DesktopPlayer: React.FunctionComponent = () => {
 

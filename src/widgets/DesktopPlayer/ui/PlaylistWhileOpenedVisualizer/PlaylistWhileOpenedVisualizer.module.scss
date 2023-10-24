@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    background: rgba(0 0 0 / 80%);
+    z-index: 0;
+    padding: 0 16px;
+}
+
+.inner {
+    width: 100%;
+    height: calc(100% - 180px);
+    max-width: 1280px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0 auto;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.tracks_scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 16px;
+    width: 100%;
+}
+
+.title_container {
+    padding: 0 22px;
+    width: 100%;
+    flex: 0 0 auto;
+}
