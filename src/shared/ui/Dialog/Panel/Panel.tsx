@@ -10,8 +10,18 @@ export const Panel: PanelComponent = ({
     ...rest
 }) => {
     return (
+        // <Transition
+        //     as={Fragment}
+        //     enter={cls.enter}
+        //     enterFrom={cls.enterFrom}
+        //     enterTo={cls.enterTo}
+        //     leave={cls.leave}
+        //     leaveFrom={cls.leaveFrom}
+        //     leaveTo={cls.leaveTo}
+        // >
         <HeadlessDialog.Panel {...rest} className={cls.panel}>
             {children}
         </HeadlessDialog.Panel>
+        // </Transition>
     );
 };

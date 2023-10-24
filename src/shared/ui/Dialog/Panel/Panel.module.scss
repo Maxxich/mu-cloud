@@ -15,3 +15,27 @@
     gap: 30px;
     max-width: 80vw;
 }
+
+.enter {
+    transition: all 0.3s ease 0s;
+}
+
+.enterFrom {
+    opacity: 0;
+}
+
+.enterTo {
+    opacity: 1;
+}
+
+.leave {
+    transition: all 0.3s ease 0s;
+}
+
+.leaveFrom {
+    opacity: 1;
+}
+
+.leaveTo {
+    opacity: 0;
+}
