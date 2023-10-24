@@ -18,6 +18,9 @@ const meta = {
         ],
         nextAuthMock: {
             session: 'authenticated'
+        },
+        loki: {
+            skip: true
         }
     },
 } satisfies Meta<typeof EditProfile>
