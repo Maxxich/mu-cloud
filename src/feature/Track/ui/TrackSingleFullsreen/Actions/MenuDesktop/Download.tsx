@@ -28,7 +28,6 @@ export const Download: React.FunctionComponent<IDownloadFeatureProps> = ({
             component={'button'}
             icon={<IconDownload/>}
             onClick={onClick}
-            isMobile={false}
         >
             Скачать
         </Menu.Item>

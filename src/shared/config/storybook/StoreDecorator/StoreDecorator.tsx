@@ -6,7 +6,6 @@ import { rtkApi } from '@/shared/api';
 import { playerReducer } from '@/entity/player';
 import { signinReducer } from '@/feature/SignIn';
 import { signupReducer } from '@/feature/SignUp';
-import { viewerReducer } from '@/entity/viewer';
 
 const defaultAsyncReducers: ReducersList = {
     addNewTrack: AddNewTrackReducer,
@@ -14,7 +13,6 @@ const defaultAsyncReducers: ReducersList = {
     player: playerReducer,
     signin: signinReducer,
     signup: signupReducer,
-    viewer: viewerReducer
 };
 
 export const StoreDecorator =

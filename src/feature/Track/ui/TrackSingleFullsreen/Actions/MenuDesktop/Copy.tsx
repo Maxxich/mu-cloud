@@ -30,7 +30,6 @@ export const Copy: React.FunctionComponent<ILikeDesktopProps> = ({
             component={'button'}
             icon={<IconCopy/>}
             onClick={onClick}
-            isMobile={false}
         >
             Копировать ссылку
         </Menu.Item>

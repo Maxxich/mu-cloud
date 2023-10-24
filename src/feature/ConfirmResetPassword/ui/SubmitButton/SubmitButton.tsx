@@ -24,7 +24,7 @@ export const SubmitButton: React.FunctionComponent = () => {
         if (status === 'success') {
             router.replace('/signin')
         }
-    }, [status])
+    }, [status, router])
 
     return (
         <Button 

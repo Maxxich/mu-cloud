@@ -4,7 +4,6 @@ import { TrackCard } from '../TrackCard/TrackCard';
 
 interface ISlickProps {
     tracks: Track[]
-    marginBottom?: boolean
     isMobile: boolean
     className?: string
     showIsDeleted?: boolean
@@ -14,13 +13,12 @@ interface ISlickProps {
 export const TrackBanner: React.FunctionComponent<ISlickProps> = ({
     tracks,
     className,
-    marginBottom,
     isMobile,
     showIsDeleted
 }) => {
     
     return (
-        <BannerSwiper isMobile={isMobile}  rows={3} marginBottom={marginBottom} className={className}>
+        <BannerSwiper isMobile={isMobile}  rows={3} className={className}>
             {tracks.map(t => (
                 <TrackCard 
                     track={t} 

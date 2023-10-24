@@ -6,10 +6,12 @@ import { getEmail } from '../../model/selectors/getEmail';
 import { ResetPasswordActions } from '../../model/slices/ResetPasswordSlice';
 import { getStatus } from '../../model/selectors/getStatus';
 
-export const EmailInput: React.FunctionComponent = ({
-    className
-} : {
+interface EmailInputProps {
     className?: string
+}
+
+export const EmailInput: React.FunctionComponent<EmailInputProps> = ({
+    className
 }) => {
 
     const email = useSelector(getEmail)

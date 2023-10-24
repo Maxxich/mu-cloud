@@ -1,2 +1,2 @@
 export { EditProfile } from './ui/EditProfile/EditProfile'
-export { EditProfileSchema } from './model/types/EditProfileSchema'
+export type { EditProfileSchema } from './model/types/EditProfileSchema'

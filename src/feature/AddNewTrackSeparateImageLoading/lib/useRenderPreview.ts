@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { renderForPreview } from '@/entity/vizualizer/utils/renderForPreview'
 import { useGetFile } from '@/entity/fileStorage'
 import { getColor } from '../model/selectors/getColor'
@@ -23,7 +23,7 @@ export const useRenderPreview = () => {
     const wideImageFile = getFile(FormDataEntries.IMAGE_CROPPED_WIDE_FILE) as File | undefined
     const squareImageFile = getFile(FormDataEntries.IMAGE_CROPPED_SQUARE_FILE) as File | undefined
 
-    const render = () => {
+    const render = useCallback(() => {
         renderForPreview({
             canvas: canvasRef.current!,
             color,
@@ -32,7 +32,8 @@ export const useRenderPreview = () => {
             squareImage: imageSquareRef.current,
             isSmallPictureActive: isSmallPictureActive ?? true,
         })
-    }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [color, isSmallPictureActive, squareImageFile, wideImageFile])
 
     useEffect(() => {
         if (wideImageFile) {

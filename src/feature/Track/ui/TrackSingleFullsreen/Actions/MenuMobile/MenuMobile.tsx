@@ -1,8 +1,8 @@
 'use client'
 
-import { useCallback, useState } from 'react';
+import { useCallback, useState, SyntheticEvent } from 'react';
 import { useSession } from 'next-auth/react';
-import { CloseMenuEvent, MobileMenu as MobileMenuComp, OpenMenuEvent } from '@/shared/ui/MobileMenu';
+import { MobileMenu as MobileMenuComp } from '@/shared/ui/MobileMenu';
 import IconMore from '@/shared/assets/svg/More.svg' 
 import { backendUrl } from '@/shared/const/backendUrl';
 import { IconButton } from '@/shared/ui/IconButton';
@@ -21,12 +21,12 @@ export const MobileMenu: React.FunctionComponent<ISignedProps> = ({
 }) => {
     const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
 
-    const onCloseMenu = useCallback((e: CloseMenuEvent) => {
+    const onCloseMenu = useCallback((e: SyntheticEvent<HTMLDivElement | HTMLButtonElement | HTMLAnchorElement>) => {
         e.stopPropagation()
         setMenuOpen(false)
     }, [setMenuOpen])
 
-    const onOpenMenu = useCallback((e: OpenMenuEvent) => {
+    const onOpenMenu = useCallback((e: SyntheticEvent<HTMLButtonElement>) => {
         e.stopPropagation()
         setMenuOpen(true)
     }, [setMenuOpen])

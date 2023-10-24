@@ -19,6 +19,7 @@ export const useCanvasSizes = (canvasRef: RefObject<HTMLCanvasElement>) => {
             //eslint-disable-next-line react-hooks/exhaustive-deps
             window.removeEventListener('resize', resizeCb)
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return {

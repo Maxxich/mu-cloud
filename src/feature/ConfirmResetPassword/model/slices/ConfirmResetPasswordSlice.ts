@@ -54,7 +54,7 @@ export const ConfirmResetPasswordSlice = createSlice({
             }
 
             
-            state.validationErrors.password.hasBannedSymbols = (config.password.bannedSymbols.some((symbol) => state.password.includes(symbol)))
+            state.validationErrors.password.hasBannedSymbols = (config.password.bannedSymbols.some((symbol: string) => state.password.includes(symbol)))
         },
 
         validatePasswordConfirm: (state, action: PayloadAction<string | undefined>) => {

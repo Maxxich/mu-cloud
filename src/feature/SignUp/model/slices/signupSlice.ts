@@ -73,7 +73,7 @@ export const signupSlice = createSlice({
             }
 
             
-            state.validationErrors.password.hasBannedSymbols = (config.password.bannedSymbols.some((symbol) => state.password.includes(symbol)))
+            state.validationErrors.password.hasBannedSymbols = (config.password.bannedSymbols.some((symbol: string) => state.password.includes(symbol)))
         },
 
         validatePasswordConfirm: (state, action: PayloadAction<string | undefined>) => {
@@ -121,7 +121,7 @@ export const signupSlice = createSlice({
                 state.validationErrors.email.empty = false
             }
 
-            state.validationErrors.email.hasBannedSymbols = (config.email.bannedSymbols.some((symbol) => state.email.includes(symbol)))
+            state.validationErrors.email.hasBannedSymbols = (config.email.bannedSymbols.some((symbol: string) => state.email.includes(symbol)))
         },
         validateEmailOnSubmit: (state, action: PayloadAction<string | undefined>) => {
             const email = action.payload

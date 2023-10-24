@@ -2,7 +2,7 @@
 import '@/global/styles/index.scss'
 import { Decorator } from '@storybook/react'
 import { ThemeProvider } from '@/global/providers/ThemeProvider'
-import { Theme } from '@/shared/const/theme'
+import { Theme } from '@/global/providers/ThemeProvider/Theme'
 
 export const ThemeDecorator = (theme: Theme) => {
     const decorator: Decorator = (story) => (

@@ -6,7 +6,7 @@ import { getPassword, getPasswordConfirm } from '../selectors/fieldSelectors';
 import { getValidationError } from '../selectors/getValidationError';
 
 
-export const confirm = createAsyncThunk<void, void>('confirmResetPassword/confirm', async (_, thunkApi) => {
+export const confirm = createAsyncThunk('confirmResetPassword/confirm', async (_, thunkApi) => {
     const { dispatch, rejectWithValue, getState } = thunkApi;
 
     // @ts-ignore

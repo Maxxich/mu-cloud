@@ -9,7 +9,7 @@ import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { DynamicModuleLoader, ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
 import { FileManager } from '@/entity/fileStorage';
 import cls from './EditProfile.module.scss'
-import { Image } from '../Image/Image';
+import { Image as ImageElement } from '../Image/Image';
 import { Name } from '../Name/Name';
 import { Adress } from '../Adress/Adress';
 import { EditButton } from '../Buttons/EditButton';
@@ -66,7 +66,7 @@ export const EditProfile = memo((props: EditProfileProps) => {
                 Context={FilesContext}
             >
                 <Form margin='auto' className={classNames(cls.container, className)}>
-                    <Image/>
+                    <ImageElement/>
                     <Name/>
                     <Adress/>
                     <div className={cls.buttons}>

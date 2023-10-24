@@ -34,7 +34,6 @@ export const Delete: React.FunctionComponent<ILikeDesktopProps> = ({
             component={'button'}
             icon={<IconTrash/>}
             onClick={onClick}
-            isMobile={false}
             danger
         >
             Удалить

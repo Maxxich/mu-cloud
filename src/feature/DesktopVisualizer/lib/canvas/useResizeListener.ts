@@ -35,6 +35,7 @@ export const useResizeListener = ({
         window.addEventListener('resize', resizeHandler)
         window.addEventListener('keydown', handleKeydown);
         return () => {
+            //eslint-disable-next-line
             if (animationIdRef?.current) cancelAnimationFrame(animationIdRef.current) 
             window.removeEventListener('resize', resizeHandler)
             window.removeEventListener('keydown',handleKeydown);

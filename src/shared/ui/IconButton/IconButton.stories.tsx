@@ -60,7 +60,7 @@ export const WithTooltip: Story = {
     }
 }
 
-export const willRotate: Story = {
+export const WillRotate: Story = {
     args: {
         ...args,
         willRotate: true
