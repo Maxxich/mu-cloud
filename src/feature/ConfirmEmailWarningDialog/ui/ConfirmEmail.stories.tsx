@@ -7,6 +7,9 @@ const meta = {
     parameters: {
         nextAuthMock: {
             session: 'authenticatedNotConfirmed'
+        },
+        loki: {
+            skip: true
         }
     }
 } satisfies Meta<typeof ConfirmEmailWarningDialog>
