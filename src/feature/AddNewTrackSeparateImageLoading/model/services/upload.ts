@@ -6,6 +6,7 @@ import { getNameSecondary } from '../selectors/getNameSecondary';
 import { getAudioFileMimeType } from '../selectors/getAudioFileMimeType';
 import { getValidationError } from '../selectors/getValidationError';
 import { AddNewTrackSeparateImageLoadingActions } from '../slices/AddNewTrackSeparateImageLoading';
+import { getColor } from '../selectors/getColor';
 
 interface Props {
     audioFile: FormDataEntryValue | null,
@@ -26,6 +27,8 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
     const name_secondary = getNameSecondary(getState())
     // @ts-ignore
     const audioFileMimeType = getAudioFileMimeType(getState())
+    // @ts-ignore
+    const color = getColor(getState())
 
     const session = await getSession()
 
@@ -69,6 +72,7 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
 
     const formData = new FormData()
     formData.append('name', name!)
+    if (color) formData.append('color', color)
     formData.append('name_secondary', name_secondary || '')
     formData.append('audio', audioFile)
     formData.append('squarePicture', imageCroppedSquareFile)

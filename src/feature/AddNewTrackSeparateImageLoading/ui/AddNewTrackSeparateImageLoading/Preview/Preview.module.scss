@@ -1,0 +1,14 @@
+div.box {
+    max-width: 634px;
+    width: 100%;
+    height: 461px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+
+    @media (width <= 971px) {
+        height: fit-content;
+    }
+}

@@ -31,7 +31,8 @@ const initialState: AddNewTrackSeparateImageLoadingSchema = {
         }
     },
     tab: 'form',
-    status: 'idle'
+    status: 'idle',
+    isSmallPictureActive: true,
 }
 
 export const AddNewTrackSeparateImageLoadingSlice = createSlice({
@@ -143,6 +144,9 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
         setImageCroppedSquareFileMimeType: (state, action: PayloadAction<string | undefined>) => {
             state.imageCroppedSquareMimeType = action.payload
         },
+        setColor: (state, action: PayloadAction<string>) => {
+            state.color = action.payload
+        },
         validateImageCroppedSquareFileMimeType: (state, action: PayloadAction<string | undefined>) => {
             const value = action.payload
             if (!value) {
@@ -160,6 +164,9 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
         },
         setIdle: (state) => {
             state.status = 'idle'
+        },
+        toggleIsSmallPictureActive: (state) => {
+            state.isSmallPictureActive = !state.isSmallPictureActive
         },
         reset: (state) => {
             state.name = ''

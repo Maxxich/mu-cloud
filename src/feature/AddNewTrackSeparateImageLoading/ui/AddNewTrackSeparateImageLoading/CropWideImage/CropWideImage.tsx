@@ -47,7 +47,6 @@ export const CropWideImage: React.FunctionComponent = () => {
         dispatch(AddNewTrackSeparateImageLoadingActions.setTab('form'))
     }, [setImageCroppedWideFile, dispatch])
 
-
     return (
         <CropImage
             imageFileURL={image ? URL.createObjectURL(image) : undefined}

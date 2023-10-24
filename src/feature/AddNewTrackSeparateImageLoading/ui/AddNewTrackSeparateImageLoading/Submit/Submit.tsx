@@ -27,7 +27,8 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
             FormDataEntries.AUDIO_FILE,
             FormDataEntries.IMAGE_CROPPED_SQUARE_FILE,
             FormDataEntries.IMAGE_CROPPED_WIDE_FILE,
-            FormDataEntries.IMAGE_FILE
+            FormDataEntries.IMAGE_SQUARE_FILE,
+            FormDataEntries.IMAGE_WIDE_FILE
         ],
     })
 
@@ -35,7 +36,6 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
         e.preventDefault()
         dispatch(upload({
             audioFile: getFile(FormDataEntries.AUDIO_FILE),
-            imageFile: getFile(FormDataEntries.IMAGE_FILE),
             imageCroppedSquareFile: getFile(FormDataEntries.IMAGE_CROPPED_SQUARE_FILE),
             imageCroppedWideFile: getFile(FormDataEntries.IMAGE_CROPPED_WIDE_FILE),
             deleteAllFiles,

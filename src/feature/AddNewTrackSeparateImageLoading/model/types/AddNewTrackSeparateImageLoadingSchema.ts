@@ -18,15 +18,18 @@ export type Tab = 'form' | 'cropWideImage' | 'cropSquareImage'
 export interface AddNewTrackSeparateImageLoadingSchema {
     name?: string
     name_secondary?: string
+    color?: string,
 
     imageSquareFileMimeType?: string | undefined
     imageCroppedSquareMimeType?: string | undefined
 
     imageCroppedWideMimeType?: string | undefined
     imageWideFileMimeType?: string | undefined
-
+    
     audioFileMimeType?: string | undefined
     validationErrors: ValidationErrosFlags
     tab: Tab
-    status: 'idle' | 'loading'
+    status: 'idle' | 'loading',
+
+    isSmallPictureActive: boolean
 }

@@ -56,13 +56,16 @@ export const ImageSquareInput: React.FunctionComponent<IImageInputProps> = memo(
     }, [deleteImageFile, deleteImageCroppedSquareFile])
 
 
+    const imageFile = getImageFile() as File | undefined
+    const imageFileName = imageFile?.name
+
     return (
         <FileInput
             label='Квадратное изображение'
             onChangeFileSuccess={onChangeFileSuccess}
             onChangeFileUndefined={onChangeFileUndefined}
             placeholder='Выбрать изображение...'
-            initialFile={getImageFile() as File}
+            initialFileName={imageFileName}
             disabled={status === 'loading'}
             isError={isError}
             className={className}

@@ -4,6 +4,6 @@ import { config } from '../config/config';
 
 export const getValidationError = (state: StateSchema): string | undefined => {
 
-    const validationErrors = state?.addNewTrack?.validationErrors
+    const validationErrors = state?.addNewTrackSeparateImageLoading?.validationErrors
     return getFieldValidationErrorMessage(validationErrors, config)
 }

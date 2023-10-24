@@ -55,6 +55,9 @@ export const ImageWideInput: React.FunctionComponent<IImageInputProps> = memo(({
         deleteImageCroppedWideFile()
     }, [deleteImageFile, deleteImageCroppedWideFile])
 
+    const imageFile = getImageFile() as File | undefined
+    const imageFileName = imageFile?.name
+
 
     return (
         <FileInput
@@ -62,7 +65,7 @@ export const ImageWideInput: React.FunctionComponent<IImageInputProps> = memo(({
             onChangeFileSuccess={onChangeFileSuccess}
             onChangeFileUndefined={onChangeFileUndefined}
             placeholder='Выбрать изображение...'
-            initialFile={getImageFile() as File}
+            initialFileName={imageFileName}
             disabled={status === 'loading'}
             isError={isError}
             className={className}
