@@ -1,23 +1,23 @@
+import { useEffect } from 'react'
+import { useTransition } from '@react-spring/web';
 import { useSelector } from 'react-redux';
-import { useCallback, useEffect, useState } from 'react'
-import { getIsPlayerOpened, playerActions } from '@/entity/player'
-import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
-import cls from './MobilePlayer.module.scss'
-import { ActiveSlide, Carousel } from './Carousel/Carousel';
-import { BottomPanel } from './BottomPanel/BottomPanel';
-import { CloseButton } from './CloseButton/CloseButton';
-import { Backlight } from './Backlight/Backlight';
-
-interface IPlayerExpandedProps {
-    
+import { getIsPlayerOpened } from '@/entity/player';
+import { MobilePlayerComponent } from './MobilePlayerComponent';
+interface IMobilePlayerProps {
 }
 
-export const MobilePlayer: React.FunctionComponent<IPlayerExpandedProps> = (props) => {
+export const MobilePlayer: React.FunctionComponent<IMobilePlayerProps> = (props) => {
 
     const isOpened = useSelector(getIsPlayerOpened)
-    const dispatch = useAppDispatch()
 
-    const [activeSlide, setActiveSlide] = useState<ActiveSlide>('track')
+    const transition = useTransition(isOpened, {
+        from: { opacity: 0, y: window.innerHeight * 2 },
+        enter: { opacity: 1, y: 0 },
+        leave: { opacity: 0, y: window.innerHeight * 2 },
+        config: {
+            duration: 500,
+        },
+    })
 
     useEffect(() => {
         if (isOpened) {
@@ -27,20 +27,7 @@ export const MobilePlayer: React.FunctionComponent<IPlayerExpandedProps> = (prop
         }
     }, [isOpened])
 
-    const onBackLightClick = useCallback(() => {
-        dispatch(playerActions.closePlayer())
-    }, [dispatch])
-
-    return (
-        <div className={cls.wrapper}>
-            <div className={cls.blackout} onClick={onBackLightClick}/>
-            <div className={cls.container} onClick={e => e.stopPropagation()}>
-                <Backlight/>
-                <CloseButton/>
-                <Carousel activeSlide={activeSlide}/>
-                <BottomPanel setActiveSlide={setActiveSlide} activeSlide={activeSlide}/>
-            </div>
-        </div>
+    return transition((style, item) => 
+        item ? <MobilePlayerComponent style={style}/> : null
     )
 };
-
