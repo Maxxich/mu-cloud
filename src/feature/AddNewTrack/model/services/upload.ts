@@ -1,13 +1,13 @@
 import { getSession } from 'next-auth/react'
 import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { backendUrl } from '@/shared/const/backendUrl';
 import { getName } from '../selectors/getName';
 import { getNameSecondary } from '../selectors/getNameSecondary';
 import { getAudioFileMimeType } from '../selectors/getAudioFileMimeType';
 import { getImageFileMimeType } from '../selectors/getImageFileMimeType';
 import { AddNewTrackActions } from '../slices/AddNewTrackSlice';
 import { getValidationError } from '../selectors/getValidationError';
-import { backendUrl } from '@/shared/const/backendUrl';
 
 interface Props {
     imageFile: FormDataEntryValue | null,

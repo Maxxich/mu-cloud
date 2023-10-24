@@ -40,6 +40,8 @@ export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
         deleteFile()
     }, [deleteFile])
 
+    const file = getFile() as File | undefined
+    const fileName = file?.name
 
     return (
         <FileInput
@@ -48,7 +50,7 @@ export const AudioInput: React.FunctionComponent<IAudioInputProps> = memo(({
             onChangeFileUndefined={onChangeFileUndefined}
             disabled={status === 'loading'}
             placeholder='Выбрать аудиофайл...'
-            initialFile={getFile() as File}
+            initialFileName={fileName}
             isError={isError}
             className={className}
         />
