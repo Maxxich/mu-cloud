@@ -1,3 +1,4 @@
+import { useTransition, animated } from '@react-spring/web';
 import { SyntheticEvent, useCallback } from 'react';
 import { createPortal } from 'react-dom'
 import { default as NextLink } from 'next/link'
@@ -30,15 +31,25 @@ const MenuRoot: React.FunctionComponent<IMenuProps> = ({
         event.stopPropagation()
     }, [])
     
-    if (!isOpen) return null
+    
+    const transition = useTransition(isOpen, {
+        from: { opacity: 0, y: window.innerHeight / 2 },
+        enter: { opacity: 1, y: 0 },
+        leave: { opacity: 0, y: window.innerHeight / 2 },
+        config: {
+            duration: 150,
+        },
+    })
 
-    return createPortal(
-        <div className={cls.menu_bg} onClick={onBackgroundClick}>
-            <div className={cls.menu_container} onClick={onContainerClick}>
-                {children}
-            </div>
-        </div>,
-        document.getElementById('menu') ?? document.body
+    return transition((style, item) => 
+        item ? createPortal(
+            <animated.div className={cls.menu_bg} onClick={onBackgroundClick} style={{ opacity: style.opacity }}>
+                <animated.div className={cls.menu_container} onClick={onContainerClick} style={style}>
+                    {children}
+                </animated.div>
+            </animated.div>,
+            document.getElementById('menu') ?? document.body
+        ) : null
     )
 };
 
