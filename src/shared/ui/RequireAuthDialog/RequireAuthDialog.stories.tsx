@@ -16,6 +16,11 @@ const meta = {
             />
         )
     },
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 } satisfies Meta<typeof RequireAuthDialog>
 
 export default meta
