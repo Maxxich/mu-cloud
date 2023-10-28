@@ -10,7 +10,7 @@ const nextConfig = {
             },
         ],
         domains: [
-            process.env.NEXT_PUBLIC_BACKEND_DOMAIN
+            'mucloud.onrender.com'
         ]
     },
     webpack: (config) => {
