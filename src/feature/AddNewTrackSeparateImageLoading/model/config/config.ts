@@ -8,6 +8,11 @@ export const config: Config = {
         },
         maxLenght: 15
     },
+    upload_code: {
+        messages: {
+            empty: 'Название не должно быть пустым',
+        }
+    },
     name_secondary: {
         messages: {
             exceedsMaxLenght: 'Длина подписи должна быть не более 15 символов'

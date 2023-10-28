@@ -8,6 +8,7 @@ import { getAudioFileMimeType } from '../selectors/getAudioFileMimeType';
 import { getValidationError } from '../selectors/getValidationError';
 import { AddNewTrackSeparateImageLoadingActions } from '../slices/AddNewTrackSeparateImageLoading';
 import { getColor } from '../selectors/getColor';
+import { getUploadCode } from '../selectors/getUploadCode';
 
 interface Props {
     audioFile: FormDataEntryValue | null,
@@ -30,6 +31,8 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
     const audioFileMimeType = getAudioFileMimeType(getState())
     // @ts-ignore
     const color = getColor(getState())
+    // @ts-ignore
+    const upload_code = getUploadCode(getState())
 
     const session = await getSession()
 
@@ -38,6 +41,7 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
 
 
     dispatch(AddNewTrackSeparateImageLoadingActions.validateName(name))
+    dispatch(AddNewTrackSeparateImageLoadingActions.validateUploadCode(upload_code))
     dispatch(AddNewTrackSeparateImageLoadingActions.validateNameSecondary(name_secondary))
     dispatch(AddNewTrackSeparateImageLoadingActions.validateAudioFileMimeType(audioFileMimeType))
 
@@ -73,6 +77,7 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
 
     const formData = new FormData()
     formData.append('name', name!)
+    formData.append('upload_code', upload_code!)
     if (color) formData.append('color', color)
     formData.append('name_secondary', name_secondary || '')
     formData.append('audio', audioFile)

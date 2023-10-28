@@ -8,6 +8,7 @@ import { Submit } from '../Submit/Submit';
 import { FormError } from '../FormError/FormError';
 import { ImageWideInput } from '../ImageWideInput/ImageWideInput';
 import { Preview } from '../Preview/Preview';
+import { UploadCodeInput } from '../UploadCodeInput/UploadCodeInput';
 
 interface IFormProps {
 }
@@ -22,6 +23,7 @@ export const Form: React.FunctionComponent<IFormProps> = (props) => {
                     <AudioInput/>
                     <ImageWideInput/>
                     <ImageSquareInput className={cls.last_input}/>
+                    <UploadCodeInput/>
                     <Submit/>
                 </FormComp>
                 <Preview/>

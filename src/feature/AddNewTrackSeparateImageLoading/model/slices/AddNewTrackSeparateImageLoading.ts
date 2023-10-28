@@ -108,6 +108,18 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
                 state.validationErrors.imageSquareFile.invalidMimeType = true
             }
         },
+        validateUploadCode: (state, action: PayloadAction<string | undefined>) => {
+            const upload_code = action.payload
+            if (!upload_code) {
+                state.validationErrors.upload_code.empty = true 
+                return
+            } else {
+                state.validationErrors.upload_code.empty = false
+            }
+        },
+        setUploadCode: (state, action: PayloadAction<string | undefined>) => {
+            state.upload_code = action.payload
+        },
         setImageSquareFileMimeType: (state, action: PayloadAction<string | undefined>) => {
             state.imageSquareFileMimeType = action.payload
         },

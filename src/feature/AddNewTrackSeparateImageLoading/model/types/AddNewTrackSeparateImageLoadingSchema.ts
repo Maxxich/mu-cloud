@@ -6,6 +6,7 @@ type FieldsAndErrors = {
     imageCroppedSquareFile: ['empty']
     imageWideFile: ['empty', 'invalidMimeType']
     imageCroppedWideFile: ['empty']
+    upload_code: ['empty']
 }
 
 
@@ -19,6 +20,7 @@ export interface AddNewTrackSeparateImageLoadingSchema {
     name?: string
     name_secondary?: string
     color?: string,
+    upload_code?: string
 
     imageSquareFileMimeType?: string | undefined
     imageCroppedSquareMimeType?: string | undefined
