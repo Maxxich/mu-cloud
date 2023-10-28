@@ -196,6 +196,7 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
             state.imageCroppedWideMimeType = undefined
             state.imageSquareFileMimeType = undefined
             state.imageWideFileMimeType = undefined
+            state.color = undefined
             state.validationErrors.audioFile.empty = false
             state.validationErrors.audioFile.invalidMimeType = false
             state.validationErrors.imageCroppedSquareFile.empty = false

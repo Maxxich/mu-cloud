@@ -53,8 +53,6 @@ export const EditProfile = memo((props: EditProfileProps) => {
         }
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status])
-
-    if (!session?.data) return null
     
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

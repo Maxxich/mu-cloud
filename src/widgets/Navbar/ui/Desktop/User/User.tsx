@@ -16,8 +16,7 @@ export const User: React.FunctionComponent<Props> = ({
 }) => {
 
     const session = useSession()
-    console.log(session)
-
+    
     if (session.status === 'authenticated') return (
         <SignedIn className={className}/>
     )
