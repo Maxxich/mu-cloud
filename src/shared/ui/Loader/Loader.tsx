@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import { memo } from 'react'
 import cls from './Loader.module.scss'
 
 interface ILoaderProps {
@@ -7,7 +6,7 @@ interface ILoaderProps {
   center?: boolean
 }
 
-export const Loader: React.FunctionComponent<ILoaderProps> = memo(({
+export const Loader: React.FunctionComponent<ILoaderProps> = ({
     size = 'm',
     center
 }) => {
@@ -25,6 +24,4 @@ export const Loader: React.FunctionComponent<ILoaderProps> = memo(({
     )
 
     return LoaderComp
-})
-
-Loader.displayName = 'Loader'
+}
