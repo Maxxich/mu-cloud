@@ -85,26 +85,38 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
     formData.append('widePicture', imageCroppedWideFile)
     formData.append('feats_ids', JSON.stringify([]))
     formData.append('owners_ids', JSON.stringify([]))
+
     try {
-        dispatch(AddNewTrackSeparateImageLoadingActions.startLoad())
-        const response = await fetch(backendUrl + '/tracks-private/upload', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
+        await new Promise ((res, rej) => {
+            dispatch(AddNewTrackSeparateImageLoadingActions.startLoad())
+            const ajax = new XMLHttpRequest();
+
+            ajax.upload.addEventListener('progress', (e: any) => {
+                const percent = (e.loaded / e.total) * 100
+                dispatch(AddNewTrackSeparateImageLoadingActions.setProgress(percent))
+            }, false)
+
+
+            ajax.addEventListener('load', () => {
+                toast('Сохранено')
+                dispatch(AddNewTrackSeparateImageLoadingActions.reset())
+                deleteAllFiles()
+                dispatch(AddNewTrackSeparateImageLoadingActions.setIdle())
+                res(undefined)
+            }, false)
+
+            ajax.addEventListener('error', () => {
+                rej()
+            }, false)
+
+            ajax.addEventListener('abort', () => {
+                rej()
+            }, false)
+
+            ajax.open('POST', backendUrl + '/tracks-private/upload')
+            ajax.setRequestHeader('Authorization', 'Bearer ' + accessToken)
+            ajax.send(formData);            
         })
-
-        if (response.status != 201) {
-            dispatch(AddNewTrackSeparateImageLoadingActions.setIdle())
-            return toast('Ошибка во время загрузки на сервер')
-
-        }
-
-        toast('Сохранено')
-        dispatch(AddNewTrackSeparateImageLoadingActions.reset())
-        deleteAllFiles()
-        dispatch(AddNewTrackSeparateImageLoadingActions.setIdle())
     } catch (error) {
         toast('Ошибка во время загрузки на сервер')
         dispatch(AddNewTrackSeparateImageLoadingActions.setIdle())

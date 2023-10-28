@@ -9,6 +9,7 @@ import { FormError } from '../FormError/FormError';
 import { ImageWideInput } from '../ImageWideInput/ImageWideInput';
 import { Preview } from '../Preview/Preview';
 import { UploadCodeInput } from '../UploadCodeInput/UploadCodeInput';
+import { Progress } from '../Progress/Progress';
 
 interface IFormProps {
 }
@@ -24,6 +25,7 @@ export const Form: React.FunctionComponent<IFormProps> = (props) => {
                     <ImageWideInput/>
                     <ImageSquareInput/>
                     <UploadCodeInput className={cls.last_input}/>
+                    <Progress/>
                     <Submit/>
                 </FormComp>
                 <Preview/>

@@ -32,6 +32,7 @@ export interface AddNewTrackSeparateImageLoadingSchema {
     validationErrors: ValidationErrosFlags
     tab: Tab
     status: 'idle' | 'loading',
+    progress?: number | undefined
 
     isSmallPictureActive: boolean
 }

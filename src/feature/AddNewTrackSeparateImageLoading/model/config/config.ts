@@ -10,7 +10,7 @@ export const config: Config = {
     },
     upload_code: {
         messages: {
-            empty: 'Название не должно быть пустым',
+            empty: 'Ключ загрузки не должен быть пустым',
         }
     },
     name_secondary: {

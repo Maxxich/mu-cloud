@@ -98,6 +98,7 @@ export const Loading: Story = {
                 name: undefined,
                 name_secondary: undefined,
                 status: 'loading',
+                progress: 50,
                 tab: 'form',
                 validationErrors: {
                     name: {

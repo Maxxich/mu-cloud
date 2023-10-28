@@ -74,6 +74,9 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
                 state.validationErrors.name_secondary.exceedsMaxLenght = false
             }
         },
+        setProgress: (state, action: PayloadAction<number | undefined>) => {
+            state.progress = action.payload
+        }, 
         setNameSecondary: (state, action: PayloadAction<string | undefined>) => {
             state.name_secondary = action.payload
         },
@@ -176,16 +179,18 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
         },
         startLoad: (state) => {
             state.status = 'loading'
+            state.progress = 0
         },
         setIdle: (state) => {
             state.status = 'idle'
+            state.progress = undefined
         },
         toggleIsSmallPictureActive: (state) => {
             state.isSmallPictureActive = !state.isSmallPictureActive
         },
         reset: (state) => {
-            state.name = ''
-            state.name_secondary = ''
+            state.name = undefined
+            state.name_secondary = undefined
             state.audioFileMimeType = undefined
             state.imageCroppedSquareMimeType = undefined
             state.imageCroppedWideMimeType = undefined
