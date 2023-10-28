@@ -35,6 +35,16 @@ export default function RootLayout({
                         }
                     }}>
                         <html lang="en">
+                            <head>
+                                <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png"/>
+                                <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png"/>
+                                <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png"/>
+                                <link rel="manifest" href="favicons/site.webmanifest"/>
+                                <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#1a232e"/>
+                                <meta name="msapplication-TileColor" content="#1a232e"/>
+                                <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png"/>
+                                <meta name="theme-color" content="#1a232e"/>
+                            </head>
                             <body className='app__default_theme'>
                                 <PageContainer isMobile={isMobile}>
                                     {children}

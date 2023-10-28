@@ -8,9 +8,12 @@ import { getUploadCode } from '../../../model/selectors/getUploadCode';
 import { setUploadCode } from '../../../model/services/setUploadCode';
 
 interface IUploadCodeInputProps {
+    className: string
 }
 
-export const UploadCodeInput: React.FunctionComponent<IUploadCodeInputProps> = memo((props) => {
+export const UploadCodeInput: React.FunctionComponent<IUploadCodeInputProps> = memo(({
+    className
+}) => {
 
     const dispatch = useAppDispatch()
     const name = useSelector(getUploadCode)
@@ -28,6 +31,7 @@ export const UploadCodeInput: React.FunctionComponent<IUploadCodeInputProps> = m
             label='Код загрузки'
             disabled={status === 'loading'}
             isError={isError}
+            className={className}
         />
     );
 })

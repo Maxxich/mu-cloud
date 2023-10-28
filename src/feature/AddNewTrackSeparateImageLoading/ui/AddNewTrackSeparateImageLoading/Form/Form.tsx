@@ -22,8 +22,8 @@ export const Form: React.FunctionComponent<IFormProps> = (props) => {
                     <NameSecondaryInput/>
                     <AudioInput/>
                     <ImageWideInput/>
-                    <ImageSquareInput className={cls.last_input}/>
-                    <UploadCodeInput/>
+                    <ImageSquareInput/>
+                    <UploadCodeInput className={cls.last_input}/>
                     <Submit/>
                 </FormComp>
                 <Preview/>
