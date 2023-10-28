@@ -28,6 +28,9 @@ const initialState: AddNewTrackSeparateImageLoadingSchema = {
         },
         imageCroppedWideFile: {
             empty: false
+        },
+        upload_code: {
+            empty: false
         }
     },
     tab: 'form',
