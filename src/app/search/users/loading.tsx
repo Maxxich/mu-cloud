@@ -1,16 +1,16 @@
 import { UserListSkeleton } from '@/entity/user'
-import { ItemsSection } from '@/shared/ui/ItemsSection'
+import { ItemsSectionSkeleton } from '@/shared/ui/ItemsSection'
 import { ItemsTitleSkeleton } from '@/shared/ui/ItemsTitle'
 
 export default function SearchUsersLoading() {
     return (
         <>
-            <ItemsSection>
+            <ItemsSectionSkeleton>
                 <ItemsTitleSkeleton/>
                 <UserListSkeleton
                     itemsCount={12}
                 />
-            </ItemsSection>
+            </ItemsSectionSkeleton>
         </>
     )
 }

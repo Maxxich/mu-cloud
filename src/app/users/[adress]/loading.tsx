@@ -1,6 +1,6 @@
 import { UserBannerSkeleton } from '@/entity/user'
 import { TrackBannerSkeleton } from '@/feature/Track'
-import { ItemsSection } from '@/shared/ui/ItemsSection'
+import { ItemsSectionSkeleton } from '@/shared/ui/ItemsSection'
 import { ItemsTitleSkeleton } from '@/shared/ui/ItemsTitle'
 import { UserHeaderSkeleton } from '@/widgets/UserHeader'
 
@@ -10,24 +10,24 @@ export default function LibraryLoading() {
             <UserHeaderSkeleton
                 isMobile={false}
             />
-            <ItemsSection>
+            <ItemsSectionSkeleton>
                 <ItemsTitleSkeleton/>
                 <TrackBannerSkeleton
                     itemsCount={12}
                 />
-            </ItemsSection>
-            <ItemsSection>
+            </ItemsSectionSkeleton>
+            <ItemsSectionSkeleton>
                 <ItemsTitleSkeleton/>
                 <TrackBannerSkeleton
                     itemsCount={12}
                 />
-            </ItemsSection>
-            <ItemsSection>
+            </ItemsSectionSkeleton>
+            <ItemsSectionSkeleton>
                 <ItemsTitleSkeleton/>
                 <UserBannerSkeleton
                     itemsCount={12}
                 />
-            </ItemsSection>
+            </ItemsSectionSkeleton>
         </>
     )
 }
