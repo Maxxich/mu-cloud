@@ -42,10 +42,14 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
         }))
     }, [dispatch, getFile, deleteAllFiles])
 
+    if (status === 'loading') {
+        return null
+    }
+
     return (
         <Button 
             variant={'green'}
-            disabled={Boolean(error) && status !== 'loading'}
+            disabled={Boolean(error)}
             onClick={onSubmit}
             fullwidth
         >
