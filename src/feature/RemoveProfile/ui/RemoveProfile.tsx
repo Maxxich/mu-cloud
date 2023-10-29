@@ -57,7 +57,7 @@ export const RemoveProfile = memo((props: RemoveProfileProps) => {
     
     return (
         <Form.Box margin='auto' className={classes}>
-            <Text title>Удаление</Text>
+            <Text title className={cls.title}>Удаление</Text>
             <Text>Вы можете безвозвратно удалить свой аккаунт</Text>
             <Button
                 onClick={onClick}
