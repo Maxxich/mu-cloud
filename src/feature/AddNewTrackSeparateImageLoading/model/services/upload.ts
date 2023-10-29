@@ -76,10 +76,10 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
     }
 
     const formData = new FormData()
-    formData.append('name', name!)
+    formData.append('name', name!.trim())
     formData.append('upload_code', upload_code!)
     if (color) formData.append('color', color)
-    formData.append('name_secondary', name_secondary || '')
+    formData.append('name_secondary', name_secondary?.trim() || '')
     formData.append('audio', audioFile)
     formData.append('squarePicture', imageCroppedSquareFile)
     formData.append('widePicture', imageCroppedWideFile)

@@ -6,6 +6,7 @@ div.box {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 16px;
+    gap: 8px;
 
     @media (width <= 971px) {
         height: fit-content;

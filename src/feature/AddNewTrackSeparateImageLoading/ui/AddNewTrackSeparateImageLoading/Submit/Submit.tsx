@@ -52,7 +52,7 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
             {
                 status === 'idle' 
                     ? 'Загрузить'
-                    : 'Зыгрузка...'
+                    : 'Загрузка...'
             }
         </Button>
     );

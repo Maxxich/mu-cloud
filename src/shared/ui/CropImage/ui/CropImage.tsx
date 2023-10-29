@@ -38,6 +38,7 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
     continueButtonTestId
 }) => {
     const cropperRef = useRef<ReactCropperElement>(null);
+    const intialFocusRef = useRef<HTMLButtonElement>(null);
     const [error, setError] = useState<string | null>(null)
     const [height, setHeight] = useState<number>()
     const cropperContainerRef = useRef<HTMLDivElement>()
@@ -85,6 +86,10 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
             window.onresize = null
         }
     },[])
+
+    useEffect(() => {
+        intialFocusRef.current?.focus()
+    })
 
     const mods: Mods = {
         [cls.container_mobile]: isMobile
@@ -144,6 +149,7 @@ export const CropImage: React.FunctionComponent<ICropper> = memo(({
                         disabled={Boolean(error)}
                         variant='green'
                         data-testid={continueButtonTestId}
+                        ref={intialFocusRef}
                     >
                         {submitButtonText}
                     </Button>

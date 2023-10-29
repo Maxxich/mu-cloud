@@ -2,7 +2,7 @@ import { useId, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { IconButton } from '@/shared/ui/IconButton';
-import Icon from '@/shared/assets/svg/Gear.svg'
+import IconColorPallete from '@/shared/assets/svg/ColorPallete.svg'
 import cls from './PickColor.module.scss'
 import { getColor } from '../../../model/selectors/getColor';
 import { AddNewTrackSeparateImageLoadingActions } from '../../../model/slices/AddNewTrackSeparateImageLoading';
@@ -37,7 +37,7 @@ export const PickColor: React.FunctionComponent<IPickColorProps> = (props) => {
                 className={cls.input}
             />
             <IconButton
-                icon={<Icon/>}
+                icon={<IconColorPallete/>}
                 onClick={onButtonClick}
                 size={'l'}
                 tooltipId={`${tooltipId}`}

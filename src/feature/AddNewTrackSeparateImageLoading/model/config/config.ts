@@ -4,9 +4,9 @@ export const config: Config = {
     name: {
         messages: {
             empty: 'Название не должно быть пустым',
-            exceedsMaxLenght: 'Длина названия должна быть не более 15 символов'
+            exceedsMaxLenght: 'Длина названия должна быть не более 30 символов'
         },
-        maxLenght: 15
+        maxLenght: 30
     },
     upload_code: {
         messages: {
@@ -15,9 +15,9 @@ export const config: Config = {
     },
     name_secondary: {
         messages: {
-            exceedsMaxLenght: 'Длина подписи должна быть не более 15 символов'
+            exceedsMaxLenght: 'Длина подписи должна быть не более 45 символов'
         },
-        maxLenght: 15
+        maxLenght: 45
     },
     audioFile: {
         messages: {

@@ -13,10 +13,8 @@ export const Preview: React.FunctionComponent<IPreviewProps> = (props) => {
 
     const { canvasRef, containerRef } = useRenderPreview()
 
-    // const { containerRef } = useCanvasSizes(canvasRef)
-
     return <Form.Box className={cls.box} ref={containerRef}>
-        <Text title size='s'>Preview</Text>
+        <Text title size='s'>Предварительный просмотр</Text>
         <canvas ref={canvasRef} style={{
             background: '#000',
             borderRadius: 5,

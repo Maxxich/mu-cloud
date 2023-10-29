@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { MutableRefObject, forwardRef, memo } from 'react'
+import { RefObject, forwardRef, memo } from 'react'
 import cls from './Button.module.scss'
 
 type ButtonVariant = 'default' | 'danger' | 'green'
@@ -11,7 +11,7 @@ interface IButtonSubmitProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     addonRight?: React.ReactElement
     addonLeft?: React.ReactElement
     size?:  'm' | 'l' | 'xl', 
-    ref?: MutableRefObject<HTMLElement>
+    ref?: RefObject<HTMLButtonElement>
     className?: string,
 }
 

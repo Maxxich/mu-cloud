@@ -189,8 +189,8 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
             state.isSmallPictureActive = !state.isSmallPictureActive
         },
         reset: (state) => {
-            state.name = undefined
-            state.name_secondary = undefined
+            state.name = ''
+            state.name_secondary = ''
             state.audioFileMimeType = undefined
             state.imageCroppedSquareMimeType = undefined
             state.imageCroppedWideMimeType = undefined
