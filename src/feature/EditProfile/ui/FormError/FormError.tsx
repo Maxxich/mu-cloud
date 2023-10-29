@@ -14,6 +14,6 @@ export const FormError: React.FunctionComponent<IFormErrorProps> = (props) => {
     if (!requestError && !validationError) return
 
     return (
-        <Form.Box margin='auto' className={cls.marginBottom}>{requestError || validationError}</Form.Box>
+        <Form.Box className={cls.marginBottom}>{requestError || validationError}</Form.Box>
     );
 };

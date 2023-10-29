@@ -115,15 +115,22 @@ export const EditProfileSlice = createSlice({
         },
         startLoad: (state) => {
             state.status = 'loading'
+            state.progress = 0
         },
         setIdle: (state) => {
             state.status = 'idle'
+            state.progress = undefined
         },
         setSaved: (state) => {
             state.status = 'saved'
+            state.progress = undefined
+        },
+        setProgress: (state, action: PayloadAction<number>) => {
+            state.progress = action.payload
         },
         setRequestError: (state, action: PayloadAction<RequestError | undefined>) => {
             state.requestError = action.payload
+            state.progress = undefined
         }
     },
 })

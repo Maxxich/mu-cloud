@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSession } from 'next-auth/react';
+import { Text } from '@/shared/ui/Text';
 import { Form } from'@/shared/ui/Form'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { DynamicModuleLoader, ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
@@ -21,6 +22,7 @@ import { FormDataEntries } from '../../model/fileStorage/types';
 import { FilesContext } from '../../model/fileStorage/FilesContext';
 import { CropAvatar } from '../CropAvatar';
 import { FormError } from '../FormError/FormError';
+import { Progress } from '../Progress/Progress';
 
 const reducers: ReducersList = {
     EditProfile: EditProfileReducer
@@ -63,7 +65,8 @@ export const EditProfile = memo((props: EditProfileProps) => {
                 ]}
                 Context={FilesContext}
             >
-                <Form margin='auto' className={classNames(cls.container, className)}>
+                <Form className={classNames(cls.container, className)}>
+                    <Text title className={cls.title}>Профиль</Text>
                     <ImageElement/>
                     <Name/>
                     <Adress/>
@@ -72,6 +75,7 @@ export const EditProfile = memo((props: EditProfileProps) => {
                         {status === 'edit' && <CancelButton/>}
                         {status === 'edit' && <SaveButton/>}
                     </div>
+                    {status === 'loading' && <Progress/>}
                 </Form>
                 <FormError/>
                 {

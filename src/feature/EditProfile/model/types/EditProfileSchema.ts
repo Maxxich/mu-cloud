@@ -21,4 +21,5 @@ export interface EditProfileSchema {
     validationErrors: ValidationErrosFlags
     requestError?: RequestError
     status: 'edit' | 'idle' | 'crop' | 'loading' | 'saved'
+    progress?: number
 }

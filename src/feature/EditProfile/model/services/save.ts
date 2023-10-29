@@ -1,4 +1,5 @@
 import { getSession } from 'next-auth/react'
+import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { backendUrl } from '@/shared/const/backendUrl';
 import { getName } from '../selectors/getName';
@@ -18,7 +19,6 @@ export const save = createAsyncThunk('EditProfile/save', async (
     thunkApi
 ) => {
     const { dispatch, getState } = thunkApi;
-    dispatch(EditProfileActions.startLoad())
 
     // @ts-ignore
     const name = getName(getState())
@@ -58,30 +58,66 @@ export const save = createAsyncThunk('EditProfile/save', async (
     if (croppedAvatar) {
         formData.append('picture', croppedAvatar)
     }
-    try {
-        const response = await fetch(backendUrl + '/user-private/edit-profile', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-        })
 
-        if (response.status != 201) {
-            if (response.status === 400) {
-                const data = await response.json()
-                if (data.message === 'Adress already exist') {
-                    dispatch(EditProfileActions.setRequestError('Такой адрес уже занят'))
-                } else if (data.message === 'Name already exist') {
-                    dispatch(EditProfileActions.setRequestError('Такое имя уже занято'))
+    try {
+        await new Promise ((res, rej) => {
+            dispatch(EditProfileActions.startLoad())
+            const ajax = new XMLHttpRequest();
+
+            ajax.upload.addEventListener('progress', (e: any) => {
+                const percent = (e.loaded / e.total) * 100
+                dispatch(EditProfileActions.setProgress(percent))
+            }, false)
+
+
+            ajax.addEventListener('load', (e: any) => {
+                const status = e.target.status
+                if (status === 201) {
+                    toast('Сохранено')
+                    dispatch(EditProfileActions.setSaved())
+                    res(undefined)
+                } else if (status === 400) {
+                    const response = JSON.parse(e.target.response)
+                    const message = response.message
+                    if (message === 'Adress already exist') {
+                        dispatch(EditProfileActions.setRequestError('Такой адрес уже занят'))
+                    } else if (message === 'Name already exist') {
+                        dispatch(EditProfileActions.setRequestError('Такое имя уже занято'))
+                    }
+                    dispatch(EditProfileActions.startEdit())
+                    res(undefined)
+                } else {
+                    throw Error()
                 }
-            }
-            dispatch(EditProfileActions.startEdit())
-            return
-        }
-        dispatch(EditProfileActions.setSaved())
+            }, false)
+
+            ajax.addEventListener('error', (e: any) => {
+                rej()
+            }, false)
+
+            ajax.addEventListener('abort', () => {
+                rej()
+            }, false)
+
+            ajax.open('POST', backendUrl + '/user-private/edit-profile')
+            ajax.setRequestHeader('Authorization', 'Bearer ' + accessToken)
+            ajax.send(formData);            
+        })
     } catch (error) {
         dispatch(EditProfileActions.setRequestError('Произошла неожиданная ошибка'))
         dispatch(EditProfileActions.startEdit())
     }
+
+    // if (response.status != 201) {
+    //     if (response.status === 400) {
+    //         const data = await response.json()
+    //         if (data.message === 'Adress already exist') {
+    //             dispatch(EditProfileActions.setRequestError('Такой адрес уже занят'))
+    //         } else if (data.message === 'Name already exist') {
+    //             dispatch(EditProfileActions.setRequestError('Такое имя уже занято'))
+    //         }
+    //     }
+    //     dispatch(EditProfileActions.startEdit())
+    //     return
+    // }
 });
