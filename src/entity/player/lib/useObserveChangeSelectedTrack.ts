@@ -28,8 +28,8 @@ export const useObserveChangeCurrentTrack = () => {
             title: selectedTrack.name + ' ' + selectedTrack.name_secondary,
             artist: selectedTrack.owners[0].name,
             artwork: [
-                { src: backendUrl + '/' + selectedTrack.picture_source.square,   sizes: '100x100',   type: 'image/png' },
-                { src:  backendUrl + '/' + selectedTrack.picture_source.square,   sizes: '800x800', type: 'image/png' },
+                { src: selectedTrack.picture_source.square,   sizes: '100x100',   type: 'image/png' },
+                { src: selectedTrack.picture_source.square,   sizes: '800x800', type: 'image/png' },
             ]
         });
 
