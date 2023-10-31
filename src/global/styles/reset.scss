@@ -3,12 +3,8 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    touch-action: none;
 }
 
-a {
-    touch-action: none;
-}
 
 /* Убираем внутренние отступы */
 ul[class],

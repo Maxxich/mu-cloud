@@ -29,11 +29,7 @@ export default function RootLayout({
         <ThemeProvider>
             <SessionProvider>
                 <AuthErrorHandler>
-                    <StoreProvider initialState={{
-                        player: {
-                            currentTrackId: 1
-                        }
-                    }}>
+                    <StoreProvider>
                         <html lang="en">
                             <head>
                                 <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png"/>
