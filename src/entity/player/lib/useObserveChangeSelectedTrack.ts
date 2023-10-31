@@ -21,7 +21,7 @@ export const useObserveChangeCurrentTrack = () => {
             return 
         }
     
-        const audioSource = backendUrl + '/' + selectedTrack.audio_src
+        const audioSource = selectedTrack.audio_src
         audio.src = audioSource
 
         navigator.mediaSession.metadata = new MediaMetadata({

@@ -5,11 +5,13 @@ import CenterImageSvg from '@/shared/assets/svg/CenterImage.svg'
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store';
 import { AddNewTrackSeparateImageLoadingActions } from '../../../model/slices/AddNewTrackSeparateImageLoading';
 import { getIsSmallPictureActive } from '../../../model/selectors/getIsSmallPictureActive';
+import { getStatus } from '../../../model/selectors/getStatus';
 
 export const ToggleShowSquareImage: React.FunctionComponent = (props) => {
 
     const isSmallPictureActive = useSelector(getIsSmallPictureActive)
     const dispatch = useAppDispatch()
+    const status = useSelector(getStatus)
     const onToggle = () => dispatch(AddNewTrackSeparateImageLoadingActions.toggleIsSmallPictureActive())
     const tooltipId = useId()
 
@@ -21,5 +23,6 @@ export const ToggleShowSquareImage: React.FunctionComponent = (props) => {
         tooltipId={`${tooltipId}`}
         tooltipContent={isSmallPictureActive ? 'Не показывать изображение по центру' : 'Показывать изображение по центру'}
         tooltipPlace='bottom'
+        disabled={status === 'loading'}
     />;
 };

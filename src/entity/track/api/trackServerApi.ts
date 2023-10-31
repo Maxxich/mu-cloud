@@ -1,8 +1,6 @@
 import { backendUrl } from '@/shared/const/backendUrl'
 import { createUrlSearchParams } from '@/shared/lib/helpers/createUrlSearchParams/createUrlSearchParams'
-import { createUserImagesSrc } from '@/entity/user/lib/createUserImageSrc'
 import { Track } from '../model/types/track'
-import { createTrackImagesSrc } from '../lib/createTrackImageSrc'
 
 interface Params extends OptionalRecord<string, string | number> {
     page?: number, 
@@ -35,14 +33,6 @@ async function get(params: Params): Promise<TracksResponse> {
     }
  
     const data = await res.json() as TracksResponse
-    data.tracks.map(
-        (t) => {
-            t.owners.map(o => o.picture_source = createUserImagesSrc(o))
-            t.feates.map(f => f.picture_source = createUserImagesSrc(f))
-            t.picture_source = createTrackImagesSrc(t)
-            return t
-        }
-    )
     return data
 }
 
@@ -77,7 +67,6 @@ async function getOneById(id: number): Promise<Track> {
     }
  
     const track = await res.json()
-    track.picture_source = createTrackImagesSrc(track)
     return track
 }
 
@@ -96,14 +85,6 @@ async function getUserOwn(id: number, params: Params): Promise<TracksResponse> {
     }
  
     const data = await res.json() as TracksResponse
-    data.tracks.map(
-        (t) => {
-            t.owners.map(o => o.picture_source = createUserImagesSrc(o))
-            t.feates.map(f => f.picture_source = createUserImagesSrc(f))
-            t.picture_source = createTrackImagesSrc(t)
-            return t
-        }
-    )
     return data
 }
 
@@ -123,14 +104,6 @@ async function getUserAdded(id: number, params: Params): Promise<TracksResponse>
     }
  
     const data = await res.json() as TracksResponse
-    data.tracks.map(
-        (t) => {
-            t.owners.map(o => o.picture_source = createUserImagesSrc(o))
-            t.feates.map(f => f.picture_source = createUserImagesSrc(f))
-            t.picture_source = createTrackImagesSrc(t)
-            return t
-        }
-    )
     return data
 }
 

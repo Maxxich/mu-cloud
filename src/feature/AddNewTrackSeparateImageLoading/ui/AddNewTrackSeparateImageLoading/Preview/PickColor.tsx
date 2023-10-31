@@ -6,6 +6,7 @@ import IconColorPallete from '@/shared/assets/svg/ColorPallete.svg'
 import cls from './PickColor.module.scss'
 import { getColor } from '../../../model/selectors/getColor';
 import { AddNewTrackSeparateImageLoadingActions } from '../../../model/slices/AddNewTrackSeparateImageLoading';
+import { getStatus } from '../../../model/selectors/getStatus';
 
 interface IPickColorProps {
 }
@@ -13,6 +14,7 @@ interface IPickColorProps {
 export const PickColor: React.FunctionComponent<IPickColorProps> = (props) => {
 
     const color = useSelector(getColor)
+    const status = useSelector(getStatus)
     const dispatch = useAppDispatch()
     const ref = useRef<HTMLInputElement>(null)
     const tooltipId = useId()
@@ -43,6 +45,7 @@ export const PickColor: React.FunctionComponent<IPickColorProps> = (props) => {
                 tooltipId={`${tooltipId}`}
                 tooltipContent={'Выбрать цвет'}
                 tooltipPlace='bottom'
+                disabled={status === 'loading'}
             />
         </div>
     );

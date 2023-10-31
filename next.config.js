@@ -10,7 +10,8 @@ const nextConfig = {
             },
         ],
         domains: [
-            'mucloud.onrender.com'
+            'mucloud.onrender.com',
+            'res.cloudinary.com'
         ]
     },
     webpack: (config) => {
