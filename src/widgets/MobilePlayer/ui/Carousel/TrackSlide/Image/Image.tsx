@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+'use client'
+import { useEffect, useRef, useState } from 'react'
 import { default as NextImage } from 'next/image'
 import classNames from 'classnames';
 import cls from './Image.module.scss'
