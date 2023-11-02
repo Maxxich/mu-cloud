@@ -8,4 +8,8 @@ export default withAuth({
     },
 })
 
-export const config = { matcher: ['/protected'] }
+export const config = { matcher: [
+    '/upload/:path*',
+    '/library/:path*',
+    '/settings/:path*'
+] }
