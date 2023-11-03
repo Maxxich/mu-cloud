@@ -1,5 +1,5 @@
 import { animated } from '@react-spring/web';
-import { forwardRef, RefObject } from 'react'
+import { forwardRef, Ref } from 'react'
 import classNames from 'classnames'
 import { useSelector } from 'react-redux'
 import { TrackList } from '@/feature/Track'
@@ -10,14 +10,9 @@ import { PlaylistSlide } from './PlaylistSlide/PlaylistSlide'
 
 export type ActiveSlide = 'track' | 'next'
 
-const mapActiveSlideToClass: Record<ActiveSlide, string> = {
-    'track': 'track_slide',
-    'next': 'next_slide'
-}
-
 interface ICarouselProps {
   props: any
-  ref: RefObject<HTMLDivElement>
+  ref: Ref<HTMLDivElement>
   playlistId: string
 }
 
