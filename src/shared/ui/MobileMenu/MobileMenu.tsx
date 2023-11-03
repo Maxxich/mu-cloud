@@ -1,3 +1,4 @@
+'use client'
 import { useTransition, animated } from '@react-spring/web';
 import { SyntheticEvent, useCallback } from 'react';
 import { createPortal } from 'react-dom'
@@ -33,9 +34,9 @@ const MenuRoot: React.FunctionComponent<IMenuProps> = ({
     
     
     const transition = useTransition(isOpen, {
-        from: { opacity: 0, y: window.innerHeight / 2 },
+        from: { opacity: 0, y: window?.innerHeight / 2 },
         enter: { opacity: 1, y: 0 },
-        leave: { opacity: 0, y: window.innerHeight / 2 },
+        leave: { opacity: 0, y: window?.innerHeight / 2 },
         config: {
             duration: 150,
         },
