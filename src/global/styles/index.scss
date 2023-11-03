@@ -33,11 +33,11 @@ body {
   
 /* Chrome, Edge and Safari */
 *::-webkit-scrollbar {
-    width: 6px;
+    width: 2px;
 }
   
 *::-webkit-scrollbar-track {
-    border-radius: 3px;
+    border-radius: 1px;
     background-color: #000;
 }
   
@@ -50,7 +50,7 @@ body {
 }
   
 *::-webkit-scrollbar-thumb {
-    border-radius: 3px;
+    border-radius: 1px;
     background-color: #394452;
 }
   
