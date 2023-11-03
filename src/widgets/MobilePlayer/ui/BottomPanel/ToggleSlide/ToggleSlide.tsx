@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { Dispatch, SetStateAction, useCallback } from 'react';
-import IconPlaylist from '@/shared/assets/svg/Playlist.svg'
 import cls from './ToggleSlide.module.scss'
 import { ActiveSlide } from '../../Carousel/Carousel';
 
@@ -37,7 +36,6 @@ export const ToggleSlide: React.FunctionComponent<IToggleSlideProps> = ({
         className={cls.Button}
     > 
         <div className={classNames(cls.Circle, circleMods)}/>
-        {/* <IconPlaylist className={classNames(iconMods)}/> */}
         <div className={cls.Playlist}>
             <div className={classNames(cls.PlaylistDiv, playlistMods)}/>
             <div className={classNames(cls.PlaylistDiv, playlistMods)}/>
