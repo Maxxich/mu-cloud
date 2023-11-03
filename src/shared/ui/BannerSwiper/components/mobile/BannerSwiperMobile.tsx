@@ -32,6 +32,10 @@ export const BannerSwiperMobile: React.FunctionComponent<BannerSwiperProps> = ({
         } else {
             api.start({ x: ox, immediate: true })
         }
+    },{
+        pointer: {
+            touch: true
+        }
     })
 
     var arrayOfArrays = [];
