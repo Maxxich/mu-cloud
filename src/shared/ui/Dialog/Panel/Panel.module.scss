@@ -3,7 +3,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto;
+    width: 90%;
     overflow: hidden;
     border-radius: 14px;
     background: var(--dialog-panel-bg);
@@ -13,7 +13,7 @@
     justify-content: space-between;
     padding: 30px;
     gap: 30px;
-    max-width: 80vw;
+    max-width: 440px;
 }
 
 .enter {
