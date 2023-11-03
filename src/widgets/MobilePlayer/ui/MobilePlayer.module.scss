@@ -12,14 +12,7 @@
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
-}
-
-
-
-.blackout {
-    position: absolute;
-    inset: 0;
-    background: rgba(0 0 0 / 50%);
+    touch-action: 'none';
 }
 
 .wrapper {

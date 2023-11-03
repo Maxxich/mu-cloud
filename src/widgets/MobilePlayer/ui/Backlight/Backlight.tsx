@@ -14,8 +14,10 @@ export const Backlight: React.FunctionComponent<IBacklightProps> = (props) => {
     return (
         <Image 
             className={cls.backlight}
-            src={track!.picture_source.square}    
+            src={track!.picture_source.square_small}    
             alt='backlight'
+            height={100}
+            width={100}
         />
     );
 };

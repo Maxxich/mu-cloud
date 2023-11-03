@@ -21,8 +21,17 @@ export const Image: React.FunctionComponent<IImage> = ({
 }) => {
 
     const [height, setHeight] = useState<number>()
+    const [loaded, setIsLoaded] = useState<boolean>(false)
 
     const ref = useRef<HTMLImageElement>()
+
+    const onImageLoad = () => {
+        setIsLoaded(true)
+    }
+
+    useEffect(() => {
+        setIsLoaded(false)
+    }, [src])
 
     useEffect(() => {
         setHeight(ref?.current?.offsetHeight)
@@ -37,7 +46,8 @@ export const Image: React.FunctionComponent<IImage> = ({
     }, [])
 
     const mods: Mods = {
-        [cls.small]: smaller 
+        [cls.small]: smaller,
+        [cls.skeleton]: !loaded
     }
 
     return (
@@ -53,8 +63,10 @@ export const Image: React.FunctionComponent<IImage> = ({
                 placeholder='blur'
                 blurDataURL={src}
                 alt={alt}
-                height={height}
-                width={height}
+                height={height || 0}
+                width={height || 0}
+                onLoad={onImageLoad}
+                key={src}
                 {...imageProps as any}
             />}
         </div>

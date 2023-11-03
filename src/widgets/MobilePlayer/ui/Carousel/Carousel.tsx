@@ -1,3 +1,5 @@
+import { animated } from '@react-spring/web';
+import { forwardRef, RefObject } from 'react'
 import classNames from 'classnames'
 import { useSelector } from 'react-redux'
 import { TrackList } from '@/feature/Track'
@@ -14,17 +16,19 @@ const mapActiveSlideToClass: Record<ActiveSlide, string> = {
 }
 
 interface ICarouselProps {
-  activeSlide: ActiveSlide
+  props: any
+  ref: RefObject<HTMLDivElement>
+  playlistId: string
 }
 
-export const Carousel: React.FunctionComponent<ICarouselProps> = ({
-    activeSlide
-}) => {
+export const Carousel: React.FunctionComponent<ICarouselProps> = forwardRef(({
+    props, playlistId
+}, ref) => {
 
     const list = useSelector(getPlaylist)
 
     return (
-        <div className={classNames(cls.carousel, cls[mapActiveSlideToClass[activeSlide]])}>
+        <animated.div className={classNames(cls.carousel)} style={props} ref={ref}>
             <div className={cls.slide}>
                 <TrackSlide/>
             </div>
@@ -34,8 +38,11 @@ export const Carousel: React.FunctionComponent<ICarouselProps> = ({
                         tracks={list}
                         isMobile={true}
                     />}
+                    playlistId={playlistId}
                 />  
             </div>
-        </div>
+        </animated.div>
     );
-};
+})
+
+Carousel.displayName = 'Carousel'

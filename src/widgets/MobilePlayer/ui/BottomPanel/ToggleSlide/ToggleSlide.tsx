@@ -27,7 +27,7 @@ export const ToggleSlide: React.FunctionComponent<IToggleSlideProps> = ({
     }
 
   
-    const iconMods: Mods = {
+    const playlistMods: Mods = {
         [cls.primary]: activeSlide === 'next',
         [cls.secondary]: activeSlide === 'track',
     }
@@ -37,6 +37,11 @@ export const ToggleSlide: React.FunctionComponent<IToggleSlideProps> = ({
         className={cls.Button}
     > 
         <div className={classNames(cls.Circle, circleMods)}/>
-        <IconPlaylist className={classNames(iconMods)}/>
+        {/* <IconPlaylist className={classNames(iconMods)}/> */}
+        <div className={cls.Playlist}>
+            <div className={classNames(cls.PlaylistDiv, playlistMods)}/>
+            <div className={classNames(cls.PlaylistDiv, playlistMods)}/>
+            <div className={classNames(cls.PlaylistDiv, playlistMods)}/>
+        </div>
     </button>;
 };
