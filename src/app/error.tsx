@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
-import cls from './not-found.module.scss'
 import { backendUrl } from '@/shared/const/backendUrl'
+import cls from './not-found.module.scss'
 
 export default function error () {
 
