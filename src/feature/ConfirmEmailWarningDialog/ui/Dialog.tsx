@@ -24,6 +24,10 @@ export const Dialog = memo((props: ConfirmEmailWarningDialogProps) => {
 
     useEffect(() => {
         setIsOpen(true)
+
+        return () => {
+            sessionStorage.setItem('email_dialog_closed', 'true')
+        }
     }, [])
     
     return (

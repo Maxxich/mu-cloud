@@ -8,9 +8,11 @@ function ConfirmEmailWarningDialog ( ) {
     const status = session.status
     const emailConfirmed = session?.data?.user?.email.confirmed
 
+    if (sessionStorage.getItem('email_dialog_closed') === 'true') return null
+
     if ((status === 'authenticated') && !emailConfirmed) return <Dialog/>
 
-    return false
+    return null
 }
 
 export { ConfirmEmailWarningDialog }
