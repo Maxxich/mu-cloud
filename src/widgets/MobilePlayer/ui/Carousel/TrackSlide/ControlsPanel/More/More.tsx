@@ -30,7 +30,7 @@ export const More: React.FunctionComponent<IMoreTrackProps> = ({
     const author = track.owners[0].name
     const id = track.id
     const primary_name = track.name
-    const track_src = backendUrl + '/' + track.audio_src
+    const track_src = track.audio_src
     const author_href = '/users/' + track.owners[0].adress
 
     return (
