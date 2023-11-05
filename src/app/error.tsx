@@ -1,11 +1,8 @@
 'use client'
 import Link from 'next/link'
-import { backendUrl } from '@/shared/const/backendUrl'
 import cls from './not-found.module.scss'
 
 export default function error () {
-
-    console.log(backendUrl)
 
     return (
         <div className={cls.container_title}>

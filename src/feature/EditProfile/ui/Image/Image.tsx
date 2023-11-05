@@ -62,7 +62,7 @@ export const Image: React.FunctionComponent = memo(() => {
     const showFogging = (isMobile || isHover) && status === 'edit'
 
     const src = mediumPictureSrc 
-        ? (backendUrl + '/' + mediumPictureSrc)
+        ? mediumPictureSrc
         : avatarPlaceholder
 
     return (
