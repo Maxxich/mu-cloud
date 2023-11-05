@@ -30,7 +30,7 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
     const password = getPassword(getState())
 
     try {
-        const response = await signIn('credentials', {
+        await signIn('credentials', {
             email,
             password,
             redirect: true,
@@ -39,14 +39,6 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
 
         if (!window.navigator.onLine) {
             return toast('Ошибка. Нет соединения с интернетом')
-        }
-
-        if (!response) {
-            return toast('Сервер недоступен')
-        }
-
-        if (response.error) {
-            return rejectWithValue('Неверные данные для входа');
         }
 
     } catch (e) {
