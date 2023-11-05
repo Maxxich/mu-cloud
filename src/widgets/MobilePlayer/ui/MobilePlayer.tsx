@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from 'react'
 import { useTransition } from '@react-spring/web';
 import { useSelector } from 'react-redux';

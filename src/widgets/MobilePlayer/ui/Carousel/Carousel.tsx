@@ -1,3 +1,4 @@
+'use client'
 import { animated } from '@react-spring/web';
 import { forwardRef, Ref } from 'react'
 import classNames from 'classnames'

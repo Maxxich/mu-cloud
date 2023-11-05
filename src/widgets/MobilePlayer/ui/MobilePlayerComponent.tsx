@@ -1,3 +1,4 @@
+'use client'
 import { useDrag, useScroll } from '@use-gesture/react';
 import { animated, useSpring } from '@react-spring/web';
 import { useState, useRef, useEffect, useId } from 'react'

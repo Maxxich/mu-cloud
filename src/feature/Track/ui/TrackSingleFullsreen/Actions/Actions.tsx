@@ -1,5 +1,5 @@
 'use client'
-import { animated, useSpring } from '@react-spring/web';
+import { animated, useTransition } from '@react-spring/web';
 import { Track } from '@/entity/track';
 import cls from './Actions.module.scss';
 import { PlayAction } from './PlayAction/PlayAction';
@@ -17,24 +17,27 @@ export const Actions: React.FunctionComponent<IActionsProps> = ({
     isMobile
 }) => {
 
-    const [props, api] = useSpring(
-        () => ({
-            from: { opacity: 0, y: 20 },
-            to: { opacity: 1, y: 0 },
-            delay: 400
-        }),
-        []
-    )
+    const transition = useTransition(true, {
+        from: { opacity: 0, y: 20 },
+        enter:{ opacity: 1, y: 0 },
+        delay: 400,
+        config: {
+            duration: 500,
 
-    return (
-        <animated.div className={cls.actions} style={props}>
-            <PlayAction track={track}/>
-            <LikeAction id={track.id}/>
-            {
-                isMobile
-                    ? <MobileMenu track={track}/>
-                    : <MenuDesktop track={track}/>
-            }
-        </animated.div>
+        },
+    })
+
+    return transition((style, item) => 
+        item ? (
+            <animated.div className={cls.actions} style={style}>
+                <PlayAction track={track}/>
+                <LikeAction id={track.id}/>
+                {
+                    isMobile
+                        ? <MobileMenu track={track}/>
+                        : <MenuDesktop track={track}/>
+                }
+            </animated.div>
+        ) : null
     )
 };

@@ -1,3 +1,4 @@
+'use client'
 import { useTransition } from '@react-spring/web';
 import { useSelector } from 'react-redux';
 import { getIsPlayerOpened } from '@/entity/player';

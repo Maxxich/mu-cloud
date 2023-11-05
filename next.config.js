@@ -8,11 +8,19 @@ const nextConfig = {
                 port: '5001',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'mucloud.onrender.com',
+                port: '',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                port: '',
+                pathname: '/**',
+            },
         ],
-        domains: [
-            'mucloud.onrender.com',
-            'res.cloudinary.com'
-        ]
     },
     webpack: (config) => {
         config.module.rules.push({

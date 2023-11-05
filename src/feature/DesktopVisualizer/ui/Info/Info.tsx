@@ -1,3 +1,4 @@
+'use client'
 import { useTransition, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';

@@ -1,3 +1,4 @@
+'use client'
 import { useSelector } from 'react-redux';
 import { useTransition, animated } from '@react-spring/web';
 import { ItemsTitle } from '@/shared/ui/ItemsTitle';
