@@ -1,4 +1,5 @@
 import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 import { authOptions } from '@/shared/config/authConfig'
 import { trackServerApi } from '@/entity/track'
 import { UserBanner, userServerApi } from '@/entity/user'
@@ -7,16 +8,13 @@ import { ItemsTitle } from '@/shared/ui/ItemsTitle'
 import { TrackBanner } from '@/feature/Track'
 import { getIsMobile } from '@/shared/lib/helpers/getIsMobile/getIsMobile'
 import { UserHeader } from '@/widgets/UserHeader'
-import { AuthReplace } from '@/feature/AuthReplace'
 
 
 export default async function LibraryPage() {
     const session = await getServerSession(authOptions)
 
     if (!session?.user) {
-        return <AuthReplace
-            url={'/signin?callbackUrl=/library'}
-        />
+        redirect('/signin?callbackUrl=/library')
     }
 
     const id = session.user.id

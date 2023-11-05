@@ -1,1 +1,0 @@
-export { AuthReplace } from './ui/AuthReplace'
