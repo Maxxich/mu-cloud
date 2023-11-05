@@ -12,4 +12,5 @@ export interface PlayerSchema {
     interfaceHidden: boolean
     showPlaylist: boolean
     isSmallPictureActive: boolean
+    loadedPercentage: number
 }

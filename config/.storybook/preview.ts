@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { RouterContext } from "next/dist/shared/lib/router-context.shared-runtime";
 import { themes } from '@storybook/theming';
 import { Theme } from "../../src/global/providers/ThemeProvider/Theme"
 import { PortalsDecorator } from "../../src/shared/config/storybook/PortalsDecorator/PortalsDecorator"
@@ -20,7 +20,7 @@ const preview: Preview = {
     },
     layout: 'centered',
     nextRouter: {
-      Provider: AppRouterContext.Provider,
+      Provider: RouterContext.Provider,
     },
   },
   decorators: [

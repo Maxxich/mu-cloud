@@ -21,7 +21,8 @@ const initialState = {
     currentTrackId: undefined,
     interfaceHidden: false,
     showPlaylist: false,
-    isSmallPictureActive: true
+    isSmallPictureActive: true,
+    loadedPercentage: 0
 } as PlayerSchema
 
 const slice = createSlice({
@@ -36,6 +37,9 @@ const slice = createSlice({
         },
         stopAudio: (state: PlayerSchema) => {
             state.isPaused = true
+        },
+        setLoadedPercentage: (state, action: PayloadAction<number>) => {
+            state.loadedPercentage = action.payload
         },
         setAudioExist(state: PlayerSchema, action: PayloadAction<boolean>) {
             state.isAudioExist = action.payload
@@ -58,6 +62,7 @@ const slice = createSlice({
             state.currentTrackTime = 0
             state.currentTrackTimeLenght = 0
             state.isPaused = false
+            state.loadedPercentage = 0
         },
         overwriteCurrentTrackTime(state:PlayerSchema, action: PayloadAction<number>){
             state.currentTrackTime = action.payload
@@ -78,6 +83,7 @@ const slice = createSlice({
                 id = state.list[index].id
             }
             state.currentTrackId = id
+            state.loadedPercentage = 0
         },
         setNextTrack(state:PlayerSchema) {
             if (!state.currentTrackId) return
@@ -92,6 +98,7 @@ const slice = createSlice({
                 id = state.list[index].id
             }
             state.currentTrackId = id
+            state.loadedPercentage = 0
         },
         shufflePlaylist(state: PlayerSchema) {
             state.list = shuffle(state.list)

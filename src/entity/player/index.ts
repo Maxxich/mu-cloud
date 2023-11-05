@@ -11,6 +11,7 @@ export { getCurrentTrackTime } from './model/selectors/getCurrentTrackTime/getCu
 export { getCurrentTrackTimeLenght } from './model/selectors/getCurrentTrackTimeLenght/getCurrentTrackTimeLenght'
 export { getIsPlayerOpened } from './model/selectors/getIsPlayerOpened/getIsPlayerOpened'
 export { getRepeatTrackMode } from './model/selectors/getRepeatTrackMode/getRepeatTrackMode'
+export { getLoadedPercentage } from './model/selectors/getLoadedPercentage/getLoadedPercentage'
 export { getPlaylist } from './model/selectors/getPlaylist/getPlaylist'
 export { useObserveChangeCurrentTrack } from './lib/useObserveChangeSelectedTrack'
 export { useObserveTogglePause } from './lib/useObserveTogglePause'

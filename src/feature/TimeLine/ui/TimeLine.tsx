@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { getCurrentTrackTime, getCurrentTrackTimeLenght } from '@/entity/player';
 import { formatTime } from '@/shared/lib/helpers/formatTime/formatTime';
 import { Time } from './Time/Time';
-import { Input } from './Input/Input';
 import cls from './TimeLine.module.scss'
+import { Slider } from './Slider/Slider';
 
 interface ITimeLineProps {
     variant: 'mobile' | 'desktop'
@@ -33,19 +33,19 @@ export const TimeLine: React.FunctionComponent<ITimeLineProps> = ({
         {'-' + formatTime(timeLenght!-time!)}
     </Time>
 
-    const InputEl =  <Input variant={variant}/>
+    const SliderEl =  <Slider variant={variant}/>
 
     const BrowserView = (
         <div className={cls.desktop}>
             {LeftTime}
-            {InputEl}
+            {SliderEl}
             {RightTime}
         </div>
     )
 
     const MobileView = (
         <div>
-            {InputEl}
+            {SliderEl}
             <div className={cls.times}>
                 {LeftTime}
                 {RightTime}
