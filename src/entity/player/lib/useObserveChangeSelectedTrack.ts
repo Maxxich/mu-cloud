@@ -7,7 +7,9 @@ import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
 import { playerActions } from '../model/slices/playerSlice'
 import { getSelectedTrack } from '../model/selectors/getSelectedTrack/getSelectedTrack'
 
-export const useObserveChangeCurrentTrack = () => {
+export const useObserveChangeCurrentTrack = (
+    isMobile: boolean
+) => {
 
     const dispatch = useAppDispatch()
     const audio = useAudio()
@@ -23,6 +25,20 @@ export const useObserveChangeCurrentTrack = () => {
     
         const audioSource = selectedTrack.audio_src
         audio.src = audioSource
+
+        if (!isMobile) {
+            const wideImage = new Image()
+            wideImage.src = selectedTrack.picture_source.wide
+            wideImage.onload = () => {
+                wideImage.onload = null
+            }
+        }
+        const squareImage = new Image()
+        squareImage.src = selectedTrack.picture_source.square
+        squareImage.onload = () => {
+            squareImage.onload = null
+        }
+
 
         navigator.mediaSession.metadata = new MediaMetadata({
             title: selectedTrack.name + ' ' + selectedTrack.name_secondary,
