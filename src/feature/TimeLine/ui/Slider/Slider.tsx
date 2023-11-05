@@ -32,7 +32,6 @@ export const Slider: React.FunctionComponent<ISliderProps> = ({
         const { xy: [x],  event, last } = state
         const avalibleWidth = sliderRef?.current?.offsetWidth
         const elementOffsetX = sliderRef?.current?.getBoundingClientRect().left;
-        console.log(event)
         //@ts-ignore
         if (!total || !audio || !avalibleWidth || !elementOffsetX || !event.pageX) {
             return setDrag(false)
