@@ -16,3 +16,4 @@ export { useObserveChangeCurrentTrack } from './lib/useObserveChangeSelectedTrac
 export { useObserveTogglePause } from './lib/useObserveTogglePause'
 export { useObserveChangeRepeatMode } from './lib/useObserveChangeRepeatMode'
 export { useObserverChangeCurrentTime } from './lib/useObserverChangeCurrentTime'
+export { useAutoClosingPlayerOnChangeLocation } from './lib/useAutoClosingPlayerOnChangeLocation'
