@@ -12,6 +12,7 @@ export const AuthReplace: React.FunctionComponent<IAuthReplaceProps> = ({
     const router = useRouter()
 
     useEffect(() => {
+        alert('replace')
         router.replace(url)
     }, [router, url])
 
