@@ -5,6 +5,7 @@ import { Text } from '@/shared/ui/Text';
 import { HStack } from '@/shared/ui/Stack';
 import cls from './Preview.module.scss'
 import { ToggleShowSquareImage } from './ToggleShowSquareImage';
+import { ResetMode } from './ResetMode';
 import { PickColor } from './PickColor';
 import { useRenderPreview } from '../../../lib/useRenderPreview';
 import { getStatus } from '../../../model/selectors/getStatus';
@@ -34,6 +35,7 @@ export const Preview: React.FunctionComponent<IPreviewProps> = (props) => {
         <HStack align='center'>
             <ToggleShowSquareImage/>
             <PickColor/>
+            <ResetMode/>
         </HStack>
     </Form.Box>;
 };

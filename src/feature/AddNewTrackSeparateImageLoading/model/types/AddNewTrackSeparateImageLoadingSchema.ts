@@ -35,4 +35,5 @@ export interface AddNewTrackSeparateImageLoadingSchema {
     progress?: number | undefined
 
     isSmallPictureActive: boolean
+    softReset: boolean
 }

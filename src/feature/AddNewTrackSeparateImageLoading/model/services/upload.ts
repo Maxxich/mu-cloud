@@ -9,16 +9,18 @@ import { getValidationError } from '../selectors/getValidationError';
 import { AddNewTrackSeparateImageLoadingActions } from '../slices/AddNewTrackSeparateImageLoading';
 import { getColor } from '../selectors/getColor';
 import { getUploadCode } from '../selectors/getUploadCode';
+import { getIsSoftReset } from '../selectors/getIsSoftReset';
 
 interface Props {
     audioFile: FormDataEntryValue | null,
     imageCroppedWideFile: FormDataEntryValue | null,
     imageCroppedSquareFile: FormDataEntryValue | null,
     deleteAllFiles: () => void
+    softDeleteFiles: () => void
 } 
 
 export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload', async (
-    { audioFile, imageCroppedSquareFile, imageCroppedWideFile, deleteAllFiles }: Props,
+    { audioFile, imageCroppedSquareFile, imageCroppedWideFile, deleteAllFiles, softDeleteFiles }: Props,
     thunkApi
 ) => {
     const { dispatch, getState } = thunkApi;
@@ -33,6 +35,8 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
     const color = getColor(getState())
     // @ts-ignore
     const upload_code = getUploadCode(getState())
+    // @ts-ignore
+    const isSoftReset = getIsSoftReset(getState())
 
     const session = await getSession()
 
@@ -100,7 +104,12 @@ export const upload = createAsyncThunk('AddNewTrackSeparateImageLoading/upload',
             ajax.addEventListener('load', () => {
                 toast('Сохранено')
                 dispatch(AddNewTrackSeparateImageLoadingActions.reset())
-                deleteAllFiles()
+
+                if (isSoftReset) {
+                    softDeleteFiles()
+                } else {
+                    deleteAllFiles()
+                }
                 dispatch(AddNewTrackSeparateImageLoadingActions.setIdle())
                 res(undefined)
             }, false)

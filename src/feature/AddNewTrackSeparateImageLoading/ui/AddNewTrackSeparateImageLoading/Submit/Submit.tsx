@@ -32,6 +32,13 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
         ],
     })
 
+    const softDeleteFiles = useDeleteAllFiles({
+        context: FilesContext,
+        formDataEntryNames: [
+            FormDataEntries.AUDIO_FILE,
+        ],
+    })
+
     const onSubmit = useCallback((e: SyntheticEvent) => {
         e.preventDefault()
         dispatch(upload({
@@ -39,8 +46,9 @@ export const Submit: React.FunctionComponent<ISubmitProps> = (props) => {
             imageCroppedSquareFile: getFile(FormDataEntries.IMAGE_CROPPED_SQUARE_FILE),
             imageCroppedWideFile: getFile(FormDataEntries.IMAGE_CROPPED_WIDE_FILE),
             deleteAllFiles,
+            softDeleteFiles
         }))
-    }, [dispatch, getFile, deleteAllFiles])
+    }, [dispatch, getFile, deleteAllFiles, softDeleteFiles])
 
     if (status === 'loading') {
         return null

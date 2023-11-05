@@ -36,6 +36,7 @@ const initialState: AddNewTrackSeparateImageLoadingSchema = {
     tab: 'form',
     status: 'idle',
     isSmallPictureActive: true,
+    softReset: false
 }
 
 export const AddNewTrackSeparateImageLoadingSlice = createSlice({
@@ -190,24 +191,29 @@ export const AddNewTrackSeparateImageLoadingSlice = createSlice({
         },
         reset: (state) => {
             state.name = ''
-            state.name_secondary = ''
+            if (!state.softReset) {
+                state.name_secondary = ''
+                state.imageCroppedSquareMimeType = undefined
+                state.imageCroppedWideMimeType = undefined
+                state.imageSquareFileMimeType = undefined
+                state.imageWideFileMimeType = undefined
+                state.color = undefined
+                state.validationErrors.imageCroppedSquareFile.empty = false
+                state.validationErrors.imageCroppedWideFile.empty = false
+                state.validationErrors.imageSquareFile.empty = false
+                state.validationErrors.imageSquareFile.invalidMimeType = false
+                state.validationErrors.imageWideFile.empty = false
+                state.validationErrors.imageWideFile.invalidMimeType = false
+            }
             state.audioFileMimeType = undefined
-            state.imageCroppedSquareMimeType = undefined
-            state.imageCroppedWideMimeType = undefined
-            state.imageSquareFileMimeType = undefined
-            state.imageWideFileMimeType = undefined
-            state.color = undefined
             state.validationErrors.audioFile.empty = false
             state.validationErrors.audioFile.invalidMimeType = false
-            state.validationErrors.imageCroppedSquareFile.empty = false
-            state.validationErrors.imageCroppedWideFile.empty = false
-            state.validationErrors.imageSquareFile.empty = false
-            state.validationErrors.imageSquareFile.invalidMimeType = false
-            state.validationErrors.imageWideFile.empty = false
-            state.validationErrors.imageWideFile.invalidMimeType = false
             state.validationErrors.name.empty = false
             state.validationErrors.name.exceedsMaxLenght = false
             state.validationErrors.name_secondary.exceedsMaxLenght = false
+        },
+        toggleSoftReset: (state) => {
+            state.softReset = !state.softReset
         }
     },
 })
