@@ -21,7 +21,7 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = ({
 
 
 
-    useObserveChangeCurrentTrack()
+    useObserveChangeCurrentTrack(isMobile)
     useObserveTogglePause()
     useObserveChangeRepeatMode()
     useObserverChangeCurrentTime()
