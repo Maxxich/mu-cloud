@@ -27,8 +27,8 @@ export default function RootLayout({
 
     return (
         <ThemeProvider>
-            <StoreProvider>
-                <SessionProvider>
+            <SessionProvider>
+                <StoreProvider>
                     <AuthErrorHandler>
                         <html lang="en">
                             <head>
@@ -54,8 +54,8 @@ export default function RootLayout({
                             </body>
                         </html>
                     </AuthErrorHandler>
-                </SessionProvider>
-            </StoreProvider>
+                </StoreProvider>
+            </SessionProvider>
         </ThemeProvider>
     )
 }

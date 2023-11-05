@@ -1,7 +1,7 @@
 'use client'
 
 import { useSelector } from 'react-redux';
-import { getIsPlayerOpened, getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
+import { getSelectedTrack, useObserveChangeCurrentTrack, useObserveChangeRepeatMode, useObserveTogglePause, useObserverChangeCurrentTime } from '@/entity/player';
 import { MobilePlayerContorls } from '@/widgets/MobilePlayerContorls';
 import { MobilePlayer } from '@/widgets/MobilePlayer';
 import { DesktopPlayer, PlaylistWhileOpenedVisualizer } from '@/widgets/DesktopPlayer';
@@ -16,8 +16,6 @@ export const PlayerProvider: React.FunctionComponent<IPlayerProviderProps> = ({
 }) => {
 
     const selectedTrack = useSelector(getSelectedTrack)
-
-    const isOpened = useSelector(getIsPlayerOpened)
 
 
 

@@ -61,9 +61,7 @@ export const Image: React.FunctionComponent = memo(() => {
     const [isHover, setIsHover] = useState<boolean>(false)
     const showFogging = (isMobile || isHover) && status === 'edit'
 
-    const src = mediumPictureSrc 
-        ? mediumPictureSrc
-        : avatarPlaceholder
+    const src = mediumPictureSrc  || avatarPlaceholder
 
     return (
         <div className={cls.marginBottom}>
@@ -74,11 +72,11 @@ export const Image: React.FunctionComponent = memo(() => {
                 className={cls.imageContainer}
                 
             > 
-                <ImageComp 
+                {<ImageComp 
                     size={'l'}
                     src={croppedExist ? URL.createObjectURL(getCropped() as File) : src}
                     alt='image'
-                />
+                />}
                 {showFogging && (
                     <div className={cls.fogging}>
                         <IconImageFile/>
