@@ -9,6 +9,7 @@
 
     @media(orientation:landscape) {
         flex-direction: row;
+        padding: 0 20px;
     }
 }
 
@@ -23,6 +24,8 @@
 
     @media(orientation:landscape) {
         height: 100%;
+        width: 50%;
+        overflow: hidden;
     }
 }
 
