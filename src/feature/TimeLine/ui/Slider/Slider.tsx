@@ -29,13 +29,16 @@ export const Slider: React.FunctionComponent<ISliderProps> = ({
     const [{ width }, api] = useSpring(() => ({ width: '0%' }))
 
     const bind = useDrag((state) => {
-        const { xy: [x], last } = state
+        const { xy: [x],  event, last } = state
         const avalibleWidth = sliderRef?.current?.offsetWidth
-        const elementOffsetX = sliderRef?.current?.offsetLeft
-        if (!total || !audio || !avalibleWidth || !elementOffsetX) {
+        const elementOffsetX = sliderRef?.current?.getBoundingClientRect().left;
+        console.log(event)
+        //@ts-ignore
+        if (!total || !audio || !avalibleWidth || !elementOffsetX || !event.pageX) {
             return setDrag(false)
         }
-        const offsetX = x - elementOffsetX 
+        //@ts-ignore
+        const offsetX = event.pageX - elementOffsetX 
         const percent = offsetX/avalibleWidth
         const reducedPercent = (percent < 0)
             ? 0
