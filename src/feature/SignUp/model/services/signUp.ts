@@ -88,7 +88,8 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
         await signIn('credentials', {
             email,
             password,
-            redirect: false,
+            redirect: true,
+            callbackUrl: new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
         })
     } catch (e) {
         return rejectWithValue('Произошла неожиданная ошибка');

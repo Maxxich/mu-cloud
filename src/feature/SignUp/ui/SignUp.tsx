@@ -2,7 +2,6 @@
 
 import { memo } from 'react'
 import { Form } from '@/shared/ui/Form';
-import { useRedirectIfSignedIn } from '@/entity/viewer'
 import { DynamicModuleLoader, ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './SignUp.module.scss'
 import { FormError } from './FormError/FormError';
@@ -20,10 +19,7 @@ const reducers: ReducersList = {
 };
 
 export const SignUp = memo(() => {
-    useRedirectIfSignedIn()
 
-
-    
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Form margin='auto' className={cls.form}>

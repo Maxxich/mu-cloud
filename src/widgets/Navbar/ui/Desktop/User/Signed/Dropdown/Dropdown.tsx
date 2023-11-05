@@ -11,7 +11,8 @@ export function Dropdown() {
 
     const logout = () => {
         signOut({
-            redirect: false
+            redirect: true,
+            callbackUrl:  `/signin?callbackUrl=${window.location.pathname ?? '/'}`
         })
     }
 

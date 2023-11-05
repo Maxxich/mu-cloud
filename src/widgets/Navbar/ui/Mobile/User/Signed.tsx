@@ -55,7 +55,8 @@ export const Signed: React.FunctionComponent<ISignedProps> = (props) => {
                     icon={<LogoutSvg/>}
                     onClose={onCloseMenu}
                     onClick={() => signOut({
-                        redirect: false
+                        redirect: true,
+                        callbackUrl:  `/signin?callbackUrl=${window.location.pathname ?? '/'}`
                     })}
                 >
                 Выйти

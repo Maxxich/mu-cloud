@@ -33,7 +33,8 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
         const response = await signIn('credentials', {
             email,
             password,
-            redirect: false,
+            redirect: true,
+            callbackUrl: new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
         })
 
         if (!window.navigator.onLine) {

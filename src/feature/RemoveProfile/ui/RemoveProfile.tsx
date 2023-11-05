@@ -6,7 +6,6 @@ import { Text } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
 import { Dialog } from '@/shared/ui/Dialog';
 import { backendUrl } from '@/shared/const/backendUrl';
-import { useRedirectIfSignedOut } from '@/entity/viewer';
 import { Form } from '@/shared/ui/Form';
 import cls from './RemoveProfile.module.scss'
 
@@ -19,7 +18,6 @@ export const RemoveProfile = memo((props: RemoveProfileProps) => {
     const classes = classNames(cls.container, {}, className)
     const [modalOpen, setIsModalOpen] = useState(false)
     const session = useSession()
-    useRedirectIfSignedOut()
 
     const deleteAccount = useCallback(async() => {
         try {
@@ -42,7 +40,7 @@ export const RemoveProfile = memo((props: RemoveProfileProps) => {
             }
             signOut({
                 redirect: true,
-                callbackUrl: '/'
+                callbackUrl: `/signin?callbackUrl=${window.location.pathname ?? '/'}`
             })
         } catch (error) {
             alert('Произошла ошибка во время удаления аккаунта')

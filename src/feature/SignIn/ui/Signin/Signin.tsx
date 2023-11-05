@@ -7,7 +7,6 @@ import { Input } from '@/shared/ui/Input'
 import { Form } from '@/shared/ui/Form';
 import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
-import { useRedirectIfSignedIn } from '@/entity/viewer'
 import { DynamicModuleLoader, ReducersList } from '@/shared/config/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './Signin.module.scss'
 import { FormError } from './FormError/FormError';
@@ -30,8 +29,6 @@ export const SignIn = memo(() => {
     const email = useSelector(getEmail)
     const password = useSelector(getPassword)
     const status = useSelector(getStatus)
-
-    useRedirectIfSignedIn()
 
     const onChangeEmail = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         dispatch(signinActions.setEmail(e.target.value))
