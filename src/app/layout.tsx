@@ -27,9 +27,9 @@ export default function RootLayout({
 
     return (
         <ThemeProvider>
-            <SessionProvider>
-                <AuthErrorHandler>
-                    <StoreProvider>
+            <StoreProvider>
+                <SessionProvider>
+                    <AuthErrorHandler>
                         <html lang="en">
                             <head>
                                 <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png"/>
@@ -53,9 +53,9 @@ export default function RootLayout({
                                 <ConfirmEmailWarningDialog/>
                             </body>
                         </html>
-                    </StoreProvider>
-                </AuthErrorHandler>
-            </SessionProvider>
+                    </AuthErrorHandler>
+                </SessionProvider>
+            </StoreProvider>
         </ThemeProvider>
     )
 }
