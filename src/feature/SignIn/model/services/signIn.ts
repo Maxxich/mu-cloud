@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { signIn } from 'next-auth/react'
 import { getPassword } from '../selectors/getPassword';
 import { getEmail } from '../selectors/getEmail';
+import { redirect } from 'next/navigation';
 
 interface SuccessResponse {
     adress: string,
@@ -33,13 +34,14 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
         await signIn('credentials', {
             email,
             password,
-            redirect: true,
-            callbackUrl: new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
+            redirect: false,
         })
 
         if (!window.navigator.onLine) {
             return toast('Ошибка. Нет соединения с интернетом')
         }
+
+        redirect(new URLSearchParams(window.location.search).get('callbackUrl') ?? '/')
 
     } catch (e) {
         return rejectWithValue('Произошла неожиданная ошибка');

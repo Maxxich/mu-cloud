@@ -5,6 +5,7 @@ import { backendUrl } from '@/shared/const/backendUrl';
 import { getPassword,getEmail, getName, getPasswordConfirm } from '../selectors/fieldSelectors';
 import { getValidationError } from '../selectors/getValidationError';
 import { signupActions } from '../slices/signupSlice';
+import { redirect } from 'next/navigation';
 
 interface SuccessResponse {
     adress: string,
@@ -88,9 +89,10 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
         await signIn('credentials', {
             email,
             password,
-            redirect: true,
-            callbackUrl: new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
+            redirect: false,
         })
+
+        redirect(new URLSearchParams(window.location.search).get('callbackUrl') ?? '/')
     } catch (e) {
         return rejectWithValue('Произошла неожиданная ошибка');
     }
