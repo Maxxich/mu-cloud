@@ -44,7 +44,9 @@ export const authOptions: NextAuthOptions = {
                 password: { label: 'Password', type: 'password' },
             },
             async authorize(credentials, req) {
-                if (!credentials?.email || !credentials?.password) return null;
+                if (!credentials?.email || !credentials?.password) {
+                    throw new Error('invalid credentials')
+                }
                 const { email, password } = credentials;
                 const res = await fetch(backendUrl + '/auth/signin', {
                     method: 'POST',
@@ -58,7 +60,7 @@ export const authOptions: NextAuthOptions = {
                 });
                 if (res.status !== 201) {
                 
-                    return null;
+                    throw new Error('invalid credentials')
                 }
                 const user = await res.json();
           

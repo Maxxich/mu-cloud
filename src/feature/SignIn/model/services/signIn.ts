@@ -34,12 +34,18 @@ export const signInByEmail = createAsyncThunk<void, void>('signin/post', async (
         if (!window.navigator.onLine) {
             return toast('Ошибка. Нет соединения с интернетом')
         }
-        await signIn('credentials', {
+        const result = await signIn('credentials', {
             email,
             password,
-            redirect: true,
-            callbackUrl: new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
+            redirect: false,
         })
+
+        if (result && !result.error) {
+            location.reload()
+        } else {
+            throw Error()
+        }
+
     } catch (e) {
         return rejectWithValue('Неверные данные для входа');
     }

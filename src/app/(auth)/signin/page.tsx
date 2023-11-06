@@ -6,11 +6,15 @@ import { authOptions } from '@/shared/config/authConfig'
 import { Text } from '@/shared/ui/Text'
 import cls from './signin.module.scss'
 
-export default async function SignInPage() {
+export default async function SignInPage({
+    searchParams,
+} : {
+    searchParams?: { callbackUrl?: string };
+}) {
 
     const session = await getServerSession(authOptions)
     if (session?.user ) {
-        redirect('/')
+        redirect(searchParams?.callbackUrl || '/')
     }
 
     return (

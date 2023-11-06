@@ -1,4 +1,3 @@
-import { signIn } from 'next-auth/react';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { removeTrailingSpaces } from '@/shared/lib/helpers/removeTrailingSpaces/removeTrailingSpaces';
 import { backendUrl } from '@/shared/const/backendUrl';
@@ -85,13 +84,10 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
             }
         }
 
-        await signIn('credentials', {
-            email,
-            password,
-            redirect: true,
-            callbackUrl: new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
-        })
+        const callbackUrl = new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
+        location.replace('/signin?callbackUrl=' + callbackUrl)
     } catch (e) {
+        console.log(e)
         return rejectWithValue('Произошла неожиданная ошибка');
     }
 });
