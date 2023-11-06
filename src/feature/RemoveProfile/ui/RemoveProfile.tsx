@@ -38,10 +38,10 @@ export const RemoveProfile = memo((props: RemoveProfileProps) => {
             if (response.status !== 200) {
                 throw Error()
             }
-            signOut({
-                redirect: true,
-                callbackUrl: `/signin?callbackUrl=${window.location.pathname ?? '/'}`
+            await signOut({
+                redirect: false
             })
+            location.reload()
         } catch (error) {
             alert('Произошла ошибка во время удаления аккаунта')
         }

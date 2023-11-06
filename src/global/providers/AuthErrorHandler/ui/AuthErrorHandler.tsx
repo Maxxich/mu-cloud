@@ -14,8 +14,11 @@ export const AuthErrorHandler: React.FunctionComponent<IAuthErrorHandlerProps> =
     useEffect(() => {
         if (error === 'inactive-user') {
             signOut({
-                redirect: true,
-                callbackUrl:  `/signin?callbackUrl=${window.location.pathname ?? '/'}`
+                redirect: false,
+            }).then(() => {
+                location.reload()
+            }).catch(() => {
+                location.reload()
             })
         }
     }, [error])

@@ -11,8 +11,11 @@ export function Dropdown() {
 
     const logout = () => {
         signOut({
-            redirect: true,
-            callbackUrl:  `/signin?callbackUrl=${window.location.pathname ?? '/'}`
+            redirect: false
+        }).then(() => {
+            location.reload()
+        }).catch(() => {
+            location.reload()
         })
     }
 
