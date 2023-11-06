@@ -7,10 +7,11 @@ export interface PlayerSchema {
     isOpened: boolean
     list: Track[] 
     currentTrackId: number | undefined
-    currentTrackTimeLenght: number | undefined
-    currentTrackTime: number | undefined
+    currentTrackTimeLenght: number 
+    currentTrackTime: number 
     interfaceHidden: boolean
     showPlaylist: boolean
     isSmallPictureActive: boolean
     loadedPercentage: number
+    persistedTime: number | undefined
 }

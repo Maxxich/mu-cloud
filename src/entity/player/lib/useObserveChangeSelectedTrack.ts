@@ -6,6 +6,8 @@ import { useAppDispatch } from '@/global/providers/StoreProvider/config/store'
 import { useAudio } from '@/shared/lib/hooks/useAudio/useAudio'
 import { playerActions } from '../model/slices/playerSlice'
 import { getSelectedTrack } from '../model/selectors/getSelectedTrack/getSelectedTrack'
+import { getIsPaused } from '..'
+import { getPersistedTime } from '../model/selectors/getPersistedTime/getCurrentTrackTime'
 
 export const useObserveChangeCurrentTrack = (
     isMobile: boolean
@@ -14,6 +16,8 @@ export const useObserveChangeCurrentTrack = (
     const dispatch = useAppDispatch()
     const audio = useAudio()
     const selectedTrack = useSelector(getSelectedTrack)
+    const isPaused = useSelector(getIsPaused)
+    const persistedTime = useSelector(getPersistedTime)
 
     useEffect(() => {
         if (!audio) return
@@ -56,9 +60,11 @@ export const useObserveChangeCurrentTrack = (
             fetch(backendUrl + `/tracks/register-listening/${selectedTrack.id}`)
             if (!audio) return
             dispatch(playerActions.overwriteCurrentTrackTimeLenght(audio.duration))
-            audio.play()
-
+            if (persistedTime) audio.currentTime = persistedTime
+            if (!isPaused) audio.play()
         }
+
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedTrack, audio, dispatch])
 
 }

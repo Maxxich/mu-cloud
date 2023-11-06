@@ -22,7 +22,10 @@ const initialState = {
     interfaceHidden: false,
     showPlaylist: false,
     isSmallPictureActive: true,
-    loadedPercentage: 0
+    loadedPercentage: 0,
+    currentTrackTime: 0,
+    currentTrackTimeLenght: 0,
+    persistedTime: undefined
 } as PlayerSchema
 
 const slice = createSlice({
@@ -63,9 +66,11 @@ const slice = createSlice({
             state.currentTrackTimeLenght = 0
             state.isPaused = false
             state.loadedPercentage = 0
+            state.persistedTime = undefined
         },
         overwriteCurrentTrackTime(state:PlayerSchema, action: PayloadAction<number>){
             state.currentTrackTime = action.payload
+            state.persistedTime = action.payload
         },
         overwriteCurrentTrackTimeLenght(state:PlayerSchema, action: PayloadAction<number>){
             state.currentTrackTimeLenght = action.payload
@@ -84,6 +89,7 @@ const slice = createSlice({
             }
             state.currentTrackId = id
             state.loadedPercentage = 0
+            state.persistedTime = undefined
         },
         setNextTrack(state:PlayerSchema) {
             if (!state.currentTrackId) return
@@ -99,6 +105,7 @@ const slice = createSlice({
             }
             state.currentTrackId = id
             state.loadedPercentage = 0
+            state.persistedTime = undefined
         },
         shufflePlaylist(state: PlayerSchema) {
             state.list = shuffle(state.list)
@@ -107,12 +114,14 @@ const slice = createSlice({
             } else {
                 state.currentTrackId = state.list[0].id
             }
+            state.persistedTime = undefined
         },
         clearPlaylist(state: PlayerSchema) {
             state.list = []
             state.currentTrackId = undefined
-            state.currentTrackTimeLenght =  undefined
-            state.currentTrackTime = undefined
+            state.currentTrackTimeLenght =  0
+            state.currentTrackTime = 0
+            state.persistedTime = undefined
         },
         setInterfaceHidden(state: PlayerSchema, action: PayloadAction<boolean>) {
             state.interfaceHidden = action.payload

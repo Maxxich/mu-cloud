@@ -14,25 +14,25 @@ export const useObserveTogglePause = () => {
     React.useEffect(() => {
         if (!audio) return 
         if (isPaused) {
+            console.log('pause')
             audio.pause()
         } else {
-            audio.play()     
-                .then(_ => {})
-                .catch(error => {})
+            audio.play();
         }
     }, [isPaused, audio])
 
     React.useEffect(() => {
-        const stop = () => {
-            dispatch(playerActions.stopAudio())
-        }
+        // const stop = () => {
+        //     dispatch(playerActions.stopAudio())
+        // }
         const play = () => {
             dispatch(playerActions.playAudio())
+            
         }
-        audio.addEventListener('pause', stop)
-        audio.addEventListener('play', play)
+        // audio.addEventListener('pause', stop)
+        audio.addEventListener('play', play )
         return () => {
-            audio.removeEventListener('pause', stop)
+            // audio.removeEventListener('pause', stop)
             audio.removeEventListener('play', play)
         }
     }, [audio, dispatch])
