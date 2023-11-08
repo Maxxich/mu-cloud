@@ -42,6 +42,7 @@ export const AudioProvider: FunctionComponent<Props> = memo(({
         return () => {
             audio.onprogress = null
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (!audio) return null

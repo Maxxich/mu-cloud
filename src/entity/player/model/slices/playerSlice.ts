@@ -49,6 +49,7 @@ const slice = createSlice({
         },
         toggleRepeatTrackMode(state: PlayerSchema) {
             state.repeatTrackMode = !state.repeatTrackMode
+            localStorage.setItem('player.repeatTrackMode', String(state.repeatTrackMode))
         },
         togglePlayerIsOpened(state: PlayerSchema) {
             state.isOpened = !state.isOpened
@@ -67,10 +68,14 @@ const slice = createSlice({
             state.isPaused = false
             state.loadedPercentage = 0
             state.persistedTime = undefined
+            localStorage.setItem('player.list', JSON.stringify(state.list))
+            localStorage.setItem('player.currentTrackId', String(state.currentTrackId))
+            localStorage.setItem('player.persistedTime', String(state.persistedTime))
         },
         overwriteCurrentTrackTime(state:PlayerSchema, action: PayloadAction<number>){
             state.currentTrackTime = action.payload
             state.persistedTime = action.payload
+            localStorage.setItem('player.persistedTime', String(state.persistedTime))
         },
         overwriteCurrentTrackTimeLenght(state:PlayerSchema, action: PayloadAction<number>){
             state.currentTrackTimeLenght = action.payload
@@ -90,6 +95,8 @@ const slice = createSlice({
             state.currentTrackId = id
             state.loadedPercentage = 0
             state.persistedTime = undefined
+            localStorage.setItem('player.currentTrackId', String(state.currentTrackId))
+            localStorage.setItem('player.persistedTime', String(state.persistedTime))
         },
         setNextTrack(state:PlayerSchema) {
             if (!state.currentTrackId) return
@@ -106,6 +113,8 @@ const slice = createSlice({
             state.currentTrackId = id
             state.loadedPercentage = 0
             state.persistedTime = undefined
+            localStorage.setItem('player.currentTrackId', String(state.currentTrackId))
+            localStorage.setItem('player.persistedTime', String(state.persistedTime))
         },
         shufflePlaylist(state: PlayerSchema) {
             state.list = shuffle(state.list)
@@ -115,6 +124,8 @@ const slice = createSlice({
                 state.currentTrackId = state.list[0].id
             }
             state.persistedTime = undefined
+            localStorage.setItem('player.list', JSON.stringify(state.list))
+            localStorage.setItem('player.persistedTime', String(state.persistedTime))
         },
         clearPlaylist(state: PlayerSchema) {
             state.list = []
@@ -122,12 +133,14 @@ const slice = createSlice({
             state.currentTrackTimeLenght =  0
             state.currentTrackTime = 0
             state.persistedTime = undefined
+            localStorage.setItem('player.list', JSON.stringify(state.list))
+            localStorage.setItem('player.currentTrackId', String(state.currentTrackId))
+            localStorage.setItem('player.persistedTime', String(state.persistedTime))
         },
         setInterfaceHidden(state: PlayerSchema, action: PayloadAction<boolean>) {
             state.interfaceHidden = action.payload
         },
         toggleShowPlaylist(state: PlayerSchema){
-            console.log(state.showPlaylist)
             state.showPlaylist = !state.showPlaylist
         },
         closeShowPlaylist(state: PlayerSchema){

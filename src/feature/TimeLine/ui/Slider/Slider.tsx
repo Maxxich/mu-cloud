@@ -50,7 +50,6 @@ export const Slider: React.FunctionComponent<ISliderProps> = ({
             dispatch(playerActions.overwriteCurrentTrackTime(time))
             setDrag(false)
         } else {
-            console.log(`${Math.round(reducedPercent * 100)}%`)
             setDrag(true)
             api.start({
                 width: `${reducedPercent * 100}%`,

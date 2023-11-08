@@ -88,8 +88,6 @@ export const authOptions: NextAuthOptions = {
   
         async session({ token, session }) {
             if (!token.backendTokens?.refreshToken) {
-                console.log(token)
-                console.log(session)
                 session.error = 'inactive-user'
                 session.user = undefined
                 session.backendTokens = undefined

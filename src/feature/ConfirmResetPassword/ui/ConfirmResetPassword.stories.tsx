@@ -16,6 +16,10 @@ const meta = {
                 delay: 3000
             },
         ],
+        loki: {
+            skip: true
+        }
+        
     },
 } satisfies Meta<typeof ConfirmResetPassword>
 

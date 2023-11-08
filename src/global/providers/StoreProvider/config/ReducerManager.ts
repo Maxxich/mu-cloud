@@ -1,20 +1,12 @@
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import { AnyAction, Reducer, ReducersMapObject, combineReducers } from '@reduxjs/toolkit';
 import { MountedReducers, ReducerManager, StateSchema, StateSchemaKey } from './StateSchema';
 
-const persistConfig = {
-    key: 'root',
-    storage,
-    blacklist: ['player', 'api']
-}
 
 export function createReducerManager(
     initialReducers: ReducersMapObject<StateSchema>
 ): ReducerManager {
     const reducers = { ...initialReducers };
-    // let combinedReducer = combineReducers(reducers)
-    let combinedReducer = persistReducer(persistConfig, combineReducers(reducers))
+    let combinedReducer = combineReducers(reducers)
 
     let keysToRemove: Array<StateSchemaKey> = [];
     const mountedReducers: MountedReducers = {};
@@ -29,7 +21,7 @@ export function createReducerManager(
             reducers[key] = reducer;
             mountedReducers[key] = true;
 
-            combinedReducer = persistReducer(persistConfig, combineReducers(reducers))
+            combinedReducer =  combineReducers(reducers)
         },
         remove: (key: StateSchemaKey) => {
             if (!key || !reducers[key]) {
@@ -39,7 +31,7 @@ export function createReducerManager(
             keysToRemove.push(key);
             mountedReducers[key] = false;
 
-            combinedReducer = persistReducer(persistConfig, combineReducers(reducers))
+            combinedReducer = combineReducers(reducers)
         },
         reduce: (state: StateSchema, action: AnyAction) => {
             if (keysToRemove.length > 0) {
@@ -49,8 +41,6 @@ export function createReducerManager(
                 });
                 keysToRemove = [];
             }
-            
-            //@ts-ignore
             return combinedReducer(state, action)
         },
     }

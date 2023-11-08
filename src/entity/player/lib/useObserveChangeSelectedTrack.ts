@@ -61,7 +61,13 @@ export const useObserveChangeCurrentTrack = (
             if (!audio) return
             dispatch(playerActions.overwriteCurrentTrackTimeLenght(audio.duration))
             if (persistedTime) audio.currentTime = persistedTime
-            if (!isPaused) audio.play()
+            const persistLoaded = localStorage.getItem('player.persitLoaded') === 'true'
+
+            if (persistLoaded) {
+                localStorage.removeItem('player.persitLoaded')
+            } else {
+                audio.play()
+            }
         }
 
         //eslint-disable-next-line react-hooks/exhaustive-deps

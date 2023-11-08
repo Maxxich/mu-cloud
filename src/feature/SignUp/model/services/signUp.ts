@@ -87,7 +87,6 @@ export const signUpByEmail = createAsyncThunk<void, void>('signup/post', async (
         const callbackUrl = new URLSearchParams(window.location.search).get('callbackUrl') ?? '/'
         location.replace('/signin?callbackUrl=' + callbackUrl)
     } catch (e) {
-        console.log(e)
         return rejectWithValue('Произошла неожиданная ошибка');
     }
 });

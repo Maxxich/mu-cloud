@@ -14,7 +14,6 @@ export const useObserveTogglePause = () => {
     React.useEffect(() => {
         if (!audio) return 
         if (isPaused) {
-            console.log('pause')
             audio.pause()
         } else {
             audio.play();

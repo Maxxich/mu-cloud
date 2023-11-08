@@ -25,12 +25,12 @@ export const TimeLine: React.FunctionComponent<ITimeLineProps> = ({
     const timeLenght = useSelector(getCurrentTrackTimeLenght)
 
     const LeftTime = <Time variant={variant}>
-        {formatTime(time!)}
+        {formatTime(time ?? 0)}
     </Time>
   
 
     const RightTime = <Time variant={variant}>
-        {'-' + formatTime(timeLenght!-time!)}
+        {'-' + formatTime((timeLenght!-time!) || 0)}
     </Time>
 
     const SliderEl =  <Slider variant={variant}/>

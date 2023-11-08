@@ -6,7 +6,10 @@ const meta = {
     component: Navbar,
     parameters: {
         layout: 'centered',
-        session: 'authenticated'
+        session: 'authenticated',
+        loki: {
+            skip: true
+        }
     },
 } satisfies Meta<typeof Navbar>
 
