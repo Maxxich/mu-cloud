@@ -1,4 +1,4 @@
-![Intro]('https://github.com/Maxxich/mu-cloud/raw/main/Intro.png')
+![Intro]('https://github.com/Maxxich/mu-cloud/Intro.png')
 Проект построен на [Next.js](https://nextjs.org/)
 
 ## Запуск проекта
