@@ -1,6 +1,11 @@
 ![Intro](Intro.png)
 Проект построен на [Next.js](https://nextjs.org/)
 
+Ознакомиться с проектом по ссылке: [Vercel](https://mu-cloud.vercel.app/)
+REST API: [Render](https://mucloud.onrender.com/api/docs)
+Storybook: [Render](https://mu-cloud-storybook.onrender.com)
+Предупреждение! Доступная версия сервиса render заканчивает процесс backend после 15 минут бездействия, поэтому, чтобы приложение работало корректно, сначала нужно дождаться загрузки страницы с документацией REST API
+
 ## Запуск проекта
 
 ```
